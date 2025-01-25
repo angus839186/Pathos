@@ -41,3 +41,54 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 3431007727
+    locked: 0
+  - name: 1
+    uniqueID: 2016714299
+    locked: 0
+  - name: 2
+    uniqueID: 1632746499
+    locked: 0
+  - name: 3
+    uniqueID: 255704119
+    locked: 0
+  - name: 4
+    uniqueID: 4168575501
+    locked: 0
+  - name: 5
+    uniqueID: 2067510901
+    locked: 0
+  - name: 6
+    uniqueID: 1585495837
+    locked: 0
+  - name: 7
+    uniqueID: 650663175
+    locked: 0
+  - name: 8
+    uniqueID: 1840996473
+    locked: 0
+  - name: 9
+    uniqueID: 458026373
+    locked: 0
+  - name: mono1
+    uniqueID: 720002255
+    locked: 0
+  - name: mono2
+    uniqueID: 2341379729
+    locked: 0
+  - name: npc
+    uniqueID: 2984844383
+    locked: 0
+  - name: Player
+    uniqueID: 1020776715
+    locked: 0
+  - name: f1
+    uniqueID: 2797862507
+    locked: 0
+  - name: f2
+    uniqueID: 3275817715
+    locked: 0
+  - name: f3
+    uniqueID: 3197700725
+    locked: 0
