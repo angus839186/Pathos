@@ -2,7 +2,7 @@
     "name": "inputControl",
     "maps": [
         {
-            "name": "Player",
+            "name": "DefaultPlayer",
             "id": "dc9657fc-b937-40e4-84eb-234412492d5c",
             "actions": [
                 {
@@ -13,13 +13,31 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "jump",
+                    "type": "PassThrough",
+                    "id": "a14c6733-1798-4e05-bfd0-b1dac75b70f2",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "run",
+                    "type": "PassThrough",
+                    "id": "16c5a095-e82e-438e-8345-11af61412ad4",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
                 {
                     "name": "2D Vector",
                     "id": "3b1d430d-d340-47df-90b1-f845c5356b08",
-                    "path": "2DVector(mode=1)",
+                    "path": "2DVector",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -48,6 +66,28 @@
                     "action": "move",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "daa4ca2d-d4f8-4a94-8900-effc0020faaf",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "99d595a8-615f-421c-88c6-67570cab45af",
+                    "path": "<Keyboard>/leftShift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "run",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }

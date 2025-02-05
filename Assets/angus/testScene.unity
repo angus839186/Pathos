@@ -1740,7 +1740,7 @@ Transform:
   m_GameObject: {fileID: 795450386}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.42765284, y: -19.13436, z: -10}
+  m_LocalPosition: {x: 1.704606, y: -19.134739, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2822,7 +2822,7 @@ GameObject:
   - component: {fileID: 1154892273}
   m_Layer: 0
   m_Name: "\u5730\u677F"
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3979,7 +3979,6 @@ GameObject:
   - component: {fileID: 1586813058}
   - component: {fileID: 1586813060}
   - component: {fileID: 1586813062}
-  - component: {fileID: 1586813063}
   m_Layer: 0
   m_Name: "\u8C93\u54AA\u7ACB\u7E6A"
   m_TagString: Untagged
@@ -4176,9 +4175,17 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 17af63f3-66ca-4504-af62-ae5d0fd39c0a
     m_ActionName: move/New action
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a14c6733-1798-4e05-bfd0-b1dac75b70f2
+    m_ActionName: normalPlayer/jump[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 16c5a095-e82e-438e-8345-11af61412ad4
+    m_ActionName: normalPlayer/run
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: Player
+  m_DefaultActionMap: DefaultPlayer
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!114 &1586813062
@@ -4193,21 +4200,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfe483ac0dedfeb4db479922851b3a1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  input: {fileID: 0}
   rb: {fileID: 1586813058}
---- !u!114 &1586813063
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1586813054}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f1829b838d9e1147a728622fba8f43d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  move: {x: 0, y: 0}
+  moveVector: {x: 0, y: 0}
+  jumpPower: 6
+  speed: 5
+  isRunning: 0
+  runMultiplier: 1.5
+  isGrounded: 1
+  _anime: {fileID: 0}
 --- !u!1 &1597255690
 GameObject:
   m_ObjectHideFlags: 0
