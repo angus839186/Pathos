@@ -1715,7 +1715,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 7.5
+  orthographic size: 7.3
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1740,7 +1740,7 @@ Transform:
   m_GameObject: {fileID: 795450386}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.704606, y: -19.134739, z: -10}
+  m_LocalPosition: {x: 1.2606983, y: -19.53096, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1912,12 +1912,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ad980451443d70438faac0bc6c235a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_TrackedObjectOffset: {x: 0, y: 2.5, z: 0}
+  m_TrackedObjectOffset: {x: 0, y: 0, z: 0}
   m_LookaheadTime: 0
   m_LookaheadSmoothing: 0
   m_LookaheadIgnoreY: 0
   m_XDamping: 1
-  m_YDamping: 1
+  m_YDamping: 20
   m_ZDamping: 1
   m_TargetMovementOnly: 1
   m_ScreenX: 0.5
@@ -4204,10 +4204,11 @@ MonoBehaviour:
   moveVector: {x: 0, y: 0}
   jumpPower: 6
   speed: 5
-  isRunning: 0
   runMultiplier: 1.5
+  isRunning: 0
   isGrounded: 1
   _anime: {fileID: 0}
+  _sprite: {fileID: 0}
 --- !u!1 &1597255690
 GameObject:
   m_ObjectHideFlags: 0
@@ -4482,7 +4483,7 @@ MonoBehaviour:
   m_Follow: {fileID: 1586813055}
   m_Lens:
     FieldOfView: 34
-    OrthographicSize: 7.5
+    OrthographicSize: 7.3
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -4508,7 +4509,7 @@ Transform:
   m_GameObject: {fileID: 1808688070}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.7, y: -19.13, z: -10}
+  m_LocalPosition: {x: -4.7, y: -21.63, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4607,11 +4608,11 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 42.47279, y: 10.588709}
-      - {x: -45.96054, y: 10.539925}
-      - {x: -46.022785, y: -7.0215416}
-      - {x: 18.64375, y: -6.9285564}
-      - {x: 42.185787, y: -6.894705}
+    - - {x: 42.09226, y: 9.024135}
+      - {x: -46.180073, y: 9.02107}
+      - {x: -46.253, y: -6.27334}
+      - {x: 18.64375, y: -6.504879}
+      - {x: 42.09656, y: -6.4664307}
   m_UseDelaunayMesh: 0
 --- !u!1 &1825536915
 GameObject:
