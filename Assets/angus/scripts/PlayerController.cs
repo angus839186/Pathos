@@ -33,6 +33,10 @@ public class PlayerController : MonoBehaviour
         _sprite = GetComponent<SpriteRenderer>();
     }
 
+    void Update()
+    {
+        _anime.SetFloat("yVelocity", rb.velocity.y);
+    }
     void FixedUpdate()
     {
         float currentSpeed = isRunning ? speed * runMultiplier : speed;
@@ -68,7 +72,7 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
             isGrounded = false;
             _anime.SetTrigger("jumpTrigger");
-            _anime.SetBool("isJumping", isGrounded);
+            _anime.SetBool("isJumping", !isGrounded);
             Debug.Log("執行跳躍");
         }
     }
@@ -84,7 +88,7 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = true;
-            _anime.SetBool("isJumping", isGrounded);
+            _anime.SetBool("isJumping", !isGrounded);
             Debug.Log("已落地");
         }
     }
