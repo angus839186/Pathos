@@ -9,12 +9,17 @@ public class PlayerController : MonoBehaviour
 
     public Vector2 moveVector;
 
+    [Header("跳躍高度")]
     public float jumpPower;
 
+    [Header("移動速度")]
     public int speed;
-    public bool isRunning;
+
+    [Header("跑步速度倍率")]
     public float runMultiplier = 1.5f;
 
+
+    public bool isRunning;
     public bool isGrounded;
 
     public Animator _anime;
@@ -41,11 +46,11 @@ public class PlayerController : MonoBehaviour
             rb.velocity = new Vector2(0, rb.velocity.y);
             _anime.SetBool("isWalking", false);
         }
-        if(moveVector.x > 0)
+        if (moveVector.x > 0)
         {
             _sprite.flipX = false;
         }
-        else if(moveVector.x < 0)
+        else if (moveVector.x < 0)
         {
             _sprite.flipX = true;
         }
