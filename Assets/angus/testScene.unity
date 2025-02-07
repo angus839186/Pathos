@@ -1740,7 +1740,7 @@ Transform:
   m_GameObject: {fileID: 795450386}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.4806261, y: -19.13782, z: -10}
+  m_LocalPosition: {x: -1.5833144, y: -19.13597, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4202,8 +4202,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 1586813058}
   moveVector: {x: 0, y: 0}
-  jumpPower: 6
-  speed: 5
+  jumpPower: 5
+  speed: 6
   runMultiplier: 1.5
   isRunning: 0
   isGrounded: 1

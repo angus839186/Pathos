@@ -1,0 +1,34 @@
+場景：
+草地背景聲 grassland_bgm
+反轉草地背景聲 grassland_Alter_bgm
+草地麥浪聲(X)
+蟲叫聲 Crickets_Chirping
+鳥叫聲 Bird_call
+鳥飛起來聲音 Bird_fry_away
+風車 小齒輪轉動 Windmill
+鑼啟動 Chingchong_Startup
+
+門開門聲
+
+斧頭聲：
+拿出斧頭 Ax_Pickup
+揮空 Ax_Attack_Nothing
+砍樹 Ax_Attack_wood
+砍石頭(叮)Ax_attack_Rock
+
+貓咪走路/奔跑聲：
+草地 grass_step/grass_run
+石頭 Rock_step/Rock_run
+
+貓咪聲音：
+安撫(rerorero)
+跳 CAT_Jump
+受擊(哇伊) CAT_Injuried
+融入溶出 Meliting
+
+Boss：
+受擊Boss_1Kaiten_pain
+刷刷聲or移動聲 Boss_1Kaiten_sasa
+破碎聲&爆炸聲 Boss_1Kaiten_Attack
+破空聲(會越來越大聲)Sky_Stinger
+死亡Boss_1Kaiten_Die
