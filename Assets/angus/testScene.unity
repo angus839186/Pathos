@@ -1393,6 +1393,7 @@ MonoBehaviour:
   isCutDown: 0
   DefaultDescription: "\u5DE8\u5927\u7684\u67AF\u6728\uFF0C\u9CE5\u5152\u5E38\u6703\u505C\u5728\u9019\u88E1\u4F11\u606F"
   CutDownDescription: "\u88AB\u780D\u5012\u7684\u67AF\u6728\uFF0C\u4E0D\u77E5\u9053\u9CE5\u5152\u53BB\u54EA\u5152\u4E86"
+  birds: []
 --- !u!1 &615975004
 GameObject:
   m_ObjectHideFlags: 0
@@ -4811,6 +4812,7 @@ MonoBehaviour:
   runMultiplier: 1.5
   isRunning: 0
   isGrounded: 1
+  isInteracting: 0
   _anime: {fileID: 0}
   _sprite: {fileID: 0}
 --- !u!114 &1586813063
@@ -4829,6 +4831,7 @@ MonoBehaviour:
   interactHint: {fileID: 896090957}
   interactInput: 0
   descriptionText: {fileID: 578094126}
+  playerAnimator: {fileID: 1586813056}
 --- !u!1 &1653567131
 GameObject:
   m_ObjectHideFlags: 0
@@ -5471,6 +5474,7 @@ MonoBehaviour:
   isCutDown: 0
   DefaultDescription: "\u5DE8\u5927\u7684\u67AF\u6728\uFF0C\u9CE5\u5152\u5E38\u6703\u505C\u5728\u9019\u88E1\u4F11\u606F"
   CutDownDescription: "\u88AB\u780D\u5012\u7684\u67AF\u6728\uFF0C\u4E0D\u77E5\u9053\u9CE5\u5152\u53BB\u54EA\u5152\u4E86"
+  birds: []
 --- !u!1 &1923014617
 GameObject:
   m_ObjectHideFlags: 0
