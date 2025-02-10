@@ -4807,8 +4807,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 1586813058}
   moveVector: {x: 0, y: 0}
-  jumpPower: 6
-  speed: 5
+  jumpPower: 5
+  speed: 6
   runMultiplier: 1.5
   isRunning: 0
   isGrounded: 1
