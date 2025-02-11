@@ -22,6 +22,8 @@ public class PlayerController : MonoBehaviour
     public bool isRunning;
     public bool isGrounded;
 
+    public bool isInteracting = false;
+
     public Animator _anime;
 
     public SpriteRenderer _sprite;
@@ -61,19 +63,25 @@ public class PlayerController : MonoBehaviour
     }
     public void OnMove(InputValue inputValue)
     {
+        if (isInteracting)
+        {
+            moveVector = Vector2.zero;
+            return;
+        }
         moveVector = inputValue.Get<Vector2>();
     }
 
     public void OnJump(InputValue inputValue)
     {
+        if (isInteracting) return; // 正在互動時不允許跳躍
+
         float jumpInput = inputValue.Get<float>();
         if (jumpInput > 0 && isGrounded)
         {
             rb.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
             isGrounded = false;
             _anime.SetTrigger("jumpTrigger");
-            _anime.SetBool("isJumping", !isGrounded);
-            Debug.Log("執行跳躍");
+            _anime.SetBool("isJumping", true);
         }
     }
     public void OnRun(InputValue inputValue)

@@ -7,6 +7,11 @@ public class ItemPickup : MonoBehaviour, IInteractable
 
     public string defaultDescription;
 
+    public string GetAnimationTrigger(Item heldItem)
+    {
+        return "";
+    }
+
     // 根據道具資料返回提示文字
     public string GetDescription()
     {
