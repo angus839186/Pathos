@@ -6,11 +6,13 @@ public class gong : MonoBehaviour, IInteractable
 
     public Item axeItem;
 
-    public string DefaultDescription = "很大的鑼，看起來徒手沒辦法敲響的樣子";
+    public string DefaultDescription;
 
     public List<Bird> birds = new List<Bird>();
 
     public GameObject skyPos;
+
+    public windmill windmill;
 
     public string GetDescription()
     {
@@ -51,6 +53,7 @@ public class gong : MonoBehaviour, IInteractable
                 bird.FlyBack();
                 break;
             }
+            windmill.Invoke("windmillfailed", 1.5f);
             skyPos.SetActive(false);
             return;
         }
@@ -72,6 +75,7 @@ public class gong : MonoBehaviour, IInteractable
             {
                 bird.FlyToNextPos(bird.skyPos);
             }
+            windmill.Invoke("windmillworked", 1.5f);
             skyPos.SetActive(true);
         }
     }

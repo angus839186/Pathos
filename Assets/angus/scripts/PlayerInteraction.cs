@@ -45,7 +45,7 @@ public class PlayerInteraction : MonoBehaviour
             InventoryItem selectedItem = hotbar.GetCurrentSelectedItem();
             Item heldItem = (selectedItem != null) ? selectedItem.item : null;
 
-            descriptionText.showDescription(currentInteractable.GetDescription());
+            StartCoroutine(descriptionText.showDescription(currentInteractable.GetDescription()));
 
             // 先取得該互動物件根據玩家持有的道具要播放的動畫觸發器
             string animTrigger = currentInteractable.GetAnimationTrigger(heldItem);
