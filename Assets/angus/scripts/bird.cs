@@ -5,10 +5,12 @@ public class Bird : MonoBehaviour
 {
     public Transform pointA;  // 起始點
     public Transform pointB;  // 目標點
-    public float flightSpeed = 5f; // 飛行速度
+    public float flightSpeed; // 飛行速度
     public float landDistance = 0.5f; // 進入 Land 動畫的距離
 
     private Animator animator;
+
+    private bool isFlying;
 
     void Start()
     {
@@ -16,33 +18,37 @@ public class Bird : MonoBehaviour
         transform.position = pointA.position; // 確保鳥物件起始於A點
     }
 
-    public void FlyToShelf()
+    public void FlyToNextPos()
     {
         StartCoroutine(FlyRoutine());
     }
-
     private IEnumerator FlyRoutine()
+{
+    isFlying = true;
+
+    // 1️⃣ 播放起飛動畫
+    animator.Play("bird_takesoff");
+    yield return new WaitForSeconds(0.5f); // 等待動畫播放
+
+    // 2️⃣ 切換為飛行動畫
+    animator.Play("bird_fly");
+
+    // 3️⃣ 平滑移動
+    while (Vector2.Distance(transform.position, pointB.position) > landDistance)
     {
-
-        // 1️⃣ 播放 Takeoff 動畫
-        animator.Play("takeoff");
-        yield return new WaitForSeconds(0.5f); // 假設起飛動畫 0.5 秒
-
-        // 2️⃣ 切換 Fly 動畫
-        animator.Play("fly");
-
-        // 3️⃣ 平滑移動
-        while (Vector2.Distance(transform.position, pointB.position) > landDistance)
-        {
-            transform.position = Vector2.MoveTowards(transform.position, pointB.position, flightSpeed * Time.deltaTime);
-            yield return null; // 等待下一幀
-        }
-
-        // 4️⃣ 進入 Land 動畫
-        animator.Play("land");
-        yield return new WaitForSeconds(0.5f); // 假設降落動畫 0.5 秒
-
-        // 5️⃣ 停止移動，確保鳥物件停在 B 點
-        transform.position = pointB.position;
+        transform.position = Vector2.MoveTowards(transform.position, pointB.position, flightSpeed * Time.deltaTime);
+        yield return null; // 等待下一幀
     }
+
+    // 4️⃣ 降落動畫
+    animator.Play("bird_landing");
+    yield return new WaitForSeconds(0.5f);
+
+    // 5️⃣ 停止移動
+    animator.Play("bird_wait");
+    transform.position = pointB.position;
+    isFlying = false;
+}
+
+
 }

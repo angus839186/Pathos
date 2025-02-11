@@ -2172,7 +2172,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -3164,7 +3164,8 @@ Transform:
   m_LocalPosition: {x: 24.47, y: -0.4, z: 0}
   m_LocalScale: {x: 1.3295459, y: 1.3295459, z: 1.3295459}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 2112665468}
   m_Father: {fileID: 1129081228}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -2.376}
 --- !u!212 &1083313877
@@ -5474,7 +5475,8 @@ MonoBehaviour:
   isCutDown: 0
   DefaultDescription: "\u5DE8\u5927\u7684\u67AF\u6728\uFF0C\u9CE5\u5152\u5E38\u6703\u505C\u5728\u9019\u88E1\u4F11\u606F"
   CutDownDescription: "\u88AB\u780D\u5012\u7684\u67AF\u6728\uFF0C\u4E0D\u77E5\u9053\u9CE5\u5152\u53BB\u54EA\u5152\u4E86"
-  birds: []
+  birds:
+  - {fileID: 2138091522}
 --- !u!1 &1923014617
 GameObject:
   m_ObjectHideFlags: 0
@@ -5830,6 +5832,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &2112665467
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2112665468}
+  m_Layer: 0
+  m_Name: bird1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2112665468
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2112665467}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.78, y: 0.556, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1083313876}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2138091518
 GameObject:
   m_ObjectHideFlags: 0
@@ -5841,6 +5874,7 @@ GameObject:
   - component: {fileID: 2138091521}
   - component: {fileID: 2138091520}
   - component: {fileID: 2138091519}
+  - component: {fileID: 2138091522}
   m_Layer: 0
   m_Name: "\u9CE51"
   m_TagString: Untagged
@@ -5936,6 +5970,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1952273728}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2138091522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2138091518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44ca6558c9b03d2439de7ee537a2cac9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pointA: {fileID: 2138091521}
+  pointB: {fileID: 2112665468}
+  flightSpeed: 9
+  landDistance: 0.4
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

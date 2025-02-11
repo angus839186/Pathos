@@ -54,7 +54,7 @@ public class Trees : MonoBehaviour, IInteractable
     {
         foreach (var bird in birds)
         {
-            bird.FlyToShelf();
+            bird.FlyToNextPos();
         }
     }
 }
