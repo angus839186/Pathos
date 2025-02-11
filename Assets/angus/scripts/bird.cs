@@ -1,54 +1,134 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Bird : MonoBehaviour
 {
-    public Transform pointA;  // 起始點
-    public Transform pointB;  // 目標點
-    public float flightSpeed; // 飛行速度
-    public float landDistance = 0.5f; // 進入 Land 動畫的距離
+    public Transform fencePos;
+
+    public Transform skyPos;
+
+    public float flightSpeed;
+    public float landDistance = 0.5f;
 
     private Animator animator;
 
-    private bool isFlying;
+    public bool onFence;
+
+    private SpriteRenderer spriteRenderer;
+
+    public gong _gong;
 
     void Start()
     {
         animator = GetComponent<Animator>();
-        transform.position = pointA.position; // 確保鳥物件起始於A點
+        transform.position = this.transform.position;
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    public void FlyToNextPos()
+    private void FlipDirection(Vector2 direction)
     {
-        StartCoroutine(FlyRoutine());
+        if (direction.x < 0) // 往左
+            spriteRenderer.flipX = true;
+        else if (direction.x > 0) // 往右
+            spriteRenderer.flipX = false;
     }
-    private IEnumerator FlyRoutine()
-{
-    isFlying = true;
 
-    // 1️⃣ 播放起飛動畫
-    animator.Play("bird_takesoff");
-    yield return new WaitForSeconds(0.5f); // 等待動畫播放
-
-    // 2️⃣ 切換為飛行動畫
-    animator.Play("bird_fly");
-
-    // 3️⃣ 平滑移動
-    while (Vector2.Distance(transform.position, pointB.position) > landDistance)
+    public void FlyToNextPos(Transform nextPos)
     {
-        transform.position = Vector2.MoveTowards(transform.position, pointB.position, flightSpeed * Time.deltaTime);
-        yield return null; // 等待下一幀
+        StartCoroutine(FlyRoutine(nextPos));
+    }
+    private IEnumerator FlyRoutine(Transform nextPos)
+    {
+
+        Debug.Log("Start Flying");
+        Vector2 direction = nextPos.position - transform.position;
+        FlipDirection(direction);
+
+        animator.Play("bird_takesoff");
+        yield return new WaitForSeconds(0.5f);
+
+        animator.Play("bird_fly");
+
+        while (Vector2.Distance(transform.position, nextPos.position) > landDistance)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, nextPos.position, flightSpeed * Time.deltaTime);
+            yield return null;
+        }
+        yield return new WaitForSeconds(0.5f);
+        animator.Play("bird_landing");
+
+        yield return new WaitForSeconds(0.5f);
+        animator.Play("bird_wait");
+        transform.position = nextPos.position;
     }
 
-    // 4️⃣ 降落動畫
-    animator.Play("bird_landing");
-    yield return new WaitForSeconds(0.5f);
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Fence")
+        {
+            onFence = true;
+            if (!_gong.birds.Contains(this))
+            {
+                _gong.birds.Add(this);
+            }
+            onFence = true;
+        }
+        if (collision.tag == "skyPos")
+        {
+            BirdsGone();
+        }
+    }
+    void BirdsGone()
+    {
+        gameObject.SetActive(false);
+    }
 
-    // 5️⃣ 停止移動
-    animator.Play("bird_wait");
-    transform.position = pointB.position;
-    isFlying = false;
-}
+    public void FlyBack()
+    {
+        StartCoroutine(FlyBackRoutine(fencePos));
+    }
 
+    private IEnumerator FlyBackRoutine(Transform fencePos)
+    {
+        float Height = 15f;
+        Vector3 randomOffset = new Vector2(Random.Range(-8f, 8f), Height);
+        Vector3 randomTarget = transform.position + randomOffset;
 
+        // 播放起飛動畫
+        animator.Play("bird_takesoff");
+        yield return new WaitForSeconds(0.5f);
+
+        // 切換到飛行動畫
+        animator.Play("bird_fly");
+
+        // 飛往隨機的上方目標
+        while (Vector2.Distance(transform.position, randomTarget) > landDistance)
+        {
+            Vector3 direction = (randomTarget - transform.position).normalized;
+            FlipDirection(direction);
+            transform.position = Vector2.MoveTowards(transform.position, randomTarget, flightSpeed * Time.deltaTime);
+            yield return null;
+        }
+
+        // 在上方等待幾秒
+        yield return new WaitForSeconds(2f);
+
+        // 飛回 fencePos
+        animator.Play("bird_fly");
+        while (Vector2.Distance(transform.position, fencePos.position) > landDistance)
+        {
+            Vector3 direction = (fencePos.position - transform.position).normalized;
+            FlipDirection(direction);
+            transform.position = Vector2.MoveTowards(transform.position, fencePos.position, flightSpeed * Time.deltaTime);
+            yield return null;
+        }
+
+        // 播放降落動畫
+        yield return new WaitForSeconds(0.2f);
+        animator.Play("bird_landing");
+        yield return new WaitForSeconds(0.5f);
+        animator.Play("bird_wait");
+        transform.position = fencePos.position;
+    }
 }
