@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Trees : MonoBehaviour, IInteractable
 {
-    // 指定砍樹所需要的道具（例如：斧頭）
+
     public Item axeItem;
     public bool isCutDown = false;
 
@@ -27,7 +27,7 @@ public class Trees : MonoBehaviour, IInteractable
 
     public void Interact(Item heldItem)
     {
-        // 樹已倒，不進行互動動作
+
         if (isCutDown)
         {
             Debug.Log(CutDownDescription);
@@ -42,7 +42,7 @@ public class Trees : MonoBehaviour, IInteractable
             {
                 anime.SetTrigger("Chop");
             }
-            // 可以在動畫事件中更改 isCutDown 狀態
+
             isCutDown = true;
         }
         else
@@ -54,7 +54,7 @@ public class Trees : MonoBehaviour, IInteractable
     {
         foreach (var bird in birds)
         {
-            bird.FlyToShelf();
+            bird.FlyToNextPos(bird.fencePos);
         }
     }
 }
