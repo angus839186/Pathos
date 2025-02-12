@@ -3703,8 +3703,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -126391795
-  m_SortingLayer: 5
+  m_SortingLayerID: 255704119
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 19587613275455a43b7197af9433419d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -4549,7 +4549,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
   DefaultDescription: "\u76F8\u7576\u8001\u820A\u7684\u98A8\u8ECA\uFF0C\u611F\u89BA\u53D7\u5230\u4E00\u9EDE\u5916\u529B\u5C31\u6703\u52D5\u7684\u6A23\u5B50"
-  workedDescription: "\u98A8\u8ECA\u8F49\u52D5\u4E86"
+  workedDescription: "\u6301\u7E8C\u8F49\u52D5\u8457\uFF0C\u4F3C\u4E4E\u8DDF\u525B\u624D\u7684\u6A39\u53E2\u9023\u63A5\u8457\u7684\u6A23\u5B50"
   worked: 0
 --- !u!61 &1224744451
 BoxCollider2D:

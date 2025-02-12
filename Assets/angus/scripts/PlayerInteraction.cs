@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
+using UnityEditor;
 
 public class PlayerInteraction : MonoBehaviour
 {
@@ -16,6 +17,13 @@ public class PlayerInteraction : MonoBehaviour
     public DescriptionText descriptionText;
 
     public Animator playerAnimator;
+
+    public PlayerController player;
+
+    private void Start()
+    {
+        player = GetComponent<PlayerController>();
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -42,34 +50,43 @@ public class PlayerInteraction : MonoBehaviour
         interactInput = inputValue.Get<float>();
         if (currentInteractable != null && interactInput > 0.5f)
         {
-            InventoryItem selectedItem = hotbar.GetCurrentSelectedItem();
-            Item heldItem = (selectedItem != null) ? selectedItem.item : null;
-
-            StartCoroutine(descriptionText.showDescription(currentInteractable.GetDescription()));
-
-            // 先取得該互動物件根據玩家持有的道具要播放的動畫觸發器
-            string animTrigger = currentInteractable.GetAnimationTrigger(heldItem);
-            if (!string.IsNullOrEmpty(animTrigger))
+            if (player.isInteracting)
             {
-                playerAnimator.SetTrigger(animTrigger);
-                // 設定玩家進入互動狀態（例如禁止移動）
-                PlayerController playerController = GetComponent<PlayerController>();
-                if (playerController != null)
+                return;
+            }
+            else
+            {
+                InventoryItem selectedItem = hotbar.GetCurrentSelectedItem();
+                Item heldItem = (selectedItem != null) ? selectedItem.item : null;
+
+                StartCoroutine(descriptionText.showDescription(currentInteractable.GetDescription()));
+
+
+                string animTrigger = currentInteractable.GetAnimationTrigger(heldItem);
+                if (!string.IsNullOrEmpty(animTrigger))
                 {
-                    playerController.isInteracting = true;
+                    playerAnimator.SetTrigger(animTrigger);
+                    player.isInteracting = true;
+                }
+                else
+                {
+                    currentInteractable.Interact();
                 }
             }
-
-            // 執行互動邏輯
-            currentInteractable.Interact(heldItem);
         }
     }
-    public void EndInteraction()
+
+    public void TriggerInteractEvent()
     {
-        PlayerController playerController = GetComponent<PlayerController>();
-        if (playerController != null)
+        InventoryItem selectedItem = hotbar.GetCurrentSelectedItem();
+        Item heldItem = (selectedItem != null) ? selectedItem.item : null;
+        if (currentInteractable != null)
         {
-            playerController.isInteracting = false;
+            currentInteractable.InteractEvent(heldItem);
+        }
+        if (player != null)
+        {
+            player.isInteracting = false;
         }
     }
 }

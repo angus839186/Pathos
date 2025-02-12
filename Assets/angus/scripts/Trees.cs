@@ -25,36 +25,42 @@ public class Trees : MonoBehaviour, IInteractable
         return "";
     }
 
-    public void Interact(Item heldItem)
-    {
 
-        if (isCutDown)
-        {
-            Debug.Log(CutDownDescription);
-            return;
-        }
-
-        if (heldItem != null && heldItem == axeItem)
-        {
-            Debug.Log("玩家使用斧頭砍樹！");
-            Animator anime = GetComponent<Animator>();
-            if (anime != null)
-            {
-                anime.SetTrigger("Chop");
-            }
-
-            isCutDown = true;
-        }
-        else
-        {
-            Debug.Log(DefaultDescription);
-        }
-    }
     public void BirdFlyAway()
     {
         foreach (var bird in birds)
         {
             bird.FlyToNextPos(bird.fencePos);
         }
+    }
+
+    public void InteractEvent(Item heldItem)
+    {
+        if (isCutDown)
+        {
+            return;
+        }
+        else
+        {
+            if (heldItem != null && heldItem == axeItem)
+            {
+                Animator anime = GetComponent<Animator>();
+                if (anime != null)
+                {
+                    anime.SetTrigger("Chop");
+                    isCutDown = true;
+                }
+                BirdFlyAway();
+            }
+            else
+            {
+                return;
+            }
+        }
+    }
+
+    public void Interact()
+    {
+        Debug.Log(DefaultDescription);
     }
 }

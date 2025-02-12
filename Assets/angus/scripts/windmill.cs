@@ -18,11 +18,12 @@ public class windmill : MonoBehaviour, IInteractable
 
     public void windmillfailed()
     {
-        animator.Play("windmill_fail");
+        
+        animator.Play("windmill_fail", -1, 0f);
     }
     public void windmillworked()
     {
-        animator.Play("windmill_work");
+        animator.Play("windmill_work", -1, 0f);
         worked = true;
     }
 
@@ -39,5 +40,15 @@ public class windmill : MonoBehaviour, IInteractable
     public string GetAnimationTrigger(Item heldItem)
     {
         return "";
+    }
+
+    public void Interact()
+    {
+        Debug.Log(DefaultDescription);
+    }
+
+    public void InteractEvent(Item heldItem)
+    {
+        throw new System.NotImplementedException();
     }
 }

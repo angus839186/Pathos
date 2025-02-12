@@ -1,9 +1,11 @@
 public interface IInteractable
 {
     
-    void Interact(Item heldItem);
+    void Interact();
     
     string GetDescription();
 
     string GetAnimationTrigger(Item heldItem);
+
+    void InteractEvent(Item heldItem);
 }
