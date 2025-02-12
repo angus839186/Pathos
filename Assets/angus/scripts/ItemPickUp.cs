@@ -18,7 +18,7 @@ public class ItemPickup : MonoBehaviour, IInteractable
         return defaultDescription;
     }
 
-    public void Interact(Item heldItem)
+    public void Interact()
     {
         Inventory inventory = Inventory.Instance;
         if (inventory != null)
@@ -27,5 +27,10 @@ public class ItemPickup : MonoBehaviour, IInteractable
             // 撿取成功後移除場景中的物件
             Destroy(gameObject);
         }
+    }
+
+    public void InteractEvent(Item heldItem)
+    {
+        throw new System.NotImplementedException();
     }
 }

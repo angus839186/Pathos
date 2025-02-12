@@ -15,8 +15,13 @@ public class fence : MonoBehaviour, IInteractable
         return DefaultDescription;
     }
 
-    public void Interact(Item heldItem)
+    public void Interact()
     {
         Debug.Log(DefaultDescription);
+    }
+
+    public void InteractEvent(Item heldItem)
+    {
+        throw new System.NotImplementedException();
     }
 }

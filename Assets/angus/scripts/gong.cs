@@ -27,23 +27,6 @@ public class gong : MonoBehaviour, IInteractable
         }
         return "";
     }
-
-    public void Interact(Item heldItem)
-    {
-
-        if (heldItem != null && heldItem == axeItem)
-        {
-            Animator anime = GetComponent<Animator>();
-            if (anime != null)
-            {
-                BirdFlyToSky();
-            }
-        }
-        else
-        {
-            Debug.Log(DefaultDescription);
-        }
-    }
     public void BirdFlyToSky()
     {
         if (birds.Count < 5)
@@ -51,9 +34,8 @@ public class gong : MonoBehaviour, IInteractable
             foreach (var bird in birds)
             {
                 bird.FlyBack();
-                break;
             }
-            windmill.Invoke("windmillfailed", 1.5f);
+            windmill.Invoke("windmillfailed", 1f);
             skyPos.SetActive(false);
             return;
         }
@@ -75,8 +57,26 @@ public class gong : MonoBehaviour, IInteractable
             {
                 bird.FlyToNextPos(bird.skyPos);
             }
-            windmill.Invoke("windmillworked", 1.5f);
+            windmill.Invoke("windmillworked", 1f);
             skyPos.SetActive(true);
+        }
+    }
+
+    public void Interact()
+    {
+        Debug.Log(DefaultDescription);
+    }
+
+    public void InteractEvent(Item heldItem)
+    {
+        if (heldItem != null && heldItem == axeItem)
+        {
+            Animator anime = GetComponent<Animator>();
+            anime.Play("gone_anime", -1, 0f);
+            if (!windmill.worked)
+            {   
+                BirdFlyToSky();
+            }
         }
     }
 }
