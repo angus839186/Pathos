@@ -11,6 +11,8 @@ public class windmill : MonoBehaviour, IInteractable
 
     public bool worked;
 
+    public OrganDoor door;
+
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -18,7 +20,6 @@ public class windmill : MonoBehaviour, IInteractable
 
     public void windmillfailed()
     {
-        
         animator.Play("windmill_fail", -1, 0f);
     }
     public void windmillworked()
@@ -27,9 +28,9 @@ public class windmill : MonoBehaviour, IInteractable
         worked = true;
     }
 
-    public void Interact(Item heldItem)
+    public void OpenOrganDoor()
     {
-        Debug.Log(DefaultDescription);
+        door.Open();
     }
 
     public string GetDescription()
