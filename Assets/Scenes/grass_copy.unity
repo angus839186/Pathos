@@ -2458,7 +2458,7 @@ GameObject:
   m_Component:
   - component: {fileID: 675024879}
   m_Layer: 0
-  m_Name: "\u8349\u539F"
+  m_Name: "\u8349\u539F1"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
