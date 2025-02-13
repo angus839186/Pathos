@@ -58,10 +58,7 @@ public class PlayerInteraction : MonoBehaviour
             {
                 InventoryItem selectedItem = hotbar.GetCurrentSelectedItem();
                 Item heldItem = (selectedItem != null) ? selectedItem.item : null;
-
-                StartCoroutine(descriptionText.showDescription(currentInteractable.GetDescription()));
-
-
+                
                 string animTrigger = currentInteractable.GetAnimationTrigger(heldItem);
                 if (!string.IsNullOrEmpty(animTrigger))
                 {
@@ -70,6 +67,7 @@ public class PlayerInteraction : MonoBehaviour
                 }
                 else
                 {
+                    StartCoroutine(descriptionText.showDescription(currentInteractable.GetDescription()));
                     currentInteractable.Interact();
                 }
             }
