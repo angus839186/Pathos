@@ -24,8 +24,6 @@ public class Hotbar : MonoBehaviour
 
     void UpdateHotbarItems()
     {
-        // 根據需求，你可以決定哪些道具要出現在 hotbar 上，
-        // 例如這裡直接將所有 Inventory.items 複製過來：
         hotbarItems = new List<InventoryItem>(inventory.items);
 
         // 然後更新 UI，例如更新各個 slot 的圖示與數量
