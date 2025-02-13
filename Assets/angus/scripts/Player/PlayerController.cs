@@ -1,44 +1,55 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
     public Rigidbody2D rb;
-
     public Vector2 moveVector;
-
+    
     [Header("跳躍高度")]
     public float jumpPower;
-
+    
     [Header("移動速度")]
     public int speed;
-
+    
     [Header("跑步速度倍率")]
     public float runMultiplier = 1.5f;
-
-
+    
     public bool isRunning;
     public bool isGrounded;
-
     public bool isInteracting = false;
-
+    
     public Animator _anime;
-
     public SpriteRenderer _sprite;
-
+    
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         _anime = GetComponent<Animator>();
         _sprite = GetComponent<SpriteRenderer>();
     }
-
+    
+    void OnEnable()
+    {
+        // 訂閱 InputManager 的事件
+        PlayerInputManager.Instance.OnMoveEvent += HandleMove;
+        PlayerInputManager.Instance.OnJumpEvent += HandleJump;
+        PlayerInputManager.Instance.OnRunEvent += HandleRun;
+    }
+    
+    void OnDisable()
+    {
+        // 訂閱要取消
+        PlayerInputManager.Instance.OnMoveEvent -= HandleMove;
+        PlayerInputManager.Instance.OnJumpEvent -= HandleJump;
+        PlayerInputManager.Instance.OnRunEvent -= HandleRun;
+    }
+    
     void Update()
     {
         _anime.SetFloat("yVelocity", rb.velocity.y);
     }
+    
     void FixedUpdate()
     {
         float currentSpeed = isRunning ? speed * runMultiplier : speed;
@@ -52,6 +63,7 @@ public class PlayerController : MonoBehaviour
             rb.velocity = new Vector2(0, rb.velocity.y);
             _anime.SetBool("isWalking", false);
         }
+        
         if (moveVector.x > 0)
         {
             _sprite.flipX = false;
@@ -61,22 +73,24 @@ public class PlayerController : MonoBehaviour
             _sprite.flipX = true;
         }
     }
-    public void OnMove(InputValue inputValue)
+    
+    // 處理移動輸入
+    private void HandleMove(Vector2 move)
     {
         if (isInteracting)
         {
             moveVector = Vector2.zero;
             return;
         }
-        moveVector = inputValue.Get<Vector2>();
+        moveVector = move;
     }
-
-    public void OnJump(InputValue inputValue)
+    
+    // 處理跳躍輸入
+    private void HandleJump(float jump)
     {
-        if (isInteracting) return; // 正在互動時不允許跳躍
-
-        float jumpInput = inputValue.Get<float>();
-        if (jumpInput > 0 && isGrounded)
+        if (isInteracting) return;
+        
+        if (jump > 0 && isGrounded)
         {
             rb.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
             isGrounded = false;
@@ -84,19 +98,20 @@ public class PlayerController : MonoBehaviour
             _anime.SetBool("isJumping", true);
         }
     }
-    public void OnRun(InputValue inputValue)
+    
+    // 處理跑步輸入
+    private void HandleRun(bool run)
     {
-        isRunning = inputValue.isPressed;
+        isRunning = run;
         _anime.SetBool("runKey", isRunning);
     }
-
+    
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        // 當碰撞到標記為 "Ground" 的物件時，重設 isGrounded
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = true;
-            _anime.SetBool("isJumping", !isGrounded);
+            _anime.SetBool("isJumping", false);
             Debug.Log("已落地");
         }
     }
