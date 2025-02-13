@@ -72,7 +72,7 @@ public class gong : MonoBehaviour, IInteractable
         if (heldItem != null && heldItem == axeItem)
         {
             Animator anime = GetComponent<Animator>();
-            anime.Play("gone_anime", -1, 0f);
+            anime.Play("gong_anime", -1, 0f);
             if (!windmill.worked)
             {   
                 BirdFlyToSky();
