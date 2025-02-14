@@ -25,6 +25,18 @@ public class PlayerInteraction : MonoBehaviour
         player = GetComponent<PlayerController>();
     }
 
+    void OnEnable()
+    {
+        // 訂閱 InputManager 的事件
+        PlayerInputManager.Instance.OnInteractEvent += Interact;
+    }
+    
+    void OnDisable()
+    {
+        // 訂閱要取消
+        PlayerInputManager.Instance.OnInteractEvent -= Interact;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         IInteractable interactable = collision.GetComponent<IInteractable>();
@@ -45,9 +57,9 @@ public class PlayerInteraction : MonoBehaviour
         }
     }
 
-    public void OnInteract(InputValue inputValue)
+    public void Interact(float value)
     {
-        interactInput = inputValue.Get<float>();
+        interactInput = value;
         if (currentInteractable != null && interactInput > 0.5f)
         {
             if (player.isInteracting)
