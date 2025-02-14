@@ -21,6 +21,8 @@ public class PlayerInputManager : MonoBehaviour
     public event Action<float> OnScrollItemEvent;
     public event Action<float> OnSelectItemEvent; // 改為帶入 float 參數
 
+    public event Action<float> OnInteractEvent;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -71,6 +73,15 @@ public class PlayerInputManager : MonoBehaviour
         if(value.Get<float>() > 0.5f)
         {
             OnToggleBackpackEvent?.Invoke(pressed);
+        }
+    }
+
+    public void OnInteract(InputValue value)
+    {
+        float pressed = value.Get<float>();
+        if (value.Get<float>() > 0.5f)
+        {
+            OnInteractEvent?.Invoke(pressed);
         }
     }
 
