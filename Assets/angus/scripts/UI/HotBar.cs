@@ -1,76 +1,47 @@
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Hotbar : MonoBehaviour
 {
-    // 假設這裡 hotbarItems 用來顯示在 UI 上，這裡可以直接參考 Inventory 的 items
-    public List<InventoryItem> hotbarItems = new List<InventoryItem>();
+    public static Hotbar Instance { get; private set; }
 
-    public Inventory inventory; // 在 Inspector 中拖入 Inventory 物件
-    public List<Image> hotbarSlots;
+    public Image mainHotbarIcon;   // 主要道具的圖示
 
-    public int selectedIndex = -1;
+    public InventoryItem _item;
 
-    void Start()
+    public int currentMainItemIndex = 0;
+
+    void Awake()
     {
-        // 訂閱 Inventory 的變動事件
-        if (inventory != null)
+        if (Instance != null && Instance != this)
         {
-            inventory.OnInventoryChanged += UpdateHotbarItems;
-            UpdateHotbarItems(); // 初始更新
+            Destroy(gameObject);
+            return;
         }
+        Instance = this;
     }
 
-    void UpdateHotbarItems()
+    public void SetMainItem(InventoryItem item, int index)
     {
-        hotbarItems = new List<InventoryItem>(inventory.items);
-
-        // 然後更新 UI，例如更新各個 slot 的圖示與數量
-        for (int i = 0; i < hotbarSlots.Count; i++)
+        currentMainItemIndex = index;
+        if (item != null && item.item != null)
         {
-            if (i < hotbarItems.Count)
-            {
-                hotbarSlots[i].sprite = hotbarItems[i].item.icon;
-                // 可再更新數量的文字等
-            }
-            else
-            {
-                hotbarSlots[i].sprite = null;
-            }
+            _item = item;
+            mainHotbarIcon.sprite = item.item.icon;
+            // 設置圖示完全可見
+            Color c = mainHotbarIcon.color;
+            c.a = 1f;
+            mainHotbarIcon.color = c;
         }
-    }
-
-    void Update()
-    {
-        // 處理數字鍵選取邏輯
-        for (int i = 0; i < 9; i++)
+        else
         {
-            if (Input.GetKeyDown(KeyCode.Alpha1 + i))
-            {
-                if (selectedIndex == i)
-                    selectedIndex = -1;
-                else
-                    selectedIndex = i;
-
-                UpdateHotbarUI();
-            }
+            // 當沒有道具時，將 _item 設為 null
+            _item = null;
+            mainHotbarIcon.sprite = null;
+            // 設置圖示透明
+            Color c = mainHotbarIcon.color;
+            c.a = 0f;
+            mainHotbarIcon.color = c;
         }
-    }
-
-    void UpdateHotbarUI()
-    {
-        for (int i = 0; i < hotbarSlots.Count; i++)
-        {
-            hotbarSlots[i].color = (i == selectedIndex) ? Color.yellow : Color.white;
-        }
-    }
-
-    // 用來獲取目前選取的道具
-    public InventoryItem GetCurrentSelectedItem()
-    {
-        if (selectedIndex >= 0 && selectedIndex < hotbarItems.Count)
-            return hotbarItems[selectedIndex];
-        return null;
     }
 }

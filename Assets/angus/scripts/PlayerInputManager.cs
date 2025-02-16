@@ -8,18 +8,17 @@ public class PlayerInputManager : MonoBehaviour
 {
     public static PlayerInputManager Instance { get; private set; }
 
-    // 這裡引用 PlayerInput 組件
-    public PlayerInput playerInput;
 
-    // 定義一些事件，讓其他模組訂閱
+    public PlayerInput playerInput;
+    
     public event Action<Vector2> OnMoveEvent;
     public event Action<float> OnJumpEvent;
     public event Action<bool> OnRunEvent;
 
-    public event Action<float> OnToggleBackpackEvent;
+    public event Action OnToggleBackpackEvent;
+    public event Action<int> OnSelectItemEvent;
 
-    public event Action<float> OnScrollItemEvent;
-    public event Action<float> OnSelectItemEvent; // 改為帶入 float 參數
+    public event Action<float> OnConfirmMainItemEvent;
 
     public event Action<float> OnInteractEvent;
 
@@ -63,7 +62,7 @@ public class PlayerInputManager : MonoBehaviour
         float pressed = value.Get<float>();
         if (value.Get<float>() > 0.5f)
         {
-            OnToggleBackpackEvent?.Invoke(pressed);
+            OnToggleBackpackEvent?.Invoke();
         }
     }
 
@@ -72,7 +71,7 @@ public class PlayerInputManager : MonoBehaviour
         float pressed = value.Get<float>();
         if(value.Get<float>() > 0.5f)
         {
-            OnToggleBackpackEvent?.Invoke(pressed);
+            OnToggleBackpackEvent?.Invoke();
         }
     }
 
@@ -82,6 +81,32 @@ public class PlayerInputManager : MonoBehaviour
         if (value.Get<float>() > 0.5f)
         {
             OnInteractEvent?.Invoke(pressed);
+        }
+    }
+
+    public void OnUpSelect(InputValue value)
+    {
+        float pressed = value.Get<float>();
+        if (value.Get<float>() > 0.5f)
+        {
+            OnSelectItemEvent?.Invoke(-1);
+        }
+    }
+
+    public void OnDownSelect(InputValue value)
+    {
+        float pressed = value.Get<float>();
+        if (value.Get<float>() > 0.5f)
+        {
+            OnSelectItemEvent?.Invoke(1);
+        }
+    }
+
+    public void OnConfirmMainItem(InputValue value)
+    {
+        if (value.Get<float>() > 0.5f)
+        {
+            OnConfirmMainItemEvent?.Invoke(value.Get<float>());
         }
     }
 
