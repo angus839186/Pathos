@@ -30,7 +30,7 @@ public class PlayerInteraction : MonoBehaviour
         // 訂閱 InputManager 的事件
         PlayerInputManager.Instance.OnInteractEvent += Interact;
     }
-    
+
     void OnDisable()
     {
         // 訂閱要取消
@@ -63,33 +63,29 @@ public class PlayerInteraction : MonoBehaviour
         if (currentInteractable != null && interactInput > 0.5f)
         {
             if (player.isInteracting)
-            {
                 return;
+
+            InventoryItem mainItem = hotbar._item; // 此處 hotbar._item 可能為 null
+            Item heldItem = (mainItem.item != null) ? mainItem.item : null;
+
+            string animTrigger = currentInteractable.GetAnimationTrigger(heldItem);
+            if (!string.IsNullOrEmpty(animTrigger))
+            {
+                playerAnimator.SetTrigger(animTrigger);
+                player.isInteracting = true;
             }
             else
             {
-                InventoryItem selectedItem = hotbar.GetCurrentSelectedItem();
-                Item heldItem = (selectedItem != null) ? selectedItem.item : null;
-                
-                string animTrigger = currentInteractable.GetAnimationTrigger(heldItem);
-                if (!string.IsNullOrEmpty(animTrigger))
-                {
-                    playerAnimator.SetTrigger(animTrigger);
-                    player.isInteracting = true;
-                }
-                else
-                {
-                    StartCoroutine(descriptionText.showDescription(currentInteractable.GetDescription()));
-                    currentInteractable.Interact();
-                }
+                StartCoroutine(descriptionText.showDescription(currentInteractable.GetDescription()));
+                currentInteractable.Interact();
             }
         }
     }
 
     public void TriggerInteractEvent()
     {
-        InventoryItem selectedItem = hotbar.GetCurrentSelectedItem();
-        Item heldItem = (selectedItem != null) ? selectedItem.item : null;
+        InventoryItem mainItem = hotbar._item; // 此處 hotbar._item 可能為 null
+        Item heldItem = (mainItem != null) ? mainItem.item : null;
         if (currentInteractable != null)
         {
             currentInteractable.InteractEvent(heldItem);

@@ -38,8 +38,9 @@ public class Inventory : MonoBehaviour
             InventoryItem newInvItem = new InventoryItem { item = newItem, quantity = amount };
             items.Add(newInvItem);
         }
-        // 通知訂閱者 Inventory 發生變化
+
         OnInventoryChanged?.Invoke();
+        Debug.Log("得到新東西");
     }
 
     public void RemoveItem(Item item, int amount = 1)
