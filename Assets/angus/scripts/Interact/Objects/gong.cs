@@ -14,6 +14,8 @@ public class gong : MonoBehaviour, IInteractable
 
     public windmill windmill;
 
+    public AudioClip sound;
+
     public string GetDescription()
     {
         return DefaultDescription;
@@ -73,6 +75,7 @@ public class gong : MonoBehaviour, IInteractable
         {
             Animator anime = GetComponent<Animator>();
             anime.Play("gong_anime", -1, 0f);
+            AudioManager.instance.PlaySound(sound);
             if (!windmill.worked)
             {   
                 BirdFlyToSky();

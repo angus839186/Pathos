@@ -64,7 +64,8 @@ public class BackpackUIManager : MonoBehaviour
     {
         backpackPanel.SetActive(true);
         playerInput.SwitchActionMap("Backpack");
-        SetCurrentItem();
+        UpdateItemSlots();
+        showItemDetail();
     }
 
 
@@ -86,11 +87,6 @@ public class BackpackUIManager : MonoBehaviour
         {
             CloseBackpack();
         }
-    }
-
-    public void SetCurrentItem()
-    {
-        UpdateItemSlots();
     }
 
 

@@ -18,6 +18,8 @@ public class Bird : MonoBehaviour
 
     public gong _gong;
 
+    public AudioClip sound;
+
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -48,6 +50,7 @@ public class Bird : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
 
         animator.Play("bird_fly");
+        AudioManager.instance.PlaySound(sound);
 
         while (Vector2.Distance(transform.position, nextPos.position) > landDistance)
         {
