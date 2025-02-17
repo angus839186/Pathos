@@ -34,13 +34,6 @@ public class BackpackUIManager : MonoBehaviour
     void Start()
     {
         backpackPanel.SetActive(false);
-        for (int i = 0; i < bagSlots.Count; i++)
-        {
-            Image[] images = bagSlots[i].GetComponentsInChildren<Image>();
-            Image childImage = images[1];
-            bagSlots[i].sprite = currentSelectSprite;
-            childImage.color = new Color(1, 1, 1, 0);
-        }
     }
 
     void OnEnable()
@@ -123,14 +116,6 @@ public class BackpackUIManager : MonoBehaviour
             Image[] images = bagSlots[i].GetComponentsInChildren<Image>();
             Image childImage = images[1];
             childImage.sprite = inventory.items[i].item.icon;
-            if (childImage.sprite != null)
-            {
-                childImage.color = new Color(1, 1, 1, 1);
-            }
-            else
-            {
-                childImage.color = new Color(1, 1, 1, 0);
-            }
         }
     }
 
@@ -145,15 +130,7 @@ public class BackpackUIManager : MonoBehaviour
 
             slotImage.sprite = currentSelectSprite;
             slotImage.color = new Color(1, 1, 1, 1);
-
-            if(childImage.sprite == null)
-            {
-                childImage.color = new Color(1, 1, 1, 0);
-            }
-            else
-            {
-                childImage.color = new Color(1, 1, 1, 1);
-            }
+            childImage.color = new Color(1,1,1,1);
             if (i == currentIndex)
             {
                 slotImage.sprite = currentSelectSprite;

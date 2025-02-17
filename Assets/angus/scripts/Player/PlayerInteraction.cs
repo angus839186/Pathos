@@ -5,8 +5,6 @@ using UnityEditor;
 
 public class PlayerInteraction : MonoBehaviour
 {
-    // 連結 Hotbar（用以取得玩家目前選取的道具）
-    public Hotbar hotbar;
     // 用來顯示互動提示的 UI Text
     public GameObject interactHint;
 
@@ -65,7 +63,7 @@ public class PlayerInteraction : MonoBehaviour
             if (player.isInteracting)
                 return;
 
-            InventoryItem mainItem = hotbar._item; // 此處 hotbar._item 可能為 null
+            InventoryItem mainItem = Hotbar.Instance._item; // 此處 hotbar._item 可能為 null
             Item heldItem = (mainItem.item != null) ? mainItem.item : null;
 
             string animTrigger = currentInteractable.GetAnimationTrigger(heldItem);
@@ -84,7 +82,7 @@ public class PlayerInteraction : MonoBehaviour
 
     public void TriggerInteractEvent()
     {
-        InventoryItem mainItem = hotbar._item; // 此處 hotbar._item 可能為 null
+        InventoryItem mainItem = Hotbar.Instance._item; // 此處 hotbar._item 可能為 null
         Item heldItem = (mainItem != null) ? mainItem.item : null;
         if (currentInteractable != null)
         {
