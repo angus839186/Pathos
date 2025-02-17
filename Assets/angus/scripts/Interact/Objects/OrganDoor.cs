@@ -7,6 +7,8 @@ public class OrganDoor : MonoBehaviour, IInteractable
     public string DefaultDescription;
 
     public Sprite closedSprite;
+
+    public AudioClip sound;
     public string GetAnimationTrigger(Item heldItem)
     {
         return "";
@@ -28,16 +30,11 @@ public class OrganDoor : MonoBehaviour, IInteractable
     }
     public void Open()
     {
-        BoxCollider2D collider = gameObject.GetComponent<BoxCollider2D>();
-        if(collider != null)
-        {
-            collider.enabled = false;
-        }
-        SpriteRenderer sprite = gameObject.GetComponent<SpriteRenderer>();
-        if(sprite != null)
-        {
-            sprite.sprite = closedSprite;
-        }
+        BoxCollider2D collider = GetComponent<BoxCollider2D>();
+        SpriteRenderer sprite = GetComponent<SpriteRenderer>();
+        collider.enabled = false;
+        sprite.sprite = closedSprite;
+        AudioManager.instance.PlaySound(sound);
 
 
     }

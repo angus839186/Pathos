@@ -11,6 +11,8 @@ public class Trees : MonoBehaviour, IInteractable
 
     public Bird[] birds;
 
+    public AudioClip sound;
+
     public string GetDescription()
     {
         return isCutDown ? CutDownDescription : DefaultDescription;
@@ -48,6 +50,7 @@ public class Trees : MonoBehaviour, IInteractable
                 if (anime != null)
                 {
                     anime.SetTrigger("Chop");
+                    AudioManager.instance.PlaySound(sound);
                     isCutDown = true;
                 }
                 BirdFlyAway();

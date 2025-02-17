@@ -21,12 +21,19 @@ public class PlayerController : MonoBehaviour
     
     public Animator _anime;
     public SpriteRenderer _sprite;
+
+    [Header("音效")]
+    public AudioSource audioSource;
+    public AudioClip walkSound;
+    public AudioClip runSound;
+    public AudioClip jumpSound;
     
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         _anime = GetComponent<Animator>();
         _sprite = GetComponent<SpriteRenderer>();
+        audioSource = GetComponent<AudioSource>();
     }
     
     void OnEnable()
@@ -57,11 +64,17 @@ public class PlayerController : MonoBehaviour
         {
             rb.velocity = new Vector2(moveVector.x * currentSpeed, rb.velocity.y);
             _anime.SetBool("isWalking", true);
+            if (!audioSource.isPlaying) // 防止音效重複播放
+            {
+                audioSource.clip = isRunning ? runSound : walkSound;
+                audioSource.Play();
+            }
         }
         else
         {
             rb.velocity = new Vector2(0, rb.velocity.y);
             _anime.SetBool("isWalking", false);
+            audioSource.Stop();
         }
         
         if (moveVector.x > 0)
@@ -96,6 +109,7 @@ public class PlayerController : MonoBehaviour
             isGrounded = false;
             _anime.SetTrigger("jumpTrigger");
             _anime.SetBool("isJumping", true);
+            AudioManager.instance.PlaySound(jumpSound);
         }
     }
     
