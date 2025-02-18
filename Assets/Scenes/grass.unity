@@ -765,8 +765,8 @@ Transform:
   m_GameObject: {fileID: 209186058}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 12.3, y: 0.93, z: 0}
-  m_LocalScale: {x: 0.60718447, y: 0.60718447, z: 0.60718447}
+  m_LocalPosition: {x: 12.2774, y: 0.99, z: 0}
+  m_LocalScale: {x: 0.5528337, y: 0.5528337, z: 0.5528337}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1425031244}
@@ -790,6 +790,7 @@ MonoBehaviour:
   birds:
   - {fileID: 527510592}
   - {fileID: 781101359}
+  sound: {fileID: 0}
 --- !u!61 &209186061
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -822,11 +823,11 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.44, y: -2.1}
+  m_Offset: {x: 0.44, y: -2.62}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 8.8, y: 6.64}
+    oldSize: {x: 9.63, y: 7.71}
     newSize: {x: 8.8, y: 6.64}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -897,7 +898,7 @@ SpriteRenderer:
   m_SortingLayerID: 720002255
   m_SortingLayer: 11
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 27f9bbe458419064091c751f42d5decf, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6f137c428d6c1d5418bfb7dbba033ea8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1512,7 +1513,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3188d8e382c338c49b81d8588652b5bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hotbar: {fileID: 307766818}
   interactHint: {fileID: 1698704168}
   interactInput: 0
   descriptionText: {fileID: 1080481401}
@@ -1540,6 +1540,10 @@ MonoBehaviour:
   isInteracting: 0
   _anime: {fileID: 0}
   _sprite: {fileID: 0}
+  audioSource: {fileID: 0}
+  walkSound: {fileID: 0}
+  runSound: {fileID: 0}
+  jumpSound: {fileID: 0}
 --- !u!114 &365826229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2032,6 +2036,7 @@ MonoBehaviour:
   landDistance: 0.5
   onFence: 0
   _gong: {fileID: 1015057131}
+  sound: {fileID: 0}
 --- !u!61 &527510593
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2789,6 +2794,7 @@ MonoBehaviour:
   landDistance: 0.5
   onFence: 0
   _gong: {fileID: 1015057131}
+  sound: {fileID: 0}
 --- !u!61 &781101360
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3110,6 +3116,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DefaultDescription: "\u88AB\u5805\u786C\u7684\u6A39\u53E2\u64CB\u4F4F\u4E86\uFF0C\u5C31\u7B97\u7528\u5DE5\u5177\u4E5F\u6C92\u6CD5\u8F15\u6613\u7834\u58DE\u7684\u6A23\u5B50"
   closedSprite: {fileID: 21300000, guid: 7128c83b31ab827499fcf96bcc2ba5ec, type: 3}
+  sound: {fileID: 0}
 --- !u!61 &866235088
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4050,6 +4057,7 @@ MonoBehaviour:
   - {fileID: 1326045349}
   skyPos: {fileID: 1836682449}
   windmill: {fileID: 1556502781}
+  sound: {fileID: 0}
 --- !u!61 &1015057132
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4828,6 +4836,7 @@ MonoBehaviour:
   landDistance: 0.5
   onFence: 1
   _gong: {fileID: 1015057131}
+  sound: {fileID: 0}
 --- !u!61 &1326045350
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5164,6 +5173,7 @@ MonoBehaviour:
   landDistance: 0.5
   onFence: 0
   _gong: {fileID: 1015057131}
+  sound: {fileID: 0}
 --- !u!61 &1415351240
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7324,6 +7334,7 @@ MonoBehaviour:
   landDistance: 0.4
   onFence: 0
   _gong: {fileID: 1015057131}
+  sound: {fileID: 0}
 --- !u!61 &1804707395
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7771,8 +7782,8 @@ Transform:
   m_GameObject: {fileID: 1963104981}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.11, y: -0.08, z: 0}
-  m_LocalScale: {x: 0.6316159, y: 0.6316159, z: 0.6316159}
+  m_LocalPosition: {x: 4.2, y: 0.51, z: 0}
+  m_LocalScale: {x: 0.58955026, y: 0.58955026, z: 0.58955026}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1425031244}
@@ -7796,6 +7807,7 @@ MonoBehaviour:
   birds:
   - {fileID: 1804707394}
   - {fileID: 1415351239}
+  sound: {fileID: 0}
 --- !u!61 &1963104984
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7828,11 +7840,11 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 2.686061, y: -0.43}
+  m_Offset: {x: 2.686061, y: -1.54}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 9.37, y: 4.66}
+    oldSize: {x: 9.73, y: 8.17}
     newSize: {x: 9.37, y: 4.66}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -7903,7 +7915,7 @@ SpriteRenderer:
   m_SortingLayerID: 720002255
   m_SortingLayer: 11
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 839e7e2c39940794ab87cee96c39ba37, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a99e814602aaf0543a015ee25204d1db, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
