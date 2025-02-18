@@ -87,6 +87,7 @@ public class PlayerInteraction : MonoBehaviour
         if (currentInteractable != null)
         {
             currentInteractable.InteractEvent(heldItem);
+            StartCoroutine(descriptionText.showDescription(currentInteractable.GetDescription()));
         }
         if (player != null)
         {

@@ -7,6 +7,7 @@ public class gong : MonoBehaviour, IInteractable
     public Item axeItem;
 
     public string DefaultDescription;
+    public string birdsGoneDescription;
 
     public List<Bird> birds = new List<Bird>();
 
@@ -16,9 +17,11 @@ public class gong : MonoBehaviour, IInteractable
 
     public AudioClip sound;
 
+    public bool birdsGone;
+
     public string GetDescription()
     {
-        return DefaultDescription;
+        return birdsGone ? birdsGoneDescription : DefaultDescription;
     }
 
     public string GetAnimationTrigger(Item heldItem)
@@ -61,6 +64,7 @@ public class gong : MonoBehaviour, IInteractable
             }
             windmill.Invoke("windmillworked", 1f);
             skyPos.SetActive(true);
+            birdsGone = true;
         }
     }
 
