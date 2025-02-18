@@ -7017,6 +7017,8 @@ MonoBehaviour:
   workedDescription: "\u98A8\u8ECA\u8F49\u52D5\u4E86"
   worked: 0
   door: {fileID: 656096396}
+  failedSound: {fileID: 8300000, guid: c0fe15fb5a473c54d8289c29d54a3ded, type: 3}
+  workedSound: {fileID: 8300000, guid: 466b10877769a78419861d1a3df0e705, type: 3}
 --- !u!61 &1379611274
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7160,7 +7162,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 466b10877769a78419861d1a3df0e705, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 0.41
   m_Pitch: 1

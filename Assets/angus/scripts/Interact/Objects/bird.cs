@@ -10,6 +10,8 @@ public class Bird : MonoBehaviour
     public float flightSpeed;
     public float landDistance = 0.5f;
 
+    public bool isFlying;
+
     private Animator animator;
 
     public bool onFence;
@@ -37,11 +39,14 @@ public class Bird : MonoBehaviour
 
     public void FlyToNextPos(Transform nextPos)
     {
+        if(isFlying)
+        return;
         StartCoroutine(FlyRoutine(nextPos));
     }
     private IEnumerator FlyRoutine(Transform nextPos)
     {
 
+        isFlying = true;
         Debug.Log("Start Flying");
         Vector2 direction = nextPos.position - transform.position;
         FlipDirection(direction);
@@ -63,6 +68,8 @@ public class Bird : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         animator.Play("bird_wait");
         transform.position = nextPos.position;
+        isFlying = false;
+
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -88,11 +95,14 @@ public class Bird : MonoBehaviour
 
     public void FlyBack()
     {
+        if(isFlying)
+        return;
         StartCoroutine(FlyBackRoutine(fencePos));
     }
 
     private IEnumerator FlyBackRoutine(Transform fencePos)
     {
+        isFlying = true;
         float Height = 15f;
         Vector3 randomOffset = new Vector2(Random.Range(-8f, 8f), Height);
         Vector3 randomTarget = transform.position + randomOffset;
@@ -132,5 +142,6 @@ public class Bird : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         animator.Play("bird_wait");
         transform.position = fencePos.position;
+        isFlying = false;
     }
 }
