@@ -13,6 +13,9 @@ public class windmill : MonoBehaviour, IInteractable
 
     public OrganDoor door;
 
+    public AudioClip failedSound;
+    public AudioClip workedSound;
+
 
 
     void Start()
@@ -24,14 +27,14 @@ public class windmill : MonoBehaviour, IInteractable
     {
         animator.Play("windmill_fail", -1, 0f);
         AudioSource audio = GetComponent<AudioSource>();
-        audio.Stop();
-        audio.Play();
+        audio.PlayOneShot(failedSound);
     }
     public void windmillworked()
     {
         animator.Play("windmill_work", -1, 0f);
         worked = true;
         AudioSource audio = GetComponent<AudioSource>();
+        audio.clip = workedSound;
         audio.Stop();
         audio.Play();
         audio.loop = true;
