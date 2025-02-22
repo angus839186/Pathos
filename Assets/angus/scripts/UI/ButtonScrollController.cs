@@ -4,16 +4,19 @@ using UnityEngine;
 
 public class ButtonScrollController : MonoBehaviour
 {
-    public List<RectTransform> buttons; // 按鈕列表
-    public float animationSpeed = 0.3f; // 動畫速度
-    public Vector2 centerOffset = new Vector2(0, 0); // 中心按鈕的位置
-    public Vector2 upOffset = new Vector2(50, 100); // 上移按鈕偏移
-    public Vector2 downOffset = new Vector2(50, -100); // 下移按鈕偏移
+    public List<RectTransform> buttons; 
+    public float animationSpeed = 0.3f; 
 
-    private int selectedIndex = 3; // 預設選中按鈕索引 (中間按鈕)
+    public RectTransform LoadDataCenter;
+    public Vector2 centerOffset;
+    public Vector2 upOffset;
+    public Vector2 downOffset;
+
+    private int selectedIndex = 0; 
 
     void Start()
     {
+        centerOffset = new Vector2(LoadDataCenter.anchoredPosition.x, LoadDataCenter.anchoredPosition.y);
         UpdateButtonPositions();
     }
 
