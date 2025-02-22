@@ -7,7 +7,6 @@ public class BackgroundButton : MonoBehaviour, IPointerEnterHandler
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        // 呼叫背景管理器改變背景圖片
         BackgroundManager.Instance.ChangeBackground(targetBackground);
     }
 }
