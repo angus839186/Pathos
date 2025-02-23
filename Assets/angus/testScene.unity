@@ -158,6 +158,7 @@ MonoBehaviour:
   skyPos: {fileID: 2022193705}
   flightSpeed: 9
   landDistance: 0.5
+  isFlying: 0
   onFence: 0
   _gong: {fileID: 201888389}
   sound: {fileID: 8300000, guid: 61ed99610131fdf4b8daac9fa6fa6bc3, type: 3}
@@ -1463,6 +1464,7 @@ MonoBehaviour:
   skyPos: {fileID: 884270476}
   flightSpeed: 9
   landDistance: 0.5
+  isFlying: 0
   onFence: 0
   _gong: {fileID: 201888389}
   sound: {fileID: 8300000, guid: 61ed99610131fdf4b8daac9fa6fa6bc3, type: 3}
@@ -3294,6 +3296,7 @@ MonoBehaviour:
   skyPos: {fileID: 2018193017}
   flightSpeed: 9
   landDistance: 0.5
+  isFlying: 0
   onFence: 0
   _gong: {fileID: 201888389}
   sound: {fileID: 8300000, guid: 61ed99610131fdf4b8daac9fa6fa6bc3, type: 3}
@@ -4106,6 +4109,7 @@ MonoBehaviour:
   skyPos: {fileID: 2066690777}
   flightSpeed: 9
   landDistance: 0.5
+  isFlying: 0
   onFence: 1
   _gong: {fileID: 201888389}
   sound: {fileID: 8300000, guid: 61ed99610131fdf4b8daac9fa6fa6bc3, type: 3}
@@ -7463,6 +7467,7 @@ MonoBehaviour:
   skyPos: {fileID: 1799164727}
   flightSpeed: 9
   landDistance: 0.5
+  isFlying: 0
   onFence: 0
   _gong: {fileID: 201888389}
   sound: {fileID: 8300000, guid: 61ed99610131fdf4b8daac9fa6fa6bc3, type: 3}
