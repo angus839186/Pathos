@@ -4,16 +4,21 @@ using UnityEngine;
 
 public class ButtonScrollController : MonoBehaviour
 {
-    public List<RectTransform> buttons; // 按鈕列表
-    public float animationSpeed = 0.3f; // 動畫速度
-    public Vector2 centerOffset = new Vector2(0, 0); // 中心按鈕的位置
-    public Vector2 upOffset = new Vector2(50, 100); // 上移按鈕偏移
-    public Vector2 downOffset = new Vector2(50, -100); // 下移按鈕偏移
+    public List<RectTransform> buttons; 
+    public float animationSpeed;
 
-    private int selectedIndex = 3; // 預設選中按鈕索引 (中間按鈕)
+    public RectTransform LoadDataCenter;
+    public Vector2 centerOffset;
+    public Vector2 upOffset;
+    public Vector2 downOffset;
+
+    public float maxDistance = 200f;
+
+    private int selectedIndex = 0; 
 
     void Start()
     {
+        centerOffset = new Vector2(LoadDataCenter.anchoredPosition.x, LoadDataCenter.anchoredPosition.y);
         UpdateButtonPositions();
     }
 
@@ -29,40 +34,57 @@ public class ButtonScrollController : MonoBehaviour
     {
         for (int i = 0; i < buttons.Count; i++)
         {
+            RectTransform button = buttons[i];
             Vector2 targetPosition;
 
-            if (i < selectedIndex) // 上方按鈕
+            if (i < selectedIndex) // 上方的按鈕
             {
                 int offsetCount = selectedIndex - i;
                 targetPosition = centerOffset + upOffset * offsetCount;
             }
-            else if (i > selectedIndex) // 下方按鈕
+            else if (i > selectedIndex) // 下方的按鈕
             {
                 int offsetCount = i - selectedIndex;
                 targetPosition = centerOffset + downOffset * offsetCount;
             }
-            else // 中間按鈕
+            else // 中間按鈕（選取的按鈕）
             {
                 targetPosition = centerOffset;
             }
 
-            // 開始平滑移動
-            StartCoroutine(SmoothMove(buttons[i], targetPosition));
+            // 同時插值位置與透明度
+            StartCoroutine(SmoothMove(button, targetPosition));
         }
     }
 
     private IEnumerator SmoothMove(RectTransform button, Vector2 targetPosition)
     {
         Vector2 startPosition = button.anchoredPosition;
-        float elapsedTime = 0;
+        float elapsedTime = 0f;
+        // 確保有 CanvasGroup 用來控制透明度
+        CanvasGroup cg = button.GetComponent<CanvasGroup>();
+        if (cg == null)
+        {
+            cg = button.gameObject.AddComponent<CanvasGroup>();
+        }
+        // 取得當前透明度
+        float startAlpha = cg.alpha;
+        // 根據目標位置與中心點距離計算目標透明度
+        float distance = Vector2.Distance(targetPosition, centerOffset);
+        float targetAlpha = Mathf.Clamp01(1 - (distance / maxDistance));
 
         while (elapsedTime < animationSpeed)
         {
-            button.anchoredPosition = Vector2.Lerp(startPosition, targetPosition, elapsedTime / animationSpeed);
+            float t = elapsedTime / animationSpeed;
+            // 插值位置
+            button.anchoredPosition = Vector2.Lerp(startPosition, targetPosition, t);
+            // 插值透明度
+            cg.alpha = Mathf.Lerp(startAlpha, targetAlpha, t);
             elapsedTime += Time.deltaTime;
             yield return null;
         }
 
         button.anchoredPosition = targetPosition;
+        cg.alpha = targetAlpha;
     }
 }

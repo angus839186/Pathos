@@ -1,0 +1,34 @@
+{
+    "name": "MainMenuControl",
+    "maps": [
+        {
+            "name": "Menu",
+            "id": "56e2dd84-371e-4d27-8be9-be82656ae79a",
+            "actions": [
+                {
+                    "name": "ClosePanel",
+                    "type": "Button",
+                    "id": "7bc5dac5-bcad-4729-8534-c13766852219",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "c8c31f2b-e5d3-4fb4-ab87-3fd88b2ecdf1",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ClosePanel",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
