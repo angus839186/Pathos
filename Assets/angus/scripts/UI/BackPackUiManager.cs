@@ -6,6 +6,7 @@ using System.Collections.Generic;
 
 public class BackpackUIManager : MonoBehaviour
 {
+    public static BackpackUIManager Instance;
     [Header("UI 參考")]
     public GameObject backpackPanel;
     public List<Image> bagSlots;
@@ -27,6 +28,15 @@ public class BackpackUIManager : MonoBehaviour
 
     void Awake()
     {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
         inventory = Inventory.Instance;
         playerInput = PlayerInputManager.Instance;
     }
@@ -106,7 +116,7 @@ public class BackpackUIManager : MonoBehaviour
     }
 
 
-//更新物品欄物品圖案
+    //更新物品欄物品圖案
     void UpdateItemSlotsSprite()
     {
         if (inventory.items.Count <= 0)
@@ -130,7 +140,7 @@ public class BackpackUIManager : MonoBehaviour
 
             slotImage.sprite = currentSelectSprite;
             slotImage.color = new Color(1, 1, 1, 1);
-            childImage.color = new Color(1,1,1,1);
+            childImage.color = new Color(1, 1, 1, 1);
             if (i == currentIndex)
             {
                 slotImage.sprite = currentSelectSprite;
@@ -138,14 +148,14 @@ public class BackpackUIManager : MonoBehaviour
                 childImage.color = new Color(1, 1, 1, 0);
             }
 
-            int previous = currentIndex -1;
-            if(i == previous && previous >= 0)
+            int previous = currentIndex - 1;
+            if (i == previous && previous >= 0)
             {
                 slotImage.sprite = previousSelectSprite;
             }
 
-            int next = currentIndex +1;
-            if(i == next && next < inventory.items.Count)
+            int next = currentIndex + 1;
+            if (i == next && next < inventory.items.Count)
             {
                 slotImage.sprite = nextSelectSprite;
             }

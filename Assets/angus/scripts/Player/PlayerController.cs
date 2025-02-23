@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, IDataPersistence
 {
     public Rigidbody2D rb;
     public Vector2 moveVector;
@@ -128,5 +128,15 @@ public class PlayerController : MonoBehaviour
             _anime.SetBool("isJumping", false);
             Debug.Log("已落地");
         }
+    }
+
+    public void LoadData(GameData data)
+    {
+        this.transform.position = data.playerPosition;
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        data.playerPosition = this.transform.position;
     }
 }

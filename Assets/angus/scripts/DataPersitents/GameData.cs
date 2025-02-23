@@ -5,10 +5,13 @@ using UnityEngine;
 [System.Serializable]
 public class GameData 
 {
-    public string sceneName;
+    public string lastScene;
+
+    public Vector3 playerPosition;
 
     public GameData()
     {
-        this.sceneName = "";
+        this.lastScene = "";
+        playerPosition = Vector3.zero;
     }
 }

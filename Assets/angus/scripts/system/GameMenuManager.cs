@@ -7,6 +7,7 @@ public class GameMenuManager : MonoBehaviour
     {
         GameManager gameManager = GameManager.Instance;
         gameManager.StartCoroutine(gameManager.LoadGameScene());
+        DataPersistenceManager.Instance.NewGame();
     }
     public void OnClickLoadButton(CanvasGroup canvas)
     {

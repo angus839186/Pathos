@@ -8,6 +8,7 @@ TagManager:
   - Fence
   - skyPos
   - skyBackPos
+  - CameraControl
   layers:
   - Default
   - TransparentFX
