@@ -1,7 +1,14 @@
 using UnityEngine;
 
-public class Trees : MonoBehaviour, IInteractable
+public class Trees : MonoBehaviour, IInteractable, IDataPersistence
 {
+    [SerializeField] private string id;
+
+    [ContextMenu("Generate tree id")]
+    private void GenerateTreeID()
+    {
+        id = System.Guid.NewGuid().ToString();
+    }
 
     public Item axeItem;
     public bool isCutDown = false;
@@ -12,6 +19,8 @@ public class Trees : MonoBehaviour, IInteractable
     public Bird[] birds;
 
     public AudioClip sound;
+
+    public Sprite treeFallSprite;
 
     public string GetDescription()
     {
@@ -65,5 +74,27 @@ public class Trees : MonoBehaviour, IInteractable
     public void Interact()
     {
         Debug.Log(DefaultDescription);
+    }
+
+    public void LoadData(GameData data)
+    {
+        data.treesFalled.TryGetValue(id, out isCutDown);
+        if(isCutDown)
+        {
+            Animator anime = GetComponent<Animator>();
+            anime.enabled = false;
+            SpriteRenderer treeSprite = GetComponent<SpriteRenderer>();
+            treeSprite.sprite = treeFallSprite;
+            Debug.Log(treeSprite.sprite);
+        }
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        if(data.treesFalled.ContainsKey(id))
+        {
+            data.treesFalled.Remove(id);
+        }
+        data.treesFalled.Add(id, isCutDown);
     }
 }

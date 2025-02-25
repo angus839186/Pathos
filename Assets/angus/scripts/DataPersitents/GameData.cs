@@ -5,13 +5,18 @@ using UnityEngine;
 [System.Serializable]
 public class GameData 
 {
-    public string lastScene;
-
+    public string currentScene;
     public Vector3 playerPosition;
+    public float gameTime;
+
+    public SerializableDictionary<string, bool> treesFalled;
 
     public GameData()
     {
-        this.lastScene = "";
+        currentScene = "";
         playerPosition = Vector3.zero;
+        gameTime = 0f;
+        treesFalled = new SerializableDictionary<string, bool>();
     }
 }
+

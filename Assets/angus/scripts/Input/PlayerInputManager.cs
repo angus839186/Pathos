@@ -31,8 +31,10 @@ public class PlayerInputManager : MonoBehaviour
         }
         Instance = this;
         DontDestroyOnLoad(gameObject);
+    }
 
-        // 如果還沒指定，試著從本物件取得
+    void Start()
+    {
         if (playerInput == null)
         {
             playerInput = GetComponent<PlayerInput>();
@@ -110,6 +112,8 @@ public class PlayerInputManager : MonoBehaviour
             OnConfirmMainItemEvent?.Invoke(value.Get<float>());
         }
     }
+
+
 
     public void SwitchActionMap(string mapName)
     {
