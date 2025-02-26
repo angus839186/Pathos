@@ -2,30 +2,35 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using UnityEngine.SceneManagement;
 
 public class DataPersistenceManager : MonoBehaviour
 {
 
+    [Header("File Storage config")]
+    [SerializeField] public string fileName;
+
     private List<IDataPersistence> dataPersistenceObjects;
+
+    private FileDataHandler dataHandler;
+
     public static DataPersistenceManager Instance;
 
-    private GameData gameData;
-    private void Awake()
+    public GameData gameData;
+    void Awake()
     {
-        if(Instance != null)
+        if (Instance == null)
         {
-            Debug.Log("Error");
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
-        Instance = this;
-        DontDestroyOnLoad(gameObject);
+        else if (Instance != this)
+        {
+            Destroy(gameObject);
+        }
     }
 
-    private void Start()
-    {
-        this.dataPersistenceObjects = FindAllDataPersistenceObjects();
 
-        LoadGame();
-    }
     public void NewGame()
     {
         this.gameData = new GameData();
@@ -33,34 +38,60 @@ public class DataPersistenceManager : MonoBehaviour
 
     public void SaveGame()
     {
-        foreach(IDataPersistence dataPersistence in dataPersistenceObjects)
+        foreach (IDataPersistence dataPersistence in dataPersistenceObjects)
         {
             dataPersistence.SaveData(ref gameData);
         }
-        Debug.Log(gameData.playerPosition);
-    }
-    public void LoadGame()
-    {
-        if(this.gameData == null)
-        {
-            NewGame();
-        }
 
-        foreach(IDataPersistence dataPersistence in dataPersistenceObjects)
+        if (gameData != null)
+        {
+            Debug.Log(gameData);
+            this.dataHandler = new FileDataHandler(Application.persistentDataPath, fileName);
+            dataHandler.Save(gameData);
+        }
+    }
+    // public void LoadGame()
+    // {
+
+    //     this.gameData = dataHandler.Load();
+    //     if (this.gameData == null)
+    //     {
+    //         NewGame();
+    //     }
+
+    //     foreach (IDataPersistence dataPersistence in dataPersistenceObjects)
+    //     {
+    //         dataPersistence.LoadData(gameData);
+    //     }
+    //     Debug.Log("Loaded");
+    // }
+
+    public void LoadGame(string fileName)
+    {
+        this.dataHandler = new FileDataHandler(Application.persistentDataPath, fileName);
+        this.gameData = dataHandler.Load();
+    }
+
+    public void LoadGameData()
+    {
+        this.dataPersistenceObjects = FindAllDataPersistenceObjects();
+        foreach (IDataPersistence dataPersistence in dataPersistenceObjects)
         {
             dataPersistence.LoadData(gameData);
         }
-        Debug.Log("Loaded");
     }
-    private void OnApplicationQuit()
-    {
-        SaveGame();
-    }
+
+    // private void OnApplicationQuit()
+    // {
+    //     SaveGame();
+    // }
+
     private List<IDataPersistence> FindAllDataPersistenceObjects()
     {
-        IEnumerable<IDataPersistence> dataPersistences = FindObjectsOfType<MonoBehaviour>()
-        .OfType<IDataPersistence>();
+        // FindObjectsofType takes in an optional boolean to include inactive gameobjects
+        IEnumerable<IDataPersistence> dataPersistenceObjects = FindObjectsOfType<MonoBehaviour>(true)
+            .OfType<IDataPersistence>();
 
-        return new List<IDataPersistence>(dataPersistences);
+        return new List<IDataPersistence>(dataPersistenceObjects);
     }
 }

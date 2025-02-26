@@ -10,6 +10,10 @@ public class MenuInputManager : MonoBehaviour
 
     public event Action BackToMainPanel;
 
+    public event Action OnCloseSaveMenuEvent;
+
+    public PlayerInput menuInput;
+
     void Awake()
     {
         if (Instance != null && Instance != this)
@@ -19,6 +23,7 @@ public class MenuInputManager : MonoBehaviour
         }
         Instance = this;
         DontDestroyOnLoad(gameObject);
+        menuInput.GetComponent<PlayerInput>();
     }
     public void OnClosePanel(InputValue value)
     {
@@ -27,5 +32,17 @@ public class MenuInputManager : MonoBehaviour
         {
             BackToMainPanel.Invoke();
         }
+    }
+    public void OnCloseSaveMenu(InputValue value)
+    {
+        float pressed = value.Get<float>();
+        if(pressed > 0.5f)
+        {
+            OnCloseSaveMenuEvent?.Invoke();
+        }
+    }
+    public void SwitchActionMap(string mapName)
+    {
+        menuInput.SwitchCurrentActionMap(mapName);
     }
 }

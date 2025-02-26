@@ -9,6 +9,7 @@ TagManager:
   - skyPos
   - skyBackPos
   - CameraControl
+  - itemSlots
   layers:
   - Default
   - TransparentFX

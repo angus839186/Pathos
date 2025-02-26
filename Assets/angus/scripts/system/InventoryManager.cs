@@ -2,10 +2,10 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Inventory : MonoBehaviour
+public class InventoryManager : MonoBehaviour
 {
 
-    public static Inventory Instance { get; private set; }
+    public static InventoryManager Instance { get; private set; }
     public List<InventoryItem> items = new List<InventoryItem>();
 
     // 定義事件，當 Inventory 改變時觸發
@@ -26,16 +26,16 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    public void AddItem(Item newItem, int amount = 1)
+    public void AddItem(Item newItem)
     {
         InventoryItem invItem = items.Find(x => x.item == newItem);
         if (invItem != null)
         {
-            invItem.quantity += amount;
+            return;
         }
         else
         {
-            InventoryItem newInvItem = new InventoryItem { item = newItem, quantity = amount };
+            InventoryItem newInvItem = new InventoryItem { item = newItem };
             items.Add(newInvItem);
         }
 
@@ -43,16 +43,12 @@ public class Inventory : MonoBehaviour
         Debug.Log("得到新東西");
     }
 
-    public void RemoveItem(Item item, int amount = 1)
+    public void RemoveItem(Item item)
     {
         InventoryItem invItem = items.Find(x => x.item == item);
         if (invItem != null)
         {
-            invItem.quantity -= amount;
-            if (invItem.quantity <= 0)
-            {
-                items.Remove(invItem);
-            }
+            items.Remove(invItem);
             OnInventoryChanged?.Invoke();
         }
     }
@@ -61,6 +57,5 @@ public class Inventory : MonoBehaviour
 [System.Serializable]
 public class InventoryItem
 {
-    public Item item;      // 道具資料
-    public int quantity;   // 數量
+    public Item item;
 }

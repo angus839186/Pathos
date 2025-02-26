@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using UnityEditor;
+using System;
 
 public class PlayerInteraction : MonoBehaviour
 {
@@ -18,9 +19,10 @@ public class PlayerInteraction : MonoBehaviour
 
     public PlayerController player;
 
-    private void Start()
+    void Awake()
     {
         player = GetComponent<PlayerController>();
+        descriptionText = DescriptionText.Instance;
     }
 
     void OnEnable()
@@ -63,7 +65,7 @@ public class PlayerInteraction : MonoBehaviour
             if (player.isInteracting)
                 return;
 
-            InventoryItem mainItem = Hotbar.Instance._item; // 此處 hotbar._item 可能為 null
+            InventoryItem mainItem = Hotbar.Instance._item;
             Item heldItem = (mainItem.item != null) ? mainItem.item : null;
 
             string animTrigger = currentInteractable.GetAnimationTrigger(heldItem);
