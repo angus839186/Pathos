@@ -50,21 +50,6 @@ public class DataPersistenceManager : MonoBehaviour
             dataHandler.Save(gameData);
         }
     }
-    // public void LoadGame()
-    // {
-
-    //     this.gameData = dataHandler.Load();
-    //     if (this.gameData == null)
-    //     {
-    //         NewGame();
-    //     }
-
-    //     foreach (IDataPersistence dataPersistence in dataPersistenceObjects)
-    //     {
-    //         dataPersistence.LoadData(gameData);
-    //     }
-    //     Debug.Log("Loaded");
-    // }
 
     public void LoadGame(string fileName)
     {
@@ -93,5 +78,10 @@ public class DataPersistenceManager : MonoBehaviour
             .OfType<IDataPersistence>();
 
         return new List<IDataPersistence>(dataPersistenceObjects);
+    }
+    public void RegisterDataPersistenceObject(IDataPersistence dataPersistenceObject)
+    {
+        if (!dataPersistenceObjects.Contains(dataPersistenceObject))
+            dataPersistenceObjects.Add(dataPersistenceObject);
     }
 }
