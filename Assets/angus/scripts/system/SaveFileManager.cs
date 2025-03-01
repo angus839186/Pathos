@@ -22,6 +22,18 @@ public class SaveFileManager : MonoBehaviour
     public Button loadButton;
     public Button saveButton;
 
+    public Button deleteButton;
+
+    public Button returnButton;
+
+    public List<SceneSpriteMapping> sceneSpriteList;
+
+    // 預設圖片（若找不到對應場景時使用）
+    public Sprite defaultSceneSprite;
+
+    // 建立字典以方便查詢
+    private Dictionary<string, Sprite> sceneSprites;
+
 
     void Awake()
     {
@@ -46,21 +58,41 @@ public class SaveFileManager : MonoBehaviour
     void OnEnable()
     {
         SceneDataManager.Instance.OnSceneLoad += GetAllSaveFiles;
+        SceneDataManager.Instance.OnSceneLoad += AddSaveFileMenuButton;
     }
     void OnDisable()
     {
         SceneDataManager.Instance.OnSceneLoad -= GetAllSaveFiles;
+        SceneDataManager.Instance.OnSceneLoad -= AddSaveFileMenuButton;
+
     }
 
-    public void GetAllSaveFiles()
+    public void AddSaveFileMenuButton()
     {
+        string currentSceneName = SceneManager.GetActiveScene().name;
         saveFileIndexText = GameObject.Find("存檔欄位").GetComponent<TextMeshProUGUI>();
         sceneNameText = GameObject.Find("場景名稱").GetComponent<TextMeshProUGUI>();
         gameTimeText = GameObject.Find("遊玩時間").GetComponent<TextMeshProUGUI>();
         loadButton = GameObject.Find("讀檔按鈕").GetComponent<Button>();
+        deleteButton = GameObject.Find("刪除存檔").GetComponent<Button>();
         saveButton = GameObject.Find("存檔按鈕").GetComponent<Button>();
+        returnButton = GameObject.Find("返回按鈕").GetComponent<Button>();
         loadButton.onClick.AddListener(() => OnLoadButtonClicked());
         saveButton.onClick.AddListener(() => OnSaveButtonClicked());
+        deleteButton.onClick.AddListener(() => OnDeleteButtonClicked());
+
+        if (currentSceneName == "testMenu")
+        {
+            returnButton.onClick.AddListener(() => OnReturnMenuButtonClick());
+        }
+        else
+        {
+            returnButton.onClick.AddListener(() => OnReturnGameSceneButtonClicked());
+        }
+    }
+
+    public void GetAllSaveFiles()
+    {
         foreach (SaveFileInfo saveFile in saveFileChecker.saveFiles)
         {
             // 動態生成按鈕
@@ -68,7 +100,25 @@ public class SaveFileManager : MonoBehaviour
             GameObject newSaveButton = Instantiate(buttonPrefab, scrollController.transform);
             Button btn = newSaveButton.GetComponent<Button>();
 
-            RectTransform newButtonRect = newSaveButton.GetComponent<RectTransform>();
+            // 取得按鈕上的 Image 元件 (假設按鈕預製件下有一個 Image)
+            Image sceneImage = newSaveButton.GetComponentInChildren<Image>();
+            if (saveFile.data != null)
+            {
+                // 若存檔有資料，就根據場景名稱設定對應的圖片
+                if (sceneSprites.ContainsKey(saveFile.data.currentScene))
+                {
+                    sceneImage.sprite = sceneSprites[saveFile.data.currentScene];
+                }
+                else
+                {
+                    sceneImage.sprite = defaultSceneSprite;
+                }
+            }
+            else
+            {
+                // 空存檔欄位使用預設圖片
+                sceneImage.sprite = defaultSceneSprite;
+            }
 
             // 為按鈕添加點擊事件，當點擊時更新右側資訊
             btn.onClick.AddListener(() => OnSlotButtonClicked(saveFile));
@@ -76,7 +126,7 @@ public class SaveFileManager : MonoBehaviour
             // 將新按鈕加入控制器的列表
             if (scrollController != null)
             {
-                scrollController.buttons.Add(newButtonRect);
+                scrollController.buttons.Add(newSaveButton.GetComponent<RectTransform>());
 
                 // 取得目前按鈕在列表中的索引
                 int index = scrollController.buttons.Count - 1;
@@ -89,28 +139,77 @@ public class SaveFileManager : MonoBehaviour
         }
     }
 
+    private void UpdateSlotUI(SaveFileInfo saveFile)
+    {
+        // 先將所有按鈕隱藏
+        loadButton.gameObject.SetActive(false);
+        saveButton.gameObject.SetActive(false);
+        deleteButton.gameObject.SetActive(false);
+        returnButton.gameObject.SetActive(false);
+
+        // 取得當前場景名稱
+        string currentSceneName = SceneManager.GetActiveScene().name;
+
+        if (saveFile.data != null)
+        {
+            // 如果該欄位有存檔資料
+            if (currentSceneName == "testMenu")
+            {
+                // 主菜單：顯示讀檔與刪除按鈕
+                loadButton.gameObject.SetActive(true);
+                deleteButton.gameObject.SetActive(true);
+            }
+            else
+            {
+                // 遊戲進行中：顯示覆蓋存檔（存檔按鈕）與刪除按鈕
+                saveButton.gameObject.SetActive(true); // 當作覆蓋存檔使用
+                returnButton.gameObject.SetActive(true);
+            }
+        }
+        else
+        {
+            if (currentSceneName == "testMenu")
+            {
+                returnButton.gameObject.SetActive(true);
+                return;
+            }
+            else
+            {
+                saveButton.gameObject.SetActive(true);
+                returnButton.gameObject.SetActive(true);
+            }
+        }
+    }
+
     // 當點擊存檔欄位按鈕時更新資訊
     void OnSlotButtonClicked(SaveFileInfo saveFile)
     {
         selectedSaveFile = saveFile;
-        // 更新欄位編號資訊
+        // 更新欄位資訊
         saveFileIndexText.text = "存檔欄位: " + saveFile.fileName;
 
-        // 若該欄位有存檔資料則顯示詳細資訊，否則提示為空
+        // 更新右側資訊文字
         if (saveFile.data != null)
         {
             sceneNameText.text = "場景: " + saveFile.data.currentScene;
             gameTimeText.text = "遊玩時間: " + saveFile.data.gameTime.ToString("F2") + "秒";
-            loadButton.gameObject.SetActive(true);
-            saveButton.gameObject.SetActive(false);
         }
         else
         {
             sceneNameText.text = "場景: 空";
             gameTimeText.text = "遊玩時間: 0秒";
-            loadButton.gameObject.SetActive(false);
-            saveButton.gameObject.SetActive(true);
         }
+
+        // 根據當前場景及欄位狀態更新按鈕顯示
+        UpdateSlotUI(saveFile);
+    }
+
+    public void OnOpenSaveFilePage()
+    {
+        loadButton.gameObject.SetActive(false);
+        saveButton.gameObject.SetActive(false);
+        deleteButton.gameObject.SetActive(false);
+        returnButton.gameObject.SetActive(false);
     }
 
     // 點擊【讀檔】按鈕時呼叫
@@ -118,14 +217,11 @@ public class SaveFileManager : MonoBehaviour
     {
         if (selectedSaveFile != null && selectedSaveFile.data != null)
         {
-            // 使用 DataPersistenceManager 載入該欄位的存檔
             DataPersistenceManager.Instance.gameData = selectedSaveFile.data;
-
-            // 讀取存檔中的場景資訊並切換
             if (!string.IsNullOrEmpty(DataPersistenceManager.Instance.gameData.currentScene))
             {
                 GameManager.Instance.StartCoroutine(GameManager.Instance.
-                LoadGameScene(DataPersistenceManager.Instance.gameData.currentScene));
+                    LoadGameScene(DataPersistenceManager.Instance.gameData.currentScene));
             }
         }
         else
@@ -144,16 +240,54 @@ public class SaveFileManager : MonoBehaviour
         }
         if (selectedSaveFile != null)
         {
-            // 將 DataPersistenceManager 的 fileName 設定為選定的欄位
+            // 設定存檔欄位檔名
             DataPersistenceManager.Instance.fileName = selectedSaveFile.fileName;
             DataPersistenceManager.Instance.SaveGame();
-
-            // 更新 SaveFileChecker 與右側資訊（依照需求可以重新讀取最新存檔資料）
             Debug.Log("存檔成功於: " + selectedSaveFile.fileName);
+
+            // 更新該存檔欄位的資料（可以重新讀取或直接指定）
+            // 例如：selectedSaveFile.data = DataPersistenceManager.Instance.gameData;
+            // 接著刷新 UI
+            UpdateSlotUI(selectedSaveFile);
         }
         else
         {
             Debug.Log("請先選擇一個存檔欄位！");
         }
     }
+    public void OnDeleteButtonClicked()
+    {
+        if (selectedSaveFile != null)
+        {
+            // 建立 FileDataHandler 並刪除檔案
+            FileDataHandler fileHandler = new FileDataHandler(Application.persistentDataPath, selectedSaveFile.fileName);
+            fileHandler.DeleteSaveFile();
+
+            // 清除存檔資料
+            selectedSaveFile.data = null;
+
+            // 刷新 SaveFileChecker 的存檔列表（假設你有提供此功能）
+            SaveFileChecker.Instance.GetSave();
+
+            // 更新 UI，使該欄位變為空
+            UpdateSlotUI(selectedSaveFile);
+            Debug.Log("存檔已刪除: " + selectedSaveFile.fileName);
+        }
+    }
+    public void OnReturnMenuButtonClick()
+    {
+        CanvasGroup mainCanva = GameObject.Find("主頁面").GetComponent<CanvasGroup>();
+        MenuTransition.Instance.Transition(mainCanva);
+        Debug.Log("ReturnMenu");
+    }
+    public void OnReturnGameSceneButtonClicked()
+    {
+        GameMenuManager.Instance.CloseSaveMenu();
+    }
+}
+[System.Serializable]
+public struct SceneSpriteMapping
+{
+    public string sceneName;
+    public Sprite sceneSprite;
 }
