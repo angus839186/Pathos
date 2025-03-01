@@ -318,7 +318,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1666693939}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: a8c0ab2841f155841a1852661f95ec8b, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: ec897937d10c0034cb68b4c92a70ee92, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
@@ -375,18 +375,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vp: {fileID: 1666693940}
   clips:
-  - {fileID: 32900000, guid: a8c0ab2841f155841a1852661f95ec8b, type: 3}
-  - {fileID: 32900000, guid: 59fa4a4e7c6c92d4b8c4b5deba453fe8, type: 3}
-  - {fileID: 32900000, guid: 49a63a78f4dc6a84e82bd414f537d0c0, type: 3}
-  - {fileID: 32900000, guid: ceb63abd80eccdf4fb43df7666e312ae, type: 3}
-  - {fileID: 32900000, guid: 974924897e6eaec4b99de49e484f49a3, type: 3}
-  - {fileID: 32900000, guid: 72de953da3fbcda48992fd74b1423900, type: 3}
-  - {fileID: 32900000, guid: 232997f9373acad4f9e4ceb96775a0cb, type: 3}
-  - {fileID: 32900000, guid: 1a6991129967bfe42bd4a1d265396445, type: 3}
-  - {fileID: 32900000, guid: 65321900bde43cd488b440ed24ed3df9, type: 3}
-  - {fileID: 32900000, guid: 68806fc7374071a4c81bfa31eaa205db, type: 3}
-  - {fileID: 32900000, guid: 4014c0efaee33b64aaf6bc65f7d8d59a, type: 3}
-  - {fileID: 32900000, guid: 7737b2bceb2fe7e4c9495c3faea2a9f5, type: 3}
+  - {fileID: 32900000, guid: ec897937d10c0034cb68b4c92a70ee92, type: 3}
+  - {fileID: 32900000, guid: dcf23f7d598f4554e96a35655041feb0, type: 3}
+  - {fileID: 32900000, guid: 905badd1a496c2340bf010561bc682cd, type: 3}
+  - {fileID: 32900000, guid: 32e42751436266e47b3decbef625881d, type: 3}
+  - {fileID: 32900000, guid: bb4f989c8cea2ca47ac491a97f1f2dd4, type: 3}
+  - {fileID: 32900000, guid: 673c248bf4603e64b949b3b2510a20da, type: 3}
+  - {fileID: 32900000, guid: 47072d0861fa823469da13dffb38e016, type: 3}
+  - {fileID: 32900000, guid: 35c7618469ebdab4097d85708be746e8, type: 3}
+  - {fileID: 32900000, guid: 62423c6146ed7994683bdd84dfc4419a, type: 3}
+  - {fileID: 32900000, guid: 12cb35774be3f37478f9703a65c45265, type: 3}
+  - {fileID: 32900000, guid: 40cf68945d66f294d9a070e315a3cc3d, type: 3}
+  - {fileID: 32900000, guid: 7f896289d5a7e214aae4655deb8652b2, type: 3}
 --- !u!1 &1770234794
 GameObject:
   m_ObjectHideFlags: 0
