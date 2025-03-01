@@ -16,11 +16,6 @@ public class ButtonScrollController : MonoBehaviour
 
     public int selectedIndex = 0;
 
-    void Start()
-    {
-        DontDestroyOnLoad(gameObject);
-    }
-
     public void SelectButton(int index)
     {
         if (index < 0 || index >= buttons.Count) return;

@@ -1499,7 +1499,7 @@ MonoBehaviour:
   returnButton: {fileID: 986853283}
   sceneSpriteList:
   - sceneName: testScene
-    sceneSprite: {fileID: 0}
+    sceneSprite: {fileID: 21300000, guid: 3f90a03269db81d469575b8463ef0393, type: 3}
   defaultSceneSprite: {fileID: 21300000, guid: 021b1c659b7627343a0b98fdb3a9a4c1, type: 3}
 --- !u!1 &851799800
 GameObject:

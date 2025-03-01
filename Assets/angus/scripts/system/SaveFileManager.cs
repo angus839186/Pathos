@@ -46,6 +46,14 @@ public class SaveFileManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        sceneSprites = new Dictionary<string, Sprite>();
+        foreach (var mapping in sceneSpriteList)
+        {
+            if (!sceneSprites.ContainsKey(mapping.sceneName))
+            {
+                sceneSprites.Add(mapping.sceneName, mapping.sceneSprite);
+            }
+        }
     }
     void Start()
     {
@@ -101,23 +109,23 @@ public class SaveFileManager : MonoBehaviour
             Button btn = newSaveButton.GetComponent<Button>();
 
             // 取得按鈕上的 Image 元件 (假設按鈕預製件下有一個 Image)
-            Image sceneImage = newSaveButton.GetComponentInChildren<Image>();
+            Image[] sceneImage = newSaveButton.GetComponentsInChildren<Image>();
             if (saveFile.data != null)
             {
                 // 若存檔有資料，就根據場景名稱設定對應的圖片
                 if (sceneSprites.ContainsKey(saveFile.data.currentScene))
                 {
-                    sceneImage.sprite = sceneSprites[saveFile.data.currentScene];
+                    sceneImage[1].sprite = sceneSprites[saveFile.data.currentScene];
                 }
                 else
                 {
-                    sceneImage.sprite = defaultSceneSprite;
+                    sceneImage[1].sprite = defaultSceneSprite;
                 }
             }
             else
             {
                 // 空存檔欄位使用預設圖片
-                sceneImage.sprite = defaultSceneSprite;
+                sceneImage[1].sprite = defaultSceneSprite;
             }
 
             // 為按鈕添加點擊事件，當點擊時更新右側資訊

@@ -5689,7 +5689,6 @@ GameObject:
   - component: {fileID: 958099341}
   - component: {fileID: 958099340}
   - component: {fileID: 958099339}
-  - component: {fileID: 958099338}
   m_Layer: 5
   m_Name: SaveFilePage
   m_TagString: Untagged
@@ -5697,18 +5696,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &958099338
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 958099337}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e328c56aaaa14dd4980b5111b3c5e651, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!225 &958099339
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -6863,6 +6850,7 @@ MonoBehaviour:
   _item:
     item: {fileID: 0}
   currentMainItemIndex: 0
+  DefaultSprite: {fileID: 21300000, guid: 021b1c659b7627343a0b98fdb3a9a4c1, type: 3}
 --- !u!114 &1235830902
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11712,58 +11700,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &2110125172
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2110125174}
-  - component: {fileID: 2110125173}
-  m_Layer: 0
-  m_Name: DataPersistenceManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2110125173
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2110125172}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f94ba0291cfb2cd4087b435cc826e7d0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fileName: 
-  gameData:
-    currentScene: 
-    playerPosition: {x: 0, y: 0, z: 0}
-    gameTime: 0
-    treesFalled:
-      keys: []
-      values: 
---- !u!4 &2110125174
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2110125172}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2144316617
 GameObject:
   m_ObjectHideFlags: 0
@@ -11948,7 +11884,6 @@ SceneRoots:
   - {fileID: 664774913}
   - {fileID: 154570940}
   - {fileID: 1650639600}
-  - {fileID: 2110125174}
   - {fileID: 1479107408}
   - {fileID: 1689021421}
   - {fileID: 1577607930}

@@ -11,6 +11,8 @@ public class Hotbar : MonoBehaviour
 
     public int currentMainItemIndex = 0;
 
+    public Sprite DefaultSprite;
+
     void Awake()
     {
         if (Instance != null && Instance != this)
@@ -23,25 +25,18 @@ public class Hotbar : MonoBehaviour
 
     public void SetMainItem(InventoryItem item, int index)
     {
-        currentMainItemIndex = index;
-        if (item != null && item.item != null)
+        if(item == _item)
+        {
+            _item = null;
+            currentMainItemIndex = 0;
+            mainHotbarIcon.sprite = DefaultSprite;
+            return;
+        }
+        if (item != null)
         {
             _item = item;
             mainHotbarIcon.sprite = item.item.icon;
-            // 設置圖示完全可見
-            Color c = mainHotbarIcon.color;
-            c.a = 1f;
-            mainHotbarIcon.color = c;
-        }
-        else
-        {
-            // 當沒有道具時，將 _item 設為 null
-            _item = null;
-            mainHotbarIcon.sprite = null;
-            // 設置圖示透明
-            Color c = mainHotbarIcon.color;
-            c.a = 0f;
-            mainHotbarIcon.color = c;
+            currentMainItemIndex = index;
         }
     }
 }
