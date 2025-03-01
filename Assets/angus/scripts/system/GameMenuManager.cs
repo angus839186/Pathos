@@ -41,21 +41,13 @@ public class GameMenuManager : MonoBehaviour
     {
         MenuTransition.Instance.Transition(canvas);
     }
-    public void OnClickLoadFileButton()
-    {
-
-    }
-    public void OnClickSaveFileButton()
-    {
-
-    }
     public void OnClickSettingButton()
     {
 
     }
     public void OnCloseButton()
     {
-
+        Application.Quit();
     }
 
     public void GetSaveMenu()
@@ -70,6 +62,7 @@ public class GameMenuManager : MonoBehaviour
         MenuInputManager.Instance.SwitchActionMap("SaveMenu");
         saveMenu.interactable = true;
         saveMenu.blocksRaycasts = true;
+        SaveFileManager.Instance.OnOpenSaveFilePage();
     }
     public void CloseSaveMenu()
     {

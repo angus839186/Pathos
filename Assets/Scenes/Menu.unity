@@ -1279,6 +1279,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startScene: testScene
   playerPrefab: {fileID: 1814799832682872464, guid: 7ba23919a87a5384699cc97a0a17c5e6, type: 3}
+  SetPlayer: 0
 --- !u!4 &1293267565
 Transform:
   m_ObjectHideFlags: 0
