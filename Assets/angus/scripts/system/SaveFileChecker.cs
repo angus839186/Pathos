@@ -28,6 +28,7 @@ public class SaveFileChecker : MonoBehaviour
     public void GetSave()
     {
         // 遍歷所有預定的存檔欄位
+        saveFiles.Clear();
         foreach (string fileName in fileNames)
         {
             string fullPath = Path.Combine(Application.persistentDataPath, fileName);

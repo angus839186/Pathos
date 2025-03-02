@@ -52,7 +52,7 @@ public class GameMenuManager : MonoBehaviour
 
     public void GetSaveMenu()
     {
-        CanvasGroup canva = GameObject.Find("SaveFilePage").GetComponent<CanvasGroup>();
+        CanvasGroup canva = GameObject.Find("存讀檔頁面UI").GetComponent<CanvasGroup>();
         saveMenu = canva;
     }
 

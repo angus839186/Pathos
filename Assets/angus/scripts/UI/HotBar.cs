@@ -21,6 +21,7 @@ public class Hotbar : MonoBehaviour
             return;
         }
         Instance = this;
+        DontDestroyOnLoad(gameObject);
     }
 
     public void SetMainItem(InventoryItem item, int index)

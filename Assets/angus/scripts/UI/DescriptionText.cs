@@ -22,7 +22,6 @@ public class DescriptionText : MonoBehaviour
     }
     void Start()
     {
-        DontDestroyOnLoad(gameObject);
         this.gameObject.SetActive(false);
     }
 

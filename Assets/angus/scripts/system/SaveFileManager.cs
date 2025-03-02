@@ -76,35 +76,51 @@ public class SaveFileManager : MonoBehaviour
     }
 
     public void AddSaveFileMenuButton()
-    {
-        string currentSceneName = SceneManager.GetActiveScene().name;
-        saveFileIndexText = GameObject.Find("存檔欄位").GetComponent<TextMeshProUGUI>();
-        sceneNameText = GameObject.Find("場景名稱").GetComponent<TextMeshProUGUI>();
-        gameTimeText = GameObject.Find("遊玩時間").GetComponent<TextMeshProUGUI>();
-        loadButton = GameObject.Find("讀檔按鈕").GetComponent<Button>();
-        deleteButton = GameObject.Find("刪除存檔").GetComponent<Button>();
-        saveButton = GameObject.Find("存檔按鈕").GetComponent<Button>();
-        returnButton = GameObject.Find("返回按鈕").GetComponent<Button>();
-        loadButton.onClick.AddListener(() => OnLoadButtonClicked());
-        saveButton.onClick.AddListener(() => OnSaveButtonClicked());
-        deleteButton.onClick.AddListener(() => OnDeleteButtonClicked());
+{
+    string currentSceneName = SceneManager.GetActiveScene().name;
+    saveFileIndexText = GameObject.Find("存檔欄位").GetComponent<TextMeshProUGUI>();
+    sceneNameText = GameObject.Find("場景名稱").GetComponent<TextMeshProUGUI>();
+    gameTimeText = GameObject.Find("遊玩時間").GetComponent<TextMeshProUGUI>();
+    loadButton = GameObject.Find("讀檔按鈕").GetComponent<Button>();
+    deleteButton = GameObject.Find("刪除存檔").GetComponent<Button>();
+    saveButton = GameObject.Find("存檔按鈕").GetComponent<Button>();
+    returnButton = GameObject.Find("返回按鈕").GetComponent<Button>();
 
-        if (currentSceneName == "testMenu")
-        {
-            returnButton.onClick.AddListener(() => OnReturnMenuButtonClick());
-        }
-        else
-        {
-            returnButton.onClick.AddListener(() => OnReturnGameSceneButtonClicked());
-        }
+    // 移除舊有的監聽器，避免累積
+    loadButton.onClick.RemoveAllListeners();
+    deleteButton.onClick.RemoveAllListeners();
+    saveButton.onClick.RemoveAllListeners();
+    returnButton.onClick.RemoveAllListeners();
+
+    loadButton.onClick.AddListener(() => OnLoadButtonClicked());
+    saveButton.onClick.AddListener(() => OnSaveButtonClicked());
+    deleteButton.onClick.AddListener(() => OnDeleteButtonClicked());
+
+    if (currentSceneName == "testMenu")
+    {
+        returnButton.onClick.AddListener(() => OnReturnMenuButtonClick());
     }
+    else
+    {
+        returnButton.onClick.AddListener(() => OnReturnGameSceneButtonClicked());
+    }
+}
 
     public void GetAllSaveFiles()
     {
+        ButtonScrollController scrollController = FindObjectOfType<ButtonScrollController>();
+
+        // 清除 Scroll Container 中先前建立的所有按鈕
+        foreach (Transform child in scrollController.transform)
+        {
+            Destroy(child.gameObject);
+        }
+
+        scrollController.buttons.Clear();
+
+        // 重新產生存檔欄位的按鈕
         foreach (SaveFileInfo saveFile in saveFileChecker.saveFiles)
         {
-            // 動態生成按鈕
-            ButtonScrollController scrollController = FindObjectOfType<ButtonScrollController>();
             GameObject newSaveButton = Instantiate(buttonPrefab, scrollController.transform);
             Button btn = newSaveButton.GetComponent<Button>();
 
@@ -112,7 +128,6 @@ public class SaveFileManager : MonoBehaviour
             Image[] sceneImage = newSaveButton.GetComponentsInChildren<Image>();
             if (saveFile.data != null)
             {
-                // 若存檔有資料，就根據場景名稱設定對應的圖片
                 if (sceneSprites.ContainsKey(saveFile.data.currentScene))
                 {
                     sceneImage[1].sprite = sceneSprites[saveFile.data.currentScene];
@@ -124,25 +139,20 @@ public class SaveFileManager : MonoBehaviour
             }
             else
             {
-                // 空存檔欄位使用預設圖片
                 sceneImage[1].sprite = defaultSceneSprite;
             }
 
-            // 為按鈕添加點擊事件，當點擊時更新右側資訊
+            // 為按鈕添加點擊事件
             btn.onClick.AddListener(() => OnSlotButtonClicked(saveFile));
 
             // 將新按鈕加入控制器的列表
-            if (scrollController != null)
-            {
-                scrollController.buttons.Add(newSaveButton.GetComponent<RectTransform>());
+            scrollController.buttons.Add(newSaveButton.GetComponent<RectTransform>());
+            int index = scrollController.buttons.Count - 1;
+            btn.onClick.AddListener(() => scrollController.SelectButton(index));
 
-                // 取得目前按鈕在列表中的索引
-                int index = scrollController.buttons.Count - 1;
-                // 當按鈕被點擊時，呼叫 SelectButton 並傳入該索引
-                btn.onClick.AddListener(() => scrollController.SelectButton(index));
-            }
-            scrollController.centerOffset = new Vector2(scrollController.LoadDataCenter.anchoredPosition.x,
-             scrollController.LoadDataCenter.anchoredPosition.y);
+            scrollController.centerOffset = new Vector2(
+                scrollController.LoadDataCenter.anchoredPosition.x,
+                scrollController.LoadDataCenter.anchoredPosition.y);
             scrollController.UpdateButtonPositions();
         }
     }
@@ -284,7 +294,7 @@ public class SaveFileManager : MonoBehaviour
     }
     public void OnReturnMenuButtonClick()
     {
-        CanvasGroup mainCanva = GameObject.Find("主頁面").GetComponent<CanvasGroup>();
+        CanvasGroup mainCanva = GameObject.Find("主頁面選單").GetComponent<CanvasGroup>();
         MenuTransition.Instance.Transition(mainCanva);
         Debug.Log("ReturnMenu");
     }

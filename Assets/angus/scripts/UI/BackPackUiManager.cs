@@ -50,7 +50,7 @@ public class BackpackUIManager : MonoBehaviour
     {
         yield return new WaitForSeconds(0.2f);
 
-        Transform backpack = GameObject.Find("backpack").transform;
+        Transform backpack = GameObject.Find("背包").transform;
         backpackPanel = backpack.GetComponent<CanvasGroup>();
         displayImage = backpack.Find("itemSprite").GetComponent<Image>();
         itemName = backpack.Find("itemName").GetComponent<Text>();
