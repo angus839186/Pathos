@@ -77,6 +77,15 @@ public class DataPersistenceManager : MonoBehaviour
         IEnumerable<IDataPersistence> dataPersistenceObjects = FindObjectsOfType<MonoBehaviour>(true)
             .OfType<IDataPersistence>();
 
+        foreach (IDataPersistence dataPersistence in dataPersistenceObjects)
+        {
+            MonoBehaviour monoBehaviour = dataPersistence as MonoBehaviour;
+            if (monoBehaviour != null)
+            {
+                Debug.Log("找到的物件名稱: " + monoBehaviour.name);
+            }
+        }
+
         return new List<IDataPersistence>(dataPersistenceObjects);
     }
     public void RegisterDataPersistenceObject(IDataPersistence dataPersistenceObject)

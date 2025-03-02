@@ -22,6 +22,8 @@ public class PlayerInputManager : MonoBehaviour
 
     public event Action<float> OnInteractEvent;
 
+    public event Action OnCloseSaveMenuEvent;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -110,6 +112,14 @@ public class PlayerInputManager : MonoBehaviour
         if (pressed > 0.5f)
         {
             OnConfirmMainItemEvent?.Invoke(value.Get<float>());
+        }
+    }
+    public void OnCloseSaveMenu(InputValue value)
+    {
+        float pressed = value.Get<float>();
+        if (pressed > 0.5f)
+        {
+            OnCloseSaveMenuEvent?.Invoke();
         }
     }
 

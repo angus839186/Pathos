@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ItemPickup : MonoBehaviour, IInteractable
+public class ItemPickup : MonoBehaviour, IInteractable, IDataPersistence
 {
     public Item item;
 
@@ -30,5 +30,19 @@ public class ItemPickup : MonoBehaviour, IInteractable
     public void InteractEvent(Item heldItem)
     {
         throw new System.NotImplementedException();
+    }
+
+    public void LoadData(GameData data)
+    {
+        if (data.inventoryItemNames != null && data.inventoryItemNames.Contains(item.itemName))
+        {
+            // 道具已被玩家拾取，移除場景中的 ItemPickup
+            Destroy(gameObject);
+        }
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        //Do Nothing
     }
 }

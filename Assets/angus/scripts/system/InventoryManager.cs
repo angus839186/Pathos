@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InventoryManager : MonoBehaviour
+public class InventoryManager : MonoBehaviour, IDataPersistence
 {
 
     public static InventoryManager Instance { get; private set; }
@@ -49,6 +49,48 @@ public class InventoryManager : MonoBehaviour
         if (invItem != null)
         {
             items.Remove(invItem);
+            OnInventoryChanged?.Invoke();
+        }
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        // 確保欄位存在
+        if (data.inventoryItemNames == null)
+        {
+            data.inventoryItemNames = new List<string>();
+        }
+        else
+        {
+            data.inventoryItemNames.Clear();
+        }
+
+        foreach (InventoryItem invItem in items)
+        {
+            // 假設每個 Item 的 itemName 為唯一識別字串
+            data.inventoryItemNames.Add(invItem.item.itemName);
+        }
+    }
+
+    public void LoadData(GameData data)
+    {
+        if (data.inventoryItemNames != null)
+        {
+            items.Clear();
+            foreach (string itemName in data.inventoryItemNames)
+            {
+                // 假設所有 Item 都放在 Resources/Items 資料夾中
+                Item item = Resources.Load<Item>("Items/" + itemName);
+                if (item != null)
+                {
+                    InventoryItem newInvItem = new InventoryItem { item = item };
+                    items.Add(newInvItem);
+                }
+                else
+                {
+                    Debug.LogWarning("找不到 Item: " + itemName);
+                }
+            }
             OnInventoryChanged?.Invoke();
         }
     }

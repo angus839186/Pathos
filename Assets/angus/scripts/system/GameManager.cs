@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 using System.Collections;
 using Cinemachine;
 using System;
+using Unity.VisualScripting;
 
 public class GameManager : MonoBehaviour
 {
@@ -44,6 +45,7 @@ public class GameManager : MonoBehaviour
             yield return null;
         }
 
+        PlayerInputManager.Instance.SwitchActionMap("DefaultPlayer");
         SpawnPlayer();
     }
 
@@ -63,6 +65,10 @@ public class GameManager : MonoBehaviour
     public void SceneLoadData()
     {
         DataPersistenceManager.Instance.LoadGameData();
+        CanvasGroup saveMenu = SaveFileManager.Instance.GetComponent<CanvasGroup>();
+        saveMenu.alpha = 0f;
+        saveMenu.interactable = false;
+        saveMenu.blocksRaycasts = false;
     }
 }
 

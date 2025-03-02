@@ -4,22 +4,13 @@ using System.Collections;
 public class MenuTransition : MonoBehaviour
 {
 
-    public static MenuTransition Instance;
-
     public CanvasGroup currentCanva;
 
     public CanvasGroup mainMenuCanva;
     public float transitionDuration = 1f;
-
-    private void Awake()
+    void Start()
     {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-        Instance = this;
-        DontDestroyOnLoad(gameObject);
+        currentCanva = mainMenuCanva;
     }
 
     public void Transition(CanvasGroup newCanvas)

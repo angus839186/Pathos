@@ -132,6 +132,12 @@
             ]
         },
         {
+            "name": "MainMenu",
+            "id": "d3818143-44b2-41da-a6e6-747cd5fcb58d",
+            "actions": [],
+            "bindings": []
+        },
+        {
             "name": "Backpack",
             "id": "dd38dd63-0d0d-4353-8367-a9e6fa605190",
             "actions": [

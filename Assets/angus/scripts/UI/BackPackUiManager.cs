@@ -43,33 +43,7 @@ public class BackpackUIManager : MonoBehaviour
     }
     void Start()
     {
-        StartCoroutine(GetBackPackUI());
-    }
-
-    public IEnumerator GetBackPackUI()
-    {
-        yield return new WaitForSeconds(0.2f);
-
-        Transform backpack = GameObject.Find("背包").transform;
-        backpackPanel = backpack.GetComponent<CanvasGroup>();
-        displayImage = backpack.Find("itemSprite").GetComponent<Image>();
-        itemName = backpack.Find("itemName").GetComponent<Text>();
-        itemDescription = backpack.Find("itemDescription").GetComponent<Text>();
-
-        Transform slotContainer = GameObject.Find("Items").transform;
-        bagSlots = new List<Image>();
-        for (int i = 0; i < slotContainer.childCount; i++)
-        {
-            Image img = slotContainer.GetChild(i).GetComponent<Image>();
-            if (img != null)
-            {
-                bagSlots.Add(img);
-            }
-        }
-
-        backpackPanel.alpha = 0f;
-        backpackPanel.interactable = false;
-        backpackPanel.blocksRaycasts = false;
+        playerInput = PlayerInputManager.Instance;
     }
 
     void OnEnable()
