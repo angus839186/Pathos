@@ -14,6 +14,10 @@ public class SaveSlot : MonoBehaviour
     public string gameTime = "";
     public Image sceneImage;
 
+    public Sprite DefaultSprite;
+
+    public int index;
+
     public string GetProfileId()
     {
         return this.profileId;
@@ -30,5 +34,13 @@ public class SaveSlot : MonoBehaviour
         }
         this.sceneName = "場景: " + data.currentScene;
         this.gameTime = "遊玩時間: " + data.gameTime.ToString() + "秒";
+        if(SaveFileMenu.Instance.sceneSprites.ContainsKey(data.currentScene))
+        {
+            this.sceneImage.sprite = SaveFileMenu.Instance.sceneSprites[data.currentScene];
+        }
+        else
+        {
+            this.sceneImage.sprite = DefaultSprite;
+        }
     }
 }

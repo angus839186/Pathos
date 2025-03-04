@@ -16,30 +16,23 @@ public class SaveFileMenu : Menu
 
     public Button loadButton;
     public Button saveButton;
-
     public Button deleteButton;
-
     public Button returnButton;
 
     public List<SceneSpriteMapping> sceneSpriteList;
 
     private SaveSlot[] saveSlots;
 
-    private SaveSlot selectedSaveSlot;
-
-    // 預設圖片（若找不到對應場景時使用）
-    public Sprite defaultSceneSprite;
+    public SaveSlot currentSaveSlot;
 
     // 建立字典以方便查詢
-    private Dictionary<string, Sprite> sceneSprites;
+    public Dictionary<string, Sprite> sceneSprites;
 
     public CanvasGroup saveFileCanvas;
 
     [Header("select save file and scroll")]
     public List<RectTransform> buttons;
     public float animationSpeed;
-
-    public RectTransform LoadDataCenter;
     public Vector2 centerOffset;
     public Vector2 upOffset;
     public Vector2 downOffset;
@@ -75,11 +68,11 @@ public class SaveFileMenu : Menu
 
     void Start()
     {
-        IntializeSaveFile();
-        UpdateButtonPositions();
+        UpdateSaveFile();
+        SelectButton(0);
     }
 
-    public void IntializeSaveFile()
+    public void UpdateSaveFile()
     {
         // load all of the profiles that exist
         Dictionary<string, GameData> profilesGameData = DataPersistenceManager.Instance.GetAllProfilesGameData();
@@ -92,38 +85,32 @@ public class SaveFileMenu : Menu
         }
     }
 
-    public void OnBackButtonClicked()
-    {
-        Transition(mainMenuCanva);
-    }
-
     public void OnSaveSlotClicked(SaveSlot saveSlot)
     {
-        DataPersistenceManager.Instance.ChangeSelectedProfileId(saveSlot.GetProfileId());
+        currentSaveSlot = saveSlot;
 
-        DisplaySaveFileDetail(saveSlot);
+        selectedIndex = currentSaveSlot.index;
+
+        DataPersistenceManager.Instance.ChangeSelectedProfileId(currentSaveSlot.GetProfileId());
+
+        DisplaySaveFileDetail(currentSaveSlot);
+
+        SelectButton(selectedIndex);
     }
 
     public void DisplaySaveFileDetail(SaveSlot saveSlot)
     {
-        if (saveSlot == null) return;
+        loadButton.gameObject.SetActive(false);
+        saveButton.gameObject.SetActive(false);
+        deleteButton.gameObject.SetActive(false);
+        returnButton.gameObject.SetActive(true);
 
         saveFileIndexText.text = saveSlot.GetProfileId();
         sceneNameText.text = saveSlot.sceneName;
         gameTimeText.text = saveSlot.gameTime;
-    }
-
-    public void OnLoadFileButtonClicked()
-    {
-        DataPersistenceManager.Instance.LoadGame();
-        GameManager gameManager = GameManager.Instance;
-        gameManager.StartCoroutine(gameManager.LoadGameScene(DataPersistenceManager.Instance.gameData.currentScene));
-    }
-
-    public void DisableAllButtons()
-    {
 
     }
+
     public void ActivateSaveFileCanvas()
     {
         saveFileCanvas.alpha = 1;
@@ -137,6 +124,37 @@ public class SaveFileMenu : Menu
         saveFileCanvas.blocksRaycasts = false;
         saveFileCanvas.interactable = false;
     }
+
+    #region savefileButtonFunction
+
+    public void OnLoadFileButtonClicked()
+    {
+        DataPersistenceManager.Instance.LoadGame();
+        GameManager gameManager = GameManager.Instance;
+        gameManager.StartCoroutine(gameManager.LoadGameScene(DataPersistenceManager.Instance.gameData.currentScene));
+    }
+
+    public void OnDeleteButtonClicked()
+    {
+        DataPersistenceManager.Instance.DeleteProfileData(currentSaveSlot.GetProfileId());
+
+        UpdateSaveFile();
+
+        OnSaveSlotClicked(saveSlots[selectedIndex]);
+    }
+
+    public void OnSaveButtonClicked()
+    {
+
+    }
+    public void OnBackButtonClicked()
+    {
+        Transition(mainMenuCanva);
+    }
+    #endregion
+
+
+    #region savefileScroll
     public void SelectButton(int index)
     {
         if (index < 0 || index >= buttons.Count) return;
@@ -209,6 +227,7 @@ public class SaveFileMenu : Menu
             cg.alpha = targetAlpha;
         }
     }
+    #endregion
 }
 [System.Serializable]
 public struct SceneSpriteMapping

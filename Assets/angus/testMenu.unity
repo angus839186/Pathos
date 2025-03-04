@@ -401,11 +401,19 @@ PrefabInstance:
       value: SaveSlot (3)
       objectReference: {fileID: 0}
     - target: {fileID: 6164914688206224228, guid: 4e0fef314a380f34bbdc3f7057cc9ab3, type: 3}
+      propertyPath: index
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6164914688206224228, guid: 4e0fef314a380f34bbdc3f7057cc9ab3, type: 3}
       propertyPath: profileId
-      value: save4
+      value: save4.save
       objectReference: {fileID: 0}
     - target: {fileID: 6507234664124499071, guid: 4e0fef314a380f34bbdc3f7057cc9ab3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6507234664124499071, guid: 4e0fef314a380f34bbdc3f7057cc9ab3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6507234664124499071, guid: 4e0fef314a380f34bbdc3f7057cc9ab3, type: 3}
@@ -426,7 +434,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6507234664124499071, guid: 4e0fef314a380f34bbdc3f7057cc9ab3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SelectButton
+      value: OnSaveSlotClicked
       objectReference: {fileID: 0}
     - target: {fileID: 6507234664124499071, guid: 4e0fef314a380f34bbdc3f7057cc9ab3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
@@ -442,12 +450,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6507234664124499071, guid: 4e0fef314a380f34bbdc3f7057cc9ab3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6507234664124499071, guid: 4e0fef314a380f34bbdc3f7057cc9ab3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 282709781}
     - target: {fileID: 6507234664124499071, guid: 4e0fef314a380f34bbdc3f7057cc9ab3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 282709781}
+    - target: {fileID: 6507234664124499071, guid: 4e0fef314a380f34bbdc3f7057cc9ab3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: SaveSlot, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 6507234664124499071, guid: 4e0fef314a380f34bbdc3f7057cc9ab3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: SaveSlot, Assembly-CSharp
@@ -1022,11 +1038,19 @@ PrefabInstance:
       value: SaveSlot (1)
       objectReference: {fileID: 0}
     - target: {fileID: 6164914688206224228, guid: 4e0fef314a380f34bbdc3f7057cc9ab3, type: 3}
+      propertyPath: index
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6164914688206224228, guid: 4e0fef314a380f34bbdc3f7057cc9ab3, type: 3}
       propertyPath: profileId
-      value: save2
+      value: save2.save
       objectReference: {fileID: 0}
     - target: {fileID: 6507234664124499071, guid: 4e0fef314a380f34bbdc3f7057cc9ab3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6507234664124499071, guid: 4e0fef314a380f34bbdc3f7057cc9ab3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6507234664124499071, guid: 4e0fef314a380f34bbdc3f7057cc9ab3, type: 3}
@@ -1047,7 +1071,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6507234664124499071, guid: 4e0fef314a380f34bbdc3f7057cc9ab3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SelectButton
+      value: OnSaveSlotClicked
       objectReference: {fileID: 0}
     - target: {fileID: 6507234664124499071, guid: 4e0fef314a380f34bbdc3f7057cc9ab3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
@@ -1063,12 +1087,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6507234664124499071, guid: 4e0fef314a380f34bbdc3f7057cc9ab3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6507234664124499071, guid: 4e0fef314a380f34bbdc3f7057cc9ab3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 547596919}
     - target: {fileID: 6507234664124499071, guid: 4e0fef314a380f34bbdc3f7057cc9ab3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 547596919}
+    - target: {fileID: 6507234664124499071, guid: 4e0fef314a380f34bbdc3f7057cc9ab3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: SaveSlot, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 6507234664124499071, guid: 4e0fef314a380f34bbdc3f7057cc9ab3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: SaveSlot, Assembly-CSharp
@@ -2800,11 +2832,19 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6164914688206224228, guid: 4e0fef314a380f34bbdc3f7057cc9ab3, type: 3}
+      propertyPath: index
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6164914688206224228, guid: 4e0fef314a380f34bbdc3f7057cc9ab3, type: 3}
       propertyPath: profileId
-      value: save5
+      value: save5.save
       objectReference: {fileID: 0}
     - target: {fileID: 6507234664124499071, guid: 4e0fef314a380f34bbdc3f7057cc9ab3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6507234664124499071, guid: 4e0fef314a380f34bbdc3f7057cc9ab3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6507234664124499071, guid: 4e0fef314a380f34bbdc3f7057cc9ab3, type: 3}
@@ -2825,7 +2865,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6507234664124499071, guid: 4e0fef314a380f34bbdc3f7057cc9ab3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SelectButton
+      value: OnSaveSlotClicked
       objectReference: {fileID: 0}
     - target: {fileID: 6507234664124499071, guid: 4e0fef314a380f34bbdc3f7057cc9ab3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
@@ -2841,12 +2881,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6507234664124499071, guid: 4e0fef314a380f34bbdc3f7057cc9ab3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6507234664124499071, guid: 4e0fef314a380f34bbdc3f7057cc9ab3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 1398763701}
     - target: {fileID: 6507234664124499071, guid: 4e0fef314a380f34bbdc3f7057cc9ab3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 1398763701}
+    - target: {fileID: 6507234664124499071, guid: 4e0fef314a380f34bbdc3f7057cc9ab3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: SaveSlot, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 6507234664124499071, guid: 4e0fef314a380f34bbdc3f7057cc9ab3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: SaveSlot, Assembly-CSharp
@@ -4000,11 +4048,19 @@ PrefabInstance:
       value: SaveSlot (2)
       objectReference: {fileID: 0}
     - target: {fileID: 6164914688206224228, guid: 4e0fef314a380f34bbdc3f7057cc9ab3, type: 3}
+      propertyPath: index
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6164914688206224228, guid: 4e0fef314a380f34bbdc3f7057cc9ab3, type: 3}
       propertyPath: profileId
-      value: save3
+      value: save3.save
       objectReference: {fileID: 0}
     - target: {fileID: 6507234664124499071, guid: 4e0fef314a380f34bbdc3f7057cc9ab3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6507234664124499071, guid: 4e0fef314a380f34bbdc3f7057cc9ab3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6507234664124499071, guid: 4e0fef314a380f34bbdc3f7057cc9ab3, type: 3}
@@ -4025,7 +4081,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6507234664124499071, guid: 4e0fef314a380f34bbdc3f7057cc9ab3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SelectButton
+      value: OnSaveSlotClicked
       objectReference: {fileID: 0}
     - target: {fileID: 6507234664124499071, guid: 4e0fef314a380f34bbdc3f7057cc9ab3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
@@ -4041,12 +4097,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6507234664124499071, guid: 4e0fef314a380f34bbdc3f7057cc9ab3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6507234664124499071, guid: 4e0fef314a380f34bbdc3f7057cc9ab3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 1937629597}
     - target: {fileID: 6507234664124499071, guid: 4e0fef314a380f34bbdc3f7057cc9ab3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 1937629597}
+    - target: {fileID: 6507234664124499071, guid: 4e0fef314a380f34bbdc3f7057cc9ab3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: SaveSlot, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 6507234664124499071, guid: 4e0fef314a380f34bbdc3f7057cc9ab3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: SaveSlot, Assembly-CSharp
@@ -4336,7 +4400,7 @@ MonoBehaviour:
   sceneSpriteList:
   - sceneName: testScene
     sceneSprite: {fileID: 21300000, guid: 3f90a03269db81d469575b8463ef0393, type: 3}
-  defaultSceneSprite: {fileID: 21300000, guid: 021b1c659b7627343a0b98fdb3a9a4c1, type: 3}
+  currentSaveSlot: {fileID: 0}
   saveFileCanvas: {fileID: 1960741425}
   buttons:
   - {fileID: 2019511824}
@@ -4345,11 +4409,10 @@ MonoBehaviour:
   - {fileID: 282709780}
   - {fileID: 1398763700}
   animationSpeed: 1
-  LoadDataCenter: {fileID: 2088782814}
-  centerOffset: {x: -50, y: 0}
-  upOffset: {x: 150, y: 100}
-  downOffset: {x: 150, y: -100}
-  maxDistance: 200
+  centerOffset: {x: 0, y: 0}
+  upOffset: {x: 250, y: 300}
+  downOffset: {x: 250, y: -300}
+  maxDistance: 900
   selectedIndex: 0
 --- !u!1001 &2019511823
 PrefabInstance:
@@ -4369,10 +4432,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6164914688206224228, guid: 4e0fef314a380f34bbdc3f7057cc9ab3, type: 3}
       propertyPath: profileId
-      value: save1
+      value: save1.save
       objectReference: {fileID: 0}
     - target: {fileID: 6507234664124499071, guid: 4e0fef314a380f34bbdc3f7057cc9ab3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6507234664124499071, guid: 4e0fef314a380f34bbdc3f7057cc9ab3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6507234664124499071, guid: 4e0fef314a380f34bbdc3f7057cc9ab3, type: 3}
@@ -4393,7 +4460,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6507234664124499071, guid: 4e0fef314a380f34bbdc3f7057cc9ab3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SelectButton
+      value: OnSaveSlotClicked
       objectReference: {fileID: 0}
     - target: {fileID: 6507234664124499071, guid: 4e0fef314a380f34bbdc3f7057cc9ab3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
@@ -4408,9 +4475,17 @@ PrefabInstance:
       value: SaveFileMenu, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 6507234664124499071, guid: 4e0fef314a380f34bbdc3f7057cc9ab3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 2019511825}
+    - target: {fileID: 6507234664124499071, guid: 4e0fef314a380f34bbdc3f7057cc9ab3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 2019511825}
+    - target: {fileID: 6507234664124499071, guid: 4e0fef314a380f34bbdc3f7057cc9ab3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: SaveSlot, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 6507234664124499071, guid: 4e0fef314a380f34bbdc3f7057cc9ab3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: SaveSlot, Assembly-CSharp
@@ -4686,7 +4761,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -232, y: 0}
+  m_AnchoredPosition: {x: -296, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2098726762

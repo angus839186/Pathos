@@ -14,7 +14,6 @@ public class MainMenu : Menu
     {
         Transition(saveFileCanva);
         PlayerInputManager.Instance.SwitchActionMap("SaveMenu");
-        SaveFileMenu.Instance.SelectButton(0);
     }
     public void OnSettingButtonClicked()
     {

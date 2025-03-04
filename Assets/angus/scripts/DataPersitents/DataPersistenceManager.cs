@@ -56,6 +56,12 @@ public class DataPersistenceManager : MonoBehaviour
         this.selectedProfileId = newProfileId;
     }
 
+    public void DeleteProfileData(string profileId)
+    {
+        // delete the data for this profile id
+        dataHandler.Delete(profileId);
+    }
+
 
     public void NewGame()
     {
