@@ -16,9 +16,13 @@ public class FileDataHandler
         this.dataFileName = dataFileName;
     }
 
-    public GameData Load()
+    public GameData Load(string profileId)
     {
-        string fullPath = Path.Combine(dataDirPath, dataFileName);
+        if (profileId == null)
+        {
+            return null;
+        }
+        string fullPath = Path.Combine(dataDirPath, profileId, dataFileName);
         GameData loadedData = null;
         if (File.Exists(fullPath))
         {
@@ -43,9 +47,13 @@ public class FileDataHandler
         return loadedData;
     }
 
-    public void Save(GameData data)
+    public void Save(GameData data, string profileId)
     {
-        string fullPath = dataDirPath + "/" + dataFileName;
+        if (profileId == null)
+        {
+            return;
+        }
+        string fullPath = Path.Combine(dataDirPath, profileId, dataFileName);
         try
         {
             Directory.CreateDirectory(Path.GetDirectoryName(fullPath));
@@ -65,24 +73,68 @@ public class FileDataHandler
             Debug.LogError("Error occured when trying to save data to file" + fullPath + "\n" + e);
         }
     }
-    public void DeleteSaveFile()
+    public void Delete(string profileId)
     {
-        string fullPath = Path.Combine(dataDirPath, dataFileName);
-        if (File.Exists(fullPath))
+        // base case - if the profileId is null, return right away
+        if (profileId == null)
         {
-            try
+            return;
+        }
+
+        string fullPath = Path.Combine(dataDirPath, profileId, dataFileName);
+        try
+        {
+            // ensure the data file exists at this path before deleting the directory
+            if (File.Exists(fullPath))
             {
-                File.Delete(fullPath);
-                Debug.Log("存檔已成功刪除: " + fullPath);
+                // delete the profile folder and everything within it
+                Directory.Delete(Path.GetDirectoryName(fullPath), true);
             }
-            catch (Exception e)
+            else
             {
-                Debug.LogError("刪除存檔時發生錯誤: " + fullPath + "\n" + e);
+                Debug.LogWarning("Tried to delete profile data, but data was not found at path: " + fullPath);
             }
         }
-        else
+        catch (Exception e)
         {
-            Debug.Log("存檔不存在: " + fullPath);
+            Debug.LogError("Failed to delete profile data for profileId: "
+                + profileId + " at path: " + fullPath + "\n" + e);
         }
+    }
+    public Dictionary<string, GameData> LoadAllProfiles() 
+    {
+        Dictionary<string, GameData> profileDictionary = new Dictionary<string, GameData>();
+
+        // loop over all directory names in the data directory path
+        IEnumerable<DirectoryInfo> dirInfos = new DirectoryInfo(dataDirPath).EnumerateDirectories();
+        foreach (DirectoryInfo dirInfo in dirInfos) 
+        {
+            string profileId = dirInfo.Name;
+
+            // defensive programming - check if the data file exists
+            // if it doesn't, then this folder isn't a profile and should be skipped
+            string fullPath = Path.Combine(dataDirPath, profileId, dataFileName);
+            if (!File.Exists(fullPath))
+            {
+                Debug.LogWarning("Skipping directory when loading all profiles because it does not contain data: "
+                    + profileId);
+                continue;
+            }
+
+            // load the game data for this profile and put it in the dictionary
+            GameData profileData = Load(profileId);
+            // defensive programming - ensure the profile data isn't null,
+            // because if it is then something went wrong and we should let ourselves know
+            if (profileData != null) 
+            {
+                profileDictionary.Add(profileId, profileData);
+            }
+            else 
+            {
+                Debug.LogError("Tried to load profile but something went wrong. ProfileId: " + profileId);
+            }
+        }
+
+        return profileDictionary;
     }
 }

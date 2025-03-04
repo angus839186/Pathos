@@ -53,7 +53,7 @@ public class InventoryManager : MonoBehaviour, IDataPersistence
         }
     }
 
-    public void SaveData(ref GameData data)
+    public void SaveData(GameData data)
     {
         // 確保欄位存在
         if (data.inventoryItemNames == null)

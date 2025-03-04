@@ -10,9 +10,9 @@ public class glowController : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     private Material tmpMaterial;
 
     // 初始狀態（無發光）
-    private float initialGlow = 0f;
+    public float initialGlow = 0f;
     // 目標狀態（發光）
-    private float targetGlow = 1f;
+    public float targetGlow = 1f;
 
     void Awake()
     {
@@ -41,7 +41,7 @@ public class glowController : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         StartCoroutine(GlowTransition(initialGlow));
     }
 
-    IEnumerator GlowTransition(float target)
+    public IEnumerator GlowTransition(float target)
     {
         float startGlow = tmpMaterial.GetFloat(ShaderUtilities.ID_GlowPower);
         Color startColor = tmpText.color;

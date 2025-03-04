@@ -24,11 +24,6 @@ public class ButtonScrollController : MonoBehaviour
         UpdateButtonPositions();
     }
 
-    void OnDisable()
-    {
-        StopAllCoroutines();
-    }
-
     public void UpdateButtonPositions()
     {
         for (int i = 0; i < buttons.Count; i++)

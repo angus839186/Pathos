@@ -1,18 +1,33 @@
-using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
 
-public class MenuTransition : MonoBehaviour
+public class Menu : MonoBehaviour
 {
-
     public CanvasGroup currentCanva;
 
     public CanvasGroup mainMenuCanva;
+
+    public CanvasGroup saveFileCanva;
     public float transitionDuration = 1f;
+    [Header("First Selected Button")]
+    [SerializeField] private Button firstSelected;
+
     void Start()
     {
         currentCanva = mainMenuCanva;
+
+        // SetFirstSelected(firstSelected);
     }
 
+    // public void SetFirstSelected(Button firstSelectedButton) 
+    // {
+    //     firstSelectedButton.Select();
+    //     glowController buttonGlowEffect = firstSelectedButton.GetComponent<glowController>();
+    //     buttonGlowEffect.StopAllCoroutines();
+    //     buttonGlowEffect.StartCoroutine(buttonGlowEffect.GlowTransition(buttonGlowEffect.targetGlow));
+    // }
     public void Transition(CanvasGroup newCanvas)
     {
         StartCoroutine(TransitionCoroutine(newCanvas));

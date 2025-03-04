@@ -8,7 +8,7 @@ using Unity.VisualScripting;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-    public string startScene = "testScene";
+    public string defaultScene = "testScene";
     public GameObject playerPrefab;
 
     public bool SetPlayer;
@@ -24,16 +24,6 @@ public class GameManager : MonoBehaviour
         }
         Instance = this;
         DontDestroyOnLoad(gameObject);
-    }
-
-    void OnEnable()
-    {
-        OnPlayerSpawned += SceneLoadData;
-    }
-
-    void OnDisable()
-    {
-        OnPlayerSpawned -= SceneLoadData;
     }
 
     public IEnumerator LoadGameScene(string sceneName)
@@ -61,14 +51,6 @@ public class GameManager : MonoBehaviour
         }
         SetPlayer = true;
         OnPlayerSpawned?.Invoke();
-    }
-    public void SceneLoadData()
-    {
-        DataPersistenceManager.Instance.LoadGameData();
-        CanvasGroup saveMenu = SaveFileManager.Instance.GetComponent<CanvasGroup>();
-        saveMenu.alpha = 0f;
-        saveMenu.interactable = false;
-        saveMenu.blocksRaycasts = false;
     }
 }
 

@@ -18,7 +18,7 @@ public class savePoint : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        GameMenuManager.Instance.OpenSaveMenu();
+        
     }
 
     public void InteractEvent(Item heldItem)
