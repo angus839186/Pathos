@@ -132,6 +132,12 @@
             ]
         },
         {
+            "name": "MainMenu",
+            "id": "d3818143-44b2-41da-a6e6-747cd5fcb58d",
+            "actions": [],
+            "bindings": []
+        },
+        {
             "name": "Backpack",
             "id": "dd38dd63-0d0d-4353-8367-a9e6fa605190",
             "actions": [
@@ -214,6 +220,34 @@
                     "processors": "",
                     "groups": "",
                     "action": "ConfirmMainItem",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "SaveMenu",
+            "id": "cefd75eb-570f-4eeb-8dea-8d7beaaebb22",
+            "actions": [
+                {
+                    "name": "CloseSaveMenu",
+                    "type": "Button",
+                    "id": "6ea1b72a-d65e-4aae-9ca2-bbfd9b89a325",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "55bcdf76-5664-4fa1-9575-f69a34b404be",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CloseSaveMenu",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

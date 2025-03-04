@@ -1,17 +1,35 @@
 using UnityEngine;
+using UnityEngine.UI;
 using System;
+using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 public class GameMenuManager : MonoBehaviour
 {
+    public static GameMenuManager Instance;
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
+
     public void OnClickStartButton()
     {
         GameManager gameManager = GameManager.Instance;
-        gameManager.StartCoroutine(gameManager.LoadGameScene());
+        gameManager.StartCoroutine(gameManager.LoadGameScene("testScene"));
         DataPersistenceManager.Instance.NewGame();
     }
-    public void OnClickLoadButton(CanvasGroup canvas)
+    public void OnClickContinueButton(CanvasGroup canvas)
     {
-        MenuTransition.Instance.Transition(canvas);
+        MenuTransition transitionMenu = FindObjectOfType<MenuTransition>();
+        transitionMenu.Transition(canvas);
+        PlayerInputManager.Instance.SwitchActionMap("SaveMenu");
     }
     public void OnClickSettingButton()
     {
@@ -19,14 +37,22 @@ public class GameMenuManager : MonoBehaviour
     }
     public void OnCloseButton()
     {
-
+        Application.Quit();
     }
-    public void FadeOutMenu()
-    {
 
+    public void OpenSaveMenu()
+    {
+        CanvasGroup saveMenu = FindObjectOfType<SaveFileManager>().GetComponent<CanvasGroup>();
+        saveMenu.alpha = 1f;
+        saveMenu.interactable = true;
+        saveMenu.blocksRaycasts = true;
+        SaveFileManager.Instance.OnOpenSaveFilePage();
     }
-    public void FadeInMenu()
+    public void CloseSaveMenu()
     {
-
+        CanvasGroup saveMenu = FindObjectOfType<SaveFileManager>().GetComponent<CanvasGroup>();
+        saveMenu.alpha = 0f;
+        saveMenu.interactable = false;
+        saveMenu.blocksRaycasts = false;
     }
 }

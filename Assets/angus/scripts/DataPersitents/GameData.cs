@@ -2,16 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
 public class GameData 
 {
-    public string lastScene;
-
+    public string currentScene;
     public Vector3 playerPosition;
+    public float gameTime;
+    public SerializableDictionary<string, bool> treesFalled;
+
+    // 新增一個欄位來存放道具的唯一識別碼
+    public List<string> inventoryItemNames;
 
     public GameData()
     {
-        this.lastScene = "";
+        currentScene = "";
         playerPosition = Vector3.zero;
+        gameTime = 0f;
+        treesFalled = new SerializableDictionary<string, bool>();
+        inventoryItemNames = new List<string>();
     }
 }
+

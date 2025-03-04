@@ -3,12 +3,13 @@ using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.InputSystem.Interactions;
 
 public class BackpackUIManager : MonoBehaviour
 {
     public static BackpackUIManager Instance;
     [Header("UI 參考")]
-    public GameObject backpackPanel;
+    public CanvasGroup backpackPanel;
     public List<Image> bagSlots;
 
     public Image displayImage;
@@ -18,13 +19,15 @@ public class BackpackUIManager : MonoBehaviour
     [Header("輸入與資料")]
     public PlayerInputManager playerInput;
     public int currentIndex;
-    private Inventory inventory;
+    private InventoryManager inventory;
 
     public bool isBackpackOpen = false;
 
     public Sprite previousSelectSprite;
     public Sprite currentSelectSprite;
     public Sprite nextSelectSprite;
+
+    public Sprite noneSprite;
 
     void Awake()
     {
@@ -37,17 +40,18 @@ public class BackpackUIManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        inventory = Inventory.Instance;
-        playerInput = PlayerInputManager.Instance;
     }
-
     void Start()
     {
-        backpackPanel.SetActive(false);
+        playerInput = PlayerInputManager.Instance;
     }
 
     void OnEnable()
     {
+        inventory = InventoryManager.Instance;
+        playerInput = PlayerInputManager.Instance;
+
+
         playerInput.OnToggleBackpackEvent += OnToggleBackpack;
         playerInput.OnSelectItemEvent += SelectItem;
         playerInput.OnConfirmMainItemEvent += OnConfirmItem;
@@ -65,7 +69,9 @@ public class BackpackUIManager : MonoBehaviour
 
     public void OpenBackpack()
     {
-        backpackPanel.SetActive(true);
+        backpackPanel.alpha = 1f;
+        backpackPanel.interactable = true;
+        backpackPanel.blocksRaycasts = true;
         playerInput.SwitchActionMap("Backpack");
         UpdateItemSlots();
         showItemDetail();
@@ -74,7 +80,9 @@ public class BackpackUIManager : MonoBehaviour
 
     public void CloseBackpack()
     {
-        backpackPanel.SetActive(false);
+        backpackPanel.alpha = 0f;
+        backpackPanel.interactable = false;
+        backpackPanel.blocksRaycasts = false;
         playerInput.SwitchActionMap("DefaultPlayer");
     }
 
@@ -168,7 +176,7 @@ public class BackpackUIManager : MonoBehaviour
     {
         if (inventory.items.Count <= 0)
         {
-            displayImage.sprite = null;
+            displayImage.sprite = noneSprite;
             itemName.text = "";
             itemDescription.text = "";
             return;

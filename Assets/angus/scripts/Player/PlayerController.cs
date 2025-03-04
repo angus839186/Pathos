@@ -132,11 +132,18 @@ public class PlayerController : MonoBehaviour, IDataPersistence
 
     public void LoadData(GameData data)
     {
-        this.transform.position = data.playerPosition;
+        if(data.playerPosition == Vector3.zero)
+        {
+            transform.position = GameObject.Find("SpawnPoint").transform.position;
+        }   
+        else
+        {
+            transform.position = data.playerPosition;
+        }
     }
 
     public void SaveData(ref GameData data)
     {
-        data.playerPosition = this.transform.position;
+        data.playerPosition = transform.position;
     }
 }

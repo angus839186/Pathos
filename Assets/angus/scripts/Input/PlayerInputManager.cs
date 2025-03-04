@@ -22,6 +22,8 @@ public class PlayerInputManager : MonoBehaviour
 
     public event Action<float> OnInteractEvent;
 
+    public event Action OnCloseSaveMenuEvent;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -31,8 +33,10 @@ public class PlayerInputManager : MonoBehaviour
         }
         Instance = this;
         DontDestroyOnLoad(gameObject);
+    }
 
-        // 如果還沒指定，試著從本物件取得
+    void Start()
+    {
         if (playerInput == null)
         {
             playerInput = GetComponent<PlayerInput>();
@@ -110,6 +114,16 @@ public class PlayerInputManager : MonoBehaviour
             OnConfirmMainItemEvent?.Invoke(value.Get<float>());
         }
     }
+    public void OnCloseSaveMenu(InputValue value)
+    {
+        float pressed = value.Get<float>();
+        if (pressed > 0.5f)
+        {
+            OnCloseSaveMenuEvent?.Invoke();
+        }
+    }
+
+
 
     public void SwitchActionMap(string mapName)
     {

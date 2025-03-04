@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class Bird : MonoBehaviour
+public class Bird : MonoBehaviour, IDataPersistence
 {
     public Transform fencePos;
 
@@ -15,6 +15,8 @@ public class Bird : MonoBehaviour
     private Animator animator;
 
     public bool onFence;
+
+    public bool flyToSky;
 
     private SpriteRenderer spriteRenderer;
 
@@ -76,7 +78,6 @@ public class Bird : MonoBehaviour
     {
         if (collision.tag == "Fence")
         {
-            onFence = true;
             if (!_gong.birds.Contains(this))
             {
                 _gong.birds.Add(this);
@@ -90,6 +91,7 @@ public class Bird : MonoBehaviour
     }
     void BirdsGone()
     {
+        flyToSky = true;
         gameObject.SetActive(false);
     }
 
@@ -143,5 +145,15 @@ public class Bird : MonoBehaviour
         animator.Play("bird_wait");
         transform.position = fencePos.position;
         isFlying = false;
+    }
+
+    public void LoadData(GameData data)
+    {
+        
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        
     }
 }
