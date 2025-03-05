@@ -339,8 +339,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1960741431}
-        m_TargetAssemblyTypeName: SaveFileManager, Assembly-CSharp
-        m_MethodName: OnLoadButtonClicked
+        m_TargetAssemblyTypeName: SaveFileMenu, Assembly-CSharp
+        m_MethodName: OnLoadFileButtonClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -406,7 +406,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6164914688206224228, guid: 4e0fef314a380f34bbdc3f7057cc9ab3, type: 3}
       propertyPath: profileId
-      value: save4.save
+      value: save4
       objectReference: {fileID: 0}
     - target: {fileID: 6507234664124499071, guid: 4e0fef314a380f34bbdc3f7057cc9ab3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -1043,7 +1043,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6164914688206224228, guid: 4e0fef314a380f34bbdc3f7057cc9ab3, type: 3}
       propertyPath: profileId
-      value: save2.save
+      value: save2
       objectReference: {fileID: 0}
     - target: {fileID: 6507234664124499071, guid: 4e0fef314a380f34bbdc3f7057cc9ab3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -1829,7 +1829,7 @@ RectTransform:
   - {fileID: 1349491514}
   - {fileID: 2028736312}
   - {fileID: 986853282}
-  m_Father: {fileID: 1946489869}
+  m_Father: {fileID: 1960741430}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2837,7 +2837,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6164914688206224228, guid: 4e0fef314a380f34bbdc3f7057cc9ab3, type: 3}
       propertyPath: profileId
-      value: save5.save
+      value: save5
       objectReference: {fileID: 0}
     - target: {fileID: 6507234664124499071, guid: 4e0fef314a380f34bbdc3f7057cc9ab3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -3371,7 +3371,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f94ba0291cfb2cd4087b435cc826e7d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fileName: 
+  fileName: data.game
+  selectedProfileId: 
 --- !u!4 &1846695449
 Transform:
   m_ObjectHideFlags: 0
@@ -4053,7 +4054,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6164914688206224228, guid: 4e0fef314a380f34bbdc3f7057cc9ab3, type: 3}
       propertyPath: profileId
-      value: save3.save
+      value: save3
       objectReference: {fileID: 0}
     - target: {fileID: 6507234664124499071, guid: 4e0fef314a380f34bbdc3f7057cc9ab3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -4247,7 +4248,6 @@ RectTransform:
   - {fileID: 1486875254}
   - {fileID: 1934998113}
   - {fileID: 1858493697}
-  - {fileID: 877740682}
   m_Father: {fileID: 1960741430}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -4366,6 +4366,7 @@ RectTransform:
   - {fileID: 358482210}
   - {fileID: 2088782814}
   - {fileID: 1946489869}
+  - {fileID: 877740682}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -4401,6 +4402,7 @@ MonoBehaviour:
   - sceneName: testScene
     sceneSprite: {fileID: 21300000, guid: 3f90a03269db81d469575b8463ef0393, type: 3}
   currentSaveSlot: {fileID: 0}
+  menuScene: testMenu
   saveFileCanvas: {fileID: 1960741425}
   buttons:
   - {fileID: 2019511824}
@@ -4432,7 +4434,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6164914688206224228, guid: 4e0fef314a380f34bbdc3f7057cc9ab3, type: 3}
       propertyPath: profileId
-      value: save1.save
+      value: save1
       objectReference: {fileID: 0}
     - target: {fileID: 6507234664124499071, guid: 4e0fef314a380f34bbdc3f7057cc9ab3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size

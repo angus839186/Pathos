@@ -41,7 +41,7 @@ public class ItemPickup : MonoBehaviour, IInteractable, IDataPersistence
         }
     }
 
-    public void SaveData(GameData data)
+    public void SaveData(ref GameData data)
     {
         //Do Nothing
     }

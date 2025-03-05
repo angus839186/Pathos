@@ -15,10 +15,9 @@ public class DataPersistenceManager : MonoBehaviour
     private FileDataHandler dataHandler;
 
     public static DataPersistenceManager Instance;
-
     public GameData gameData;
 
-    private string selectedProfileId = "";
+    public string selectedProfileId = "";
     void Awake()
     {
         if (Instance == null)
@@ -34,23 +33,22 @@ public class DataPersistenceManager : MonoBehaviour
         this.dataHandler = new FileDataHandler(Application.persistentDataPath, fileName);
     }
 
-    private void OnEnable() 
+    private void OnEnable()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
-    private void OnDisable() 
+    private void OnDisable()
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
-    public void OnSceneLoaded(Scene scene, LoadSceneMode mode) 
+    public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        this.dataPersistenceObjects = FindAllDataPersistenceObjects();
         LoadGame();
     }
 
-    public void ChangeSelectedProfileId(string newProfileId) 
+    public void ChangeSelectedProfileId(string newProfileId)
     {
         // update the profile to use for saving and loading
         this.selectedProfileId = newProfileId;
@@ -70,48 +68,55 @@ public class DataPersistenceManager : MonoBehaviour
 
     public void SaveGame()
     {
+        if (this.gameData == null)
+        {
+            Debug.LogWarning("No data was found. A New Game needs to be started before data can be saved.");
+            return;
+        }
         foreach (IDataPersistence dataPersistence in dataPersistenceObjects)
         {
-            dataPersistence.SaveData(gameData);
+            dataPersistence.SaveData(ref gameData);
+            MonoBehaviour monoBehaviour = dataPersistence as MonoBehaviour;
+            if (monoBehaviour != null)
+            {
+                Debug.Log("找到的物件名稱: " + monoBehaviour.name);
+            }
         }
-
-        if (gameData != null)
-        {
-            dataHandler.Save(gameData, selectedProfileId);
-        }
+        dataHandler.Save(gameData, selectedProfileId);
     }
 
     public void LoadGame()
     {
         this.gameData = dataHandler.Load(selectedProfileId);
+
+        if (this.gameData == null)
+        {
+            NewGame();
+        }
     }
 
     public void LoadGameData()
     {
-        if(this.gameData == null)
+        if (this.gameData == null)
         {
             return;
         }
 
+        this.dataPersistenceObjects = FindAllDataPersistenceObjects();
+
         // push the loaded data to all other scripts that need it
-        foreach (IDataPersistence dataPersistenceObj in dataPersistenceObjects) 
+        foreach (IDataPersistence dataPersistenceObj in dataPersistenceObjects)
         {
             dataPersistenceObj.LoadData(gameData);
         }
     }
 
-
-    // private void OnApplicationQuit()
-    // {
-    //     SaveGame();
-    // }
-
-    public Dictionary<string, GameData> GetAllProfilesGameData() 
+    public Dictionary<string, GameData> GetAllProfilesGameData()
     {
         return dataHandler.LoadAllProfiles();
     }
 
-    private List<IDataPersistence> FindAllDataPersistenceObjects() 
+    private List<IDataPersistence> FindAllDataPersistenceObjects()
     {
         // FindObjectsofType takes in an optional boolean to include inactive gameobjects
         IEnumerable<IDataPersistence> dataPersistenceObjects = FindObjectsOfType<MonoBehaviour>(true)

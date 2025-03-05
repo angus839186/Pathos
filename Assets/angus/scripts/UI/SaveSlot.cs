@@ -16,6 +16,8 @@ public class SaveSlot : MonoBehaviour
 
     public Sprite DefaultSprite;
 
+    public GameData gameData;
+
     public int index;
 
     public string GetProfileId()
@@ -28,10 +30,12 @@ public class SaveSlot : MonoBehaviour
     {
         if (data == null)
         {
+            gameData = null;
             this.sceneName = "場景: 空";
             this.gameTime = "遊玩時間: 0秒";
             return;
         }
+        gameData = data;
         this.sceneName = "場景: " + data.currentScene;
         this.gameTime = "遊玩時間: " + data.gameTime.ToString() + "秒";
         if(SaveFileMenu.Instance.sceneSprites.ContainsKey(data.currentScene))

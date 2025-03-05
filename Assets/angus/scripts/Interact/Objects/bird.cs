@@ -152,7 +152,7 @@ public class Bird : MonoBehaviour, IDataPersistence
         
     }
 
-    public void SaveData(GameData data)
+    public void SaveData(ref GameData data)
     {
         
     }

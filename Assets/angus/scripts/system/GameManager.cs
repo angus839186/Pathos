@@ -13,8 +13,6 @@ public class GameManager : MonoBehaviour
 
     public bool SetPlayer;
 
-    public event Action OnPlayerSpawned;
-
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -34,9 +32,15 @@ public class GameManager : MonoBehaviour
         {
             yield return null;
         }
+        SpawnPlayer();
+
+        while(SetPlayer == false)
+        {
+            yield return null;
+        }
+        DataPersistenceManager.Instance.LoadGameData();
 
         PlayerInputManager.Instance.SwitchActionMap("DefaultPlayer");
-        SpawnPlayer();
     }
 
     private void SpawnPlayer()
@@ -50,7 +54,6 @@ public class GameManager : MonoBehaviour
             cam.Follow = player.transform;
         }
         SetPlayer = true;
-        OnPlayerSpawned?.Invoke();
     }
 }
 

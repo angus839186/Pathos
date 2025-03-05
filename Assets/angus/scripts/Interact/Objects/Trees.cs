@@ -89,7 +89,7 @@ public class Trees : MonoBehaviour, IInteractable, IDataPersistence
         }
     }
 
-    public void SaveData(GameData data)
+    public void SaveData(ref GameData data)
     {
         if(data.treesFalled.ContainsKey(id))
         {

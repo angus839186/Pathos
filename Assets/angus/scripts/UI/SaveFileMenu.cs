@@ -25,6 +25,8 @@ public class SaveFileMenu : Menu
 
     public SaveSlot currentSaveSlot;
 
+    public string menuScene;
+
     // 建立字典以方便查詢
     public Dictionary<string, Sprite> sceneSprites;
 
@@ -68,6 +70,10 @@ public class SaveFileMenu : Menu
 
     void Start()
     {
+        loadButton.gameObject.SetActive(false);
+        saveButton.gameObject.SetActive(false);
+        deleteButton.gameObject.SetActive(false);
+        returnButton.gameObject.SetActive(false);
         UpdateSaveFile();
         SelectButton(0);
     }
@@ -103,11 +109,38 @@ public class SaveFileMenu : Menu
         loadButton.gameObject.SetActive(false);
         saveButton.gameObject.SetActive(false);
         deleteButton.gameObject.SetActive(false);
-        returnButton.gameObject.SetActive(true);
+        returnButton.gameObject.SetActive(false);
 
         saveFileIndexText.text = saveSlot.GetProfileId();
         sceneNameText.text = saveSlot.sceneName;
         gameTimeText.text = saveSlot.gameTime;
+
+        if (SceneManager.GetActiveScene().name == menuScene)
+        {
+            if (saveSlot.gameData == null)
+            {
+                returnButton.gameObject.SetActive(true);
+            }
+            else
+            {
+                loadButton.gameObject.SetActive(true);
+                returnButton.gameObject.SetActive(true);
+            }
+        }
+        else
+        {
+            if (saveSlot.gameData == null)
+            {
+                saveButton.gameObject.SetActive(true);
+                returnButton.gameObject.SetActive(true);
+            }
+            else
+            {
+                saveButton.gameObject.SetActive(true);
+                deleteButton.gameObject.SetActive(true);
+                returnButton.gameObject.SetActive(true);
+            }
+        }
 
     }
 
@@ -116,6 +149,7 @@ public class SaveFileMenu : Menu
         saveFileCanvas.alpha = 1;
         saveFileCanvas.blocksRaycasts = true;
         saveFileCanvas.interactable = true;
+        SelectButton(0);
     }
 
     public void DeactiveSaveFileCanvas()
@@ -132,6 +166,7 @@ public class SaveFileMenu : Menu
         DataPersistenceManager.Instance.LoadGame();
         GameManager gameManager = GameManager.Instance;
         gameManager.StartCoroutine(gameManager.LoadGameScene(DataPersistenceManager.Instance.gameData.currentScene));
+        DeactiveSaveFileCanvas();
     }
 
     public void OnDeleteButtonClicked()
@@ -145,7 +180,8 @@ public class SaveFileMenu : Menu
 
     public void OnSaveButtonClicked()
     {
-
+        DataPersistenceManager.Instance.SaveGame();
+        UpdateSaveFile();
     }
     public void OnBackButtonClicked()
     {
