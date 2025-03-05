@@ -124,6 +124,7 @@ public class SaveFileMenu : Menu
             else
             {
                 loadButton.gameObject.SetActive(true);
+                deleteButton.gameObject.SetActive(true);
                 returnButton.gameObject.SetActive(true);
             }
         }
@@ -185,7 +186,14 @@ public class SaveFileMenu : Menu
     }
     public void OnBackButtonClicked()
     {
-        Transition(mainMenuCanva);
+        if(SceneManager.GetActiveScene().name == menuScene)
+        {
+            Transition(mainMenuCanva);
+        }
+        else
+        {
+            DeactiveSaveFileCanvas();
+        }
     }
     #endregion
 

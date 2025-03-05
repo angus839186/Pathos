@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Menu : MonoBehaviour
 {
-    public CanvasGroup currentCanva;
+    public static CanvasGroup currentCanva;
 
     public CanvasGroup mainMenuCanva;
 
@@ -17,7 +17,6 @@ public class Menu : MonoBehaviour
     void Start()
     {
         currentCanva = mainMenuCanva;
-
         // SetFirstSelected(firstSelected);
     }
 

@@ -2046,7 +2046,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 986853284}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1960741431}
+        m_TargetAssemblyTypeName: SaveFileMenu, Assembly-CSharp
+        m_MethodName: OnBackButtonClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &986853284
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2264,10 +2276,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cdae833653ffee4c87ab69dbef5781a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentCanva: {fileID: 0}
   mainMenuCanva: {fileID: 1158709772}
   saveFileCanva: {fileID: 1960741425}
-  transitionDuration: 1
+  transitionDuration: 0.8
   firstSelected: {fileID: 120865692}
 --- !u!1 &1173082976
 GameObject:
@@ -4386,7 +4397,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44e290580cc1ad5458ce393ab0cbf420, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentCanva: {fileID: 0}
   mainMenuCanva: {fileID: 1158709772}
   saveFileCanva: {fileID: 1960741425}
   transitionDuration: 1
@@ -4410,7 +4420,7 @@ MonoBehaviour:
   - {fileID: 1937629596}
   - {fileID: 282709780}
   - {fileID: 1398763700}
-  animationSpeed: 1
+  animationSpeed: 0.6
   centerOffset: {x: 0, y: 0}
   upOffset: {x: 250, y: 300}
   downOffset: {x: 250, y: -300}

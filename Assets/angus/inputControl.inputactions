@@ -134,61 +134,8 @@
         {
             "name": "MainMenu",
             "id": "d3818143-44b2-41da-a6e6-747cd5fcb58d",
-            "actions": [
-                {
-                    "name": "jump",
-                    "type": "Button",
-                    "id": "7db49f0b-dc19-4313-9137-35effb4355cc",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "move",
-                    "type": "Button",
-                    "id": "5dc80066-c780-4599-901a-d97693b51f67",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                }
-            ],
-            "bindings": [
-                {
-                    "name": "",
-                    "id": "35b6ea11-7319-4225-9fd8-180afc9fbd92",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "jump",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "2cdafbb7-66f6-47c3-be0d-b9d88b1ce2e0",
-                    "path": "<Keyboard>/w",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "move",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "f9509547-99dc-4787-991b-7c5d5e87970d",
-                    "path": "<Keyboard>/s",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "move",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                }
-            ]
+            "actions": [],
+            "bindings": []
         },
         {
             "name": "Backpack",

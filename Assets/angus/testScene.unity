@@ -154,6 +154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44ca6558c9b03d2439de7ee537a2cac9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: 3496ae9d-ee20-4e28-bcef-a3ab2efa4cb0
   fencePos: {fileID: 509983474}
   skyPos: {fileID: 2022193705}
   flightSpeed: 9
@@ -161,6 +162,7 @@ MonoBehaviour:
   isFlying: 0
   onFence: 0
   flyToSky: 0
+  OriginOnFence: 0
   _gong: {fileID: 201888389}
   sound: {fileID: 8300000, guid: 61ed99610131fdf4b8daac9fa6fa6bc3, type: 3}
 --- !u!61 &47407
@@ -1064,7 +1066,7 @@ GameObject:
   - component: {fileID: 218833102}
   - component: {fileID: 218833101}
   m_Layer: 6
-  m_Name: "\u9CE5 3"
+  m_Name: "\u9CE53"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1082,6 +1084,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44ca6558c9b03d2439de7ee537a2cac9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: ef32d09b-b74c-44f5-b94c-8784c1228316
   fencePos: {fileID: 1004311038}
   skyPos: {fileID: 884270476}
   flightSpeed: 9
@@ -1089,6 +1092,7 @@ MonoBehaviour:
   isFlying: 0
   onFence: 0
   flyToSky: 0
+  OriginOnFence: 0
   _gong: {fileID: 201888389}
   sound: {fileID: 8300000, guid: 61ed99610131fdf4b8daac9fa6fa6bc3, type: 3}
 --- !u!61 &218833102
@@ -2790,7 +2794,7 @@ GameObject:
   - component: {fileID: 603176660}
   - component: {fileID: 603176659}
   m_Layer: 6
-  m_Name: "\u9CE5 4"
+  m_Name: "\u9CE54"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2808,6 +2812,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44ca6558c9b03d2439de7ee537a2cac9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: 80932d49-353b-4db9-902f-5becd34b6ee8
   fencePos: {fileID: 821578265}
   skyPos: {fileID: 2018193017}
   flightSpeed: 9
@@ -2815,6 +2820,7 @@ MonoBehaviour:
   isFlying: 0
   onFence: 0
   flyToSky: 0
+  OriginOnFence: 0
   _gong: {fileID: 201888389}
   sound: {fileID: 8300000, guid: 61ed99610131fdf4b8daac9fa6fa6bc3, type: 3}
 --- !u!61 &603176660
@@ -3622,6 +3628,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44ca6558c9b03d2439de7ee537a2cac9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: 5ac1c210-5552-4167-a722-2c3cf55c6f08
   fencePos: {fileID: 1319089141}
   skyPos: {fileID: 2066690777}
   flightSpeed: 9
@@ -3629,6 +3636,7 @@ MonoBehaviour:
   isFlying: 0
   onFence: 1
   flyToSky: 0
+  OriginOnFence: 1
   _gong: {fileID: 201888389}
   sound: {fileID: 8300000, guid: 61ed99610131fdf4b8daac9fa6fa6bc3, type: 3}
 --- !u!61 &850640688
@@ -6545,7 +6553,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.41
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -6554,7 +6562,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 26.8
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -6589,7 +6597,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -6871,6 +6879,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44ca6558c9b03d2439de7ee537a2cac9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: 956a2bc9-d17f-4420-8f42-02b9e4fe61be
   fencePos: {fileID: 1490144906}
   skyPos: {fileID: 1799164727}
   flightSpeed: 9
@@ -6878,6 +6887,7 @@ MonoBehaviour:
   isFlying: 0
   onFence: 0
   flyToSky: 0
+  OriginOnFence: 0
   _gong: {fileID: 201888389}
   sound: {fileID: 8300000, guid: 61ed99610131fdf4b8daac9fa6fa6bc3, type: 3}
 --- !u!61 &1452217370

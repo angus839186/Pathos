@@ -41,6 +41,7 @@ public class GameManager : MonoBehaviour
         DataPersistenceManager.Instance.LoadGameData();
 
         PlayerInputManager.Instance.SwitchActionMap("DefaultPlayer");
+        Debug.Log("End");
     }
 
     private void SpawnPlayer()

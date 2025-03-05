@@ -9,8 +9,12 @@ public class GameData
     public float gameTime;
     public SerializableDictionary<string, bool> treesFalled;
 
-    
+    public SerializableDictionary<string, bool> birdsFlied;
+
+    public SerializableDictionary<string, bool> bridsOnFence;
     public List<string> inventoryItemNames;
+
+    public bool windmillWorked;
 
     public GameData()
     {
@@ -18,6 +22,8 @@ public class GameData
         playerPosition = Vector3.zero;
         gameTime = 0f;
         treesFalled = new SerializableDictionary<string, bool>();
+        birdsFlied = new SerializableDictionary<string, bool>();
+        bridsOnFence = new SerializableDictionary<string, bool>();
         inventoryItemNames = new List<string>();
     }
 }
