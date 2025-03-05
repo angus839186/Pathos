@@ -8,7 +8,7 @@ using Unity.VisualScripting;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-    public string defaultScene = "testScene";
+    public string defaultScene = "testGrass";
     public GameObject playerPrefab;
 
     public bool SetPlayer;

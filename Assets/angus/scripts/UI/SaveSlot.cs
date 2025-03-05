@@ -30,6 +30,7 @@ public class SaveSlot : MonoBehaviour
     {
         if (data == null)
         {
+            this.sceneImage.sprite = DefaultSprite;
             gameData = null;
             this.sceneName = "場景: 空";
             this.gameTime = "遊玩時間: 0秒";

@@ -75,7 +75,7 @@ public class SaveFileMenu : Menu
         deleteButton.gameObject.SetActive(false);
         returnButton.gameObject.SetActive(false);
         UpdateSaveFile();
-        SelectButton(0);
+        SelectButton(selectedIndex);
     }
 
     public void UpdateSaveFile()
@@ -150,7 +150,7 @@ public class SaveFileMenu : Menu
         saveFileCanvas.alpha = 1;
         saveFileCanvas.blocksRaycasts = true;
         saveFileCanvas.interactable = true;
-        SelectButton(0);
+        SelectButton(selectedIndex);
     }
 
     public void DeactiveSaveFileCanvas()
@@ -176,13 +176,15 @@ public class SaveFileMenu : Menu
 
         UpdateSaveFile();
 
-        OnSaveSlotClicked(saveSlots[selectedIndex]);
+        DisplaySaveFileDetail(currentSaveSlot);
     }
 
     public void OnSaveButtonClicked()
     {
         DataPersistenceManager.Instance.SaveGame();
         UpdateSaveFile();
+
+        DisplaySaveFileDetail(currentSaveSlot);
     }
     public void OnBackButtonClicked()
     {
