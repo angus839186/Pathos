@@ -16,11 +16,17 @@ public class GameData
 
     public bool windmillWorked;
 
+    public bool hint1;
+    public bool hint2;
+
     public GameData()
     {
         currentScene = "";
         playerPosition = Vector3.zero;
         gameTime = 0f;
+        windmillWorked = false;
+        hint1 = false;
+        hint2 = false;
         treesFalled = new SerializableDictionary<string, bool>();
         birdsFlied = new SerializableDictionary<string, bool>();
         bridsOnFence = new SerializableDictionary<string, bool>();
