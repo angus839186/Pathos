@@ -2,8 +2,6 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
 using Cinemachine;
-using System;
-using Unity.VisualScripting;
 
 public class GameManager : MonoBehaviour
 {
@@ -26,13 +24,16 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator LoadGameScene(string sceneName)
     {
-
+        Debug.Log("Loading");
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName);
         while (!asyncLoad.isDone)
         {
             yield return null;
         }
-        SpawnPlayer();
+        if(!SetPlayer)
+        {
+            SpawnPlayer();
+        }
 
         while(SetPlayer == false)
         {
@@ -41,7 +42,6 @@ public class GameManager : MonoBehaviour
         DataPersistenceManager.Instance.LoadGameData();
 
         PlayerInputManager.Instance.SwitchActionMap("DefaultPlayer");
-        Debug.Log("End");
     }
 
     private void SpawnPlayer()
