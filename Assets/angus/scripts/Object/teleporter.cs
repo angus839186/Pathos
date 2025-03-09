@@ -20,8 +20,10 @@ public class teleporter : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter(Collider other) {
-        if (other.CompareTag("Player") && canTeleport) {
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player")) {
+            DataPersistenceManager.Instance.SaveGameData();
             TeleportPlayer();
         }
     }

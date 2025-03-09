@@ -24,7 +24,6 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator LoadGameScene(string sceneName)
     {
-        Debug.Log("Loading");
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName);
         while (!asyncLoad.isDone)
         {

@@ -69,6 +69,7 @@ public class InventoryManager : MonoBehaviour, IDataPersistence
             // 假設每個 Item 的 itemName 為唯一識別字串
             data.inventoryItemNames.Add(invItem.item.itemName);
         }
+        Debug.Log(data.inventoryItemNames.Count);
     }
 
     public void LoadData(GameData data)
@@ -90,6 +91,7 @@ public class InventoryManager : MonoBehaviour, IDataPersistence
                     Debug.LogWarning("找不到 Item: " + itemName);
                 }
             }
+
             OnInventoryChanged?.Invoke();
         }
     }
