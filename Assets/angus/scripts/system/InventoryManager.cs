@@ -40,7 +40,6 @@ public class InventoryManager : MonoBehaviour, IDataPersistence
         }
 
         OnInventoryChanged?.Invoke();
-        Debug.Log("得到新東西");
     }
 
     public void RemoveItem(Item item)

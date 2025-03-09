@@ -39,6 +39,13 @@ public class GameManager : MonoBehaviour
         {
             yield return null;
         }
+
+        CinemachineVirtualCamera cam = FindObjectOfType<CinemachineVirtualCamera>();
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (cam != null)
+        {
+            cam.Follow = player.transform;
+        }
         DataPersistenceManager.Instance.LoadGameData();
 
         PlayerInputManager.Instance.SwitchActionMap("DefaultPlayer");
@@ -49,11 +56,6 @@ public class GameManager : MonoBehaviour
         GameObject spawnPoint = GameObject.Find("SpawnPoint");
         Vector3 spawnPos = spawnPoint != null ? spawnPoint.transform.position : Vector3.zero;
         GameObject player = Instantiate(playerPrefab, spawnPos, Quaternion.identity);
-        CinemachineVirtualCamera cam = FindObjectOfType<CinemachineVirtualCamera>();
-        if (cam != null)
-        {
-            cam.Follow = player.transform;
-        }
         SetPlayer = true;
     }
 }

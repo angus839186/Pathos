@@ -127,7 +127,6 @@ public class PlayerInputManager : MonoBehaviour
 
     public void SwitchActionMap(string mapName)
     {
-        Debug.Log(mapName);
         playerInput.SwitchCurrentActionMap(mapName);
     }
 }

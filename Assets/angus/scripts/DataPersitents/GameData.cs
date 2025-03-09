@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class GameData 
 {
-    public bool loadedFromSave;
     public string currentScene;
     public Vector3 playerPosition;
     public float gameTime;
@@ -22,7 +21,6 @@ public class GameData
 
     public GameData()
     {
-        loadedFromSave = false;
         currentScene = "";
         playerPosition = Vector3.zero;
         gameTime = 0f;
