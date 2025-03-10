@@ -3,6 +3,14 @@ using UnityEngine;
 
 public class Bird : MonoBehaviour, IDataPersistence
 {
+
+    [SerializeField] private string id;
+
+    [ContextMenu("Generate bird id")]
+    private void GenerateBirdID()
+    {
+        id = System.Guid.NewGuid().ToString();
+    }
     public Transform fencePos;
 
     public Transform skyPos;
@@ -18,16 +26,19 @@ public class Bird : MonoBehaviour, IDataPersistence
 
     public bool flyToSky;
 
+    public bool OriginOnFence;
+
     private SpriteRenderer spriteRenderer;
 
     public gong _gong;
 
     public AudioClip sound;
 
+
+
     void Start()
     {
         animator = GetComponent<Animator>();
-        transform.position = this.transform.position;
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
@@ -41,8 +52,8 @@ public class Bird : MonoBehaviour, IDataPersistence
 
     public void FlyToNextPos(Transform nextPos)
     {
-        if(isFlying)
-        return;
+        if (isFlying)
+            return;
         StartCoroutine(FlyRoutine(nextPos));
     }
     private IEnumerator FlyRoutine(Transform nextPos)
@@ -97,8 +108,8 @@ public class Bird : MonoBehaviour, IDataPersistence
 
     public void FlyBack()
     {
-        if(isFlying)
-        return;
+        if (isFlying)
+            return;
         StartCoroutine(FlyBackRoutine(fencePos));
     }
 
@@ -149,11 +160,41 @@ public class Bird : MonoBehaviour, IDataPersistence
 
     public void LoadData(GameData data)
     {
-        
+        if (!OriginOnFence)
+        {
+            data.birdsFlied.TryGetValue(id, out onFence);
+        }
+        data.bridsOnFence.TryGetValue(id, out flyToSky);
+
+        if (flyToSky)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            if (onFence)
+            {
+                gameObject.transform.position = fencePos.position;
+            }
+            else
+            {
+                return;
+            }
+        }
     }
 
     public void SaveData(ref GameData data)
     {
-        
+        if (data.birdsFlied.ContainsKey(id))
+        {
+            data.birdsFlied.Remove(id);
+        }
+        data.birdsFlied.Add(id, flyToSky);
+
+        if (data.bridsOnFence.ContainsKey(id))
+        {
+            data.bridsOnFence.Remove(id);
+        }
+        data.bridsOnFence.Add(id, onFence);
     }
 }

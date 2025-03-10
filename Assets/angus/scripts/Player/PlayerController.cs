@@ -34,6 +34,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
         _anime = GetComponent<Animator>();
         _sprite = GetComponent<SpriteRenderer>();
         audioSource = GetComponent<AudioSource>();
+        DontDestroyOnLoad(gameObject);
     }
     
     void OnEnable()
@@ -132,6 +133,10 @@ public class PlayerController : MonoBehaviour, IDataPersistence
 
     public void LoadData(GameData data)
     {
+        if(!data.loadedFromSave)
+        {
+            transform.position = data.playerPosition;
+        }
         if(data.playerPosition == Vector3.zero)
         {
             transform.position = GameObject.Find("SpawnPoint").transform.position;

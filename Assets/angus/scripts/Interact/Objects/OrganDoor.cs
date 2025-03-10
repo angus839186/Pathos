@@ -35,7 +35,6 @@ public class OrganDoor : MonoBehaviour, IInteractable
         collider.enabled = false;
         sprite.sprite = closedSprite;
         AudioManager.instance.PlaySound(sound);
-
-
+        
     }
 }

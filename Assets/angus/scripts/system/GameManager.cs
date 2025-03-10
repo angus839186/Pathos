@@ -2,18 +2,14 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
 using Cinemachine;
-using System;
-using Unity.VisualScripting;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-    public string startScene = "testScene";
+    public string defaultScene = "testGrass";
     public GameObject playerPrefab;
 
     public bool SetPlayer;
-
-    public event Action OnPlayerSpawned;
 
     private void Awake()
     {
@@ -26,27 +22,26 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    void OnEnable()
-    {
-        OnPlayerSpawned += SceneLoadData;
-    }
-
-    void OnDisable()
-    {
-        OnPlayerSpawned -= SceneLoadData;
-    }
-
     public IEnumerator LoadGameScene(string sceneName)
     {
-
+        Debug.Log("Loading");
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName);
         while (!asyncLoad.isDone)
         {
             yield return null;
         }
+        if(!SetPlayer)
+        {
+            SpawnPlayer();
+        }
+
+        while(SetPlayer == false)
+        {
+            yield return null;
+        }
+        DataPersistenceManager.Instance.LoadGameData();
 
         PlayerInputManager.Instance.SwitchActionMap("DefaultPlayer");
-        SpawnPlayer();
     }
 
     private void SpawnPlayer()
@@ -60,15 +55,6 @@ public class GameManager : MonoBehaviour
             cam.Follow = player.transform;
         }
         SetPlayer = true;
-        OnPlayerSpawned?.Invoke();
-    }
-    public void SceneLoadData()
-    {
-        DataPersistenceManager.Instance.LoadGameData();
-        CanvasGroup saveMenu = SaveFileManager.Instance.GetComponent<CanvasGroup>();
-        saveMenu.alpha = 0f;
-        saveMenu.interactable = false;
-        saveMenu.blocksRaycasts = false;
     }
 }
 

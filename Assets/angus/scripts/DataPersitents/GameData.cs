@@ -4,20 +4,34 @@ using UnityEngine;
 
 public class GameData 
 {
+    public bool loadedFromSave;
     public string currentScene;
     public Vector3 playerPosition;
     public float gameTime;
     public SerializableDictionary<string, bool> treesFalled;
 
-    // 新增一個欄位來存放道具的唯一識別碼
+    public SerializableDictionary<string, bool> birdsFlied;
+
+    public SerializableDictionary<string, bool> bridsOnFence;
     public List<string> inventoryItemNames;
+
+    public bool windmillWorked;
+
+    public bool hint1;
+    public bool hint2;
 
     public GameData()
     {
+        loadedFromSave = false;
         currentScene = "";
         playerPosition = Vector3.zero;
         gameTime = 0f;
+        windmillWorked = false;
+        hint1 = false;
+        hint2 = false;
         treesFalled = new SerializableDictionary<string, bool>();
+        birdsFlied = new SerializableDictionary<string, bool>();
+        bridsOnFence = new SerializableDictionary<string, bool>();
         inventoryItemNames = new List<string>();
     }
 }

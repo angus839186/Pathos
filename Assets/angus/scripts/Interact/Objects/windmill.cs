@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class windmill : MonoBehaviour, IInteractable
+public class windmill : MonoBehaviour, IInteractable, IDataPersistence
 {
     public Animator animator;
 
@@ -38,6 +38,7 @@ public class windmill : MonoBehaviour, IInteractable
         audio.Stop();
         audio.Play();
         audio.loop = true;
+        OpenOrganDoor();
     }
 
     public void OpenOrganDoor()
@@ -63,5 +64,19 @@ public class windmill : MonoBehaviour, IInteractable
     public void InteractEvent(Item heldItem)
     {
         throw new System.NotImplementedException();
+    }
+
+    public void LoadData(GameData data)
+    {
+        worked = data.windmillWorked;
+        if (worked)
+        {
+            windmillworked();
+        }
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        data.windmillWorked = worked;
     }
 }

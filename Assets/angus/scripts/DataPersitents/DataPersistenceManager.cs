@@ -15,8 +15,9 @@ public class DataPersistenceManager : MonoBehaviour
     private FileDataHandler dataHandler;
 
     public static DataPersistenceManager Instance;
-
     public GameData gameData;
+
+    public string selectedProfileId = "";
     void Awake()
     {
         if (Instance == null)
@@ -28,6 +29,35 @@ public class DataPersistenceManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        this.dataHandler = new FileDataHandler(Application.persistentDataPath, fileName);
+    }
+
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        LoadGame();
+    }
+
+    public void ChangeSelectedProfileId(string newProfileId)
+    {
+        // update the profile to use for saving and loading
+        this.selectedProfileId = newProfileId;
+    }
+
+    public void DeleteProfileData(string profileId)
+    {
+        // delete the data for this profile id
+        dataHandler.Delete(profileId);
     }
 
 
@@ -38,38 +68,53 @@ public class DataPersistenceManager : MonoBehaviour
 
     public void SaveGame()
     {
+        if (this.gameData == null)
+        {
+            Debug.LogWarning("No data was found. A New Game needs to be started before data can be saved.");
+            return;
+        }
         foreach (IDataPersistence dataPersistence in dataPersistenceObjects)
         {
             dataPersistence.SaveData(ref gameData);
+            // MonoBehaviour monoBehaviour = dataPersistence as MonoBehaviour;
+            // if (monoBehaviour != null)
+            // {
+            //     Debug.Log("找到的物件名稱: " + monoBehaviour.name);
+            // }
         }
-
-        if (gameData != null)
-        {
-            Debug.Log(gameData);
-            this.dataHandler = new FileDataHandler(Application.persistentDataPath, fileName);
-            dataHandler.Save(gameData);
-        }
+        dataHandler.Save(gameData, selectedProfileId);
     }
 
-    public void LoadGame(string fileName)
+    public void LoadGame()
     {
-        this.dataHandler = new FileDataHandler(Application.persistentDataPath, fileName);
-        this.gameData = dataHandler.Load();
+        this.gameData = dataHandler.Load(selectedProfileId);
+
+        if (this.gameData == null)
+        {
+            NewGame();
+        }
     }
 
     public void LoadGameData()
     {
-        this.dataPersistenceObjects = FindAllDataPersistenceObjects();
-        foreach (IDataPersistence dataPersistence in dataPersistenceObjects)
+        if (this.gameData == null)
         {
-            dataPersistence.LoadData(gameData);
+            return;
+        }
+
+        this.dataPersistenceObjects = FindAllDataPersistenceObjects();
+
+        // push the loaded data to all other scripts that need it
+        foreach (IDataPersistence dataPersistenceObj in dataPersistenceObjects)
+        {
+            dataPersistenceObj.LoadData(gameData);
         }
     }
 
-    // private void OnApplicationQuit()
-    // {
-    //     SaveGame();
-    // }
+    public Dictionary<string, GameData> GetAllProfilesGameData()
+    {
+        return dataHandler.LoadAllProfiles();
+    }
 
     private List<IDataPersistence> FindAllDataPersistenceObjects()
     {
@@ -77,20 +122,6 @@ public class DataPersistenceManager : MonoBehaviour
         IEnumerable<IDataPersistence> dataPersistenceObjects = FindObjectsOfType<MonoBehaviour>(true)
             .OfType<IDataPersistence>();
 
-        foreach (IDataPersistence dataPersistence in dataPersistenceObjects)
-        {
-            MonoBehaviour monoBehaviour = dataPersistence as MonoBehaviour;
-            if (monoBehaviour != null)
-            {
-                Debug.Log("找到的物件名稱: " + monoBehaviour.name);
-            }
-        }
-
         return new List<IDataPersistence>(dataPersistenceObjects);
-    }
-    public void RegisterDataPersistenceObject(IDataPersistence dataPersistenceObject)
-    {
-        if (!dataPersistenceObjects.Contains(dataPersistenceObject))
-            dataPersistenceObjects.Add(dataPersistenceObject);
     }
 }

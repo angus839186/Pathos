@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class savePoint : MonoBehaviour, IInteractable
 {
-    public CanvasGroup SaveFileCanvas;
     public string GetAnimationTrigger(Item heldItem)
     {
         return "";
@@ -18,7 +17,7 @@ public class savePoint : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        GameMenuManager.Instance.OpenSaveMenu();
+        SaveFileMenu.Instance.ActivateSaveFileCanvas();
     }
 
     public void InteractEvent(Item heldItem)
