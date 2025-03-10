@@ -846,7 +846,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eefe42567ef95cd4b9e4797400ff65ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultScene: grass
+  defaultScene: testGrass
   playerPrefab: {fileID: 1814799832682872464, guid: 7ba23919a87a5384699cc97a0a17c5e6, type: 3}
   SetPlayer: 0
 --- !u!4 &420593649
@@ -2744,7 +2744,7 @@ MonoBehaviour:
   - sceneName: testGrass
     sceneSprite: {fileID: 21300000, guid: 3f90a03269db81d469575b8463ef0393, type: 3}
   currentSaveSlot: {fileID: 0}
-  menuScene: Menu
+  menuScene: testMenu
   saveFileCanvas: {fileID: 892359830}
   buttons:
   - {fileID: 460015029}
