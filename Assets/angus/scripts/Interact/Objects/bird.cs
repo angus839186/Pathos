@@ -60,7 +60,6 @@ public class Bird : MonoBehaviour, IDataPersistence
     {
 
         isFlying = true;
-        Debug.Log("Start Flying");
         Vector2 direction = nextPos.position - transform.position;
         FlipDirection(direction);
 

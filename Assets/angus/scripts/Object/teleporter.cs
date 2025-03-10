@@ -6,15 +6,25 @@ using UnityEngine.SceneManagement;
 
 public class teleporter : MonoBehaviour
 {
-    public string nextSceneName;
+    public bool canTeleport;
+    public string targetSpawnPointID;
+    public string targetScene;
+
+    public void TeleportPlayer() {
+        Debug.Log("Teleport");
+        SpawnManager.spawnPointID = targetSpawnPointID;
+        Debug.Log(SpawnManager.spawnPointID);
+
+        GameManager gameManager = GameManager.Instance;
+        gameManager.StartCoroutine(gameManager.LoadGameScene(targetScene));
+
+    }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Player")
-        {
-            GameManager gameManager = GameManager.Instance;
-            gameManager.StartCoroutine(gameManager.LoadGameScene(nextSceneName));
-            Debug.Log("GoNextScene");
+        if (collision.CompareTag("Player")) {
+            DataPersistenceManager.Instance.SaveGameData();
+            TeleportPlayer();
         }
     }
 }

@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 1564535008315402671}
   - component: {fileID: 3840540949332431274}
   - component: {fileID: 1269543537506275475}
+  - component: {fileID: 4812125443923075155}
   m_Layer: 7
   m_Name: "\u8C93\u54AA\u7ACB\u7E6A"
   m_TagString: Player
@@ -198,6 +199,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 6227435022737302244}
   moveVector: {x: 0, y: 0}
+  firstLoad: 0
   jumpPower: 5
   speed: 6
   runMultiplier: 1.5
@@ -323,6 +325,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &4812125443923075155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1814799832682872464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a88d039e450026945bc69b565159905d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3193827531799942486
 GameObject:
   m_ObjectHideFlags: 0

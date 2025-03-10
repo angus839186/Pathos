@@ -5,20 +5,22 @@ public class PlayerController : MonoBehaviour, IDataPersistence
 {
     public Rigidbody2D rb;
     public Vector2 moveVector;
-    
+
+    public bool firstLoad;
+
     [Header("跳躍高度")]
     public float jumpPower;
-    
+
     [Header("移動速度")]
     public int speed;
-    
+
     [Header("跑步速度倍率")]
     public float runMultiplier = 1.5f;
-    
+
     public bool isRunning;
     public bool isGrounded;
     public bool isInteracting = false;
-    
+
     public Animator _anime;
     public SpriteRenderer _sprite;
 
@@ -27,7 +29,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     public AudioClip walkSound;
     public AudioClip runSound;
     public AudioClip jumpSound;
-    
+
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -36,7 +38,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
         audioSource = GetComponent<AudioSource>();
         DontDestroyOnLoad(gameObject);
     }
-    
+
     void OnEnable()
     {
         // 訂閱 InputManager 的事件
@@ -44,7 +46,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
         PlayerInputManager.Instance.OnJumpEvent += HandleJump;
         PlayerInputManager.Instance.OnRunEvent += HandleRun;
     }
-    
+
     void OnDisable()
     {
         // 訂閱要取消
@@ -52,12 +54,12 @@ public class PlayerController : MonoBehaviour, IDataPersistence
         PlayerInputManager.Instance.OnJumpEvent -= HandleJump;
         PlayerInputManager.Instance.OnRunEvent -= HandleRun;
     }
-    
+
     void Update()
     {
         _anime.SetFloat("yVelocity", rb.velocity.y);
     }
-    
+
     void FixedUpdate()
     {
         float currentSpeed = isRunning ? speed * runMultiplier : speed;
@@ -77,7 +79,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
             _anime.SetBool("isWalking", false);
             audioSource.Stop();
         }
-        
+
         if (moveVector.x > 0)
         {
             _sprite.flipX = false;
@@ -87,7 +89,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
             _sprite.flipX = true;
         }
     }
-    
+
     // 處理移動輸入
     private void HandleMove(Vector2 move)
     {
@@ -98,12 +100,12 @@ public class PlayerController : MonoBehaviour, IDataPersistence
         }
         moveVector = move;
     }
-    
+
     // 處理跳躍輸入
     private void HandleJump(float jump)
     {
         if (isInteracting) return;
-        
+
         if (jump > 0 && isGrounded)
         {
             rb.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
@@ -113,37 +115,37 @@ public class PlayerController : MonoBehaviour, IDataPersistence
             AudioManager.instance.PlaySound(jumpSound);
         }
     }
-    
+
     // 處理跑步輸入
     private void HandleRun(bool run)
     {
         isRunning = run;
         _anime.SetBool("runKey", isRunning);
     }
-    
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = true;
             _anime.SetBool("isJumping", false);
-            Debug.Log("已落地");
         }
     }
 
     public void LoadData(GameData data)
     {
-        if(!data.loadedFromSave)
+        if (!firstLoad)
         {
-            transform.position = data.playerPosition;
-        }
-        if(data.playerPosition == Vector3.zero)
-        {
-            transform.position = GameObject.Find("SpawnPoint").transform.position;
-        }   
-        else
-        {
-            transform.position = data.playerPosition;
+            if (data.playerPosition == Vector3.zero)
+            {
+                transform.position = GameObject.Find("SpawnPoint").transform.position;
+                firstLoad = true;
+            }
+            else
+            {
+                transform.position = data.playerPosition;
+                firstLoad = true;
+            }
         }
     }
 

@@ -33,20 +33,20 @@ public class DataPersistenceManager : MonoBehaviour
         this.dataHandler = new FileDataHandler(Application.persistentDataPath, fileName);
     }
 
-    private void OnEnable()
-    {
-        SceneManager.sceneLoaded += OnSceneLoaded;
-    }
+    // private void OnEnable()
+    // {
+    //     SceneManager.sceneLoaded += OnSceneLoaded;
+    // }
 
-    private void OnDisable()
-    {
-        SceneManager.sceneLoaded -= OnSceneLoaded;
-    }
+    // private void OnDisable()
+    // {
+    //     SceneManager.sceneLoaded -= OnSceneLoaded;
+    // }
 
-    public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        LoadGame();
-    }
+    // public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    // {
+    //     LoadGame();
+    // }
 
     public void ChangeSelectedProfileId(string newProfileId)
     {
@@ -73,26 +73,13 @@ public class DataPersistenceManager : MonoBehaviour
             Debug.LogWarning("No data was found. A New Game needs to be started before data can be saved.");
             return;
         }
-        foreach (IDataPersistence dataPersistence in dataPersistenceObjects)
-        {
-            dataPersistence.SaveData(ref gameData);
-            // MonoBehaviour monoBehaviour = dataPersistence as MonoBehaviour;
-            // if (monoBehaviour != null)
-            // {
-            //     Debug.Log("找到的物件名稱: " + monoBehaviour.name);
-            // }
-        }
+        SaveGameData();
         dataHandler.Save(gameData, selectedProfileId);
     }
 
     public void LoadGame()
     {
         this.gameData = dataHandler.Load(selectedProfileId);
-
-        if (this.gameData == null)
-        {
-            NewGame();
-        }
     }
 
     public void LoadGameData()
@@ -108,6 +95,23 @@ public class DataPersistenceManager : MonoBehaviour
         foreach (IDataPersistence dataPersistenceObj in dataPersistenceObjects)
         {
             dataPersistenceObj.LoadData(gameData);
+            MonoBehaviour monoBehaviour = dataPersistenceObj as MonoBehaviour;
+            if (monoBehaviour != null)
+            {
+                Debug.Log("找到的物件名稱: " + monoBehaviour.name);
+            }
+        }
+    }
+    public void SaveGameData()
+    {
+        foreach (IDataPersistence dataPersistence in dataPersistenceObjects)
+        {
+            dataPersistence.SaveData(ref gameData);
+            MonoBehaviour monoBehaviour = dataPersistence as MonoBehaviour;
+            if (monoBehaviour != null)
+            {
+                Debug.Log("找到的物件名稱: " + monoBehaviour.name);
+            }
         }
     }
 

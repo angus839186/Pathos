@@ -8,7 +8,7 @@ public class MainMenu : Menu
     {
         GameManager gameManager = GameManager.Instance;
         gameManager.StartCoroutine(gameManager.LoadGameScene(gameManager.defaultScene));
-        DataPersistenceManager.Instance.LoadGame();
+        DataPersistenceManager.Instance.NewGame();
     }
     public void OnContinueButtonClicked()
     {
