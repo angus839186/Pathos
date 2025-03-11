@@ -76,11 +76,11 @@ public class Bird : MonoBehaviour, IDataPersistence
         }
         yield return new WaitForSeconds(0.5f);
         animator.Play("bird_landing");
+        isFlying = false;
 
         yield return new WaitForSeconds(0.5f);
         animator.Play("bird_wait");
         transform.position = nextPos.position;
-        isFlying = false;
 
     }
 
@@ -151,10 +151,10 @@ public class Bird : MonoBehaviour, IDataPersistence
         // 播放降落動畫
         yield return new WaitForSeconds(0.2f);
         animator.Play("bird_landing");
+        isFlying = false;
         yield return new WaitForSeconds(0.5f);
         animator.Play("bird_wait");
         transform.position = fencePos.position;
-        isFlying = false;
     }
 
     public void LoadData(GameData data)
