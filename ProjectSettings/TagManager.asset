@@ -10,6 +10,7 @@ TagManager:
   - skyBackPos
   - CameraControl
   - itemSlots
+  - fireballs
   layers:
   - Default
   - TransparentFX
@@ -19,8 +20,8 @@ TagManager:
   - UI
   - Bird
   - Player
-  - 
-  - 
+  - fireballs
+  - boss
   - 
   - 
   - 
