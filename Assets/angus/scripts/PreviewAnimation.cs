@@ -7,14 +7,29 @@ public class PreviewAnimation : MonoBehaviour
 {
     public VideoPlayer video;
     public GameObject previewVideoCanvas;
-    void Start()
+
+    void Awake()
     {
+        video.Play();
+    }
+    void OnEnable()
+    {
+        video.prepareCompleted += OnPreviewVideoPrepared;
+    }
+
+    void OnDisable()
+    {
+        video.prepareCompleted -= OnPreviewVideoPrepared;
+    }
+
+    public void OnPreviewVideoPrepared(VideoPlayer source)
+    {
+        Debug.Log("Completed");
         StartCoroutine(PlayPreviewVideo());
     }
 
     IEnumerator PlayPreviewVideo()
     {
-        video.Play();
         yield return new WaitForSeconds((float)video.clip.length);
         previewVideoCanvas.SetActive(false);
         ReversePlainBoss boss = FindObjectOfType<ReversePlainBoss>();
