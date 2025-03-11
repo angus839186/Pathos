@@ -20,14 +20,14 @@ public class ReversePlainBoss : MonoBehaviour
     [Header("掉落範圍設定")]
     public float dropMinX;  // 掉落區域最小 X 值
     public float dropMaxX;  // 掉落區域最大 X 值
+    
 
-    void Start()
+    public void StartAttack()
     {
-        // 開始 BOSS 攻擊循環
         StartCoroutine(BossAttack());
     }
 
-    IEnumerator BossAttack()
+    public IEnumerator BossAttack()
     {
         while (true)
         {
