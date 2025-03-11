@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: 098d2ad0d601e1b47a469d5c23f446b7
   - enabled: 1
-    path: Assets/Scenes/grass.unity
+    path: "Assets/Scenes/\u8FEA\u666E\u52D2\u5343\u8349\u539F.unity"
     guid: 0d41a3b4b4f0c6941b953bb9a14e223c
   - enabled: 1
     path: Assets/angus/testGrass.unity
