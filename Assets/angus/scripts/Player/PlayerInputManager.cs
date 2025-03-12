@@ -24,6 +24,8 @@ public class PlayerInputManager : MonoBehaviour
 
     public event Action OnCloseSaveMenuEvent;
 
+    public event Action OnNextTutorialEvent;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -120,6 +122,14 @@ public class PlayerInputManager : MonoBehaviour
         if (pressed > 0.5f)
         {
             OnCloseSaveMenuEvent?.Invoke();
+        }
+    }
+    public void OnNextTutorial(InputValue value)
+    {
+        float pressed = value.Get<float>();
+        if(pressed > 0.5f)
+        {
+            OnNextTutorialEvent?.Invoke();
         }
     }
 

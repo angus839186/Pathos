@@ -19,6 +19,8 @@ public class PlayerInteraction : MonoBehaviour
 
     public PlayerController player;
 
+    public bool isInteracting;
+
     void Awake()
     {
         player = GetComponent<PlayerController>();
@@ -62,7 +64,7 @@ public class PlayerInteraction : MonoBehaviour
         interactInput = value;
         if (currentInteractable != null && interactInput > 0.5f)
         {
-            if (player.isInteracting)
+            if (isInteracting)
                 return;
 
             InventoryItem mainItem = Hotbar.Instance._item;
@@ -72,7 +74,8 @@ public class PlayerInteraction : MonoBehaviour
             if (!string.IsNullOrEmpty(animTrigger))
             {
                 playerAnimator.SetTrigger(animTrigger);
-                player.isInteracting = true;
+                isInteracting = true;
+                player.canMove = false;
             }
             else
             {
@@ -93,7 +96,8 @@ public class PlayerInteraction : MonoBehaviour
         }
         if (player != null)
         {
-            player.isInteracting = false;
+            player.canMove = true;
+            isInteracting = false;
         }
     }
 }

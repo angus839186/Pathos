@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
 
     public bool isRunning;
     public bool isGrounded;
-    public bool isInteracting = false;
+    public bool canMove = false;
 
     public Animator _anime;
     public SpriteRenderer _sprite;
@@ -93,7 +93,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     // 處理移動輸入
     private void HandleMove(Vector2 move)
     {
-        if (isInteracting)
+        if (!canMove)
         {
             moveVector = Vector2.zero;
             return;
@@ -104,7 +104,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     // 處理跳躍輸入
     private void HandleJump(float jump)
     {
-        if (isInteracting) return;
+        if (!canMove) return;
 
         if (jump > 0 && isGrounded)
         {

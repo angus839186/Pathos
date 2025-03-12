@@ -205,7 +205,7 @@ MonoBehaviour:
   runMultiplier: 1.5
   isRunning: 0
   isGrounded: 1
-  isInteracting: 0
+  canMove: 1
   _anime: {fileID: 0}
   _sprite: {fileID: 0}
   audioSource: {fileID: 0}
@@ -229,6 +229,7 @@ MonoBehaviour:
   descriptionText: {fileID: 0}
   playerAnimator: {fileID: 1351527419154173093}
   player: {fileID: 0}
+  isInteracting: 0
 --- !u!82 &1269543537506275475
 AudioSource:
   m_ObjectHideFlags: 0

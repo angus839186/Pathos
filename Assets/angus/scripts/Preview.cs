@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Video;
 
-public class PreviewAnimation : MonoBehaviour
+public class Preview : MonoBehaviour
 {
     public VideoPlayer video;
     public GameObject previewVideoCanvas;
+
+    public GameObject tutorial;
 
     void Awake()
     {
@@ -30,9 +32,12 @@ public class PreviewAnimation : MonoBehaviour
 
     IEnumerator PlayPreviewVideo()
     {
+        PlayerInputManager.Instance.SwitchActionMap("Preview");
         yield return new WaitForSeconds((float)video.clip.length);
+        PlayerInputManager.Instance.SwitchActionMap("Tutorial");
+
         previewVideoCanvas.SetActive(false);
-        ReversePlainBoss boss = FindObjectOfType<ReversePlainBoss>();
-        boss.StartAttack();
+        Tutorial tutorial = FindObjectOfType<Tutorial>();
+        tutorial.InitializeTutorial();
     }
 }

@@ -2,7 +2,7 @@
     "name": "inputControl",
     "maps": [
         {
-            "name": "DefaultPlayer",
+            "name": "Player",
             "id": "dc9657fc-b937-40e4-84eb-234412492d5c",
             "actions": [
                 {
@@ -252,6 +252,40 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Tutorial",
+            "id": "68a94709-c6f7-4d89-9750-cce20c49482e",
+            "actions": [
+                {
+                    "name": "NextTutorial",
+                    "type": "Button",
+                    "id": "f22d08b7-86bb-4998-8567-b21f1bf960e6",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "424ee09d-37ff-41b0-b8ac-17a36bf91ce5",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "NextTutorial",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Preview",
+            "id": "c037dcba-495c-4ee3-bbb8-7cf735d07be8",
+            "actions": [],
+            "bindings": []
         }
     ],
     "controlSchemes": []

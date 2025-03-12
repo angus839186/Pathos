@@ -83,7 +83,7 @@ public class BackpackUIManager : MonoBehaviour
         backpackPanel.alpha = 0f;
         backpackPanel.interactable = false;
         backpackPanel.blocksRaycasts = false;
-        playerInput.SwitchActionMap("DefaultPlayer");
+        playerInput.SwitchActionMap("Player");
     }
 
 

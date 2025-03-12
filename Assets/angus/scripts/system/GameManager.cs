@@ -47,7 +47,7 @@ public class GameManager : MonoBehaviour
         }
         DataPersistenceManager.Instance.LoadGameData();
 
-        PlayerInputManager.Instance.SwitchActionMap("DefaultPlayer");
+        PlayerInputManager.Instance.SwitchActionMap("Player");
     }
 
     private void SpawnPlayer()
