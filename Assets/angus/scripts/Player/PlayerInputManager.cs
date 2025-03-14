@@ -138,5 +138,6 @@ public class PlayerInputManager : MonoBehaviour
     public void SwitchActionMap(string mapName)
     {
         playerInput.SwitchCurrentActionMap(mapName);
+        Debug.Log("Switched to " + mapName);
     }
 }

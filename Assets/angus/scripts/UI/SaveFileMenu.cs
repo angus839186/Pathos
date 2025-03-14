@@ -166,7 +166,7 @@ public class SaveFileMenu : Menu
     {
         DataPersistenceManager.Instance.LoadGame();
         GameManager gameManager = GameManager.Instance;
-        gameManager.StartCoroutine(gameManager.LoadGameScene(DataPersistenceManager.Instance.gameData.currentScene));
+        gameManager.LoadLevel(DataPersistenceManager.Instance.gameData.currentScene);
         DeactiveSaveFileCanvas();
     }
 

@@ -16,7 +16,7 @@ public class teleporter : MonoBehaviour
         Debug.Log(SpawnManager.spawnPointID);
 
         GameManager gameManager = GameManager.Instance;
-        gameManager.StartCoroutine(gameManager.LoadGameScene(targetScene));
+        gameManager.StartCoroutine(gameManager.LoadNextScene(targetScene));
 
     }
 

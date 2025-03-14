@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,17 +6,41 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour
 {
     private int health = 3;
-    void OnCollisionEnter2D(Collision2D collision)
+    private int maxHealth = 3;
+
+    public Action<int> OnHealthUpdateEvent;
+
+    void Start()
     {
-        FireBall fireBall = collision.gameObject.GetComponent<FireBall>();
-        if(fireBall != null)
+        health = maxHealth;
+        UpdateHealth(health);
+    }
+    void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.H))
         {
-            health--;
-            UpdateHealthUI();
+            TakeDamage(1);
         }
     }
-    void UpdateHealthUI()
+
+    public void TakeDamage(int damage)
     {
-        Debug.Log("Player Health: " + health);
+        int currentHealth = health;
+        currentHealth -= damage;
+        UpdateHealth(currentHealth);
+    }
+
+    public void UpdateHealth(int newHealth)
+    {
+        health = newHealth;
+        if(health <= 0)
+        {
+            Die();
+        }
+        OnHealthUpdateEvent?.Invoke(health);
+    }
+    public void Die()
+    {
+        Debug.Log("Player died");
     }
 }

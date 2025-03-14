@@ -7,7 +7,7 @@ public class MainMenu : Menu
     public void OnStartButtonClicked()
     {
         GameManager gameManager = GameManager.Instance;
-        gameManager.StartCoroutine(gameManager.LoadGameScene(gameManager.defaultScene));
+        gameManager.LoadLevel(gameManager.defaultScene);
         DataPersistenceManager.Instance.NewGame();
     }
     public void OnContinueButtonClicked()

@@ -130,6 +130,12 @@ public class PlayerController : MonoBehaviour, IDataPersistence
             isGrounded = true;
             _anime.SetBool("isJumping", false);
         }
+        FireBall fireBall = collision.gameObject.GetComponent<FireBall>();
+        if(fireBall != null)
+        {
+            PlayerHealth playerHealth = GetComponent<PlayerHealth>();
+            playerHealth.TakeDamage(1);
+        }
     }
 
     public void LoadData(GameData data)

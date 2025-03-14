@@ -2126,7 +2126,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eefe42567ef95cd4b9e4797400ff65ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultScene: testGrass
   playerPrefab: {fileID: 1814799832682872464, guid: 7ba23919a87a5384699cc97a0a17c5e6, type: 3}
   SetPlayer: 0
 --- !u!4 &1061824044
@@ -3353,6 +3352,52 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1782704406}
   m_CullTransparentMesh: 1
+--- !u!1 &1783674367
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1783674369}
+  - component: {fileID: 1783674368}
+  m_Layer: 0
+  m_Name: LevelLoader
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1783674368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1783674367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39d2aff2aa36111419c664bdfd738baf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultScene: testGrass
+  SetPlayer: 0
+--- !u!4 &1783674369
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1783674367}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 784.06555, y: 623.91516, z: -3.5762618}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1846695447
 GameObject:
   m_ObjectHideFlags: 0
@@ -5091,3 +5136,4 @@ SceneRoots:
   - {fileID: 771180614}
   - {fileID: 1061824044}
   - {fileID: 1846695449}
+  - {fileID: 1783674369}
