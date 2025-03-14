@@ -95,11 +95,11 @@ public class DataPersistenceManager : MonoBehaviour
         foreach (IDataPersistence dataPersistenceObj in dataPersistenceObjects)
         {
             dataPersistenceObj.LoadData(gameData);
-            MonoBehaviour monoBehaviour = dataPersistenceObj as MonoBehaviour;
-            if (monoBehaviour != null)
-            {
-                Debug.Log("找到的物件名稱: " + monoBehaviour.name);
-            }
+            // MonoBehaviour monoBehaviour = dataPersistenceObj as MonoBehaviour;
+            // if (monoBehaviour != null)
+            // {
+            //     Debug.Log("找到的物件名稱: " + monoBehaviour.name);
+            // }
         }
     }
     public void SaveGameData()
@@ -107,11 +107,11 @@ public class DataPersistenceManager : MonoBehaviour
         foreach (IDataPersistence dataPersistence in dataPersistenceObjects)
         {
             dataPersistence.SaveData(ref gameData);
-            MonoBehaviour monoBehaviour = dataPersistence as MonoBehaviour;
-            if (monoBehaviour != null)
-            {
-                Debug.Log("找到的物件名稱: " + monoBehaviour.name);
-            }
+            // MonoBehaviour monoBehaviour = dataPersistence as MonoBehaviour;
+            // if (monoBehaviour != null)
+            // {
+            //     Debug.Log("找到的物件名稱: " + monoBehaviour.name);
+            // }
         }
     }
 

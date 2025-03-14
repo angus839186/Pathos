@@ -81,7 +81,6 @@ public class GameManager : MonoBehaviour
             yield return null;
         }
         PlayerController player = FindAnyObjectByType<PlayerController>();
-
         CinemachineVirtualCamera cam = FindObjectOfType<CinemachineVirtualCamera>();
         if (cam != null)
         {
@@ -97,6 +96,7 @@ public class GameManager : MonoBehaviour
         GameObject player = Instantiate(playerPrefab, Vector3.zero, Quaternion.identity);
         SetPlayer = true;
         Debug.Log("Player spawned");
+        OnPlayerSpawned?.Invoke();
     }
     bool IsSceneLoaded(string sceneName)
     {

@@ -21,10 +21,11 @@ public class PlayerInteraction : MonoBehaviour
 
     public bool isInteracting;
 
+    public Action<string> OnShowDescription;
+
     void Awake()
     {
         player = GetComponent<PlayerController>();
-        descriptionText = DescriptionText.Instance;
     }
 
     void OnEnable()
@@ -68,7 +69,7 @@ public class PlayerInteraction : MonoBehaviour
                 return;
 
             InventoryItem mainItem = Hotbar.Instance._item;
-            Item heldItem = (mainItem.item != null) ? mainItem.item : null;
+            Item heldItem = (mainItem != null && mainItem.item != null) ? mainItem.item : null;
 
             string animTrigger = currentInteractable.GetAnimationTrigger(heldItem);
             if (!string.IsNullOrEmpty(animTrigger))
@@ -79,7 +80,7 @@ public class PlayerInteraction : MonoBehaviour
             }
             else
             {
-                StartCoroutine(descriptionText.showDescription(currentInteractable.GetDescription()));
+                OnShowDescription?.Invoke(currentInteractable.GetDescription());
                 currentInteractable.Interact();
             }
         }
@@ -87,12 +88,17 @@ public class PlayerInteraction : MonoBehaviour
 
     public void TriggerInteractEvent()
     {
-        InventoryItem mainItem = Hotbar.Instance._item; // 此處 hotbar._item 可能為 null
-        Item heldItem = (mainItem != null) ? mainItem.item : null;
+        InventoryItem mainItem = Hotbar.Instance._item;
+        Item heldItem = (mainItem != null && mainItem.item != null) ? mainItem.item : null;
         if (currentInteractable != null)
         {
             currentInteractable.InteractEvent(heldItem);
-            StartCoroutine(descriptionText.showDescription(currentInteractable.GetDescription()));
+            OnShowDescription?.Invoke(currentInteractable.GetDescription());
+
+            // if (descriptionText != null)
+            // {
+            //     StartCoroutine(descriptionText.showDescription(currentInteractable.GetDescription()));
+            // }
         }
         if (player != null)
         {

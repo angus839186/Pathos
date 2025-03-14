@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    private int health = 3;
+    public int health = 3;
     private int maxHealth = 3;
 
     public Action<int> OnHealthUpdateEvent;
@@ -25,6 +25,8 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        if(health <= 0)return;
+        Debug.Log("Player took " + damage + " damage");
         int currentHealth = health;
         currentHealth -= damage;
         UpdateHealth(currentHealth);

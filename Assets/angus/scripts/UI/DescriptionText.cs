@@ -6,26 +6,31 @@ using UnityEngine.UI;
 
 public class DescriptionText : MonoBehaviour
 {
-
-    public static DescriptionText Instance { get; private set; }
     public Text descriptionText;
 
     private void Awake()
     {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-        Instance = this;
         DontDestroyOnLoad(gameObject);
     }
-    void Start()
+
+    private void Start()
     {
-        this.gameObject.SetActive(false);
+        PlayerInteraction playerInteract = FindObjectOfType<PlayerInteraction>();
+        Debug.Log(playerInteract);
+        playerInteract.OnShowDescription += showDescription;
     }
 
-    public IEnumerator showDescription(string description)
+    void OnDisable()
+    {
+        PlayerInteraction playerInteract = FindObjectOfType<PlayerInteraction>();
+        playerInteract.OnShowDescription -= showDescription;
+    }
+
+    public void showDescription(string description)
+    {
+        StartCoroutine(DisplayDescription(description));
+    }
+    public IEnumerator DisplayDescription(string description)
     {
         this.gameObject.SetActive(true);
         descriptionText.text = description;

@@ -187,11 +187,11 @@ public class BackpackUIManager : MonoBehaviour
         itemDescription.text = selectedItem.item.itemDescription;
     }
 
-    public void OnConfirmItem(float value)
+    public void OnConfirmItem()
     {
         int newIndex = currentIndex;
         InventoryItem selectedItem = inventory.items[currentIndex];
-        if (Hotbar.Instance != null)
+        if(selectedItem != null)
         {
             Hotbar.Instance.SetMainItem(selectedItem, currentIndex);
         }

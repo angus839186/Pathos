@@ -18,7 +18,7 @@ public class PlayerInputManager : MonoBehaviour
     public event Action OnToggleBackpackEvent;
     public event Action<int> OnSelectItemEvent;
 
-    public event Action<float> OnConfirmMainItemEvent;
+    public event Action OnConfirmMainItemEvent;
 
     public event Action<float> OnInteractEvent;
 
@@ -113,7 +113,7 @@ public class PlayerInputManager : MonoBehaviour
         float pressed = value.Get<float>();
         if (pressed > 0.5f)
         {
-            OnConfirmMainItemEvent?.Invoke(value.Get<float>());
+            OnConfirmMainItemEvent?.Invoke();
         }
     }
     public void OnCloseSaveMenu(InputValue value)

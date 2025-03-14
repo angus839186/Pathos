@@ -26,7 +26,7 @@ public class Hotbar : MonoBehaviour
 
     public void SetMainItem(InventoryItem item, int index)
     {
-        if(item == _item)
+        if(item == _item || item == null)
         {
             _item = null;
             currentMainItemIndex = 0;
