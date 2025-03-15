@@ -19,13 +19,7 @@ public class PersistenceCamera : MonoBehaviour
     }
     void Start()
     {
-        GameManager.Instance.OnCameraSpawned += GetCameraBorder;
-        SceneManager.sceneLoaded += OnSceneLoaded;
-    }
-
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        GetCameraBorder();
+        GameManager.Instance.OnSceneLoaded += GetCameraBorder;
     }
     void GetCameraBorder()
     {
