@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PersistenceCamera : MonoBehaviour
 {
@@ -14,5 +16,27 @@ public class PersistenceCamera : MonoBehaviour
         }
         Instance = this;
         DontDestroyOnLoad(gameObject);
+    }
+    void Start()
+    {
+        GameManager.Instance.OnCameraSpawned += GetCameraBorder;
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        GetCameraBorder();
+    }
+    void GetCameraBorder()
+    {
+        PlayerController player = FindObjectOfType<PlayerController>();
+        CinemachineConfiner2D cinemachineConfiner2D = GetComponentInChildren<CinemachineConfiner2D>();
+        CinemachineVirtualCamera cam = FindObjectOfType<CinemachineVirtualCamera>();
+        cam.Follow = player.transform;
+        if (cinemachineConfiner2D != null)
+        {
+            cinemachineConfiner2D.m_BoundingShape2D = GameObject.Find("CameraBorder").GetComponent<PolygonCollider2D>();
+            cinemachineConfiner2D.InvalidateCache();
+        }
     }
 }

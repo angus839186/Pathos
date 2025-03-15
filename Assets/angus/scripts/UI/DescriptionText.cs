@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class DescriptionText : MonoBehaviour
 {
     public Text descriptionText;
+    PlayerInteraction playerInteract;
 
     private void Awake()
     {
@@ -15,14 +16,13 @@ public class DescriptionText : MonoBehaviour
 
     private void Start()
     {
-        PlayerInteraction playerInteract = FindObjectOfType<PlayerInteraction>();
+        playerInteract = FindObjectOfType<PlayerInteraction>();
         Debug.Log(playerInteract);
         playerInteract.OnShowDescription += showDescription;
     }
 
     void OnDisable()
     {
-        PlayerInteraction playerInteract = FindObjectOfType<PlayerInteraction>();
         playerInteract.OnShowDescription -= showDescription;
     }
 

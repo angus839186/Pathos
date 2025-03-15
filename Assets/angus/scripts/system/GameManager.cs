@@ -11,9 +11,15 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     public GameObject playerPrefab;
 
+    public GameObject cameraPrefab;
+
     public bool SetPlayer;
 
+    public bool SetCamera;
+
     public Action OnPlayerSpawned;
+
+    public Action OnCameraSpawned;
 
     private void Awake()
     {
@@ -50,6 +56,16 @@ public class GameManager : MonoBehaviour
             yield return null;
         }
 
+        if(!SetCamera)
+        {
+            SpawnCamera();
+        }
+
+        while(SetCamera == false)
+        {
+            yield return null;
+        }
+
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName);
         while (!asyncLoad.isDone)
         {
@@ -62,12 +78,6 @@ public class GameManager : MonoBehaviour
             GameObject spawnPoint = GameObject.Find("SpawnPoint");
             Vector3 spawnPos = spawnPoint != null ? spawnPoint.transform.position : Vector3.zero;
             player.transform.position = spawnPos;
-            OnPlayerSpawned?.Invoke();
-        }
-        CinemachineVirtualCamera cam = FindObjectOfType<CinemachineVirtualCamera>();
-        if (cam != null)
-        {
-            cam.Follow = player.transform;
         }
         DataPersistenceManager.Instance.LoadGameData();
 
@@ -97,6 +107,14 @@ public class GameManager : MonoBehaviour
         SetPlayer = true;
         Debug.Log("Player spawned");
         OnPlayerSpawned?.Invoke();
+    }
+
+    public void SpawnCamera()
+    {
+        GameObject camera = Instantiate(cameraPrefab, Vector3.zero, Quaternion.identity);
+        SetCamera = true;
+        Debug.Log("Camera spawned");
+        OnCameraSpawned?.Invoke();
     }
     bool IsSceneLoaded(string sceneName)
     {

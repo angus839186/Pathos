@@ -2128,7 +2128,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultScene: testGrass
   playerPrefab: {fileID: 1814799832682872464, guid: 7ba23919a87a5384699cc97a0a17c5e6, type: 3}
+  cameraPrefab: {fileID: 7636833522782320093, guid: c8bc700306f08694a8e8b002bccbfae3, type: 3}
   SetPlayer: 0
+  SetCamera: 0
 --- !u!4 &1061824044
 Transform:
   m_ObjectHideFlags: 0
