@@ -20,7 +20,7 @@ public class PlayerInputManager : MonoBehaviour
 
     public event Action OnConfirmMainItemEvent;
 
-    public event Action<float> OnInteractEvent;
+    public event Action OnInteractEvent;
 
     public event Action OnCloseSaveMenuEvent;
 
@@ -86,7 +86,7 @@ public class PlayerInputManager : MonoBehaviour
         float pressed = value.Get<float>();
         if (pressed > 0.5f)
         {
-            OnInteractEvent?.Invoke(pressed);
+            OnInteractEvent?.Invoke();
         }
     }
 

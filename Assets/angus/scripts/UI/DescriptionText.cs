@@ -32,9 +32,12 @@ public class DescriptionText : MonoBehaviour
     }
     public IEnumerator DisplayDescription(string description)
     {
-        this.gameObject.SetActive(true);
-        descriptionText.text = description;
-        yield return new WaitForSeconds(1.5f);
-        this.gameObject.SetActive(false);
+        if(!string.IsNullOrEmpty(description))
+        {
+            this.gameObject.SetActive(true);
+            descriptionText.text = description;
+            yield return new WaitForSeconds(1.5f);
+            this.gameObject.SetActive(false);
+        }
     }
 }

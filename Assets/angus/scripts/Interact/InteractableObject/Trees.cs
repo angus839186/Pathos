@@ -73,7 +73,7 @@ public class Trees : MonoBehaviour, IInteractable, IDataPersistence
 
     public void Interact()
     {
-        Debug.Log(DefaultDescription);
+        //Do nothing
     }
 
     public void LoadData(GameData data)

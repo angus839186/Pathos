@@ -7,11 +7,13 @@ public class PlayerHealth : MonoBehaviour
 {
     public int health = 3;
     private int maxHealth = 3;
+    private Animator anime;
 
     public Action<int> OnHealthUpdateEvent;
 
     void Start()
     {
+        anime = GetComponent<Animator>();
         health = maxHealth;
         UpdateHealth(health);
     }
@@ -26,7 +28,7 @@ public class PlayerHealth : MonoBehaviour
     public void TakeDamage(int damage)
     {
         if(health <= 0)return;
-        Debug.Log("Player took " + damage + " damage");
+        anime.SetTrigger("hurt");
         int currentHealth = health;
         currentHealth -= damage;
         UpdateHealth(currentHealth);
