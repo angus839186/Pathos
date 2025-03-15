@@ -17,9 +17,7 @@ public class GameManager : MonoBehaviour
 
     public bool SetCamera;
 
-    public Action OnPlayerSpawned;
-
-    public Action OnCameraSpawned;
+    public Action OnSceneLoaded;
 
     private void Awake()
     {
@@ -82,6 +80,7 @@ public class GameManager : MonoBehaviour
         DataPersistenceManager.Instance.LoadGameData();
 
         PlayerInputManager.Instance.SwitchActionMap("Player");
+        OnSceneLoaded?.Invoke();
     }
     public IEnumerator LoadNextScene(string sceneName)
     {
@@ -90,6 +89,7 @@ public class GameManager : MonoBehaviour
         {
             yield return null;
         }
+
         PlayerController player = FindAnyObjectByType<PlayerController>();
         CinemachineVirtualCamera cam = FindObjectOfType<CinemachineVirtualCamera>();
         if (cam != null)
@@ -99,6 +99,7 @@ public class GameManager : MonoBehaviour
         DataPersistenceManager.Instance.LoadGameData();
 
         PlayerInputManager.Instance.SwitchActionMap("Player");
+        OnSceneLoaded?.Invoke();
     }
 
     public void SpawnPlayer()
@@ -106,7 +107,6 @@ public class GameManager : MonoBehaviour
         GameObject player = Instantiate(playerPrefab, Vector3.zero, Quaternion.identity);
         SetPlayer = true;
         Debug.Log("Player spawned");
-        OnPlayerSpawned?.Invoke();
     }
 
     public void SpawnCamera()
@@ -114,7 +114,6 @@ public class GameManager : MonoBehaviour
         GameObject camera = Instantiate(cameraPrefab, Vector3.zero, Quaternion.identity);
         SetCamera = true;
         Debug.Log("Camera spawned");
-        OnCameraSpawned?.Invoke();
     }
     bool IsSceneLoaded(string sceneName)
     {

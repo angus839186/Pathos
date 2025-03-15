@@ -25,7 +25,7 @@ public class HealthUI : MonoBehaviour
     {
         if (GameManager.Instance != null)
         {
-            GameManager.Instance.OnPlayerSpawned += OnPlayerSpawned;
+            GameManager.Instance.OnSceneLoaded += OnPlayerSpawned;
         }
     }
 
@@ -33,7 +33,7 @@ public class HealthUI : MonoBehaviour
     {
         if (GameManager.Instance != null)
         {
-            GameManager.Instance.OnPlayerSpawned -= OnPlayerSpawned;
+            GameManager.Instance.OnSceneLoaded -= OnPlayerSpawned;
         }
         // 若 playerHealth 不為 null，也要記得解除訂閱
         if (playerHealth != null)
@@ -43,6 +43,7 @@ public class HealthUI : MonoBehaviour
     }
     private void OnPlayerSpawned()
     {
+        Debug.Log("Player spawned!");
         playerHealth = FindObjectOfType<PlayerHealth>();
         if (playerHealth != null)
         {
