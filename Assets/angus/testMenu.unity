@@ -3947,7 +3947,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eefe42567ef95cd4b9e4797400ff65ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultScene: testScene
+  defaultScene: testGrass
   playerPrefab: {fileID: 1814799832682872464, guid: 7ba23919a87a5384699cc97a0a17c5e6, type: 3}
   cameraPrefab: {fileID: 7636833522782320093, guid: c8bc700306f08694a8e8b002bccbfae3, type: 3}
   SetPlayer: 0

@@ -20,5 +20,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/angus/HealthUI.unity
     guid: 59cfd36f575859e4aa3e0cda66c1d1fa
+  - enabled: 1
+    path: Assets/angus/testMenu.unity
+    guid: 29c8aa1138c19cc4ca92ee8b9790743a
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: a71d795691aac064c964efaf81a84816, type: 2}
