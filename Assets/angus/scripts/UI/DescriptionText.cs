@@ -7,17 +7,20 @@ using UnityEngine.UI;
 public class DescriptionText : MonoBehaviour
 {
     public Text descriptionText;
+
+    private CanvasGroup canvas;
     PlayerInteraction playerInteract;
 
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
+        canvas = GetComponent<CanvasGroup>();
     }
 
     private void Start()
     {
         playerInteract = FindObjectOfType<PlayerInteraction>();
-        Debug.Log(playerInteract);
+        canvas.alpha = 0f;
         playerInteract.OnShowDescription += showDescription;
     }
 
@@ -34,10 +37,10 @@ public class DescriptionText : MonoBehaviour
     {
         if(!string.IsNullOrEmpty(description))
         {
-            this.gameObject.SetActive(true);
+            canvas.alpha = 1f;
             descriptionText.text = description;
             yield return new WaitForSeconds(1.5f);
-            this.gameObject.SetActive(false);
+            canvas.alpha = 0f;
         }
     }
 }

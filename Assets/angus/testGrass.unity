@@ -2438,6 +2438,7 @@ GameObject:
   - component: {fileID: 537361911}
   - component: {fileID: 537361910}
   - component: {fileID: 537361914}
+  - component: {fileID: 537361915}
   m_Layer: 5
   m_Name: "\u63D0\u793A\u5B57"
   m_TagString: Untagged
@@ -2542,6 +2543,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   descriptionText: {fileID: 1261707291}
+--- !u!225 &537361915
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 537361909}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &548327465
 GameObject:
   m_ObjectHideFlags: 0
