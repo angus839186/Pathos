@@ -26,7 +26,6 @@ public class Preview : MonoBehaviour
 
     public void OnPreviewVideoPrepared(VideoPlayer source)
     {
-        Debug.Log("Completed");
         StartCoroutine(PlayPreviewVideo());
     }
 

@@ -28,15 +28,13 @@ public class PlayerInteraction : MonoBehaviour
         player = GetComponent<PlayerController>();
     }
 
-    void OnEnable()
+    private void OnEnable()
     {
-        // 訂閱 InputManager 的事件
         PlayerInputManager.Instance.OnInteractEvent += Interact;
     }
 
-    void OnDisable()
+    private void OnDisable()
     {
-        // 訂閱要取消
         PlayerInputManager.Instance.OnInteractEvent -= Interact;
     }
 
@@ -60,10 +58,9 @@ public class PlayerInteraction : MonoBehaviour
         }
     }
 
-    public void Interact(float value)
+    public void Interact()
     {
-        interactInput = value;
-        if (currentInteractable != null && interactInput > 0.5f)
+        if (currentInteractable != null)
         {
             if (isInteracting)
                 return;
@@ -94,11 +91,6 @@ public class PlayerInteraction : MonoBehaviour
         {
             currentInteractable.InteractEvent(heldItem);
             OnShowDescription?.Invoke(currentInteractable.GetDescription());
-
-            // if (descriptionText != null)
-            // {
-            //     StartCoroutine(descriptionText.showDescription(currentInteractable.GetDescription()));
-            // }
         }
         if (player != null)
         {
