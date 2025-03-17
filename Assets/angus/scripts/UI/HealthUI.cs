@@ -43,7 +43,6 @@ public class HealthUI : MonoBehaviour
     }
     private void OnPlayerSpawned()
     {
-        Debug.Log("Player spawned!");
         playerHealth = FindObjectOfType<PlayerHealth>();
         if (playerHealth != null)
         {
@@ -60,8 +59,14 @@ public class HealthUI : MonoBehaviour
     {
         for (int i = 0; i < hearts.Count; i++)
         {
-            if (i >= health)
+            if (i < health)
             {
+                // 當該 heart 應該顯示完整血量時，將圖片設為 DefaultSprite
+                hearts[i].Recover();
+            }
+            else
+            {
+                // 超出目前血量的 heart 保持破損狀態
                 hearts[i].Break();
             }
         }

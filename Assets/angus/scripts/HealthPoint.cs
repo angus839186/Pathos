@@ -7,7 +7,7 @@ public class HealthPoint : MonoBehaviour
 {
     private Animator anime;
     private Image image;
-    private Sprite defaultSprite;
+    public Sprite defaultSprite;
 
     void Awake()
     {
@@ -17,10 +17,11 @@ public class HealthPoint : MonoBehaviour
 
     public void Break()
     {
-        anime.Play("HP_breakage");
+        anime.SetBool("break", true);
     }
     public void Recover()
     {
+        anime.SetBool("break", false);
         image.sprite = defaultSprite;
     }
 }

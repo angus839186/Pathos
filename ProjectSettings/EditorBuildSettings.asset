@@ -18,7 +18,7 @@ EditorBuildSettings:
     path: Assets/angus/testReversePlain.unity
     guid: a585005277abb004f866a706c50a03eb
   - enabled: 1
-    path: Assets/angus/HealthUI.unity
+    path: Assets/angus/playerUI.unity
     guid: 59cfd36f575859e4aa3e0cda66c1d1fa
   - enabled: 1
     path: Assets/angus/testMenu.unity

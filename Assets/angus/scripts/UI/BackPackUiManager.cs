@@ -31,26 +31,19 @@ public class BackpackUIManager : MonoBehaviour
 
     void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
+        if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
+            return;
         }
-    }
-    void Start()
-    {
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
         playerInput = PlayerInputManager.Instance;
+        inventory = InventoryManager.Instance;
     }
 
     void OnEnable()
     {
-        inventory = InventoryManager.Instance;
-        playerInput = PlayerInputManager.Instance;
-
 
         playerInput.OnToggleBackpackEvent += OnToggleBackpack;
         playerInput.OnSelectItemEvent += SelectItem;
@@ -60,10 +53,16 @@ public class BackpackUIManager : MonoBehaviour
 
     void OnDisable()
     {
-        playerInput.OnToggleBackpackEvent -= OnToggleBackpack;
-        playerInput.OnSelectItemEvent -= SelectItem;
-        playerInput.OnConfirmMainItemEvent -= OnConfirmItem;
-        inventory.OnInventoryChanged -= UpdateItemSlotsSprite;
+        if (playerInput != null)
+        {
+            playerInput.OnToggleBackpackEvent -= OnToggleBackpack;
+            playerInput.OnSelectItemEvent -= SelectItem;
+            playerInput.OnConfirmMainItemEvent -= OnConfirmItem;
+        }
+        if (inventory != null)
+        {
+            inventory.OnInventoryChanged -= UpdateItemSlotsSprite;
+        }
     }
 
 
@@ -191,7 +190,7 @@ public class BackpackUIManager : MonoBehaviour
     {
         int newIndex = currentIndex;
         InventoryItem selectedItem = inventory.items[currentIndex];
-        if(selectedItem != null)
+        if (selectedItem != null)
         {
             Hotbar.Instance.SetMainItem(selectedItem, currentIndex);
         }

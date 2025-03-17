@@ -25,8 +25,6 @@ public class SaveFileMenu : Menu
 
     public SaveSlot currentSaveSlot;
 
-    public string menuScene;
-
     // 建立字典以方便查詢
     public Dictionary<string, Sprite> sceneSprites;
 
@@ -46,15 +44,13 @@ public class SaveFileMenu : Menu
 
     void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else if (Instance != this)
+        if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
+            return;
         }
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
         sceneSprites = new Dictionary<string, Sprite>();
         foreach (var mapping in sceneSpriteList)
         {
@@ -115,7 +111,7 @@ public class SaveFileMenu : Menu
         sceneNameText.text = saveSlot.sceneName;
         gameTimeText.text = saveSlot.gameTime;
 
-        if (SceneManager.GetActiveScene().name == menuScene)
+        if (SceneManager.GetActiveScene().name == GameManager.Instance.menuScene)
         {
             if (saveSlot.gameData == null)
             {
@@ -188,7 +184,7 @@ public class SaveFileMenu : Menu
     }
     public void OnBackButtonClicked()
     {
-        if(SceneManager.GetActiveScene().name == menuScene)
+        if(SceneManager.GetActiveScene().name == GameManager.Instance.menuScene)
         {
             Transition(mainMenuCanva);
         }

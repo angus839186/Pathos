@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public int health = 3;
+    public int health;
     private int maxHealth = 3;
     private Animator anime;
 
@@ -14,8 +14,6 @@ public class PlayerHealth : MonoBehaviour
     void Start()
     {
         anime = GetComponent<Animator>();
-        health = maxHealth;
-        UpdateHealth(health);
     }
     void Update()
     {
@@ -45,6 +43,14 @@ public class PlayerHealth : MonoBehaviour
     }
     public void Die()
     {
-        Debug.Log("Player died");
+        deathUI death = FindObjectOfType<deathUI>();
+        death.PlayerDeath();
+        PlayerInputManager.Instance.SwitchActionMap("Die");
+    }
+    public void Recover()
+    {
+        int currentHealth = health;
+        currentHealth = maxHealth;
+        UpdateHealth(currentHealth);
     }
 }
