@@ -7,15 +7,21 @@ using System;
 public class GameManager : MonoBehaviour
 {
 
-    public string defaultScene = "testGrass";
+    public string defaultScene;
+    public string menuScene;
     public static GameManager Instance;
     public GameObject playerPrefab;
 
     public GameObject cameraPrefab;
 
+    public GameObject playerInstance;
+    public GameObject cameraInstance;
+
     public bool SetPlayer;
 
     public bool SetCamera;
+
+    public bool SetUI;
 
     public Action OnSceneLoaded;
 
@@ -35,15 +41,6 @@ public class GameManager : MonoBehaviour
     }
     IEnumerator LoadGameLevel(string sceneName)
     {
-        if (!IsSceneLoaded("HealthUI"))
-        {
-            SceneManager.LoadScene("HealthUI", LoadSceneMode.Additive);
-        }
-        while (!IsSceneLoaded("HealthUI"))
-        {
-            yield return null;
-        }
-
         if (!SetPlayer)
         {
             SpawnPlayer();
@@ -54,12 +51,22 @@ public class GameManager : MonoBehaviour
             yield return null;
         }
 
-        if(!SetCamera)
+        if (!SetCamera)
         {
             SpawnCamera();
         }
-
-        while(SetCamera == false)
+        while (SetCamera == false)
+        {
+            yield return null;
+        }
+        if (!SceneManager.GetSceneByName("playerUI").isLoaded)
+        {
+            SceneManager.LoadScene("playerUI", LoadSceneMode.Additive);
+            // 若需要，可以在這邊設定一個旗標，表示 UI 已載入
+            SetUI = true;
+        }
+        // 如果需要等待 playerUI 載入完成也可以加上類似以下等待邏輯
+        while (!SceneManager.GetSceneByName("playerUI").isLoaded)
         {
             yield return null;
         }
@@ -73,6 +80,7 @@ public class GameManager : MonoBehaviour
         PlayerController player = FindAnyObjectByType<PlayerController>();
         if (player != null)
         {
+            player.GetComponent<PlayerHealth>().Recover();
             GameObject spawnPoint = GameObject.Find("SpawnPoint");
             Vector3 spawnPos = spawnPoint != null ? spawnPoint.transform.position : Vector3.zero;
             player.transform.position = spawnPos;
@@ -101,19 +109,58 @@ public class GameManager : MonoBehaviour
         PlayerInputManager.Instance.SwitchActionMap("Player");
         OnSceneLoaded?.Invoke();
     }
+    public IEnumerator ReloadScene(string sceneName)
+    {
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName);
+        while (!asyncLoad.isDone)
+        {
+            yield return null;
+        }
+        Debug.Log("Reload");
+        PlayerController player = FindAnyObjectByType<PlayerController>();
+        CinemachineVirtualCamera cam = FindObjectOfType<CinemachineVirtualCamera>();
+        if(player != null)
+        {
+            player.GetComponent<PlayerHealth>().Recover();
+            cam.Follow = player.transform;
+        }
+
+        DataPersistenceManager.Instance.LoadGameData();
+
+        PlayerInputManager.Instance.SwitchActionMap("Player");
+        OnSceneLoaded?.Invoke();
+    }
 
     public void SpawnPlayer()
     {
-        GameObject player = Instantiate(playerPrefab, Vector3.zero, Quaternion.identity);
-        SetPlayer = true;
-        Debug.Log("Player spawned");
+        if (playerInstance == null)
+        {
+            GameObject player = Instantiate(playerPrefab, Vector3.zero, Quaternion.identity);
+            SetPlayer = true;
+            Debug.Log("Player spawned");
+            playerInstance = player;
+        }
+        else
+        {
+            playerInstance.SetActive(true);
+            SetPlayer = true;
+        }
     }
 
     public void SpawnCamera()
     {
-        GameObject camera = Instantiate(cameraPrefab, Vector3.zero, Quaternion.identity);
-        SetCamera = true;
-        Debug.Log("Camera spawned");
+        if (cameraInstance == null)
+        {
+            GameObject camera = Instantiate(cameraPrefab, Vector3.zero, Quaternion.identity);
+            SetCamera = true;
+            Debug.Log("Camera spawned");
+            cameraInstance = camera;
+        }
+        else
+        {
+            cameraInstance.SetActive(true);
+            SetCamera = true;
+        }
     }
     bool IsSceneLoaded(string sceneName)
     {
@@ -124,6 +171,15 @@ public class GameManager : MonoBehaviour
                 return true;
         }
         return false;
+    }
+    public void BackToMenu()
+    {
+        playerInstance.SetActive(false);
+        cameraInstance.SetActive(false);
+        SetPlayer = false;
+        SetCamera = false;
+        SceneManager.LoadScene(menuScene);
+        PlayerInputManager.Instance.SwitchActionMap("MainMenu");
     }
 }
 

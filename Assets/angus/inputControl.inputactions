@@ -286,6 +286,12 @@
             "id": "c037dcba-495c-4ee3-bbb8-7cf735d07be8",
             "actions": [],
             "bindings": []
+        },
+        {
+            "name": "Die",
+            "id": "5b52ea25-5b32-410b-8e41-2022555a7203",
+            "actions": [],
+            "bindings": []
         }
     ],
     "controlSchemes": []

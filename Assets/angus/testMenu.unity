@@ -731,8 +731,8 @@ GameObject:
   m_Component:
   - component: {fileID: 163465599}
   - component: {fileID: 163465598}
-  - component: {fileID: 163465597}
   - component: {fileID: 163465596}
+  - component: {fileID: 163465600}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -784,14 +784,6 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
---- !u!81 &163465597
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 163465595}
-  m_Enabled: 1
 --- !u!20 &163465598
 Camera:
   m_ObjectHideFlags: 0
@@ -858,6 +850,14 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!81 &163465600
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 163465595}
+  m_Enabled: 1
 --- !u!1 &249703924
 GameObject:
   m_ObjectHideFlags: 0
@@ -3818,7 +3818,6 @@ MonoBehaviour:
   - sceneName: testGrass
     sceneSprite: {fileID: 21300000, guid: 3f90a03269db81d469575b8463ef0393, type: 3}
   currentSaveSlot: {fileID: 0}
-  menuScene: testMenu
   saveFileCanvas: {fileID: 1757440399}
   buttons:
   - {fileID: 1470785040}
@@ -3948,8 +3947,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultScene: testGrass
+  menuScene: testMenu
   playerPrefab: {fileID: 1814799832682872464, guid: 7ba23919a87a5384699cc97a0a17c5e6, type: 3}
   cameraPrefab: {fileID: 7636833522782320093, guid: c8bc700306f08694a8e8b002bccbfae3, type: 3}
+  playerInstance: {fileID: 0}
+  cameraInstance: {fileID: 0}
   SetPlayer: 0
   SetCamera: 0
 --- !u!4 &1767430906
