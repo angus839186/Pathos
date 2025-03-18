@@ -847,7 +847,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultScene: "\u8FEA\u666E\u52D2\u5343\u8349\u539F"
-  menuScene: 
+  menuScene: Menu
   playerPrefab: {fileID: 1814799832682872464, guid: 7ba23919a87a5384699cc97a0a17c5e6, type: 3}
   cameraPrefab: {fileID: 7636833522782320093, guid: c8bc700306f08694a8e8b002bccbfae3, type: 3}
   playerInstance: {fileID: 0}
