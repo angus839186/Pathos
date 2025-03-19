@@ -27,7 +27,25 @@ public class ReversePlainBoss : MonoBehaviour, IInteractable
 
     [Header("擊飛")]
     public Transform knockbackTarget; // 指定擊飛的目標位置（在 Inspector 指定）
-    public float knockbackDuration = 1f; // 飛行持續時間
+    public float knockbackDuration = 2.5f; // 飛行持續時間
+
+    void OnEnable()
+    {
+        Tutorial _tutorial = FindObjectOfType<Tutorial>();
+        if(_tutorial != null)
+        {
+            _tutorial.StartBossFight += ToggleTeleporter;
+        }
+    }
+
+    void OnDisable()
+    {
+        Tutorial _tutorial = FindObjectOfType<Tutorial>();
+        if(_tutorial != null)
+        {
+            _tutorial.StartBossFight -= ToggleTeleporter;
+        }
+    }
 
     void Start()
     {
@@ -43,7 +61,22 @@ public class ReversePlainBoss : MonoBehaviour, IInteractable
     public void StopAttack()
     {
         Debug.Log("Boss stop attack");
+        FireBall[] fireballs = FindObjectsOfType<FireBall>();
+        foreach (FireBall fb in fireballs)
+        {
+            fb.IsExploded = true;
+            Destroy(fb.gameObject);
+        }
         StopAllCoroutines();
+    }
+
+    public void ToggleTeleporter(bool toggle)
+    {
+        teleporter[] teleporters = FindObjectsOfType<teleporter>();
+        foreach (var teleporter in teleporters)
+        {
+            teleporter.canTeleport = toggle;
+        }
     }
 
     public IEnumerator BossAttack()
@@ -108,15 +141,7 @@ public class ReversePlainBoss : MonoBehaviour, IInteractable
         if (phase2 == false)
         {
             StopAttack();
-            FireBall[] fireballs = FindObjectsOfType<FireBall>();
-            foreach (FireBall fb in fireballs)
-            {
-                fb.IsExploded = true;
-                Destroy(fb.gameObject);
-            }
             NextPhase();
-            phase2 = true;
-            return;
         }
         else
         {
@@ -125,11 +150,13 @@ public class ReversePlainBoss : MonoBehaviour, IInteractable
     }
     public void NextPhase()
     {
-        StartCoroutine(BossChnage());
+        StartCoroutine(BossChange());
     }
 
-    IEnumerator BossChnage()
+    IEnumerator BossChange()
     {
+        BoxCollider2D collider = GetComponent<BoxCollider2D>();
+        collider.enabled = false;
         anime.Play("BOSS_change");
         yield return new WaitUntil(() =>
         {
@@ -142,9 +169,11 @@ public class ReversePlainBoss : MonoBehaviour, IInteractable
             AnimatorStateInfo stateInfo = anime.GetCurrentAnimatorStateInfo(0);
             return stateInfo.IsName("BOSS_hit") && stateInfo.normalizedTime >= 1f;
         });
+        collider.enabled = true;
         fireballCount = 8;
         attackDelay = 1f;
         anime.SetBool("phase2", true);
+        phase2 = true;
         StartAttack();
     }
     public void BossPlaySkill()

@@ -6,11 +6,12 @@ using UnityEngine.SceneManagement;
 
 public class teleporter : MonoBehaviour
 {
-    public bool canTeleport;
+    public bool canTeleport = true;
     public string targetSpawnPointID;
     public string targetScene;
 
-    public void TeleportPlayer() {
+    public void TeleportPlayer()
+    {
         Debug.Log("Teleport");
         SpawnManager.spawnPointID = targetSpawnPointID;
         Debug.Log(SpawnManager.spawnPointID);
@@ -22,9 +23,13 @@ public class teleporter : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player")) {
-            DataPersistenceManager.Instance.SaveGameData();
-            TeleportPlayer();
+        if (collision.CompareTag("Player"))
+        {
+            if (canTeleport)
+            {
+                DataPersistenceManager.Instance.SaveGameData();
+                TeleportPlayer();
+            }
         }
     }
 }

@@ -5539,7 +5539,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e5c44db634b4d74080b498aab45d0c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canTeleport: 0
+  canTeleport: 1
   targetSpawnPointID: Left
   targetScene: testReversePlain
 --- !u!61 &1531036582
