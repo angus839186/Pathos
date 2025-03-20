@@ -10,32 +10,32 @@ public class Preview : MonoBehaviour
 
     public GameObject tutorial;
 
+    public bool played;
+
     void Awake()
     {
+        if(!played)
+        {
+            StartCoroutine(PlayPrviewvideo());
+            previewVideoCanvas.SetActive(true);
+        }
+        else
+        {
+            previewVideoCanvas.SetActive(false);
+            StartTutorial();
+        }
+    }
+
+    IEnumerator PlayPrviewvideo()
+    {
         video.Play();
-    }
-    void OnEnable()
-    {
-        video.prepareCompleted += OnPreviewVideoPrepared;
-    }
-
-    void OnDisable()
-    {
-        video.prepareCompleted -= OnPreviewVideoPrepared;
-    }
-
-    public void OnPreviewVideoPrepared(VideoPlayer source)
-    {
-        StartCoroutine(PlayPreviewVideo());
-    }
-
-    IEnumerator PlayPreviewVideo()
-    {
         PlayerInputManager.Instance.SwitchActionMap("Preview");
         yield return new WaitForSeconds((float)video.clip.length);
-        PlayerInputManager.Instance.SwitchActionMap("Tutorial");
-
         previewVideoCanvas.SetActive(false);
+        StartTutorial();
+    }
+    void StartTutorial()
+    {
         Tutorial tutorial = FindObjectOfType<Tutorial>();
         tutorial.InitializeTutorial();
     }

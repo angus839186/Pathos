@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,9 @@ public class Tutorial : MonoBehaviour
 {
     public int tutorialIndex = 0;
     public List<GameObject> tutorials;
+
+    public Action<bool> StartBossFight;
+    public bool playedTutorial;
     void OnEnable()
     {
         PlayerInputManager.Instance.OnNextTutorialEvent += NextTutorial;
@@ -17,12 +21,19 @@ public class Tutorial : MonoBehaviour
 
     public void InitializeTutorial()
     {
-        PlayerInputManager.Instance.SwitchActionMap("Tutorial");
-        CanvasGroup canvas = GetComponent<CanvasGroup>();
-        canvas.alpha = 1f;
-        canvas.interactable = true;
-        canvas.blocksRaycasts = true;
-        tutorials[tutorialIndex].SetActive(true);
+        if (!playedTutorial)
+        {
+            PlayerInputManager.Instance.SwitchActionMap("Tutorial");
+            CanvasGroup canvas = GetComponent<CanvasGroup>();
+            canvas.alpha = 1f;
+            canvas.interactable = true;
+            canvas.blocksRaycasts = true;
+            tutorials[tutorialIndex].SetActive(true);
+        }
+        else
+        {
+            TutorialEnd();
+        }
     }
 
     public void NextTutorial()
@@ -38,11 +49,12 @@ public class Tutorial : MonoBehaviour
     }
     public void TutorialEnd()
     {
+        PlayerInputManager.Instance.SwitchActionMap("Player");
         CanvasGroup canvas = GetComponent<CanvasGroup>();
         canvas.alpha = 0f;
         canvas.interactable = false;
         canvas.blocksRaycasts = false;
-        PlayerInputManager.Instance.SwitchActionMap("Player");
+        StartBossFight.Invoke(false);
         ReversePlainBoss boss = FindObjectOfType<ReversePlainBoss>();
         boss.StartAttack();
     }

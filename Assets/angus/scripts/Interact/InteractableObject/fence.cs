@@ -22,6 +22,6 @@ public class fence : MonoBehaviour, IInteractable
 
     public void InteractEvent(Item heldItem)
     {
-        throw new System.NotImplementedException();
+        //Do nothing
     }
 }
