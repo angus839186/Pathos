@@ -335,7 +335,8 @@ MonoBehaviour:
   fireInterval: 0.75
   fireballCount: 5
   attackDelay: 2
-  sound: {fileID: 8300000, guid: 9e533414b3bc2e24eae6332d5c4227e7, type: 3}
+  fireBallSound: {fileID: 8300000, guid: 9e533414b3bc2e24eae6332d5c4227e7, type: 3}
+  dieSound: {fileID: 8300000, guid: a0055d5c96eda8b45b1fab0c510cb1a5, type: 3}
   dropMinX: -5
   dropMaxX: 110
   phase2: 0

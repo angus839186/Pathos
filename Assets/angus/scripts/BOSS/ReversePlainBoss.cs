@@ -16,7 +16,8 @@ public class ReversePlainBoss : MonoBehaviour, IInteractable
     public int fireballCount = 5;
     public float attackDelay = 2f;
 
-    public AudioClip sound;
+    public AudioClip attackSound;
+    public AudioClip dieSound;
 
     [Header("掉落範圍設定")]
     public float dropMinX;
@@ -84,28 +85,24 @@ public class ReversePlainBoss : MonoBehaviour, IInteractable
         while (true)
         {
             List<FireBall> fireballs = new List<FireBall>();
-            AudioManager.instance.PlaySound(sound);
+            AudioManager.instance.PlaySound(attackSound);
 
-            // 發射 fireballCount 顆火球，每顆間隔 fireInterval 秒
             for (int i = 0; i < fireballCount; i++)
             {
                 GameObject fbObj = Instantiate(fireballPrefab, firePoint.position, Quaternion.identity);
                 FireBall fb = fbObj.GetComponent<FireBall>();
 
-                // 傳入火球需要的參數：發射與下墜速度、掉落範圍與地面位置
                 fb.Initialize(launchSpeed, downwardSpeed, dropMinX, dropMaxX);
 
                 fireballs.Add(fb);
                 yield return new WaitForSeconds(fireInterval);
             }
 
-            // 所有火球都發射完畢後，再通知它們開始下墜
             foreach (var fb in fireballs)
             {
                 fb.StartFalling();
             }
 
-            // 等待所有火球爆炸或被銷毀
             yield return new WaitUntil(() =>
             {
                 foreach (var fb in fireballs)
@@ -116,7 +113,6 @@ public class ReversePlainBoss : MonoBehaviour, IInteractable
                 return true;
             });
 
-            // 攻擊結束後延遲 attackDelay 秒，再開始下一輪攻擊
             yield return new WaitForSeconds(attackDelay);
         }
     }
@@ -145,7 +141,8 @@ public class ReversePlainBoss : MonoBehaviour, IInteractable
         }
         else
         {
-
+            StopAttack();
+            BossDied();
         }
     }
     public void NextPhase()
@@ -176,6 +173,13 @@ public class ReversePlainBoss : MonoBehaviour, IInteractable
         phase2 = true;
         StartAttack();
     }
+
+    void BossDied()
+    {
+        Debug.Log("BossDied");
+        anime.SetBool("died", true);
+        AudioManager.instance.PlaySound(dieSound);
+    }
     public void BossPlaySkill()
     {
         KnockBackPlayer();
@@ -186,26 +190,21 @@ public class ReversePlainBoss : MonoBehaviour, IInteractable
         if (player == null)
             return;
 
-        // 暫時禁用玩家移動
         player.canMove = false;
 
         Vector2 startPos = player.transform.position;
         Vector2 targetPos = knockbackTarget.position;
         float T = knockbackDuration;
 
-        // 考慮玩家的 gravityScale
         float g = Mathf.Abs(Physics2D.gravity.y) * player.rb.gravityScale;
 
-        // 計算初始速度向量
         Vector2 knockbackVelocity;
         knockbackVelocity.x = (targetPos.x - startPos.x) / T;
         knockbackVelocity.y = (targetPos.y - startPos.y + 0.5f * g * T * T) / T;
 
-        // 將計算出的速度套用給玩家
         player.rb.velocity = knockbackVelocity;
         player._anime.SetTrigger("hurt");
 
-        // 飛行結束後恢復玩家移動
         StartCoroutine(ReenablePlayerMovement(player, T));
     }
 
