@@ -227,7 +227,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactHint: {fileID: 3193827531799942486}
   interactInput: 0
-  descriptionText: {fileID: 0}
   playerAnimator: {fileID: 1351527419154173093}
   player: {fileID: 0}
   isInteracting: 0
@@ -265,7 +264,7 @@ AudioSource:
   m_GameObject: {fileID: 1814799832682872464}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 5031691335069630485, guid: 270e3d8969dee3b46b8f449d862e7d85, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1

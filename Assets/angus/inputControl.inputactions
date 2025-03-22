@@ -49,6 +49,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "OpenPauseMenu",
+                    "type": "Button",
+                    "id": "9a57e19b-c847-4826-a238-84a72a5529b1",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -126,6 +135,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "OpenBackPack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "df29c999-9ffd-404c-b8da-691d31862920",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "OpenPauseMenu",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -292,6 +312,62 @@
             "id": "5b52ea25-5b32-410b-8e41-2022555a7203",
             "actions": [],
             "bindings": []
+        },
+        {
+            "name": "SettingMenu",
+            "id": "b1bc2abf-d02b-45df-8266-60a38245922f",
+            "actions": [
+                {
+                    "name": "CloseSettingMenu",
+                    "type": "Button",
+                    "id": "00aa5022-efd8-4e2e-abd5-fa7be9138116",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "44f4f136-5840-4829-9682-c7e20140a39f",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CloseSettingMenu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "PauseMenu",
+            "id": "3eabd545-11b7-4b4b-9271-25377d2d0810",
+            "actions": [
+                {
+                    "name": "ClosePauseMenu",
+                    "type": "Button",
+                    "id": "329e9919-0c31-42ac-a9a2-085ef2a9644b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "295528b2-635f-4cad-b9af-f6c0b7f7ebd9",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ClosePauseMenu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []
