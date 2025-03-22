@@ -184,9 +184,11 @@ public class SaveFileMenu : Menu
     }
     public void OnBackButtonClicked()
     {
-        if(SceneManager.GetActiveScene().name == GameManager.Instance.menuScene)
+        if (SceneManager.GetActiveScene().name == GameManager.Instance.menuScene)
         {
             Transition(mainMenuCanva);
+            PlayerInputManager.Instance.SwitchActionMap("MainMenu");
+
         }
         else
         {

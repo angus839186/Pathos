@@ -5,15 +5,22 @@ using UnityEngine.Audio;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class SettingMenu : MonoBehaviour
+public class SettingMenu : Menu
 {
     public static SettingMenu Instance;
+    public CanvasGroup settingCanvas;
     [Header("UI 元件")]
     public Dropdown resolutionDropdown;
     public Toggle windowedToggle;
     public Slider brightnessSlider;
+    public Text brightnessText;
+
     public Slider musicSlider;
+    public Text musicVolumeText;
+
     public Slider sfxSlider;
+    public Text sfxVolumeText;
+
     public Button applyButton;
     public Button cancelButton;
 
@@ -21,10 +28,10 @@ public class SettingMenu : MonoBehaviour
     public AudioMixer audioMixer;
     private Resolution[] resolutions = new Resolution[]
     {
-        new Resolution { width = 1920, height = 1080 },
+        new Resolution { width = 1280, height = 720 },
         new Resolution { width = 1366, height = 768 },
-        new Resolution { width = 2560, height = 1440 },
-        new Resolution { width = 1280, height = 720 }
+        new Resolution { width = 1920, height = 1080 },
+        new Resolution { width = 2560, height = 1440 }
     };
 
     void Awake()
@@ -38,10 +45,15 @@ public class SettingMenu : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    void OnEnable()
+    {
+        PlayerInputManager.Instance.OnToggleSettingMenuEvent += ToggleSettingMenu;
+    }
+
 
     void OnDisable()
     {
-
+        PlayerInputManager.Instance.OnToggleSettingMenuEvent -= ToggleSettingMenu;
     }
 
     void Start()
@@ -55,24 +67,74 @@ public class SettingMenu : MonoBehaviour
         }
         resolutionDropdown.AddOptions(options);
 
+        if (PlayerPrefs.HasKey("musicVolume"))
+        {
+            LoadVolume();
+        }
+        else
+        {
+            SetMusicVolume();
+            SetSFXVolume();
+        }
 
-        applyButton.onClick.AddListener(OnApplyButtonClicked);
-        cancelButton.onClick.AddListener(CancelSettings);
+    }
+
+    public void ToggleSettingMenu(bool toggle)
+    {
+        if (toggle == false)
+        {
+            CloseSettingMenu();
+        }
+        else
+        {
+            OpenSettingMenu();
+        }
     }
 
 
 
-    /// <summary>
-    /// 按下套用按鈕後執行，更新遊戲設定
-    /// </summary>
-    void OnApplyButtonClicked()
+    public void OnApplyButtonClicked()
     {
 
         SetResolution();
         SetMusicVolume();
         SetSFXVolume();
+        ToggleSettingMenu(false);
+    }
 
-        gameObject.SetActive(false);
+    public void OnCancelButtonClicked()
+    {
+        ToggleSettingMenu(false);
+    }
+    public void CloseSettingMenu()
+    {
+        if (SceneManager.GetActiveScene().name == GameManager.Instance.menuScene)
+        {
+            Transition(mainMenuCanva);
+            PlayerInputManager.Instance.SwitchActionMap("MainMenu");
+        }
+        else
+        {
+            settingCanvas.alpha = false ? 1f : 0f;
+            settingCanvas.interactable = false;
+            settingCanvas.blocksRaycasts = false;
+            PlayerInputManager.Instance.SwitchActionMap("PauseMenu");
+        }
+    }
+
+    public void OpenSettingMenu()
+    {
+        if (SceneManager.GetActiveScene().name == GameManager.Instance.menuScene)
+        {
+            Transition(mainMenuCanva);
+        }
+        else
+        {
+            settingCanvas.alpha = 1f;
+            settingCanvas.interactable = true;
+            settingCanvas.blocksRaycasts = true;
+        }
+        PlayerInputManager.Instance.SwitchActionMap("SettingMenu");
     }
 
     void SetResolution()
@@ -89,29 +151,55 @@ public class SettingMenu : MonoBehaviour
 
         // 設定解析度與視窗/全螢幕模式
         Screen.SetResolution(selectedRes.width, selectedRes.height, fullscreen);
+
+        Debug.Log($"Resolution: {selectedRes.width} + {selectedRes.height}, {fullscreen} ");
+    }
+    public void SetMusicText()
+    {
+        float value = musicSlider.value;
+        // 將 value 從 0.0001~1 轉換到 0~1 的範圍
+        float normalizedValue = Mathf.InverseLerp(0.0001f, 1f, value);
+        int percent = Mathf.RoundToInt(normalizedValue * 100);
+        musicVolumeText.text = percent.ToString() + "%";
     }
 
-    /// <summary>
-    /// 按下取消按鈕後執行，直接關閉設定 UI
-    /// </summary>
-    void CancelSettings()
+    public void SetSFXText()
     {
-        gameObject.SetActive(false);
+        float value = sfxSlider.value;
+        // 將 value 從 0.0001~1 轉換到 0~1 的範圍
+        float normalizedValue = Mathf.InverseLerp(0.0001f, 1f, value);
+        int percent = Mathf.RoundToInt(normalizedValue * 100);
+        sfxVolumeText.text = percent.ToString() + "%";
+    }
+
+    public void SetBrightnessText()
+    {
+        float value = brightnessSlider.value;
+        // 將 value 從 0.0001~1 轉換到 0~1 的範圍
+        float normalizedValue = Mathf.InverseLerp(0.0001f, 1f, value);
+        int percent = Mathf.RoundToInt(normalizedValue * 100);
+        brightnessText.text = percent.ToString() + "%";
     }
 
     void SetMusicVolume()
     {
         float volume = musicSlider.value;
-        audioMixer.SetFloat("musicVolume", volume);
-
+        audioMixer.SetFloat("musicVolume", Mathf.Log10(volume) * 20);
+        PlayerPrefs.SetFloat("musicVolume", volume);
     }
     void SetSFXVolume()
     {
         float volume = sfxSlider.value;
-        audioMixer.SetFloat("sfxVolume", volume);
+        audioMixer.SetFloat("sfxVolume", Mathf.Log10(volume) * 20);
+        PlayerPrefs.SetFloat("sfxVolume", volume);
     }
     void LoadVolume()
     {
+        musicSlider.value = PlayerPrefs.GetFloat("musicVolume");
+        sfxSlider.value = PlayerPrefs.GetFloat("sfxVolume");
+
+        SetMusicVolume();
+        SetSFXVolume();
 
     }
 
