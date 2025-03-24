@@ -17,7 +17,8 @@ public class MainMenu : Menu
     }
     public void OnSettingButtonClicked()
     {
-
+        Transition(settingCanva);
+        PlayerInputManager.Instance.SwitchActionMap("SettingMenu");
     }
     public void OnLeaveButtonClicked()
     {

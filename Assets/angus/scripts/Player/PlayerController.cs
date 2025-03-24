@@ -41,7 +41,6 @@ public class PlayerController : MonoBehaviour, IDataPersistence
 
     void OnEnable()
     {
-        // 訂閱 InputManager 的事件
         PlayerInputManager.Instance.OnMoveEvent += HandleMove;
         PlayerInputManager.Instance.OnJumpEvent += HandleJump;
         PlayerInputManager.Instance.OnRunEvent += HandleRun;
@@ -49,7 +48,6 @@ public class PlayerController : MonoBehaviour, IDataPersistence
 
     void OnDisable()
     {
-        // 訂閱要取消
         PlayerInputManager.Instance.OnMoveEvent -= HandleMove;
         PlayerInputManager.Instance.OnJumpEvent -= HandleJump;
         PlayerInputManager.Instance.OnRunEvent -= HandleRun;
@@ -62,32 +60,35 @@ public class PlayerController : MonoBehaviour, IDataPersistence
 
     void FixedUpdate()
     {
-        float currentSpeed = isRunning ? speed * runMultiplier : speed;
-        if (moveVector != Vector2.zero)
+        if (!canMove)
         {
-            rb.velocity = new Vector2(moveVector.x * currentSpeed, rb.velocity.y);
-            _anime.SetBool("isWalking", true);
-            if (!audioSource.isPlaying) // 防止音效重複播放
-            {
-                audioSource.clip = isRunning ? runSound : walkSound;
-                audioSource.Play();
-            }
+            return;
         }
         else
         {
-            rb.velocity = new Vector2(0, rb.velocity.y);
-            _anime.SetBool("isWalking", false);
-            audioSource.Stop();
+            float currentSpeed = isRunning ? speed * runMultiplier : speed;
+            if (moveVector != Vector2.zero)
+            {
+                rb.velocity = new Vector2(moveVector.x * currentSpeed, rb.velocity.y);
+                _anime.SetBool("isWalking", true);
+                if (!audioSource.isPlaying)
+                {
+                    audioSource.clip = isRunning ? runSound : walkSound;
+                    audioSource.Play();
+                }
+            }
+            else
+            {
+                rb.velocity = new Vector2(0, rb.velocity.y);
+                _anime.SetBool("isWalking", false);
+                audioSource.Stop();
+            }
         }
 
         if (moveVector.x > 0)
-        {
             _sprite.flipX = false;
-        }
         else if (moveVector.x < 0)
-        {
             _sprite.flipX = true;
-        }
     }
 
     // 處理移動輸入
@@ -131,7 +132,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
             _anime.SetBool("isJumping", false);
         }
         FireBall fireBall = collision.gameObject.GetComponent<FireBall>();
-        if(fireBall != null)
+        if (fireBall != null)
         {
             PlayerHealth playerHealth = GetComponent<PlayerHealth>();
             playerHealth.TakeDamage(1);

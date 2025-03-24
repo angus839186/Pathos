@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class Hint2 : MonoBehaviour, IDataPersistence
 {
-    bool passed = false;
+    public bool passed = false;
     public GameObject hint;
 
     public Item item;
-
-    void Start()
-    {
-        hint.SetActive(false);
-    }
 
     void OnEnable()
     {
@@ -22,6 +17,11 @@ public class Hint2 : MonoBehaviour, IDataPersistence
     void OnDisable()
     {
         InventoryManager.Instance.OnInventoryChanged -= ShowHint;
+    }
+
+    void Start()
+    {
+        hint.SetActive(false);
     }
 
     void ShowHint()
@@ -45,12 +45,9 @@ public class Hint2 : MonoBehaviour, IDataPersistence
         if(passed == false)
         {
             this.enabled = true;
-            hint.SetActive(false);
-            return;
         }
         else
         {
-            hint.SetActive(false);
             this.enabled = false;
         }
 

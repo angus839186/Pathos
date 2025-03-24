@@ -13,8 +13,6 @@ public class PlayerInteraction : MonoBehaviour
 
     public float interactInput;
 
-    public DescriptionText descriptionText;
-
     public Animator playerAnimator;
 
     public PlayerController player;
@@ -77,7 +75,10 @@ public class PlayerInteraction : MonoBehaviour
             }
             else
             {
-                OnShowDescription?.Invoke(currentInteractable.GetDescription());
+                if (!string.IsNullOrEmpty(currentInteractable.GetDescription()))
+                {
+                    OnShowDescription?.Invoke(currentInteractable.GetDescription());
+                }
                 currentInteractable.Interact();
             }
         }
@@ -89,8 +90,11 @@ public class PlayerInteraction : MonoBehaviour
         Item heldItem = (mainItem != null && mainItem.item != null) ? mainItem.item : null;
         if (currentInteractable != null)
         {
+            if (!string.IsNullOrEmpty(currentInteractable.GetDescription()))
+            {
+                OnShowDescription?.Invoke(currentInteractable.GetDescription());
+            }
             currentInteractable.InteractEvent(heldItem);
-            OnShowDescription?.Invoke(currentInteractable.GetDescription());
         }
         if (player != null)
         {

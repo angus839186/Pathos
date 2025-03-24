@@ -21,12 +21,18 @@ public class DescriptionText : MonoBehaviour
     {
         playerInteract = FindObjectOfType<PlayerInteraction>();
         canvas.alpha = 0f;
-        playerInteract.OnShowDescription += showDescription;
+        if(playerInteract != null)
+        {
+            playerInteract.OnShowDescription += showDescription;
+        }
     }
 
     void OnDisable()
     {
-        playerInteract.OnShowDescription -= showDescription;
+        if(playerInteract != null)
+        {
+            playerInteract.OnShowDescription -= showDescription;
+        }
     }
 
     public void showDescription(string description)

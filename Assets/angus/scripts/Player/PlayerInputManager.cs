@@ -10,7 +10,7 @@ public class PlayerInputManager : MonoBehaviour
 
 
     public PlayerInput playerInput;
-    
+
     public event Action<Vector2> OnMoveEvent;
     public event Action<float> OnJumpEvent;
     public event Action<bool> OnRunEvent;
@@ -25,6 +25,10 @@ public class PlayerInputManager : MonoBehaviour
     public event Action OnCloseSaveMenuEvent;
 
     public event Action OnNextTutorialEvent;
+
+    public event Action<bool> OnToggleSettingMenuEvent;
+
+    public event Action<bool> OnTogglePauseMenuEvent;
 
     private void Awake()
     {
@@ -75,7 +79,7 @@ public class PlayerInputManager : MonoBehaviour
     public void OnCloseBackPack(InputValue value)
     {
         float pressed = value.Get<float>();
-        if(pressed > 0.5f)
+        if (pressed > 0.5f)
         {
             OnToggleBackpackEvent?.Invoke();
         }
@@ -127,13 +131,37 @@ public class PlayerInputManager : MonoBehaviour
     public void OnNextTutorial(InputValue value)
     {
         float pressed = value.Get<float>();
-        if(pressed > 0.5f)
+        if (pressed > 0.5f)
         {
             OnNextTutorialEvent?.Invoke();
         }
     }
+    public void OnCloseSettingMenu(InputValue value)
+    {
+        float pressed = value.Get<float>();
+        if (pressed > 0.5f)
+        {
+            OnToggleSettingMenuEvent?.Invoke(false);
+        }
+    }
 
+    public void OnOpenPauseMenu(InputValue value)
+    {
+        float pressed = value.Get<float>();
+        if (pressed > 0.5f)
+        {
+            OnTogglePauseMenuEvent?.Invoke(true);
+        }
+    }
 
+    public void OnClosePauseMenu(InputValue value)
+    {
+        float pressed = value.Get<float>();
+        if (pressed > 0.5f)
+        {
+            OnTogglePauseMenuEvent?.Invoke(false);
+        }
+    }
 
     public void SwitchActionMap(string mapName)
     {
