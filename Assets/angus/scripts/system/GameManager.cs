@@ -162,16 +162,6 @@ public class GameManager : MonoBehaviour
             SetCamera = true;
         }
     }
-    bool IsSceneLoaded(string sceneName)
-    {
-        for (int i = 0; i < SceneManager.sceneCount; i++)
-        {
-            Scene scene = SceneManager.GetSceneAt(i);
-            if (scene.name == sceneName)
-                return true;
-        }
-        return false;
-    }
     public void BackToMenu()
     {
         playerInstance.SetActive(false);

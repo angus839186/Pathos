@@ -9,9 +9,23 @@ public class GameStartPreview : VideoBase
         VideoController.Instance.OnVideoEnd += VideoEnd;
     }
 
+    void OnDisable()
+    {
+        VideoController videoController = VideoController.Instance;
+        if(videoController != null)
+        {
+            videoController.OnVideoEnd -= VideoEnd;
+        }
+    }
+
     public void VideoEnd()
     {
-        played = true;
-        PlayerInputManager.Instance.SwitchActionMap("MainMenu");
+        StartGame();
+    }
+    public void StartGame()
+    {
+        GameManager gameManager = GameManager.Instance;
+        gameManager.LoadLevel(gameManager.defaultScene);
+        DataPersistenceManager.Instance.NewGame();
     }
 }
