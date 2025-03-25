@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ScenePreivew : VideoBase
+public class ReversePlainPreview : VideoBase
 {
     void Start()
     {
@@ -12,10 +12,9 @@ public class ScenePreivew : VideoBase
     void OnDisable()
     {
         VideoController video = VideoController.Instance;
-        if(video != null)
+        if (video != null)
         {
-        VideoController.Instance.OnVideoEnd -= VideoEnd;
-
+            VideoController.Instance.OnVideoEnd -= VideoEnd;
         }
     }
 
@@ -23,5 +22,6 @@ public class ScenePreivew : VideoBase
     {
         Tutorial tutorial = FindObjectOfType<Tutorial>();
         tutorial.InitializeTutorial();
+        this.enabled = false;
     }
 }

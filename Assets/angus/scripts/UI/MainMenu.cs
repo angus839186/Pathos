@@ -6,9 +6,15 @@ public class MainMenu : Menu
 {
     public void OnStartButtonClicked()
     {
-        GameManager gameManager = GameManager.Instance;
-        gameManager.LoadLevel(gameManager.defaultScene);
-        DataPersistenceManager.Instance.NewGame();
+        GameStartPreview newGamePreview = FindObjectOfType<GameStartPreview>();
+        if(newGamePreview.played)
+        {
+            newGamePreview.StartGame();
+        }
+        else
+        {
+            VideoController.Instance.GetVideo(newGamePreview.clip, newGamePreview.pausePoints);
+        }
     }
     public void OnContinueButtonClicked()
     {

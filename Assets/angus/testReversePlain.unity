@@ -335,12 +335,14 @@ MonoBehaviour:
   fireInterval: 0.75
   fireballCount: 5
   attackDelay: 2
-  attackSound: {fileID: 0}
+  attackSound: {fileID: 8300000, guid: 9e533414b3bc2e24eae6332d5c4227e7, type: 3}
   dieSound: {fileID: 8300000, guid: a0055d5c96eda8b45b1fab0c510cb1a5, type: 3}
   dropMinX: -5
   dropMaxX: 110
   phase2: 0
   anime: {fileID: 0}
+  dieClip: {fileID: 32900000, guid: f2d66a78dd968684486eeca1595fe6ba, type: 3}
+  nextScene: testPlain
   knockbackTarget: {fileID: 1846126813}
   knockbackDuration: 1
 --- !u!61 &228495578
@@ -2320,7 +2322,7 @@ GameObject:
   - component: {fileID: 1476437391}
   - component: {fileID: 1476437392}
   m_Layer: 0
-  m_Name: Preview
+  m_Name: ReversePlainPreview
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2459,51 +2461,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!1 &1628041612
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1628041614}
-  - component: {fileID: 1628041613}
-  m_Layer: 7
-  m_Name: SpawnPoint (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1628041613
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1628041612}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd35376d4ce8514489776dd328c9d7fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnID: Right
---- !u!4 &1628041614
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1628041612}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 120.96, y: -46.91, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1643466876
 GameObject:
   m_ObjectHideFlags: 0
@@ -2724,7 +2681,7 @@ MonoBehaviour:
   tutorials:
   - {fileID: 2072205210}
   - {fileID: 845265491}
-  playedTutorial: 1
+  playedTutorial: 0
 --- !u!1 &1769542369
 GameObject:
   m_ObjectHideFlags: 0
@@ -3674,7 +3631,6 @@ SceneRoots:
   - {fileID: 228495575}
   - {fileID: 2076396404}
   - {fileID: 564971016}
-  - {fileID: 1628041614}
   - {fileID: 569190187}
   - {fileID: 1846126813}
   - {fileID: 1618033343}

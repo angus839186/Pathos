@@ -2659,7 +2659,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 100%
+  m_Text: 0%
 --- !u!222 &698350984
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3627,7 +3627,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 100%
+  m_Text: 0%
 --- !u!222 &871335334
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4208,7 +4208,7 @@ GameObject:
   - component: {fileID: 988229058}
   - component: {fileID: 988229057}
   m_Layer: 0
-  m_Name: GameStartPreview
+  m_Name: StartGamePreview
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6658,7 +6658,7 @@ GameObject:
   - component: {fileID: 1521370739}
   - component: {fileID: 1521370738}
   m_Layer: 5
-  m_Name: Video
+  m_Name: VideoController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6672,9 +6672,9 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1521370737}
   m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
+  m_Alpha: 0
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
 --- !u!114 &1521370739
 MonoBehaviour:
@@ -8918,7 +8918,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 100%
+  m_Text: 0%
 --- !u!222 &2087939978
 CanvasRenderer:
   m_ObjectHideFlags: 0
