@@ -302,10 +302,32 @@
             ]
         },
         {
-            "name": "Preview",
+            "name": "PlayingVideo",
             "id": "c037dcba-495c-4ee3-bbb8-7cf735d07be8",
-            "actions": [],
-            "bindings": []
+            "actions": [
+                {
+                    "name": "ContinueVideo",
+                    "type": "Button",
+                    "id": "3e2f21f0-d4ce-4aae-83ff-a89e2a7da6e8",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "7b8b529e-ca1c-47e9-afdf-15f030435737",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ContinueVideo",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         },
         {
             "name": "Die",

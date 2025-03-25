@@ -30,6 +30,8 @@ public class PlayerInputManager : MonoBehaviour
 
     public event Action<bool> OnTogglePauseMenuEvent;
 
+    public event Action OnContinueVideoEvent;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -160,6 +162,15 @@ public class PlayerInputManager : MonoBehaviour
         if (pressed > 0.5f)
         {
             OnTogglePauseMenuEvent?.Invoke(false);
+        }
+    }
+
+    public void OnContinueVideo(InputValue value)
+    {
+        float pressed = value.Get<float>();
+        if(pressed > 0.5f)
+        {
+            OnContinueVideoEvent?.Invoke();
         }
     }
 
