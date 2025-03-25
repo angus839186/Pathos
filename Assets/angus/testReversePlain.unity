@@ -341,10 +341,14 @@ MonoBehaviour:
   dropMaxX: 110
   phase2: 0
   anime: {fileID: 0}
-  dieClip: {fileID: 32900000, guid: f2d66a78dd968684486eeca1595fe6ba, type: 3}
   nextScene: testPlain
   knockbackTarget: {fileID: 1846126813}
   knockbackDuration: 1
+  dieClip: {fileID: 32900000, guid: f2d66a78dd968684486eeca1595fe6ba, type: 3}
+  pausePoints:
+  - 7
+  - 11
+  - 18
 --- !u!61 &228495578
 BoxCollider2D:
   m_ObjectHideFlags: 0

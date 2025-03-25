@@ -27,13 +27,17 @@ public class ReversePlainBoss : MonoBehaviour, IInteractable
 
     public Animator anime;
 
-    public VideoClip dieClip;
-
     public string nextScene;
 
     [Header("擊飛")]
     public Transform knockbackTarget; // 指定擊飛的目標位置（在 Inspector 指定）
     public float knockbackDuration = 2.5f; // 飛行持續時間
+
+    [Header("死亡")]
+    public VideoClip dieClip;
+
+    public List<double> pausePoints;
+
 
     void OnEnable()
     {
@@ -52,9 +56,9 @@ public class ReversePlainBoss : MonoBehaviour, IInteractable
             _tutorial.StartBossFight -= ToggleTeleporter;
         }
         VideoController video = VideoController.Instance;
-        if(video != null)
+        if (video != null)
         {
-            VideoController.Instance.OnVideoEnd += Die;
+            VideoController.Instance.OnVideoEnd -= Die;
         }
 
     }
@@ -155,6 +159,8 @@ public class ReversePlainBoss : MonoBehaviour, IInteractable
         {
             StopAttack();
             BossDieAnimation();
+            BoxCollider2D collider = GetComponent<BoxCollider2D>();
+            collider.enabled = false;
         }
     }
     public void NextPhase()
@@ -166,14 +172,14 @@ public class ReversePlainBoss : MonoBehaviour, IInteractable
     {
         BoxCollider2D collider = GetComponent<BoxCollider2D>();
         collider.enabled = false;
-        PlayerController player = FindObjectOfType<PlayerController>();
-        player.canMove = false;
         anime.Play("BOSS_change");
         yield return new WaitUntil(() =>
         {
             AnimatorStateInfo stateInfo = anime.GetCurrentAnimatorStateInfo(0);
             return stateInfo.IsName("BOSS_change") && stateInfo.normalizedTime >= 1f;
         });
+        PlayerController player = FindObjectOfType<PlayerController>();
+        player.canMove = false;
         anime.Play("BOSS_hit");
         yield return new WaitUntil(() =>
         {
@@ -190,19 +196,20 @@ public class ReversePlainBoss : MonoBehaviour, IInteractable
 
     void BossDieAnimation()
     {
-        Debug.Log("BossDied");
         anime.SetBool("died", true);
         AudioManager.instance.PlaySound(dieSound);
     }
 
     public void DieVideo()
     {
-        VideoController.Instance.GetVideo(dieClip, null);
+        VideoController.Instance.GetVideo(dieClip, pausePoints);
     }
 
     public void Die()
     {
-        GameManager.Instance.LoadNextScene(nextScene);
+        Debug.Log("Die");
+        GameManager gameManager = GameManager.Instance;
+        gameManager.StartCoroutine(gameManager.LoadNextScene(nextScene));
     }
 
 
