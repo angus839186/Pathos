@@ -6693,7 +6693,7 @@ MonoBehaviour:
   pausePoints: []
   currentPauseIndex: 0
   isPausedBySystem: 0
-  isPlayingVideo: 0
+  isPlayingVideo: 1
   videoCanvas: {fileID: 1521370738}
 --- !u!328 &1521370740
 VideoPlayer:
