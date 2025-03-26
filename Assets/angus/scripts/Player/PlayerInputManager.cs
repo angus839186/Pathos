@@ -7,8 +7,6 @@ using UnityEngine.InputSystem;
 public class PlayerInputManager : MonoBehaviour
 {
     public static PlayerInputManager Instance { get; private set; }
-
-
     public PlayerInput playerInput;
 
     public event Action<Vector2> OnMoveEvent;
@@ -43,14 +41,6 @@ public class PlayerInputManager : MonoBehaviour
         }
         Instance = this;
         DontDestroyOnLoad(gameObject);
-    }
-
-    void Start()
-    {
-        if (playerInput == null)
-        {
-            playerInput = GetComponent<PlayerInput>();
-        }
     }
 
     void OnMove(InputValue value)

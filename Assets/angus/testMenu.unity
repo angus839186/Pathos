@@ -4803,7 +4803,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7427e388a76c5040b258a0b06ab449c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerInput: {fileID: 0}
+  playerInput: {fileID: 1197532289}
 --- !u!4 &1197532291
 Transform:
   m_ObjectHideFlags: 0

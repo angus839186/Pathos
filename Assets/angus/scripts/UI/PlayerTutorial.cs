@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerTutorial : MonoBehaviour
 {
+    public CanvasGroup playerTutorialCanva;
     void Awake()
     {
         DontDestroyOnLoad(gameObject);
@@ -22,13 +23,11 @@ public class PlayerTutorial : MonoBehaviour
     {
         PlayerInputManager.Instance.OnClosePlayerTutorialEvent -= TogglePlayerTutorialCanva;
     }
-    public CanvasGroup playerTutorialCanva;
     public void TogglePlayerTutorialCanva(bool toggle)
     {
         playerTutorialCanva.alpha = toggle? 1f: 0f;
         playerTutorialCanva.blocksRaycasts = toggle;
         playerTutorialCanva.interactable = toggle;
-
         if(toggle == true)
         {
             PlayerInputManager.Instance.SwitchActionMap("PlayerTutorial");
