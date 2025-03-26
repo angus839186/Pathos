@@ -7,6 +7,8 @@ public class PauseMenu : MonoBehaviour
     public static PauseMenu Instance;
 
     public CanvasGroup pauseMenuCanvas;
+
+    public PlayerTutorial playerTutorial;
     void Awake()
     {
         if (Instance != null && Instance != this)
@@ -53,7 +55,7 @@ public class PauseMenu : MonoBehaviour
 
     public void OnPlayTutorialButtonClicked()
     {
-
+        playerTutorial.TogglePlayerTutorialCanva(true);
     }
 
     public void OnQuitGameButtonClicked()

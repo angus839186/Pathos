@@ -20,7 +20,7 @@ public class ReversePlainPreview : VideoBase
 
     public void VideoEnd()
     {
-        Tutorial tutorial = FindObjectOfType<Tutorial>();
+        BossTutorial tutorial = FindObjectOfType<BossTutorial>();
         tutorial.InitializeTutorial();
         this.enabled = false;
     }

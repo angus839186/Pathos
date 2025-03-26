@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tutorial : MonoBehaviour
+public class BossTutorial : MonoBehaviour
 {
     public int tutorialIndex = 0;
     public List<GameObject> tutorials;
@@ -23,7 +23,7 @@ public class Tutorial : MonoBehaviour
     {
         if (!playedTutorial)
         {
-            PlayerInputManager.Instance.SwitchActionMap("Tutorial");
+            PlayerInputManager.Instance.SwitchActionMap("BossTutorial");
             CanvasGroup canvas = GetComponent<CanvasGroup>();
             canvas.alpha = 1f;
             canvas.interactable = true;

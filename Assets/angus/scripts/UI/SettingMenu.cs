@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 
 public class SettingMenu : Menu
 {
+
+    #region 參數
     public static SettingMenu Instance;
     public CanvasGroup settingCanvas;
     [Header("UI 元件")]
@@ -16,16 +18,31 @@ public class SettingMenu : Menu
     public Text brightnessText;
 
     public Slider musicSlider;
+
+    public Button ToggleMusicButton;
     public Text musicVolumeText;
 
     public Slider sfxSlider;
+
+    public Button ToggleSFXButton;
     public Text sfxVolumeText;
 
     public Button applyButton;
     public Button cancelButton;
 
+    public Sprite muteSprite;
+    public Sprite volumeSprite;
+
     [Header("其他參考")]
     public AudioMixer audioMixer;
+
+    public bool musicMuted = false;
+
+    private bool sfxMuted = false;
+    public float previousMusicVolume;
+    private float previousSfxVolume;
+
+    #endregion
     private Resolution[] resolutions = new Resolution[]
     {
         new Resolution { width = 1280, height = 720 },
@@ -90,9 +107,6 @@ public class SettingMenu : Menu
             OpenSettingMenu();
         }
     }
-
-
-
     public void OnApplyButtonClicked()
     {
 
@@ -161,6 +175,14 @@ public class SettingMenu : Menu
         float normalizedValue = Mathf.InverseLerp(0.0001f, 1f, value);
         int percent = Mathf.RoundToInt(normalizedValue * 100);
         musicVolumeText.text = percent.ToString() + "%";
+        if(value > 0.0001f)
+        {
+            ToggleMusicButton.image.sprite = volumeSprite;
+        }
+        else
+        {
+            ToggleMusicButton.image.sprite = muteSprite;
+        }
     }
 
     public void SetSFXText()
@@ -170,6 +192,14 @@ public class SettingMenu : Menu
         float normalizedValue = Mathf.InverseLerp(0.0001f, 1f, value);
         int percent = Mathf.RoundToInt(normalizedValue * 100);
         sfxVolumeText.text = percent.ToString() + "%";
+        if(value > 0.0001f)
+        {
+            ToggleSFXButton.image.sprite = volumeSprite;
+        }
+        else
+        {
+            ToggleSFXButton.image.sprite = muteSprite;
+        }
     }
 
     public void SetBrightnessText()
@@ -201,6 +231,34 @@ public class SettingMenu : Menu
         SetMusicVolume();
         SetSFXVolume();
 
+    }
+
+    public void ToggleMusicVolume()
+    {
+        musicMuted = !musicMuted;
+        if (musicMuted)
+        {
+            previousMusicVolume = musicSlider.value;
+            musicSlider.value = 0.0001f;
+        }
+        else
+        {
+            musicSlider.value = previousMusicVolume;
+        }
+    }
+
+    public void ToggleSFXVolume()
+    {
+        sfxMuted = !sfxMuted;
+        if (sfxMuted)
+        {
+            previousSfxVolume = sfxSlider.value;
+            sfxSlider.value = 0.0001f;
+        }
+        else
+        {
+            sfxSlider.value = previousSfxVolume;
+        }
     }
 
 

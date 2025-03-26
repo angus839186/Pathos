@@ -41,7 +41,7 @@ public class ReversePlainBoss : MonoBehaviour, IInteractable
 
     void OnEnable()
     {
-        Tutorial _tutorial = FindObjectOfType<Tutorial>();
+        BossTutorial _tutorial = FindObjectOfType<BossTutorial>();
         if (_tutorial != null)
         {
             _tutorial.StartBossFight += ToggleTeleporter;
@@ -50,7 +50,7 @@ public class ReversePlainBoss : MonoBehaviour, IInteractable
 
     void OnDisable()
     {
-        Tutorial _tutorial = FindObjectOfType<Tutorial>();
+        BossTutorial _tutorial = FindObjectOfType<BossTutorial>();
         if (_tutorial != null)
         {
             _tutorial.StartBossFight -= ToggleTeleporter;

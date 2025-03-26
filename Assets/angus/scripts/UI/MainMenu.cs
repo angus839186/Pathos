@@ -28,6 +28,6 @@ public class MainMenu : Menu
     }
     public void OnLeaveButtonClicked()
     {
-
+        Application.Quit();
     }
 }
