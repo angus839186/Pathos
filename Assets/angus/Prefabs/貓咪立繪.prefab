@@ -255,6 +255,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 3
+  heartBreakSound: {fileID: 8300000, guid: 62b2c91e39cd5ba49abdcbacbdd77c36, type: 3}
 --- !u!82 &1269543537506275475
 AudioSource:
   m_ObjectHideFlags: 0

@@ -62,6 +62,8 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     {
         if (!canMove)
         {
+            _anime.SetBool("isWalking", false);
+            _anime.SetBool("runKey", false);
             return;
         }
         else
@@ -70,6 +72,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
             if (moveVector != Vector2.zero)
             {
                 rb.velocity = new Vector2(moveVector.x * currentSpeed, rb.velocity.y);
+                _anime.SetBool("runKey", isRunning);
                 _anime.SetBool("isWalking", true);
                 if (!audioSource.isPlaying)
                 {
@@ -121,7 +124,6 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     private void HandleRun(bool run)
     {
         isRunning = run;
-        _anime.SetBool("runKey", isRunning);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

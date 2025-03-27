@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Collections;
 using UnityEngine;
+using UnityEngine.Video;
 
 public class ReversePlainBoss : MonoBehaviour, IInteractable
 {
@@ -26,14 +27,22 @@ public class ReversePlainBoss : MonoBehaviour, IInteractable
 
     public Animator anime;
 
+    public string nextScene;
+
     [Header("擊飛")]
     public Transform knockbackTarget; // 指定擊飛的目標位置（在 Inspector 指定）
     public float knockbackDuration = 2.5f; // 飛行持續時間
 
+    [Header("死亡")]
+    public VideoClip dieClip;
+
+    public List<double> pausePoints;
+
+
     void OnEnable()
     {
-        Tutorial _tutorial = FindObjectOfType<Tutorial>();
-        if(_tutorial != null)
+        BossTutorial _tutorial = FindObjectOfType<BossTutorial>();
+        if (_tutorial != null)
         {
             _tutorial.StartBossFight += ToggleTeleporter;
         }
@@ -41,15 +50,22 @@ public class ReversePlainBoss : MonoBehaviour, IInteractable
 
     void OnDisable()
     {
-        Tutorial _tutorial = FindObjectOfType<Tutorial>();
-        if(_tutorial != null)
+        BossTutorial _tutorial = FindObjectOfType<BossTutorial>();
+        if (_tutorial != null)
         {
             _tutorial.StartBossFight -= ToggleTeleporter;
         }
+        VideoController video = VideoController.Instance;
+        if (video != null)
+        {
+            VideoController.Instance.OnVideoEnd -= Die;
+        }
+
     }
 
     void Start()
     {
+        VideoController.Instance.OnVideoEnd += Die;
         anime = GetComponent<Animator>();
     }
 
@@ -142,7 +158,9 @@ public class ReversePlainBoss : MonoBehaviour, IInteractable
         else
         {
             StopAttack();
-            BossDied();
+            BossDieAnimation();
+            BoxCollider2D collider = GetComponent<BoxCollider2D>();
+            collider.enabled = false;
         }
     }
     public void NextPhase()
@@ -160,6 +178,8 @@ public class ReversePlainBoss : MonoBehaviour, IInteractable
             AnimatorStateInfo stateInfo = anime.GetCurrentAnimatorStateInfo(0);
             return stateInfo.IsName("BOSS_change") && stateInfo.normalizedTime >= 1f;
         });
+        PlayerController player = FindObjectOfType<PlayerController>();
+        player.canMove = false;
         anime.Play("BOSS_hit");
         yield return new WaitUntil(() =>
         {
@@ -174,12 +194,25 @@ public class ReversePlainBoss : MonoBehaviour, IInteractable
         StartAttack();
     }
 
-    void BossDied()
+    void BossDieAnimation()
     {
-        Debug.Log("BossDied");
         anime.SetBool("died", true);
         AudioManager.instance.PlaySound(dieSound);
     }
+
+    public void DieVideo()
+    {
+        VideoController.Instance.GetVideo(dieClip, pausePoints);
+    }
+
+    public void Die()
+    {
+        Debug.Log("Die");
+        GameManager gameManager = GameManager.Instance;
+        gameManager.StartCoroutine(gameManager.LoadNextScene(nextScene));
+    }
+
+
     public void BossPlaySkill()
     {
         KnockBackPlayer();
@@ -187,25 +220,23 @@ public class ReversePlainBoss : MonoBehaviour, IInteractable
     public void KnockBackPlayer()
     {
         PlayerController player = FindObjectOfType<PlayerController>();
-        if (player == null)
-            return;
+        if (player != null)
+        {
+            Vector2 startPos = player.transform.position;
+            Vector2 targetPos = knockbackTarget.position;
+            float T = knockbackDuration;
 
-        player.canMove = false;
+            float g = Mathf.Abs(Physics2D.gravity.y) * player.rb.gravityScale;
 
-        Vector2 startPos = player.transform.position;
-        Vector2 targetPos = knockbackTarget.position;
-        float T = knockbackDuration;
+            Vector2 knockbackVelocity;
+            knockbackVelocity.x = (targetPos.x - startPos.x) / T;
+            knockbackVelocity.y = (targetPos.y - startPos.y + 0.5f * g * T * T) / T;
 
-        float g = Mathf.Abs(Physics2D.gravity.y) * player.rb.gravityScale;
+            player.rb.velocity = knockbackVelocity;
+            player._anime.SetTrigger("hurt");
 
-        Vector2 knockbackVelocity;
-        knockbackVelocity.x = (targetPos.x - startPos.x) / T;
-        knockbackVelocity.y = (targetPos.y - startPos.y + 0.5f * g * T * T) / T;
-
-        player.rb.velocity = knockbackVelocity;
-        player._anime.SetTrigger("hurt");
-
-        StartCoroutine(ReenablePlayerMovement(player, T));
+            StartCoroutine(ReenablePlayerMovement(player, T));
+        }
     }
 
     private IEnumerator ReenablePlayerMovement(PlayerController player, float delay)

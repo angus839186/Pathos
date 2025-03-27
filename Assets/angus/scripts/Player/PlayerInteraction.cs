@@ -90,16 +90,13 @@ public class PlayerInteraction : MonoBehaviour
         Item heldItem = (mainItem != null && mainItem.item != null) ? mainItem.item : null;
         if (currentInteractable != null)
         {
+            player.canMove = true;
+            isInteracting = false;
             if (!string.IsNullOrEmpty(currentInteractable.GetDescription()))
             {
                 OnShowDescription?.Invoke(currentInteractable.GetDescription());
             }
             currentInteractable.InteractEvent(heldItem);
-        }
-        if (player != null)
-        {
-            player.canMove = true;
-            isInteracting = false;
         }
     }
 }

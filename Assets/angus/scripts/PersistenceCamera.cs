@@ -26,8 +26,6 @@ public class PersistenceCamera : MonoBehaviour
         PlayerController player = FindObjectOfType<PlayerController>();
         CinemachineConfiner2D cinemachineConfiner2D = GetComponentInChildren<CinemachineConfiner2D>();
         CinemachineVirtualCamera cam = FindObjectOfType<CinemachineVirtualCamera>();
-        Debug.Log(player);
-        Debug.Log(cam);
         cam.Follow = player.transform;
         if (cinemachineConfiner2D != null)
         {

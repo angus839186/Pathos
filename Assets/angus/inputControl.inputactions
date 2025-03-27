@@ -274,7 +274,7 @@
             ]
         },
         {
-            "name": "Tutorial",
+            "name": "BossTutorial",
             "id": "68a94709-c6f7-4d89-9750-cce20c49482e",
             "actions": [
                 {
@@ -296,6 +296,34 @@
                     "processors": "",
                     "groups": "",
                     "action": "NextTutorial",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "PlayerTutorial",
+            "id": "63b10c88-2765-44f9-849f-5e198ded9484",
+            "actions": [
+                {
+                    "name": "ClosePlayerTutorial",
+                    "type": "Button",
+                    "id": "63fb429e-b0c1-4912-a756-0695ca0802dd",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "06920194-4f7c-4c86-b3a9-d4e6e1ee1891",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ClosePlayerTutorial",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -12,10 +12,7 @@ public class teleporter : MonoBehaviour
 
     public void TeleportPlayer()
     {
-        Debug.Log("Teleport");
         SpawnManager.spawnPointID = targetSpawnPointID;
-        Debug.Log(SpawnManager.spawnPointID);
-
         GameManager gameManager = GameManager.Instance;
         gameManager.StartCoroutine(gameManager.LoadNextScene(targetScene));
 

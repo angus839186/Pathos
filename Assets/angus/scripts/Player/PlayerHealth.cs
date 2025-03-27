@@ -9,6 +9,8 @@ public class PlayerHealth : MonoBehaviour
     private int maxHealth = 3;
     private Animator anime;
 
+    public AudioClip heartBreakSound;
+
     public Action<int> OnHealthUpdateEvent;
 
     void Start()
@@ -17,16 +19,17 @@ public class PlayerHealth : MonoBehaviour
     }
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.H))
-        {
-            TakeDamage(1);
-        }
+        // if(Input.GetKeyDown(KeyCode.H))
+        // {
+        //     TakeDamage(1);
+        // }
     }
 
     public void TakeDamage(int damage)
     {
         if(health <= 0)return;
         anime.SetTrigger("hurt");
+        AudioManager.instance.PlaySound(heartBreakSound);
         int currentHealth = health;
         currentHealth -= damage;
         UpdateHealth(currentHealth);

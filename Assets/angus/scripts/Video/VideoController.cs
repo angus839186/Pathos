@@ -38,19 +38,16 @@ public class VideoController : MonoBehaviour
         video = GetComponent<VideoPlayer>();
     }
 
-    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        GetPreviewVideo();
-    }
+
 
     void Start()
     {
         PlayerInputManager.Instance.OnContinueVideoEvent += ContinueVideo;
-        SceneManager.sceneLoaded += OnSceneLoaded;
+        GameManager.Instance.OnSceneLoaded += GetScenePreviewVideo;
         continueButton.onClick.AddListener(ContinueVideo);
         continueButton.gameObject.SetActive(false);
 
-        GetPreviewVideo();
+        ToggleVideoCanvas(false);
     }
 
     public void PlayVideo(VideoClip _video)
@@ -81,11 +78,16 @@ public class VideoController : MonoBehaviour
         video.Play();
     }
 
-    void GetPreviewVideo()
+    void GetScenePreviewVideo()
     {
         VideoBase _Video = FindObjectOfType<VideoBase>();
         if (_Video == null) return;
-        if (!_Video.played)
+        if (_Video.played)
+        {
+            OnVideoEnd.Invoke();
+            return;
+        }
+        else
         {
             // 有設定暫停點就使用，否則清空暫停點
             if (_Video.pausePoints != null && _Video.pausePoints.Count > 0)
@@ -98,14 +100,10 @@ public class VideoController : MonoBehaviour
             }
             PlayVideo(_Video.clip);
         }
-        else
-        {
-            return;
-        }
     }
     public void GetVideo(VideoClip clip, List<double> points)
     {
-        if(points != null && points.Count > 0)
+        if (points != null && points.Count > 0)
         {
             SetPausePoint(points);
         }
@@ -131,32 +129,44 @@ public class VideoController : MonoBehaviour
     }
 
     public IEnumerator PlayingVideo()
-{
-    while (isPlayingVideo)
     {
-        if (currentPauseIndex < pausePoints.Count)
+        // 確保影片開始播放
+        yield return new WaitUntil(() => video.isPlaying);
+        Debug.Log(video.clip.length);
+
+        // 若無暫停點，直接等待影片結束
+        if (pausePoints == null || pausePoints.Count == 0)
         {
-            // 等待直到影片時間達到下一個暫停點
-            yield return new WaitUntil(() => video.time >= pausePoints[currentPauseIndex]);
-
-            video.Pause();
-            isPausedBySystem = true;
-            continueButton.gameObject.SetActive(true);
-
-            // ✅ 現在只等待使用者點按鈕（ContinueVideo 會把 isPausedBySystem 設回 false）
-            yield return new WaitUntil(() => !isPausedBySystem);
-        }
-        else
-        {
-            // 沒有更多暫停點了，等待影片播放完
-            yield return new WaitUntil(() => !video.isPlaying);
-
+            Debug.Log(video.time);
+            yield return new WaitUntil(() => video.time >= video.clip.length - 0.1f);
             ToggleVideoCanvas(false);
             OnVideoEnd?.Invoke();
+            yield break;
         }
 
-        yield return null;
+        // 有暫停點的情況
+        while (isPlayingVideo)
+        {
+            if (currentPauseIndex < pausePoints.Count)
+            {
+                yield return new WaitUntil(() => video.time >= pausePoints[currentPauseIndex]);
+
+                video.Pause();
+                isPausedBySystem = true;
+                continueButton.gameObject.SetActive(true);
+
+                yield return new WaitUntil(() => !isPausedBySystem);
+            }
+            else
+            {
+                yield return new WaitUntil(() => video.time >= video.clip.length - 0.1f);
+                ToggleVideoCanvas(false);
+                OnVideoEnd?.Invoke();
+                break;
+            }
+
+            yield return null;
+        }
     }
-}
 
 }

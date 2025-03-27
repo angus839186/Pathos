@@ -7,8 +7,6 @@ using UnityEngine.InputSystem;
 public class PlayerInputManager : MonoBehaviour
 {
     public static PlayerInputManager Instance { get; private set; }
-
-
     public PlayerInput playerInput;
 
     public event Action<Vector2> OnMoveEvent;
@@ -32,6 +30,8 @@ public class PlayerInputManager : MonoBehaviour
 
     public event Action OnContinueVideoEvent;
 
+    public event Action<bool> OnClosePlayerTutorialEvent;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -43,33 +43,25 @@ public class PlayerInputManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    void Start()
-    {
-        if (playerInput == null)
-        {
-            playerInput = GetComponent<PlayerInput>();
-        }
-    }
-
-    public void OnMove(InputValue value)
+    void OnMove(InputValue value)
     {
         Vector2 move = value.Get<Vector2>();
         OnMoveEvent?.Invoke(move);
     }
 
-    public void OnJump(InputValue value)
+    void OnJump(InputValue value)
     {
         float jump = value.Get<float>();
         OnJumpEvent?.Invoke(jump);
     }
 
-    public void OnRun(InputValue value)
+    void OnRun(InputValue value)
     {
         bool run = value.isPressed;
         OnRunEvent?.Invoke(run);
     }
 
-    public void OnOpenBackPack(InputValue value)
+    void OnOpenBackPack(InputValue value)
     {
         float pressed = value.Get<float>();
         if (value.Get<float>() > 0.5f)
@@ -78,7 +70,7 @@ public class PlayerInputManager : MonoBehaviour
         }
     }
 
-    public void OnCloseBackPack(InputValue value)
+    void OnCloseBackPack(InputValue value)
     {
         float pressed = value.Get<float>();
         if (pressed > 0.5f)
@@ -87,7 +79,7 @@ public class PlayerInputManager : MonoBehaviour
         }
     }
 
-    public void OnInteract(InputValue value)
+    void OnInteract(InputValue value)
     {
         float pressed = value.Get<float>();
         if (pressed > 0.5f)
@@ -96,7 +88,7 @@ public class PlayerInputManager : MonoBehaviour
         }
     }
 
-    public void OnUpSelect(InputValue value)
+    void OnUpSelect(InputValue value)
     {
         float pressed = value.Get<float>();
         if (pressed > 0.5f)
@@ -105,7 +97,7 @@ public class PlayerInputManager : MonoBehaviour
         }
     }
 
-    public void OnDownSelect(InputValue value)
+    void OnDownSelect(InputValue value)
     {
         float pressed = value.Get<float>();
         if (pressed > 0.5f)
@@ -114,7 +106,7 @@ public class PlayerInputManager : MonoBehaviour
         }
     }
 
-    public void OnConfirmMainItem(InputValue value)
+    void OnConfirmMainItem(InputValue value)
     {
         float pressed = value.Get<float>();
         if (pressed > 0.5f)
@@ -122,7 +114,7 @@ public class PlayerInputManager : MonoBehaviour
             OnConfirmMainItemEvent?.Invoke();
         }
     }
-    public void OnCloseSaveMenu(InputValue value)
+    void OnCloseSaveMenu(InputValue value)
     {
         float pressed = value.Get<float>();
         if (pressed > 0.5f)
@@ -130,7 +122,7 @@ public class PlayerInputManager : MonoBehaviour
             OnCloseSaveMenuEvent?.Invoke();
         }
     }
-    public void OnNextTutorial(InputValue value)
+    void OnNextTutorial(InputValue value)
     {
         float pressed = value.Get<float>();
         if (pressed > 0.5f)
@@ -138,7 +130,7 @@ public class PlayerInputManager : MonoBehaviour
             OnNextTutorialEvent?.Invoke();
         }
     }
-    public void OnCloseSettingMenu(InputValue value)
+    void OnCloseSettingMenu(InputValue value)
     {
         float pressed = value.Get<float>();
         if (pressed > 0.5f)
@@ -147,7 +139,7 @@ public class PlayerInputManager : MonoBehaviour
         }
     }
 
-    public void OnOpenPauseMenu(InputValue value)
+    void OnOpenPauseMenu(InputValue value)
     {
         float pressed = value.Get<float>();
         if (pressed > 0.5f)
@@ -156,7 +148,7 @@ public class PlayerInputManager : MonoBehaviour
         }
     }
 
-    public void OnClosePauseMenu(InputValue value)
+    void OnClosePauseMenu(InputValue value)
     {
         float pressed = value.Get<float>();
         if (pressed > 0.5f)
@@ -165,12 +157,21 @@ public class PlayerInputManager : MonoBehaviour
         }
     }
 
-    public void OnContinueVideo(InputValue value)
+    void OnContinueVideo(InputValue value)
     {
         float pressed = value.Get<float>();
         if(pressed > 0.5f)
         {
             OnContinueVideoEvent?.Invoke();
+        }
+    }
+
+    void OnClosePlayerTutorial(InputValue value)
+    {
+        float pressed = value.Get<float>();
+        if(pressed > 0.5f)
+        {
+            OnClosePlayerTutorialEvent?.Invoke(false);
         }
     }
 
