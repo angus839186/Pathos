@@ -1,0 +1,70 @@
+
+【背景音】
+
+森林背景音(3小時)(要備註版權!!!!!!):Bg_klankbeeld_forest_1.wav
+
+Copyright From:klankbeeld and freesound.org(https://freesound.org/people/klankbeeld/)
+
+【解謎音】
+
+音樂花: 
+(1_#f2bg2)、(2_#g2ba2)、(3_#a2bb2)、(4_b31)、(5_#c4bd4)、(6_#f4bg4)、(7_d51) 低到高
+
+
+一(4_b31) 二(5_#c4bd4) 三(7_d51) 四(2_#g2ba2) 五(6_#f4bg4) 六(3_#a2bb2) 七(1_#f2bg2) 看外型適合的
+
+謎題五音(照順序):(1_#f2bg2.wav)、(6_#f4bg4.wav)、(5_#c4bd4.wav)、(4_b31.wav)、(7_d51.wav)
+
+嘔吐聲 Flower_bruh.wav
+
+【村民】
+
+村民唱歌: Villager_sing.wav/Villager_sing_2.wav
+
+守門人 Madvillager_Yo_1.wav/Madvillager_Yo_3.wav
+
+牧羊人 Madvillager_Mu_2.wav
+
+樂手 Villager_Mu_1/Villager_Mu_2.wav
+
+失蹤村民 Madvillager_Ac_2.wav
+
+染料商人 Villager_Ka_1.wav
+
+村長 Villager_Chi_1/Villager_Chi_2.wav
+
+煩惱村民 Villager_Yo_2/Villager_Yo_3.wav
+
+灰/藍色村民 Villager_Ac_1/Villager_Ac_2.wav 
+
+水色村民 Villager_Ka_Bonus_2.wav
+
+【羊】
+
+羊染色聲音 Sheep_dye_use.wav
+
+羊叫聲 Baa_1.wav Baa_2.wav Baa_3.wav
+
+羊走路 Sheep_walking.wav
+
+
+【貓咪新增】
+清嘔吐物 Cat_clean_bruh.wav
+採果子聲 Berry_shears_use.wav/Berry_catch.wav.wav
+踩水聲 Cat_water_step.wav/Cat_water_run.wav
+游泳聲 Cat__water_swiming.wav
+換氣聲 Cat_water_breathe.wav
+
+【UI相關】
+生命值破碎聲G_Ui_brake.wav
+按鈕 O_Ui_button.wav 
+錯誤 O_Ui_button_error.wav
+
+【Boss】
+
+觸手 Squidward_tentacle_attack.wav
+氣泡 Squidward_bubbles_attack.wav
+光炮聲 Squidward_excannon_attack.wav
+
+受擊/要攻擊 Squidward_angry.wav
+死亡 Squidward_death.wav
