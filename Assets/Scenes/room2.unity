@@ -148,7 +148,7 @@ Transform:
   m_GameObject: {fileID: 78988689}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -57.325, y: 14.1352, z: 0}
+  m_LocalPosition: {x: -57.57, y: 14.1352, z: 0}
   m_LocalScale: {x: 0.6237377, y: 0.6237377, z: 0.6237377}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -231,8 +231,8 @@ Transform:
   m_GameObject: {fileID: 81617496}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.6723638, y: -4.2358913, z: 0.039197095}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -4.416206, y: -3.7917013, z: 0.046}
+  m_LocalScale: {x: 1.1721075, y: 1.1721075, z: 1.1721075}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1944818367}
@@ -689,8 +689,8 @@ Transform:
   m_GameObject: {fileID: 204424086}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 94.6, y: -25.4, z: 0}
-  m_LocalScale: {x: 1.6974252, y: 1.6810443, z: 1.8201}
+  m_LocalPosition: {x: 111.95, y: -28.6, z: -0}
+  m_LocalScale: {x: 1.9895648, y: 1.9703646, z: 2.1333525}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 883859214}
@@ -809,8 +809,8 @@ Transform:
   m_GameObject: {fileID: 572864609}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.6723638, y: -4.2358913, z: 0.039197095}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -4.416206, y: -3.7917013, z: 0.046}
+  m_LocalScale: {x: 1.1721075, y: 1.1721075, z: 1.1721075}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 109716297}
@@ -1008,8 +1008,8 @@ Transform:
   m_GameObject: {fileID: 1104537353}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.6723638, y: -4.2358913, z: 0.039197095}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -4.416206, y: -3.7917013, z: 0.046}
+  m_LocalScale: {x: 1.1721075, y: 1.1721075, z: 1.1721075}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 160858035}
@@ -1123,7 +1123,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 5.993982
+  orthographic size: 7.5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

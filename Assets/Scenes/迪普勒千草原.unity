@@ -1778,6 +1778,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57e05350c2ff90145ab4a913bf48150a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  passed: 0
   hint: {fileID: 1380470396}
   item: {fileID: 11400000, guid: a397d3f1d182d3d41b452f79ae99c95c, type: 2}
 --- !u!61 &824608930
@@ -5564,6 +5565,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57e05350c2ff90145ab4a913bf48150a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  passed: 0
   hint: {fileID: 1380470396}
   item: {fileID: 11400000, guid: a397d3f1d182d3d41b452f79ae99c95c, type: 2}
 --- !u!1 &1840603604
