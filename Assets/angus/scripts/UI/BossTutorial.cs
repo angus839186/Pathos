@@ -7,8 +7,6 @@ public class BossTutorial : MonoBehaviour
 {
     public int tutorialIndex = 0;
     public List<GameObject> tutorials;
-
-    public Action<bool> StartBossFight;
     public bool playedTutorial;
     void OnEnable()
     {
@@ -54,7 +52,6 @@ public class BossTutorial : MonoBehaviour
         canvas.alpha = 0f;
         canvas.interactable = false;
         canvas.blocksRaycasts = false;
-        StartBossFight.Invoke(false);
         ReversePlainBoss boss = FindObjectOfType<ReversePlainBoss>();
         boss.StartAttack();
     }

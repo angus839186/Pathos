@@ -25,6 +25,8 @@ public class GameManager : MonoBehaviour
 
     public Action OnSceneLoaded;
 
+    public bool reversePlainBossWin;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)

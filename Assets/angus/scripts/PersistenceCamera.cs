@@ -26,10 +26,11 @@ public class PersistenceCamera : MonoBehaviour
         PlayerController player = FindObjectOfType<PlayerController>();
         CinemachineConfiner2D cinemachineConfiner2D = GetComponentInChildren<CinemachineConfiner2D>();
         CinemachineVirtualCamera cam = FindObjectOfType<CinemachineVirtualCamera>();
+        GameObject CameraBorder = GameObject.Find("CameraBorder");
         cam.Follow = player.transform;
         if (cinemachineConfiner2D != null)
         {
-            cinemachineConfiner2D.m_BoundingShape2D = GameObject.Find("CameraBorder").GetComponent<PolygonCollider2D>();
+            cinemachineConfiner2D.m_BoundingShape2D = CameraBorder.GetComponent<PolygonCollider2D>();
             cinemachineConfiner2D.InvalidateCache();
         }
     }

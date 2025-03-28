@@ -72,6 +72,7 @@ public class VideoController : MonoBehaviour
 
     void ContinueVideo()
     {
+        if(video.isPlaying) return;
         currentPauseIndex++;
         isPausedBySystem = false;
         continueButton.gameObject.SetActive(false);
@@ -89,14 +90,13 @@ public class VideoController : MonoBehaviour
         }
         else
         {
-            // 有設定暫停點就使用，否則清空暫停點
             if (_Video.pausePoints != null && _Video.pausePoints.Count > 0)
             {
                 SetPausePoint(_Video.pausePoints);
             }
             else
             {
-                SetPausePoint(null); // 清空暫停點
+                SetPausePoint(null);
             }
             PlayVideo(_Video.clip);
         }

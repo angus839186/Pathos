@@ -39,22 +39,8 @@ public class ReversePlainBoss : MonoBehaviour, IInteractable
     public List<double> pausePoints;
 
 
-    void OnEnable()
-    {
-        BossTutorial _tutorial = FindObjectOfType<BossTutorial>();
-        if (_tutorial != null)
-        {
-            _tutorial.StartBossFight += ToggleTeleporter;
-        }
-    }
-
     void OnDisable()
     {
-        BossTutorial _tutorial = FindObjectOfType<BossTutorial>();
-        if (_tutorial != null)
-        {
-            _tutorial.StartBossFight -= ToggleTeleporter;
-        }
         VideoController video = VideoController.Instance;
         if (video != null)
         {
@@ -65,7 +51,6 @@ public class ReversePlainBoss : MonoBehaviour, IInteractable
 
     void Start()
     {
-        VideoController.Instance.OnVideoEnd += Die;
         anime = GetComponent<Animator>();
     }
 
@@ -85,15 +70,6 @@ public class ReversePlainBoss : MonoBehaviour, IInteractable
             Destroy(fb.gameObject);
         }
         StopAllCoroutines();
-    }
-
-    public void ToggleTeleporter(bool toggle)
-    {
-        teleporter[] teleporters = FindObjectsOfType<teleporter>();
-        foreach (var teleporter in teleporters)
-        {
-            teleporter.canTeleport = toggle;
-        }
     }
 
     public IEnumerator BossAttack()
@@ -202,6 +178,7 @@ public class ReversePlainBoss : MonoBehaviour, IInteractable
 
     public void DieVideo()
     {
+        VideoController.Instance.OnVideoEnd += Die;
         VideoController.Instance.GetVideo(dieClip, pausePoints);
     }
 
