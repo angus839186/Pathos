@@ -30,6 +30,11 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     public AudioClip runSound;
     public AudioClip jumpSound;
 
+    [Header("對話")]
+
+    [SerializeField] private DialogueUI dialogueUI;
+    public DialogueUI DialogueUI => dialogueUI;
+
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();

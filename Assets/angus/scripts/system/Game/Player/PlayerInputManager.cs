@@ -32,6 +32,8 @@ public class PlayerInputManager : MonoBehaviour
 
     public event Action<bool> OnClosePlayerTutorialEvent;
 
+    public event Action OnNextDialogueEvent;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -172,6 +174,15 @@ public class PlayerInputManager : MonoBehaviour
         if(pressed > 0.5f)
         {
             OnClosePlayerTutorialEvent?.Invoke(false);
+        }
+    }
+
+    void OnNextDialogue(InputValue value)
+    {
+        float pressed = value.Get<float>();
+        if(pressed > 0.5f)
+        {
+            OnNextDialogueEvent?.Invoke();
         }
     }
 

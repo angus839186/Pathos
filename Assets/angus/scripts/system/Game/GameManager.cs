@@ -7,9 +7,9 @@ using System;
 public class GameManager : MonoBehaviour
 {
 
+    public static GameManager Instance;
     public string defaultScene;
     public string menuScene;
-    public static GameManager Instance;
     public GameObject playerPrefab;
 
     public GameObject cameraPrefab;
