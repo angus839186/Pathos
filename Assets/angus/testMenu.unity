@@ -4411,7 +4411,7 @@ MonoBehaviour:
   - 56
   - 62
   - 74
-  played: 0
+  played: 1
 --- !u!4 &988229058
 Transform:
   m_ObjectHideFlags: 0
@@ -7544,6 +7544,7 @@ MonoBehaviour:
   SetPlayer: 0
   SetCamera: 0
   SetUI: 0
+  reversePlainBossWin: 0
 --- !u!4 &1767430906
 Transform:
   m_ObjectHideFlags: 0
