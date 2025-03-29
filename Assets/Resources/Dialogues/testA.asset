@@ -13,10 +13,14 @@ MonoBehaviour:
   m_Name: testA
   m_EditorClassIdentifier: 
   dialogue:
-  - "\u9019\u88E1\u6709\u4E00\u500B\u65A7\u982D"
+  - "\u9019\u662F\u6211\u8AAA\u7684\u8A71"
+  - "\u9019\u662F\u4ED6\u8AAA\u7684\u8A71"
+  - "\u9019\u662F\u6211\u8AAA\u7684\u8A71"
+  - "\u9019\u662F\u4ED6\u8AAA\u7684\u8A71"
   - "\u4F60\u8981\u64BF\u8D77\u4F86\u9019\u500B\u65A7\u982D\u55CE"
+  playertalk: 0100010000
   responses:
   - responseText: Yes
     dialogueObject: {fileID: 11400000, guid: e8626a34c0c13b54abd60832e39dec17, type: 2}
   - responseText: No
-    dialogueObject: {fileID: 11400000, guid: bc17141cb35b4bf429be8e817ba3597c, type: 2}
+    dialogueObject: {fileID: 0}

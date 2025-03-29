@@ -15,8 +15,11 @@ public class DialogueUI : MonoBehaviour
     private ResponseHandler responseHandler;
 
     private TypeWriterEffect typewriterEffect;
-
     private PlayerInputManager playerInput;
+
+    public Image PlayerImage;
+
+    public Image NpcImage;
 
     private bool Continue;
 
@@ -70,22 +73,39 @@ public class DialogueUI : MonoBehaviour
         for (int i = 0; i < dialogueObject.Dialogue.Length; i++)
         {
             string dialogue = dialogueObject.Dialogue[i];
+            bool playerTalk = dialogueObject.PlayerTalk[i];
+            if (playerTalk)
+            {
+                SetTalkerImageAlpha(PlayerImage, 1f);
+                SetTalkerImageAlpha(NpcImage, 0.5f);
+            }
+            else
+            {
+                SetTalkerImageAlpha(PlayerImage, 0.5f);
+                SetTalkerImageAlpha(NpcImage, 1f);
+            }
             yield return RunTypingEffect(dialogue);
             textLabel.text = dialogue;
             if (i == dialogueObject.Dialogue.Length - 1 && dialogueObject.HasResponses) break;
             yield return null;
             yield return new WaitUntil(() => Continue);
             Continue = false;
-
-            if (dialogueObject.HasResponses)
-            {
-                responseHandler.ShowResponses(dialogueObject.Responses);
-            }
-            else
-            {
-                CloseDialogueBox();
-            }
         }
+        if (dialogueObject.HasResponses)
+        {
+            responseHandler.ShowResponses(dialogueObject.Responses);
+        }
+        else
+        {
+            CloseDialogueBox();
+        }
+    }
+
+    private void SetTalkerImageAlpha(Image image, float alpha)
+    {
+        Color color = image.color;
+        color.a = alpha;
+        image.color = color;
     }
 
     private IEnumerator RunTypingEffect(string dialogue)

@@ -10,6 +10,11 @@ public class NPC : MonoBehaviour, IInteractable
     {
         this.dialogueObject = dialogueObject;
     }
+
+    public void GiveItem()
+    {
+        
+    }
     public string GetAnimationTrigger(Item heldItem)
     {
         return "";
