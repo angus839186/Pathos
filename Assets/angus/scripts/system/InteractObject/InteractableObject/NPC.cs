@@ -5,6 +5,7 @@ using UnityEngine;
 public class NPC : MonoBehaviour, IInteractable
 {
     [SerializeField] private DialogueObject dialogueObject;
+    
 
     public void UpdateDialogueObject(DialogueObject dialogueObject)
     {

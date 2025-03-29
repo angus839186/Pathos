@@ -85,12 +85,14 @@ public class DialogueUI : MonoBehaviour
                 SetTalkerImageAlpha(NpcImage, 1f);
             }
             yield return RunTypingEffect(dialogue);
+
             textLabel.text = dialogue;
+
             if (i == dialogueObject.Dialogue.Length - 1 && dialogueObject.HasResponses) break;
             yield return null;
             yield return new WaitUntil(() => Continue);
-            Continue = false;
         }
+        Continue = false;
         if (dialogueObject.HasResponses)
         {
             responseHandler.ShowResponses(dialogueObject.Responses);

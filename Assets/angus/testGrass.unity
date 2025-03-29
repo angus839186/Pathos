@@ -2215,6 +2215,8 @@ GameObject:
   - component: {fileID: 619596545}
   - component: {fileID: 619596544}
   - component: {fileID: 619596543}
+  - component: {fileID: 619596547}
+  - component: {fileID: 619596548}
   m_Layer: 0
   m_Name: testNPC
   m_TagString: Untagged
@@ -2254,23 +2256,23 @@ MonoBehaviour:
   - name: yes
     onPickedResponse:
       m_PersistentCalls:
+        m_Calls: []
+  - name: no
+    onPickedResponse:
+      m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 619596541}
-          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_MethodName: SetActive
-          m_Mode: 6
+        - m_Target: {fileID: 619596544}
+          m_TargetAssemblyTypeName: NPC, Assembly-CSharp
+          m_MethodName: UpdateDialogueObject
+          m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
+            m_ObjectArgument: {fileID: 11400000, guid: 622127dc7efce364a9d5bc3c698e0ee8, type: 2}
+            m_ObjectArgumentAssemblyTypeName: DialogueObject, Assembly-CSharp
+            m_IntArgument: 3
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  - name: no
-    onPickedResponse:
-      m_PersistentCalls:
-        m_Calls: []
 --- !u!114 &619596544
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2381,6 +2383,42 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &619596547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 619596541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b7715cf4040a1945a02a0e716bfae14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueObject: {fileID: 11400000, guid: fd77c35e02210264c803d7b1afb6e320, type: 2}
+  events:
+  - name: Okay
+    onPickedResponse:
+      m_PersistentCalls:
+        m_Calls: []
+--- !u!114 &619596548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 619596541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b7715cf4040a1945a02a0e716bfae14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueObject: {fileID: 11400000, guid: 622127dc7efce364a9d5bc3c698e0ee8, type: 2}
+  events:
+  - name: Okay
+    onPickedResponse:
+      m_PersistentCalls:
+        m_Calls: []
 --- !u!1 &654455153
 GameObject:
   m_ObjectHideFlags: 0
