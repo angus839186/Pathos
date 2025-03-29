@@ -1,37 +1,46 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public class gong : MonoBehaviour, IInteractable
+public class gong : InteractableObject
 {
-
     public Item axeItem;
-
-    public string DefaultDescription;
     public string birdsGoneDescription;
-
     public List<Bird> birds = new List<Bird>();
 
     public GameObject skyPos;
-
     public windmill windmill;
-
     public AudioClip sound;
-
     public bool birdsGone;
 
-    public string GetDescription()
+    public override string GetDescription()
     {
-        return birdsGone ? birdsGoneDescription : DefaultDescription;
+        return birdsGone ? birdsGoneDescription : base.GetDescription();
     }
 
-    public string GetAnimationTrigger(Item heldItem)
+    public override string GetAnimationTrigger(Item heldItem)
     {
-        if (heldItem == axeItem)
-        {
-            return "Chop";
-        }
-        return "";
+        return heldItem == axeItem ? "Chop" : base.GetAnimationTrigger(null);
     }
+
+    public override void Interact()
+    {
+        //Do Nothing
+    }
+
+    public override void InteractEvent(Item heldItem)
+    {
+        if (heldItem != null && heldItem == axeItem)
+        {
+            Animator anime = GetComponent<Animator>();
+            anime.Play("gong_anime", -1, 0f);
+            AudioManager.instance.PlaySound(sound);
+            if (!windmill.worked)
+            {
+                BirdFlyToSky();
+            }
+        }
+    }
+
     public void BirdFlyToSky()
     {
         if (birds.Count < 5)
@@ -44,7 +53,7 @@ public class gong : MonoBehaviour, IInteractable
             skyPos.SetActive(false);
             return;
         }
-        // 先檢查所有鳥的 onFence 是否都是 true
+
         bool allOnFence = true;
         foreach (var bird in birds)
         {
@@ -55,7 +64,6 @@ public class gong : MonoBehaviour, IInteractable
             }
         }
 
-        // 如果所有鳥都在 fence 上，才讓鳥飛走
         if (allOnFence)
         {
             foreach (var bird in birds)
@@ -67,23 +75,5 @@ public class gong : MonoBehaviour, IInteractable
             birdsGone = true;
         }
     }
-
-    public void Interact()
-    {
-        Debug.Log(DefaultDescription);
-    }
-
-    public void InteractEvent(Item heldItem)
-    {
-        if (heldItem != null && heldItem == axeItem)
-        {
-            Animator anime = GetComponent<Animator>();
-            anime.Play("gong_anime", -1, 0f);
-            AudioManager.instance.PlaySound(sound);
-            if (!windmill.worked)
-            {   
-                BirdFlyToSky();
-            }
-        }
-    }
 }
+

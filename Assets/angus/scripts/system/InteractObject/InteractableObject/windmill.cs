@@ -2,11 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class windmill : MonoBehaviour, IInteractable, IDataPersistence
+public class windmill : InteractableObject, IDataPersistence
 {
     public Animator animator;
-
-    public string DefaultDescription;
     public string workedDescription;
 
     public bool worked;
@@ -15,14 +13,30 @@ public class windmill : MonoBehaviour, IInteractable, IDataPersistence
 
     public AudioClip failedSound;
     public AudioClip workedSound;
-
-
-
     void Start()
     {
         animator = GetComponent<Animator>();
     }
 
+    public override string GetDescription()
+    {
+        return worked ? workedDescription : base.GetDescription();
+    }
+
+    public override string GetAnimationTrigger(Item heldItem)
+    {
+        return base.GetAnimationTrigger(null);
+    }
+
+    public override void Interact()
+    {
+        //Do Nothing
+    }
+
+    public override void InteractEvent(Item heldItem)
+    {
+        //Do Nothing
+    }
     public void windmillfailed()
     {
         animator.Play("windmill_fail", -1, 0f);
@@ -44,26 +58,6 @@ public class windmill : MonoBehaviour, IInteractable, IDataPersistence
     public void OpenOrganDoor()
     {
         door.Open();
-    }
-
-    public string GetDescription()
-    {
-        return worked ? workedDescription : DefaultDescription;
-    }
-
-    public string GetAnimationTrigger(Item heldItem)
-    {
-        return "";
-    }
-
-    public void Interact()
-    {
-        Debug.Log(DefaultDescription);
-    }
-
-    public void InteractEvent(Item heldItem)
-    {
-        throw new System.NotImplementedException();
     }
 
     public void LoadData(GameData data)

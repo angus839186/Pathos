@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NPC : MonoBehaviour, IInteractable
+public class NPC : InteractableObject
 {
     [SerializeField] private DialogueObject dialogueObject;
     
@@ -11,22 +11,17 @@ public class NPC : MonoBehaviour, IInteractable
     {
         this.dialogueObject = dialogueObject;
     }
-
-    public void GiveItem()
+    public override string GetDescription()
     {
-        
-    }
-    public string GetAnimationTrigger(Item heldItem)
-    {
-        return "";
+        return base.GetDescription();
     }
 
-    public string GetDescription()
+    public override string GetAnimationTrigger(Item heldItem)
     {
-        return "";
+        return base.GetAnimationTrigger(null);
     }
 
-    public void Interact()
+    public override void Interact()
     {
         foreach (DialogueResponseEvents responseEvents in GetComponents<DialogueResponseEvents>())
         {
@@ -40,8 +35,13 @@ public class NPC : MonoBehaviour, IInteractable
         DialogueUI.Instance.ShowDialogue(dialogueObject);
     }
 
-    public void InteractEvent(Item heldItem)
+    public override void InteractEvent(Item heldItem)
     {
         //Do nothing
+    }
+
+    public void GiveItem()
+    {
+        
     }
 }

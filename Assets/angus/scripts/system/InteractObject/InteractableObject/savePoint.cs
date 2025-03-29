@@ -3,24 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class savePoint : MonoBehaviour, IInteractable
+public class savePoint : InteractableObject
 {
-    public string GetAnimationTrigger(Item heldItem)
+    public override string GetAnimationTrigger(Item heldItem)
     {
-        return "";
+        return base.GetAnimationTrigger(null);
     }
 
-    public string GetDescription()
+    public override string GetDescription()
     {
-        return "";
+        return base.GetDescription();
     }
 
-    public void Interact()
+    public override void Interact()
     {
         SaveFileMenu.Instance.ActivateSaveFileCanvas();
     }
 
-    public void InteractEvent(Item heldItem)
+    public override void InteractEvent(Item heldItem)
     {
         //Do nothing
     }

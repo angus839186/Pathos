@@ -2,31 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OrganDoor : MonoBehaviour, IInteractable
+public class OrganDoor : InteractableObject
 {
-    public string DefaultDescription;
-
     public Sprite closedSprite;
 
     public AudioClip sound;
-    public string GetAnimationTrigger(Item heldItem)
+    public override string GetAnimationTrigger(Item heldItem)
     {
-        return "";
+        return base.GetAnimationTrigger(null);
     }
 
-    public string GetDescription()
+    public override string GetDescription()
     {
-        return DefaultDescription;
+        return base.GetDescription();
     }
 
-    public void Interact()
+    public override void Interact()
     {
-        Debug.Log(DefaultDescription);
+        //Do Nothing
     }
 
-    public void InteractEvent(Item heldItem)
+    public override void InteractEvent(Item heldItem)
     {
-        return;
+        //Do Nothing
     }
     public void Open()
     {

@@ -1,40 +1,37 @@
 using UnityEngine;
 
-public class ItemPickup : MonoBehaviour, IInteractable, IDataPersistence
+public class ItemPickup : InteractableObject, IDataPersistence
 {
-    public Item item;
-
-    public string defaultDescription;
-
-    public string GetAnimationTrigger(Item heldItem)
+    public Item itemToTake;
+    public override string GetAnimationTrigger(Item heldItem)
     {
-        return "";
+        return base.GetAnimationTrigger(null);
     }
 
-    public string GetDescription()
+    public override string GetDescription()
     {
-        return defaultDescription;
+        return base.GetDescription();
     }
 
-    public void Interact()
+    public override void Interact()
     {
         InventoryManager inventory = InventoryManager.Instance;
         if (inventory != null)
         {
-            inventory.AddItem(item);
+            inventory.AddItem(itemToTake);
 
             Destroy(gameObject);
         }
     }
 
-    public void InteractEvent(Item heldItem)
+    public override void InteractEvent(Item heldItem)
     {
-        throw new System.NotImplementedException();
+        //Do Nothing
     }
 
     public void LoadData(GameData data)
     {
-        if (data.inventoryItemNames != null && data.inventoryItemNames.Contains(item.itemName))
+        if (data.inventoryItemNames != null && data.inventoryItemNames.Contains(itemToTake.itemName))
         {
             // 道具已被玩家拾取，移除場景中的 ItemPickup
             Destroy(gameObject);
