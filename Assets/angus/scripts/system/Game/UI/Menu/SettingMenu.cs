@@ -14,8 +14,6 @@ public class SettingMenu : Menu
     [Header("UI 元件")]
     public Dropdown resolutionDropdown;
     public Toggle windowedToggle;
-    public Slider brightnessSlider;
-    public Text brightnessText;
 
     public Slider musicSlider;
 
@@ -200,15 +198,6 @@ public class SettingMenu : Menu
         {
             ToggleSFXButton.image.sprite = muteSprite;
         }
-    }
-
-    public void SetBrightnessText()
-    {
-        float value = brightnessSlider.value;
-        // 將 value 從 0.0001~1 轉換到 0~1 的範圍
-        float normalizedValue = Mathf.InverseLerp(0.0001f, 1f, value);
-        int percent = Mathf.RoundToInt(normalizedValue * 100);
-        brightnessText.text = percent.ToString() + "%";
     }
 
     void SetMusicVolume()
