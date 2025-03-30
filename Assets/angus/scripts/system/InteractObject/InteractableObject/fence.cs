@@ -2,26 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class fence : MonoBehaviour, IInteractable
+public class fence : InteractableObject
 {
-    public string DefaultDescription;
-    public string GetAnimationTrigger(Item heldItem)
+    public override string GetAnimationTrigger(Item heldItem)
     {
-        return "";
+        return base.GetAnimationTrigger(null);
     }
 
-    public string GetDescription()
+    public override string GetDescription()
     {
-        return DefaultDescription;
+        return base.GetDescription();
     }
 
-    public void Interact()
+    public override void Interact()
     {
-        Debug.Log(DefaultDescription);
+        //Do Nothing
     }
 
-    public void InteractEvent(Item heldItem)
+    public override void InteractEvent(Item heldItem)
     {
-        //Do nothing
+        //Do Nothing
     }
 }

@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1dacdf748729db4f8f500ed08e5ca8e, type: 3}
+  m_Name: testC
+  m_EditorClassIdentifier: 
+  dialogue:
+  - "\u9019\u662FtestC"
+  - "\u9019\u88E1\u6C92\u6709\u5225\u7684\u4E8B\u60C5\u8981\u505A"
+  playertalk: 0100
+  responses:
+  - responseText: Okay
+    dialogueObject: {fileID: 0}

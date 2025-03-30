@@ -13,14 +13,11 @@ MonoBehaviour:
   m_Name: testA
   m_EditorClassIdentifier: 
   dialogue:
-  - "\u9019\u662F\u6211\u8AAA\u7684\u8A71"
-  - "\u9019\u662F\u4ED6\u8AAA\u7684\u8A71"
-  - "\u9019\u662F\u6211\u8AAA\u7684\u8A71"
-  - "\u9019\u662F\u4ED6\u8AAA\u7684\u8A71"
-  - "\u4F60\u8981\u64BF\u8D77\u4F86\u9019\u500B\u65A7\u982D\u55CE"
-  playertalk: 0100010000
+  - "\u9019\u662F\u7B2C\u4E00\u7A2E\u5C0D\u8A71"
+  - "\u5C0D\u8A71\u7D50\u675F\u4E86\uFF0C\u8981\u5230testB\u55CE?(Yes\u76F4\u63A5\u958B\u59CBtestB\u7684\u5C0D\u8A71\uFF0CNo\u7684\u8A71\u4E0B\u6B21\u8AAA\u8A71\u662FtestC)"
+  playertalk: 0100
   responses:
   - responseText: Yes
-    dialogueObject: {fileID: 11400000, guid: e8626a34c0c13b54abd60832e39dec17, type: 2}
+    dialogueObject: {fileID: 11400000, guid: fd77c35e02210264c803d7b1afb6e320, type: 2}
   - responseText: No
     dialogueObject: {fileID: 0}
