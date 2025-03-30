@@ -16,6 +16,4 @@ MonoBehaviour:
   - "\u9019\u662FtestB"
   - "\u9019\u88E1\u6C92\u6709\u4EC0\u9EBC\u4E8B\u8981\u505A"
   playertalk: 0100
-  responses:
-  - responseText: Okay
-    dialogueObject: {fileID: 0}
+  responses: []

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -59,6 +60,7 @@ public class DialogueUI : MonoBehaviour
     {
         IsOpen = true;
         dialogueBox.SetActive(true);
+        NpcImage.sprite = dialogueObject.NpcIcon;
         PlayerInputManager.Instance.SwitchActionMap("Dialogue");
         StartCoroutine(StepThroughDialogue(dialogueObject));
     }
@@ -87,8 +89,6 @@ public class DialogueUI : MonoBehaviour
             yield return RunTypingEffect(dialogue);
 
             textLabel.text = dialogue;
-
-            if (i == dialogueObject.Dialogue.Length - 1 && dialogueObject.HasResponses) break;
             yield return null;
             yield return new WaitUntil(() => Continue);
         }
@@ -99,6 +99,7 @@ public class DialogueUI : MonoBehaviour
         }
         else
         {
+            yield return new WaitUntil(() => Continue);
             CloseDialogueBox();
         }
     }
@@ -121,6 +122,7 @@ public class DialogueUI : MonoBehaviour
     public void CloseDialogueBox()
     {
         IsOpen = false;
+        Continue = false;
         dialogueBox.SetActive(false);
         textLabel.text = string.Empty;
         PlayerInputManager.Instance.SwitchActionMap("Player");
