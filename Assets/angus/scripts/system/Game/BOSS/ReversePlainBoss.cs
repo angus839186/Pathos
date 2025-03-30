@@ -4,7 +4,7 @@ using Unity.Collections;
 using UnityEngine;
 using UnityEngine.Video;
 
-public class ReversePlainBoss : MonoBehaviour, IInteractable
+public class ReversePlainBoss : InteractableObject
 {
     [Header("火球參數")]
     public GameObject fireballPrefab;
@@ -54,6 +54,36 @@ public class ReversePlainBoss : MonoBehaviour, IInteractable
         anime = GetComponent<Animator>();
     }
 
+
+    public override string GetDescription()
+    {
+        return base.GetDescription();
+    }
+
+    public override string GetAnimationTrigger(Item heldItem)
+    {
+        return "confort";
+    }
+    public override void Interact()
+    {
+        //Do nothing
+    }
+
+    public override void InteractEvent(Item heldItem)
+    {
+        if (phase2 == false)
+        {
+            StopAttack();
+            NextPhase();
+        }
+        else
+        {
+            StopAttack();
+            BossDieAnimation();
+            BoxCollider2D collider = GetComponent<BoxCollider2D>();
+            collider.enabled = false;
+        }
+    }
 
     public void StartAttack()
     {
@@ -106,37 +136,6 @@ public class ReversePlainBoss : MonoBehaviour, IInteractable
             });
 
             yield return new WaitForSeconds(attackDelay);
-        }
-    }
-
-    public void Interact()
-    {
-        //Do nothing
-    }
-
-    public string GetDescription()
-    {
-        return "";
-    }
-
-    public string GetAnimationTrigger(Item heldItem)
-    {
-        return "confort";
-    }
-
-    public void InteractEvent(Item heldItem)
-    {
-        if (phase2 == false)
-        {
-            StopAttack();
-            NextPhase();
-        }
-        else
-        {
-            StopAttack();
-            BossDieAnimation();
-            BoxCollider2D collider = GetComponent<BoxCollider2D>();
-            collider.enabled = false;
         }
     }
     public void NextPhase()
