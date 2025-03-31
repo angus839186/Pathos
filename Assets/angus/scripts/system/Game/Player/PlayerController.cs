@@ -17,9 +17,9 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     [Header("跑步速度倍率")]
     public float runMultiplier = 1.5f;
 
-    public bool isRunning;
-    public bool isGrounded;
-    public bool canMove = false;
+    private bool isRunning;
+    private bool isGrounded;
+    private bool canMove = true;
 
     public Animator _anime;
     public SpriteRenderer _sprite;
@@ -89,6 +89,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
             {
                 rb.velocity = new Vector2(0, rb.velocity.y);
                 _anime.SetBool("isWalking", false);
+                _anime.SetBool("runKey", isRunning);
                 audioSource.Stop();
             }
         }
@@ -143,6 +144,15 @@ public class PlayerController : MonoBehaviour, IDataPersistence
         {
             PlayerHealth playerHealth = GetComponent<PlayerHealth>();
             playerHealth.TakeDamage(1);
+        }
+    }
+
+    public void ToggleMove(bool toggle)
+    {
+        canMove = toggle;
+        if(!toggle)
+        {
+            rb.velocity = Vector2.zero;
         }
     }
 

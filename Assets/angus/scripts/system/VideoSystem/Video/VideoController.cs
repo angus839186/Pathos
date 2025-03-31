@@ -132,7 +132,6 @@ public class VideoController : MonoBehaviour
     {
         // 確保影片開始播放
         yield return new WaitUntil(() => video.isPlaying);
-        Debug.Log(video.clip.length);
 
         // 若無暫停點，直接等待影片結束
         if (pausePoints == null || pausePoints.Count == 0)

@@ -69,9 +69,9 @@ public class PlayerInteraction : MonoBehaviour
             string animTrigger = currentInteractable.GetAnimationTrigger(heldItem);
             if (!string.IsNullOrEmpty(animTrigger))
             {
-                playerAnimator.SetTrigger(animTrigger);
                 isInteracting = true;
-                player.canMove = false;
+                player.ToggleMove(false);
+                playerAnimator.SetTrigger(animTrigger);
             }
             else
             {
@@ -90,7 +90,7 @@ public class PlayerInteraction : MonoBehaviour
         Item heldItem = (mainItem != null && mainItem.item != null) ? mainItem.item : null;
         if (currentInteractable != null)
         {
-            player.canMove = true;
+            player.ToggleMove(true);
             isInteracting = false;
             if (!string.IsNullOrEmpty(currentInteractable.GetDescription()))
             {

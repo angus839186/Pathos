@@ -5,11 +5,11 @@ using UnityEngine;
 public class ReversePlainBossTeleporter : MonoBehaviour, ITeleport
 {
     public string targetSpawnPointID;
-    public string bossScene;
-    public string reversePlainScene;
+    public string BossScene;
+    public string PlainScene;
     public string GetTargetSceneName()
     {
-        string newScene = GameManager.Instance.reversePlainBossWin? reversePlainScene: bossScene;
+        string newScene = GameManager.Instance.reversePlainBossWin? PlainScene: BossScene;
         return newScene;
     }
     public virtual void TeleportPlayer()

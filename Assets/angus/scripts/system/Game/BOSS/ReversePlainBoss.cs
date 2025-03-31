@@ -154,7 +154,7 @@ public class ReversePlainBoss : InteractableObject
             return stateInfo.IsName("BOSS_change") && stateInfo.normalizedTime >= 1f;
         });
         PlayerController player = FindObjectOfType<PlayerController>();
-        player.canMove = false;
+        player.ToggleMove(false);
         anime.Play("BOSS_hit");
         yield return new WaitUntil(() =>
         {
@@ -183,6 +183,7 @@ public class ReversePlainBoss : InteractableObject
 
     public void Die()
     {
+        GameManager.Instance.reversePlainBossWin = true;
         Debug.Log("Die");
         GameManager gameManager = GameManager.Instance;
         gameManager.StartCoroutine(gameManager.LoadNextScene(nextScene));
@@ -218,6 +219,6 @@ public class ReversePlainBoss : InteractableObject
     private IEnumerator ReenablePlayerMovement(PlayerController player, float delay)
     {
         yield return new WaitForSeconds(delay);
-        player.canMove = true;
+        player.ToggleMove(true);
     }
 }

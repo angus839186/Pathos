@@ -328,6 +328,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19800943b66bfe34191315119ddf80bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DefaultDescription: 
   fireballPrefab: {fileID: 5787200721014070844, guid: 39e536cf54ecedd4da9af69288f611fa, type: 3}
   firePoint: {fileID: 2127300351}
   launchSpeed: 30
