@@ -2395,11 +2395,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueObject: {fileID: 11400000, guid: fd77c35e02210264c803d7b1afb6e320, type: 2}
-  events:
-  - name: Okay
-    onPickedResponse:
-      m_PersistentCalls:
-        m_Calls: []
+  events: []
 --- !u!114 &619596548
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2413,11 +2409,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueObject: {fileID: 11400000, guid: 622127dc7efce364a9d5bc3c698e0ee8, type: 2}
-  events:
-  - name: Okay
-    onPickedResponse:
-      m_PersistentCalls:
-        m_Calls: []
+  events: []
 --- !u!1 &654455153
 GameObject:
   m_ObjectHideFlags: 0
@@ -5243,11 +5235,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1531036579}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e402e75827e1be4aadf76e196637a11, type: 3}
+  m_Script: {fileID: 11500000, guid: 5618a5ad29aace54da08d79c5ffaf84b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   targetSpawnPointID: Left
-  targetScene: testReversePlain
+  BossScene: testReversePlain
+  PlainScene: testPlain
 --- !u!1 &1689021418
 GameObject:
   m_ObjectHideFlags: 0
