@@ -233,7 +233,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 21.688461, y: -2.3599997, z: 0.89978015}
-  m_LocalScale: {x: 139.7, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 331431900}
@@ -281,7 +281,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 119.9, y: 1}
   m_EdgeRadius: 0
 --- !u!1 &328264945
 GameObject:
@@ -2466,8 +2466,8 @@ Transform:
   m_GameObject: {fileID: 1817668637}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 43.12, y: -0.01, z: 0.8998}
-  m_LocalScale: {x: 0.9095986, y: 0.9095986, z: 0.9095986}
+  m_LocalPosition: {x: 43.75, y: -0.17, z: 0.8998}
+  m_LocalScale: {x: 1.1301762, y: 1.1301762, z: 1.1301762}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 589392204}
@@ -2731,7 +2731,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!95 &1977518737
 Animator:
   serializedVersion: 5

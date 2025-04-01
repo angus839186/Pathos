@@ -162,8 +162,7 @@ public class ReversePlainBoss : InteractableObject
             return stateInfo.IsName("BOSS_hit") && stateInfo.normalizedTime >= 1f;
         });
         collider.enabled = true;
-        fireballCount = 8;
-        attackDelay = 1f;
+        fireballCount = 10;
         anime.SetBool("phase2", true);
         phase2 = true;
         StartAttack();

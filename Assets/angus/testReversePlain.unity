@@ -333,9 +333,9 @@ MonoBehaviour:
   firePoint: {fileID: 2127300351}
   launchSpeed: 30
   downwardSpeed: 12
-  fireInterval: 0.75
-  fireballCount: 5
-  attackDelay: 2
+  fireInterval: 0.5
+  fireballCount: 7
+  attackDelay: 0
   attackSound: {fileID: 8300000, guid: 9e533414b3bc2e24eae6332d5c4227e7, type: 3}
   dieSound: {fileID: 8300000, guid: a0055d5c96eda8b45b1fab0c510cb1a5, type: 3}
   dropMinX: -5
