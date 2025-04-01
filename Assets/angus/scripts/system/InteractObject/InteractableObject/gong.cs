@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System.Collections;
 
 public class gong : InteractableObject
 {
@@ -11,6 +12,13 @@ public class gong : InteractableObject
     public windmill windmill;
     public AudioClip sound;
     public bool birdsGone;
+
+    private Animator anime;
+
+    private void Awake()
+    {
+        anime = GetComponent<Animator>();
+    }
 
     public override string GetDescription()
     {
@@ -31,7 +39,6 @@ public class gong : InteractableObject
     {
         if (heldItem != null && heldItem == axeItem)
         {
-            Animator anime = GetComponent<Animator>();
             anime.Play("gong_anime", -1, 0f);
             AudioManager.instance.PlaySound(sound);
             if (!windmill.worked)
@@ -45,10 +52,7 @@ public class gong : InteractableObject
     {
         if (birds.Count < 5)
         {
-            foreach (var bird in birds)
-            {
-                bird.FlyBack();
-            }
+            StartCoroutine(BirdFlyBackRoutine());
             windmill.Invoke("windmillfailed", 1f);
             skyPos.SetActive(false);
             return;
@@ -73,6 +77,14 @@ public class gong : InteractableObject
             windmill.Invoke("windmillworked", 1f);
             skyPos.SetActive(true);
             birdsGone = true;
+        }
+    }
+    private IEnumerator BirdFlyBackRoutine()
+    {
+        foreach (var bird in birds)
+        {
+            yield return new WaitForSeconds(Random.Range(0f, 0.1f));
+            bird.FlyBack();
         }
     }
 }

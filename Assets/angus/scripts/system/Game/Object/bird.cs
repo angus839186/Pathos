@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Bird : MonoBehaviour, IDataPersistence
 {
@@ -34,8 +36,6 @@ public class Bird : MonoBehaviour, IDataPersistence
 
     public AudioClip sound;
 
-
-
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -69,7 +69,7 @@ public class Bird : MonoBehaviour, IDataPersistence
         animator.Play("bird_fly");
         AudioManager.instance.PlaySound(sound);
 
-        while (Vector2.Distance(transform.position, nextPos.position) > landDistance)
+        while ((nextPos.position - transform.position).sqrMagnitude > landDistance * landDistance)
         {
             transform.position = Vector2.MoveTowards(transform.position, nextPos.position, flightSpeed * Time.deltaTime);
             yield return null;
@@ -82,27 +82,6 @@ public class Bird : MonoBehaviour, IDataPersistence
         animator.Play("bird_wait");
         transform.position = nextPos.position;
 
-    }
-
-    void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.tag == "Fence")
-        {
-            if (!_gong.birds.Contains(this))
-            {
-                _gong.birds.Add(this);
-            }
-            onFence = true;
-        }
-        if (collision.tag == "skyPos")
-        {
-            BirdsGone();
-        }
-    }
-    void BirdsGone()
-    {
-        flyToSky = true;
-        gameObject.SetActive(false);
     }
 
     public void FlyBack()
@@ -127,7 +106,7 @@ public class Bird : MonoBehaviour, IDataPersistence
         animator.Play("bird_fly");
 
         // 飛往隨機的上方目標
-        while (Vector2.Distance(transform.position, randomTarget) > landDistance)
+        while ((randomTarget - transform.position).sqrMagnitude > landDistance * landDistance)
         {
             Vector3 direction = (randomTarget - transform.position).normalized;
             FlipDirection(direction);
@@ -140,7 +119,7 @@ public class Bird : MonoBehaviour, IDataPersistence
 
         // 飛回 fencePos
         animator.Play("bird_fly");
-        while (Vector2.Distance(transform.position, fencePos.position) > landDistance)
+        while ((fencePos.position - transform.position).sqrMagnitude > landDistance * landDistance)
         {
             Vector3 direction = (fencePos.position - transform.position).normalized;
             FlipDirection(direction);
@@ -155,6 +134,27 @@ public class Bird : MonoBehaviour, IDataPersistence
         yield return new WaitForSeconds(0.5f);
         animator.Play("bird_wait");
         transform.position = fencePos.position;
+    }
+
+    void BirdsGone()
+    {
+        flyToSky = true;
+        gameObject.SetActive(false);
+    }
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Fence")
+        {
+            if (!_gong.birds.Contains(this))
+            {
+                _gong.birds.Add(this);
+            }
+            onFence = true;
+        }
+        if (collision.tag == "skyPos")
+        {
+            BirdsGone();
+        }
     }
 
     public void LoadData(GameData data)

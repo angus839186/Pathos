@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Trees : InteractableObject, IDataPersistence
@@ -17,6 +18,12 @@ public class Trees : InteractableObject, IDataPersistence
     public Bird[] birds;
     public AudioClip sound;
     public Sprite treeFallSprite;
+    public Animator anime;
+
+    void Awake()
+    {
+        anime = GetComponent<Animator>();
+    }
 
     public override string GetDescription()
     {
@@ -39,12 +46,13 @@ public class Trees : InteractableObject, IDataPersistence
 
         if (heldItem != null && heldItem == axeItem)
         {
-            Animator anime = GetComponent<Animator>();
             if (anime != null)
             {
                 anime.SetTrigger("Chop");
                 AudioManager.instance.PlaySound(sound);
                 isCutDown = true;
+                BoxCollider2D collider = GetComponent<BoxCollider2D>();
+                collider.enabled = false;
             }
             BirdFlyAway();
         }
@@ -52,8 +60,15 @@ public class Trees : InteractableObject, IDataPersistence
 
     public void BirdFlyAway()
     {
+        StartCoroutine(BirdFlyAwayRoutine());
+    }
+
+    private IEnumerator BirdFlyAwayRoutine()
+    {
         foreach (var bird in birds)
         {
+            // 加入隨機延遲，例如 0 到 0.1 秒之間
+            yield return new WaitForSeconds(Random.Range(0f, 0.1f));
             bird.FlyToNextPos(bird.fencePos);
         }
     }
@@ -63,7 +78,6 @@ public class Trees : InteractableObject, IDataPersistence
         data.treesFalled.TryGetValue(id, out isCutDown);
         if (isCutDown)
         {
-            Animator anime = GetComponent<Animator>();
             anime.enabled = false;
             SpriteRenderer treeSprite = GetComponent<SpriteRenderer>();
             treeSprite.sprite = treeFallSprite;

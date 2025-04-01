@@ -45,7 +45,7 @@ public class DescriptionText : MonoBehaviour
         {
             canvas.alpha = 1f;
             descriptionText.text = description;
-            yield return new WaitForSeconds(1.5f);
+            yield return new WaitForSeconds(2.5f);
             canvas.alpha = 0f;
         }
     }
