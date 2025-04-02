@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   npcIcon: {fileID: 0}
   dialogue:
-  - "\u6211\u53EA\u662F\u60F3\u96E2\u958B\u6751\u838A\u770B\u770B\u5916\u9762\u7684\u4E16\u754C\u800C\u5DF2...\u55DA\u55DA\u55DA"
-  playertalk: 00
+  - "\u6211\u4E0D\u6E05\u695A...\u55DA\u55DA\u55DA..."
+  - "\u9019\u500B\u6751\u838A\u600E\u9EBC\u9084\u6703\u6709\u4EBA\u5931\u8E64...\u771F\u53EF\u6015\u55DA\u55DA..."
+  playertalk: 0000
   responses: []

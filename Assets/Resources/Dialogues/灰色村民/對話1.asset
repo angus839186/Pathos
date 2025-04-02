@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e1dacdf748729db4f8f500ed08e5ca8e, type: 3}
-  m_Name: "\u5C0D\u8A712"
+  m_Name: "\u5C0D\u8A711"
   m_EditorClassIdentifier: 
   npcIcon: {fileID: 0}
   dialogue:
-  - "\u6211\u53EA\u662F\u60F3\u96E2\u958B\u6751\u838A\u770B\u770B\u5916\u9762\u7684\u4E16\u754C\u800C\u5DF2...\u55DA\u55DA\u55DA"
+  - "\u55DA\u55DA......\u7E3D\u611F\u89BA\u6700\u8FD1\u5927\u5BB6\u72C0\u614B\u90FD\u4E0D\u592A\u597D......"
   playertalk: 00
   responses: []

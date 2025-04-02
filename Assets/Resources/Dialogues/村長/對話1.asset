@@ -10,10 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e1dacdf748729db4f8f500ed08e5ca8e, type: 3}
-  m_Name: "\u5C0D\u8A712"
+  m_Name: "\u5C0D\u8A711"
   m_EditorClassIdentifier: 
   npcIcon: {fileID: 0}
   dialogue:
-  - "\u6211\u53EA\u662F\u60F3\u96E2\u958B\u6751\u838A\u770B\u770B\u5916\u9762\u7684\u4E16\u754C\u800C\u5DF2...\u55DA\u55DA\u55DA"
-  playertalk: 00
+  - "\u54E6\u54E6......\u5E74\u8F15\u4EBA\u4F60\u597D"
+  - "\u5509...\u4ECA\u5929\u51FA\u9580\u6563\u6B65\u7684\u6642\u5019\uFF0C\u6211\u7684\u62D0\u6756\u4E0D\u77E5\u9053\u5C31\u6D88\u5931\u5230\u54EA\u53BB\u4E86\u55DA\u55DA\u55DA..."
+  - "\u5230\u5E95\u6703\u5728\u54EA\u5462...\u4F60\u80FD\u5E6B\u6211\u627E\u51FA\u4F86\u55CE\uFF1F"
+  playertalk: 000000
   responses: []
