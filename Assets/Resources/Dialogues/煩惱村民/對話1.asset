@@ -19,6 +19,6 @@ MonoBehaviour:
   playertalk: 0000
   responses:
   - responseText: "\u9EDE\u982D"
-    dialogueObject: {fileID: 0}
+    dialogueObject: {fileID: 11400000, guid: 7a62a9c90fa98404d8173df6a0333a4e, type: 2}
   - responseText: "\u6416\u982D"
-    dialogueObject: {fileID: 0}
+    dialogueObject: {fileID: 11400000, guid: 536414d359ce69e48b17d14a5344197e, type: 2}
