@@ -55,5 +55,9 @@ public class PlayerHealth : MonoBehaviour
         int currentHealth = health;
         currentHealth = maxHealth;
         UpdateHealth(currentHealth);
+        PlayerInteraction playerInteract = GetComponent<PlayerInteraction>();
+        playerInteract.isInteracting = false;
+        PlayerController player = GetComponent<PlayerController>();
+        player.ToggleMove(true);
     }
 }

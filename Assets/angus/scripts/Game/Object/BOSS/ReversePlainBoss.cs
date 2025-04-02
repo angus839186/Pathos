@@ -62,6 +62,7 @@ public class ReversePlainBoss : InteractableObject
 
     public override string GetAnimationTrigger(Item heldItem)
     {
+        StopAttack();
         return "confort";
     }
     public override void Interact()
@@ -73,12 +74,10 @@ public class ReversePlainBoss : InteractableObject
     {
         if (phase2 == false)
         {
-            StopAttack();
             NextPhase();
         }
         else
         {
-            StopAttack();
             BossDieAnimation();
             BoxCollider2D collider = GetComponent<BoxCollider2D>();
             collider.enabled = false;

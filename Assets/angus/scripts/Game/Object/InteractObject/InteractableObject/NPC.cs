@@ -40,8 +40,8 @@ public class NPC : InteractableObject
         //Do nothing
     }
 
-    public void GiveItem()
+    public void GiveItem(Item item)
     {
-        
+        InventoryManager.Instance.AddItem(item);
     }
 }
