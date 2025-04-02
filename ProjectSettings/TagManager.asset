@@ -84,6 +84,9 @@ TagManager:
   - name: mono2
     uniqueID: 2341379729
     locked: 0
+  - name: danmoku
+    uniqueID: 4080863327
+    locked: 0
   - name: npc
     uniqueID: 2984844383
     locked: 0
