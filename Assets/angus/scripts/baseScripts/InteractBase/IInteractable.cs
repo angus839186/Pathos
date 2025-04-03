@@ -3,7 +3,7 @@ public interface IInteractable
     
     void Interact();
     
-    string GetDescription();
+    string GetDescription(Item heldItem);
 
     string GetAnimationTrigger(Item heldItem);
 

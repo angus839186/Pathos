@@ -8,9 +8,9 @@ public class ItemPickup : InteractableObject, IDataPersistence
         return base.GetAnimationTrigger(null);
     }
 
-    public override string GetDescription()
+    public override string GetDescription(Item heldItem)
     {
-        return base.GetDescription();
+        return base.GetDescription(null);
     }
 
     public override void Interact()

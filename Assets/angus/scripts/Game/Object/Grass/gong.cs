@@ -20,9 +20,9 @@ public class gong : InteractableObject
         anime = GetComponent<Animator>();
     }
 
-    public override string GetDescription()
+    public override string GetDescription(Item heldItem)
     {
-        return birdsGone ? birdsGoneDescription : base.GetDescription();
+        return birdsGone ? birdsGoneDescription : base.GetDescription(null);
     }
 
     public override string GetAnimationTrigger(Item heldItem)

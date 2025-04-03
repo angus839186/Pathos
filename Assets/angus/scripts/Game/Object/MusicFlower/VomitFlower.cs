@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class VomitFlower : MonoBehaviour
+public class VomitFlower : InteractableObject
 {
     [SerializeField] Animator anime;
     [SerializeField] private string musicPassword;
@@ -32,5 +32,15 @@ public class VomitFlower : MonoBehaviour
     public void ShowVomit()
     {
         Vomit.SetActive(true);
+    }
+
+    public override void Interact()
+    {
+        //Do nothing
+    }
+
+    public override void InteractEvent(Item heldItem)
+    {
+        //Do nothing
     }
 }

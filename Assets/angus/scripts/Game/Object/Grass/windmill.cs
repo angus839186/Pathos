@@ -18,9 +18,9 @@ public class windmill : InteractableObject, IDataPersistence
         animator = GetComponent<Animator>();
     }
 
-    public override string GetDescription()
+    public override string GetDescription(Item heldItem)
     {
-        return worked ? workedDescription : base.GetDescription();
+        return worked ? workedDescription : base.GetDescription(null);
     }
 
     public override string GetAnimationTrigger(Item heldItem)

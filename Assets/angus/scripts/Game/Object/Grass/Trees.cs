@@ -25,9 +25,9 @@ public class Trees : InteractableObject, IDataPersistence
         anime = GetComponent<Animator>();
     }
 
-    public override string GetDescription()
+    public override string GetDescription(Item heldItem)
     {
-        return isCutDown ? CutDownDescription : base.GetDescription();
+        return isCutDown ? CutDownDescription : base.GetDescription(null);
     }
 
     public override string GetAnimationTrigger(Item heldItem)

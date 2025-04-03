@@ -446,6 +446,12 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "InteractingAnimation",
+            "id": "f8359c3f-d4d7-442f-9c15-a970ff4c3a11",
+            "actions": [],
+            "bindings": []
         }
     ],
     "controlSchemes": []

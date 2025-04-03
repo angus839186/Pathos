@@ -55,9 +55,9 @@ public class ReversePlainBoss : InteractableObject
     }
 
 
-    public override string GetDescription()
+    public override string GetDescription(Item heldItem)
     {
-        return base.GetDescription();
+        return base.GetDescription(null);
     }
 
     public override string GetAnimationTrigger(Item heldItem)

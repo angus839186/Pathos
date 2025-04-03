@@ -33,6 +33,10 @@ public class PlayerHealth : MonoBehaviour
         int currentHealth = health;
         currentHealth -= damage;
         UpdateHealth(currentHealth);
+        PlayerController player = GetComponent<PlayerController>();
+        player.ToggleMove(true);
+        PlayerInteraction playerInteract = GetComponent<PlayerInteraction>();
+        playerInteract.isInteracting = false;
     }
 
     public void UpdateHealth(int newHealth)

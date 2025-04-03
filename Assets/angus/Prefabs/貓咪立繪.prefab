@@ -80,7 +80,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1020776715
-  m_SortingLayer: 14
+  m_SortingLayer: 15
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 5c0aca32b545f484da3d30eab1975410, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -204,15 +204,13 @@ MonoBehaviour:
   jumpPower: 5
   speed: 6
   runMultiplier: 1.5
-  isRunning: 0
-  isGrounded: 1
-  canMove: 1
   _anime: {fileID: 0}
   _sprite: {fileID: 0}
   audioSource: {fileID: 0}
   walkSound: {fileID: 8300000, guid: 95c0836c6298ba849a6392ce7ac6199d, type: 3}
   runSound: {fileID: 8300000, guid: fc5836a768f3e334981be5ceb0576f0c, type: 3}
   jumpSound: {fileID: 8300000, guid: f0131d5c84f8bbd4a848ce3d34f6df78, type: 3}
+  dialogueUI: {fileID: 0}
 --- !u!114 &3840540949332431274
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -423,7 +421,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1020776715
-  m_SortingLayer: 14
+  m_SortingLayer: 15
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 465664702f2d59447aeb0eeb3b964deb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

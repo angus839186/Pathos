@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using UnityEditor;
 using System;
+using System.Collections;
 
 public class PlayerInteraction : MonoBehaviour
 {
@@ -63,7 +64,7 @@ public class PlayerInteraction : MonoBehaviour
             if (isInteracting)
                 return;
 
-            InventoryItem mainItem = Hotbar.Instance._item;
+            InventoryItem mainItem = Hotbar.Instance.mainItem;
             Item heldItem = (mainItem != null && mainItem.item != null) ? mainItem.item : null;
 
             string animTrigger = currentInteractable.GetAnimationTrigger(heldItem);
@@ -75,9 +76,9 @@ public class PlayerInteraction : MonoBehaviour
             }
             else
             {
-                if (!string.IsNullOrEmpty(currentInteractable.GetDescription()))
+                if (!string.IsNullOrEmpty(currentInteractable.GetDescription(heldItem)))
                 {
-                    OnShowDescription?.Invoke(currentInteractable.GetDescription());
+                    OnShowDescription?.Invoke(currentInteractable.GetDescription(heldItem));
                 }
                 currentInteractable.Interact();
             }
@@ -86,13 +87,13 @@ public class PlayerInteraction : MonoBehaviour
 
     public void TriggerInteractEvent()
     {
-        InventoryItem mainItem = Hotbar.Instance._item;
+        InventoryItem mainItem = Hotbar.Instance.mainItem;
         Item heldItem = (mainItem != null && mainItem.item != null) ? mainItem.item : null;
         if (currentInteractable != null)
         {
-            if (!string.IsNullOrEmpty(currentInteractable.GetDescription()))
+            if (!string.IsNullOrEmpty(currentInteractable.GetDescription(heldItem)))
             {
-                OnShowDescription?.Invoke(currentInteractable.GetDescription());
+                OnShowDescription?.Invoke(currentInteractable.GetDescription(heldItem));
             }
             currentInteractable.InteractEvent(heldItem);
         }
@@ -102,5 +103,20 @@ public class PlayerInteraction : MonoBehaviour
     {
         player.ToggleMove(true);
         isInteracting = false;
+    }
+
+    public void ToggleInteractingAnimation(bool toggle)
+    {
+        SpriteRenderer spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+        if (toggle)
+        {
+            PlayerInputManager.Instance.SwitchActionMap("InteractingAnimation");
+            spriteRenderer.enabled = false;
+        }
+        else
+        {
+            spriteRenderer.enabled = true;
+            PlayerInputManager.Instance.SwitchActionMap("Player");
+        }
     }
 }

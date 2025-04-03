@@ -6,7 +6,7 @@ public abstract class InteractableObject : MonoBehaviour, IInteractable
 
     public DialogueObject dialogueObject;
 
-    public virtual string GetDescription()
+    public virtual string GetDescription(Item heldItem)
     {
         return DefaultDescription;
     }
