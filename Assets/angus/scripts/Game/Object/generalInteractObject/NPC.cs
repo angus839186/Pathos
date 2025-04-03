@@ -4,13 +4,6 @@ using UnityEngine;
 
 public class NPC : InteractableObject
 {
-    [SerializeField] private DialogueObject dialogueObject;
-    
-
-    public void UpdateDialogueObject(DialogueObject dialogueObject)
-    {
-        this.dialogueObject = dialogueObject;
-    }
     public override string GetDescription()
     {
         return base.GetDescription();
@@ -38,10 +31,5 @@ public class NPC : InteractableObject
     public override void InteractEvent(Item heldItem)
     {
         //Do nothing
-    }
-
-    public void GiveItem(Item item)
-    {
-        InventoryManager.Instance.AddItem(item);
     }
 }
