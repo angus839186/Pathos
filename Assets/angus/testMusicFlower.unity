@@ -324,6 +324,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DefaultDescription: 
+  dialogueObject: {fileID: 0}
   anime: {fileID: 0}
   musicNumber: 1
   sound: {fileID: 8300000, guid: 4423d59f123a8c74fab2838dd29d2f34, type: 3}
@@ -493,6 +494,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DefaultDescription: 
+  dialogueObject: {fileID: 0}
   anime: {fileID: 0}
   musicNumber: 5
   sound: {fileID: 8300000, guid: 18bc2c5e9fa165045a89926783a7d05b, type: 3}
@@ -795,6 +797,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DefaultDescription: 
+  dialogueObject: {fileID: 0}
   anime: {fileID: 0}
   musicNumber: 4
   sound: {fileID: 8300000, guid: ed3792a3621e35e46b462afc3cecc1e2, type: 3}
@@ -964,6 +967,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DefaultDescription: 
+  dialogueObject: {fileID: 0}
   anime: {fileID: 0}
   musicNumber: 3
   sound: {fileID: 8300000, guid: 79b9573b0c317c24083eb994f96fd2ec, type: 3}
@@ -1324,6 +1328,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DefaultDescription: 
+  dialogueObject: {fileID: 0}
   vomitSprites:
   - {fileID: 21300000, guid: d2d3cc80990fd6241b1d9a1e3c263054, type: 3}
   - {fileID: 21300000, guid: 9c8dbc31e56a02a49be1d6bff7bb654c, type: 3}
@@ -1744,6 +1749,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DefaultDescription: 
+  dialogueObject: {fileID: 0}
   anime: {fileID: 0}
   musicNumber: 2
   sound: {fileID: 8300000, guid: fe3c8bd5bb50f804f995094204ed3ff7, type: 3}
@@ -1913,6 +1919,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DefaultDescription: 
+  dialogueObject: {fileID: 0}
   anime: {fileID: 0}
   musicNumber: 6
   sound: {fileID: 8300000, guid: 65f880fecdbeb4a45b9c2236ad138423, type: 3}
@@ -2273,6 +2280,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DefaultDescription: 
+  dialogueObject: {fileID: 0}
 --- !u!1 &1609763155
 GameObject:
   m_ObjectHideFlags: 0
@@ -2304,7 +2312,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetSpawnPointID: Left
-  targetScene: testMusicFlower
+  targetScene: testJungle
 --- !u!61 &1609763157
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2486,6 +2494,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DefaultDescription: 
+  dialogueObject: {fileID: 0}
   anime: {fileID: 0}
   musicNumber: 7
   sound: {fileID: 8300000, guid: cfe4902e70cdcfa49988a3b79edc56e0, type: 3}
