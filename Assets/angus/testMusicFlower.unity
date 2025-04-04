@@ -2841,8 +2841,8 @@ GameObject:
   - component: {fileID: 1686009955}
   - component: {fileID: 1686009960}
   - component: {fileID: 1686009958}
-  - component: {fileID: 1686009959}
   - component: {fileID: 1686009961}
+  - component: {fileID: 1686009959}
   m_Layer: 0
   m_Name: "\u5931\u8E64\u6751\u6C11"
   m_TagString: Untagged
