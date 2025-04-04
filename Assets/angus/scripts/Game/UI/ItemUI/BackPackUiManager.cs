@@ -189,7 +189,7 @@ public class BackpackUIManager : MonoBehaviour
     public void OnConfirmItem()
     {
         int newIndex = currentIndex;
-        InventoryItem selectedItem = inventory.items[currentIndex];
+        Item selectedItem = inventory.items[currentIndex].item;
         if (selectedItem != null)
         {
             Hotbar.Instance.SetMainItem(selectedItem, currentIndex);

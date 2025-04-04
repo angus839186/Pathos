@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e1dacdf748729db4f8f500ed08e5ca8e, type: 3}
-  m_Name: "\u5C0D\u8A712"
+  m_Name: "\u7D66\u6211\u62D0\u6756"
   m_EditorClassIdentifier: 
-  npcIcon: {fileID: 0}
+  npcIcon: {fileID: 21300000, guid: f7a4fed0af787904f892558f20fe453d, type: 3}
   dialogue:
   - "\u54E6\u54E6\uFF01\u5E74\u8F15\u4EBA\uFF0C\u771F\u7684\u7D66\u4F60\u627E\u5230\u5566\uFF01\u5E6B\u5927\u5FD9\u5566"
   - "\u662F\u9019\u6A23\u554A\uFF0C\u539F\u4F86\u662F\u88AB\u90A3\u5B69\u5B50\u7D66\u62FF\u8D70\u4E86\u3002\u4ED6\u4E00\u5929\u5230\u665A\u90FD\u56B7\u56B7\u8457\u60F3\u8981\u96E2\u958B\u9019\u88E1"
@@ -20,4 +20,6 @@ MonoBehaviour:
   - "\u54C8\u54C8\u62B1\u6B49\u7D66\u4F60\u6DFB\u9EBB\u7169\u5566\uFF0C\u4F60\u60F3\u8981\u5230\u68EE\u6797\u6DF1\u8655\u662F\u5427\uFF1F\u628A\u9019\u500B\u7DB4\u98FE\u7D66\u5B88\u9580\u4EBA\u770B\u5427\uFF0C\u4ED6\u5C31\u6703\u5E6B\u4F60\u6253\u958B\u9580\u7684"
   - "\u6709\u9700\u8981\u5E6B\u5FD9\u6B61\u8FCE\u518D\u56DE\u4F86\u5440\uFF0C\u54C8\u54C8"
   playertalk: 0000000000
-  responses: []
+  responses:
+  - responseText: "\u62FF\u53BB\u5427"
+    dialogueObject: {fileID: 0}

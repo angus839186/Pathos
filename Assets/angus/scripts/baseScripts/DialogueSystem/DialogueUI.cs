@@ -102,6 +102,7 @@ public class DialogueUI : MonoBehaviour
             yield return new WaitUntil(() => Continue);
             CloseDialogueBox();
         }
+        Continue = false;
     }
 
     private void SetTalkerImageAlpha(Image image, float alpha)

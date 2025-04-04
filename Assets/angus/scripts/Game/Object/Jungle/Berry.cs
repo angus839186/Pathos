@@ -33,7 +33,7 @@ public class Berry : InteractableObject
     public override void Interact()
     {
         Hotbar hotbar = Hotbar.Instance;
-        if (hotbar.mainItem == null || hotbar.mainItem.item != ScissorsItem)return;
+        if (hotbar.mainItem == null || hotbar.mainItem != ScissorsItem)return;
         StartCoroutine(playCutAnimation());
     }
 

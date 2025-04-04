@@ -64,8 +64,8 @@ public class PlayerInteraction : MonoBehaviour
             if (isInteracting)
                 return;
 
-            InventoryItem mainItem = Hotbar.Instance.mainItem;
-            Item heldItem = (mainItem != null && mainItem.item != null) ? mainItem.item : null;
+            Item mainItem = Hotbar.Instance.mainItem;
+            Item heldItem = (mainItem != null && mainItem != null) ? mainItem : null;
 
             string animTrigger = currentInteractable.GetAnimationTrigger(heldItem);
             if (!string.IsNullOrEmpty(animTrigger))
@@ -87,8 +87,8 @@ public class PlayerInteraction : MonoBehaviour
 
     public void TriggerInteractEvent()
     {
-        InventoryItem mainItem = Hotbar.Instance.mainItem;
-        Item heldItem = (mainItem != null && mainItem.item != null) ? mainItem.item : null;
+        Item mainItem = Hotbar.Instance.mainItem;
+        Item heldItem = (mainItem != null && mainItem != null) ? mainItem : null;
         if (currentInteractable != null)
         {
             if (!string.IsNullOrEmpty(currentInteractable.GetDescription(heldItem)))
