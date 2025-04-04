@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e1dacdf748729db4f8f500ed08e5ca8e, type: 3}
-  m_Name: "\u5C0D\u8A712"
+  m_Name: "\u627E\u5230\u62D0\u6756\u5F8C"
   m_EditorClassIdentifier: 
-  npcIcon: {fileID: 21300000, guid: ecb73391184526e47921ce6a1b05156c, type: 3}
+  npcIcon: {fileID: 21300000, guid: f7a4fed0af787904f892558f20fe453d, type: 3}
   dialogue:
-  - "\u6211\u53EA\u662F\u60F3\u96E2\u958B\u6751\u838A\u770B\u770B\u5916\u9762\u7684\u4E16\u754C\u800C\u5DF2...\u55DA\u55DA\u55DA"
-  playertalk: 00
+  - "\u53EA\u8981\u628A\u9019\u500B\u7DB4\u98FE\u7D66\u5B88\u9580\u4EBA\uFF0C\u4ED6\u5C31\u6703\u5E6B\u4F60\u958B\u9580\u7684"
+  - "\u6709\u9700\u8981\u5E6B\u5FD9\u6B61\u8FCE\u518D\u56DE\u4F86\u5440\uFF0C\u54C8\u54C8"
+  playertalk: 0000
   responses: []

@@ -7,7 +7,7 @@ public class Hotbar : MonoBehaviour
 
     public Image mainHotbarIcon;   // 主要道具的圖示
 
-    public InventoryItem mainItem;
+    public Item mainItem;
 
     public int currentMainItemIndex = 0;
 
@@ -24,7 +24,7 @@ public class Hotbar : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    public void SetMainItem(InventoryItem item, int index)
+    public void SetMainItem(Item item, int index)
     {
         if(item == mainItem || item == null)
         {
@@ -36,7 +36,7 @@ public class Hotbar : MonoBehaviour
         if (item != null)
         {
             mainItem = item;
-            mainHotbarIcon.sprite = item.item.icon;
+            mainHotbarIcon.sprite = item.icon;
             currentMainItemIndex = index;
         }
     }

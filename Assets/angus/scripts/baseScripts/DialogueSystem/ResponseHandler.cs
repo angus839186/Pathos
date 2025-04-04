@@ -15,9 +15,12 @@ public class ResponseHandler : MonoBehaviour
 
     private List<GameObject> tempResponseButtons = new List<GameObject>();
 
+    public ResponseEventManager responseEventManager;
+
     void Start()
     {
         dialogueUI = GetComponent<DialogueUI>();
+        responseEventManager = GetComponent<ResponseEventManager>();
     }
 
     public void AddResponseEvents(ResponseEvent[] responseEvents)
@@ -30,6 +33,14 @@ public class ResponseHandler : MonoBehaviour
 
         for (int i = 0; i < responses.Length; i++)
         {
+            if (i < responseEvents.Length)
+            {
+                var category = responseEvents[i].ResponseCategory;
+                if (category != ResponseEventType.None && !responseEventManager.IsResponseTypeEnabled(category))
+                {
+                    continue;
+                }
+            }
             Response response = responses[i];
             int responseIndex = i;
 
@@ -61,7 +72,7 @@ public class ResponseHandler : MonoBehaviour
 
         responseEvents = null;
 
-        if(response.DialogueObject)
+        if (response.DialogueObject)
         {
             dialogueUI.ShowDialogue(response.DialogueObject);
         }

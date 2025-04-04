@@ -43,7 +43,7 @@ public class Sheep : InteractableObject
     public override void Interact()
     {
         Hotbar hotbar = Hotbar.Instance;
-        if (hotbar.mainItem != null || hotbar.mainItem.item != coloredItem) return;
+        if (hotbar.mainItem != null || hotbar.mainItem != coloredItem) return;
         GetColored();
 
     }

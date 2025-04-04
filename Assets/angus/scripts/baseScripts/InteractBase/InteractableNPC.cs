@@ -17,6 +17,8 @@ public abstract class InteractableNPC : MonoBehaviour, IInteractable
     }
     public virtual void Interact()
     {
+        UpdateDialogueObject(GetDialogue());
+        Debug.Log(GetDialogue().name);
         foreach (DialogueResponseEvents responseEvents in GetComponents<DialogueResponseEvents>())
         {
             if (responseEvents.DialogueObject == dialogueObject)
@@ -39,8 +41,37 @@ public abstract class InteractableNPC : MonoBehaviour, IInteractable
         InventoryManager.Instance.AddItem(item);
     }
 
+    public virtual void RemoveItem(Item item)
+    {
+        InventoryManager.Instance.RemoveItem(item);
+    }
+
     public virtual void UpdateDialogueObject(DialogueObject dialogueObject)
     {
         this.dialogueObject = dialogueObject;
+    }
+    public virtual void OpenResponseType(ResponseEventType responseType)
+    {
+        ResponseEventManager responseEventManager = FindObjectOfType<ResponseEventManager>();
+        if(responseEventManager != null)
+        {
+            responseEventManager.SetResponseTypeState(responseType, true);
+            Debug.Log("Crutch option has been enabled.");
+        }
+    }
+
+    public virtual void CloseResponseType(ResponseEventType responseType)
+    {
+        ResponseEventManager responseEventManager = FindObjectOfType<ResponseEventManager>();
+        if (responseEventManager != null)
+        {
+            responseEventManager.SetResponseTypeState(responseType, false);
+            Debug.Log("Crutch option has been disabled.");
+        }
+    }
+
+    public virtual DialogueObject GetDialogue()
+    {
+        return dialogueObject;
     }
 }

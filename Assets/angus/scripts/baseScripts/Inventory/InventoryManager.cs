@@ -49,6 +49,10 @@ public class InventoryManager : MonoBehaviour, IDataPersistence
         {
             items.Remove(invItem);
             OnInventoryChanged?.Invoke();
+            if(invItem.item == Hotbar.Instance.mainItem)
+            {
+                Hotbar.Instance.SetMainItem(null, 0);
+            }
         }
     }
 
