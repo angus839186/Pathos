@@ -10,14 +10,12 @@ public enum ResponseEventType
     // 其他分類...
 }
 
-public class ResponseEventManager : MonoBehaviour
+public class ResponseEventManager : MonoBehaviour, IDataPersistence
 {
-    // Dictionary 用來管理每個分類的開啟狀態
     private Dictionary<ResponseEventType, bool> responseTypeStates = new Dictionary<ResponseEventType, bool>();
 
     private void Awake()
     {
-        // 初始化所有選項狀態，預設為 false
         foreach (ResponseEventType category in Enum.GetValues(typeof(ResponseEventType)))
         {
             responseTypeStates[category] = false;
@@ -39,6 +37,36 @@ public class ResponseEventManager : MonoBehaviour
         else
         {
             responseTypeStates.Add(category, state);
+        }
+    }
+
+    public void LoadData(GameData data)
+    {
+        // 遍歷所有 enum 值，並嘗試從 GameData 裡面讀取對應狀態
+        foreach (ResponseEventType type in Enum.GetValues(typeof(ResponseEventType)))
+        {
+            string key = type.ToString();
+            if (data.ResponseEventStates.ContainsKey(key))
+            {
+                responseTypeStates[type] = data.ResponseEventStates[key];
+            }
+            else
+            {
+                // 若沒有找到就設定為預設值
+                responseTypeStates[type] = false;
+            }
+        }
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        // 清空原本的狀態字典，避免重複存儲
+        data.ResponseEventStates.Clear();
+        // 將每個 ResponseEventType 的狀態以字串作為鍵存入 GameData
+        foreach (var kvp in responseTypeStates)
+        {
+            string key = kvp.Key.ToString();
+            data.ResponseEventStates[key] = kvp.Value;
         }
     }
 }

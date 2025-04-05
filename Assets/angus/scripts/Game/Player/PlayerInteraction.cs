@@ -91,6 +91,7 @@ public class PlayerInteraction : MonoBehaviour
         Item heldItem = (mainItem != null && mainItem != null) ? mainItem : null;
         if (currentInteractable != null)
         {
+            StopInteracting();
             if (!string.IsNullOrEmpty(currentInteractable.GetDescription(heldItem)))
             {
                 OnShowDescription?.Invoke(currentInteractable.GetDescription(heldItem));

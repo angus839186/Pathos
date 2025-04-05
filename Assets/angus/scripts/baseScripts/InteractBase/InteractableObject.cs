@@ -4,8 +4,6 @@ public abstract class InteractableObject : MonoBehaviour, IInteractable
 {
     public string DefaultDescription;
 
-    public DialogueObject dialogueObject;
-
     public virtual string GetDescription(Item heldItem)
     {
         return DefaultDescription;
@@ -23,10 +21,5 @@ public abstract class InteractableObject : MonoBehaviour, IInteractable
     public virtual void GiveItem(Item item)
     {
         InventoryManager.Instance.AddItem(item);
-    }
-
-    public virtual void UpdateDialogueObject(DialogueObject dialogueObject)
-    {
-        this.dialogueObject = dialogueObject;
     }
 }

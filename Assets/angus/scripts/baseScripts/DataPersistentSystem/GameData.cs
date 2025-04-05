@@ -12,6 +12,8 @@ public class GameData
     public SerializableDictionary<string, bool> birdsFlied;
 
     public SerializableDictionary<string, bool> bridsOnFence;
+
+    public SerializableDictionary<string, bool> ResponseEventStates;
     public List<string> inventoryItemNames;
 
     public bool windmillWorked;
@@ -30,6 +32,7 @@ public class GameData
         treesFalled = new SerializableDictionary<string, bool>();
         birdsFlied = new SerializableDictionary<string, bool>();
         bridsOnFence = new SerializableDictionary<string, bool>();
+        ResponseEventStates = new SerializableDictionary<string, bool>();
         inventoryItemNames = new List<string>();
     }
 }
