@@ -5,6 +5,12 @@ using UnityEngine;
 public abstract class InteractableNPC : MonoBehaviour, IInteractable
 {
     public DialogueObject dialogueObject;
+    private ResponseEventManager responseEventManager;
+
+    void Awake()
+    {
+        responseEventManager = FindObjectOfType<ResponseEventManager>();
+    }
 
     public virtual string GetDescription(Item heldItem)
     {
@@ -46,29 +52,43 @@ public abstract class InteractableNPC : MonoBehaviour, IInteractable
         InventoryManager.Instance.RemoveItem(item);
     }
 
+    public Item CheckItemOnPlayer(Item item)
+    {
+        return Hotbar.Instance.mainItem == item ? Hotbar.Instance.mainItem : null;
+    }
+
     public virtual void UpdateDialogueObject(DialogueObject dialogueObject)
     {
         this.dialogueObject = dialogueObject;
     }
-    public virtual void OpenResponseType(ResponseEventType responseType)
+
+    public virtual void ToggleCrutch(bool toggle)
     {
-        ResponseEventManager responseEventManager = FindObjectOfType<ResponseEventManager>();
-        if(responseEventManager != null)
+        if (responseEventManager != null)
         {
-            responseEventManager.SetResponseTypeState(responseType, true);
-            Debug.Log("Crutch option has been enabled.");
+            responseEventManager.SetResponseTypeState(ResponseEventType.拐杖, toggle);
+            Debug.Log("拐杖狀態已更新。");
         }
     }
 
-    public virtual void CloseResponseType(ResponseEventType responseType)
+    public virtual void ToggleMusicScore(bool toggle)
     {
-        ResponseEventManager responseEventManager = FindObjectOfType<ResponseEventManager>();
         if (responseEventManager != null)
         {
-            responseEventManager.SetResponseTypeState(responseType, false);
-            Debug.Log("Crutch option has been disabled.");
+            responseEventManager.SetResponseTypeState(ResponseEventType.樂譜, toggle);
+            Debug.Log($"樂譜狀態已更新,{toggle}");
         }
     }
+
+    public virtual void ToggleMusicianShow(bool toggle)
+    {
+        if (responseEventManager != null)
+        {
+            responseEventManager.SetResponseTypeState(ResponseEventType.樂手表演, toggle);
+            Debug.Log("樂譜狀態已更新。");
+        }
+    }
+
 
     public virtual DialogueObject GetDialogue()
     {

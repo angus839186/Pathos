@@ -36,7 +36,7 @@ public class ResponseHandler : MonoBehaviour
             if (i < responseEvents.Length)
             {
                 var category = responseEvents[i].ResponseCategory;
-                if (category != ResponseEventType.None && !responseEventManager.IsResponseTypeEnabled(category))
+                if (category != ResponseEventType.基本 && !responseEventManager.IsResponseTypeEnabled(category))
                 {
                     continue;
                 }

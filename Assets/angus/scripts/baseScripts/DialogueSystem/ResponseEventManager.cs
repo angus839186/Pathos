@@ -4,10 +4,11 @@ using UnityEngine;
 
 public enum ResponseEventType
 {
-    None,
-    Crutch,     // 拐杖
-    MusicScore, // 樂譜
-    // 其他分類...
+    基本,
+    拐杖,
+    樂譜,
+    樂手表演,
+    
 }
 
 public class ResponseEventManager : MonoBehaviour, IDataPersistence

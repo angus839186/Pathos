@@ -4,8 +4,5 @@ using UnityEngine;
 
 public class Shepherd : InteractableNPC
 {
-    public override void Interact()
-    {
-
-    }
+    
 }

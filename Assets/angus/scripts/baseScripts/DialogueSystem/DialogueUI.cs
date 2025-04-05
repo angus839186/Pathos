@@ -91,8 +91,8 @@ public class DialogueUI : MonoBehaviour
             textLabel.text = dialogue;
             yield return null;
             yield return new WaitUntil(() => Continue);
+            Continue = false;  // 每一句對話後重置 Continue
         }
-        Continue = false;
         if (dialogueObject.HasResponses)
         {
             responseHandler.ShowResponses(dialogueObject.Responses);
@@ -100,9 +100,9 @@ public class DialogueUI : MonoBehaviour
         else
         {
             yield return new WaitUntil(() => Continue);
+            Continue = false;
             CloseDialogueBox();
         }
-        Continue = false;
     }
 
     private void SetTalkerImageAlpha(Image image, float alpha)

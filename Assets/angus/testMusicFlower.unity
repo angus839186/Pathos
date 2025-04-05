@@ -324,7 +324,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DefaultDescription: 
-  dialogueObject: {fileID: 0}
   anime: {fileID: 0}
   musicNumber: 1
   sound: {fileID: 8300000, guid: 4423d59f123a8c74fab2838dd29d2f34, type: 3}
@@ -494,7 +493,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DefaultDescription: 
-  dialogueObject: {fileID: 0}
   anime: {fileID: 0}
   musicNumber: 5
   sound: {fileID: 8300000, guid: 18bc2c5e9fa165045a89926783a7d05b, type: 3}
@@ -797,7 +795,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DefaultDescription: 
-  dialogueObject: {fileID: 0}
   anime: {fileID: 0}
   musicNumber: 4
   sound: {fileID: 8300000, guid: ed3792a3621e35e46b462afc3cecc1e2, type: 3}
@@ -967,7 +964,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DefaultDescription: 
-  dialogueObject: {fileID: 0}
   anime: {fileID: 0}
   musicNumber: 3
   sound: {fileID: 8300000, guid: 79b9573b0c317c24083eb994f96fd2ec, type: 3}
@@ -1328,7 +1324,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DefaultDescription: 
-  dialogueObject: {fileID: 0}
   vomitSprites:
   - {fileID: 21300000, guid: d2d3cc80990fd6241b1d9a1e3c263054, type: 3}
   - {fileID: 21300000, guid: 9c8dbc31e56a02a49be1d6bff7bb654c, type: 3}
@@ -1559,16 +1554,16 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 1074549093}
-          m_TargetAssemblyTypeName: VillageHeader, Assembly-CSharp
-          m_MethodName: OpenCrutchResponseType
-          m_Mode: 1
+          m_TargetAssemblyTypeName: InteractableNPC, Assembly-CSharp
+          m_MethodName: ToggleCrutch
+          m_Mode: 6
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
-            m_BoolArgument: 0
+            m_BoolArgument: 1
           m_CallState: 2
     responseCategory: 0
 --- !u!114 &1074549093
@@ -1584,6 +1579,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueObject: {fileID: 0}
+  responseEventManager: {fileID: 0}
   crutchItem: {fileID: 11400000, guid: a4a4957dc791ab44b974354ffc5f1d61, type: 2}
   getCrutch: 0
   waitForCrutchDialogue: {fileID: 11400000, guid: 5806d1954fb907945a94ae7f1b2c8a54, type: 2}
@@ -1731,9 +1727,9 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
         - m_Target: {fileID: 1074549093}
-          m_TargetAssemblyTypeName: VillageHeader, Assembly-CSharp
-          m_MethodName: CloseCrutchResponseType
-          m_Mode: 1
+          m_TargetAssemblyTypeName: InteractableNPC, Assembly-CSharp
+          m_MethodName: ToggleCrutch
+          m_Mode: 6
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1950,7 +1946,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DefaultDescription: 
-  dialogueObject: {fileID: 0}
   anime: {fileID: 0}
   musicNumber: 2
   sound: {fileID: 8300000, guid: fe3c8bd5bb50f804f995094204ed3ff7, type: 3}
@@ -2120,7 +2115,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DefaultDescription: 
-  dialogueObject: {fileID: 0}
   anime: {fileID: 0}
   musicNumber: 6
   sound: {fileID: 8300000, guid: 65f880fecdbeb4a45b9c2236ad138423, type: 3}
@@ -2481,7 +2475,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DefaultDescription: 
-  dialogueObject: {fileID: 0}
 --- !u!1 &1609763155
 GameObject:
   m_ObjectHideFlags: 0
@@ -2695,7 +2688,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DefaultDescription: 
-  dialogueObject: {fileID: 0}
   anime: {fileID: 0}
   musicNumber: 7
   sound: {fileID: 8300000, guid: cfe4902e70cdcfa49988a3b79edc56e0, type: 3}
@@ -3044,6 +3036,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueObject: {fileID: 0}
+  responseEventManager: {fileID: 0}
   giveCrutch: 0
   giveCrutchDialogue: {fileID: 11400000, guid: 515459d4cb15d1c48a1e26b01fac2a49, type: 2}
   afterGiveCrutchDialogue: {fileID: 11400000, guid: c89e28d08602d604c97e90a46e0b5aed, type: 2}
@@ -3754,7 +3747,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DefaultDescription: "\u770B\u8D77\u4F86\u548C\u5176\u4ED6\u82B1\u4E0D\u4E00\u6A23\uFF0C\u9577\u76F8\u6709\u9EDE\u5687\u4EBA"
-  dialogueObject: {fileID: 0}
   anime: {fileID: 0}
   musicPassword: 42513
   Vomit: {fileID: 922965538}
