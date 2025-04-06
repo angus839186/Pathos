@@ -38,6 +38,10 @@ public class ReversePlainBoss : InteractableObject
 
     public List<double> pausePoints;
 
+    public bool ToBeContinued;
+
+    public GameObject ToBeContinueObject;
+
 
     void OnDisable()
     {
@@ -183,8 +187,22 @@ public class ReversePlainBoss : InteractableObject
     {
         GameManager.Instance.reversePlainBossWin = true;
         Debug.Log("Die");
-        GameManager gameManager = GameManager.Instance;
-        gameManager.StartCoroutine(gameManager.LoadNextScene(nextScene));
+        if (ToBeContinued)
+        {
+            PlayerInputManager.Instance.BackToMenuEvent += BackToMenu;
+            PlayerInputManager.Instance.SwitchActionMap("ToBeContinued");
+            ToBeContinueObject.SetActive(true);
+        }
+        else
+        {
+            GameManager gameManager = GameManager.Instance;
+            gameManager.StartCoroutine(gameManager.LoadNextScene(nextScene));
+        }
+    }
+
+    public void BackToMenu()
+    {
+        GameManager.Instance.BackToMenu();
     }
 
 

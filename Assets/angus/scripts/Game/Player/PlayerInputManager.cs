@@ -34,6 +34,8 @@ public class PlayerInputManager : MonoBehaviour
 
     public event Action OnNextDialogueEvent;
 
+    public event Action BackToMenuEvent;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -162,7 +164,7 @@ public class PlayerInputManager : MonoBehaviour
     void OnContinueVideo(InputValue value)
     {
         float pressed = value.Get<float>();
-        if(pressed > 0.5f)
+        if (pressed > 0.5f)
         {
             OnContinueVideoEvent?.Invoke();
         }
@@ -171,7 +173,7 @@ public class PlayerInputManager : MonoBehaviour
     void OnClosePlayerTutorial(InputValue value)
     {
         float pressed = value.Get<float>();
-        if(pressed > 0.5f)
+        if (pressed > 0.5f)
         {
             OnClosePlayerTutorialEvent?.Invoke(false);
         }
@@ -180,9 +182,18 @@ public class PlayerInputManager : MonoBehaviour
     void OnNextDialogue(InputValue value)
     {
         float pressed = value.Get<float>();
-        if(pressed > 0.5f)
+        if (pressed > 0.5f)
         {
             OnNextDialogueEvent?.Invoke();
+        }
+    }
+
+    void OnWaitForBackToMenu(InputValue value)
+    {
+        float pressed = value.Get<float>();
+        if (pressed > 0.5f)
+        {
+            BackToMenuEvent?.Invoke();
         }
     }
 

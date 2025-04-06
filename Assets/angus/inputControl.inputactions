@@ -452,6 +452,34 @@
             "id": "f8359c3f-d4d7-442f-9c15-a970ff4c3a11",
             "actions": [],
             "bindings": []
+        },
+        {
+            "name": "ToBeContinued",
+            "id": "74124fc5-e423-4657-964e-fc2887357114",
+            "actions": [
+                {
+                    "name": "WaitForBackToMenu",
+                    "type": "Button",
+                    "id": "02b69b48-7266-4ba3-805f-8386a79eb959",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "591f4ed7-ef93-4a61-853b-0ea04954f080",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "WaitForBackToMenu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []
