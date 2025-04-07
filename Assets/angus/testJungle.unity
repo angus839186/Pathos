@@ -825,7 +825,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DefaultDescription: "\u770B\u8D77\u4F86\u8EDF\u7DBF\u7DBF\u7684\u7F8A\uFF0C\u5F88\u60F3\u8EBA\u5728\u4E0A\u982D"
-  id: 
+  id: 121e1861-c9c2-4ff6-8810-e07e33153492
   colored: 0
   minX: 28
   maxX: 83
@@ -1260,7 +1260,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DefaultDescription: "\u770B\u8D77\u4F86\u8EDF\u7DBF\u7DBF\u7684\u7F8A\uFF0C\u5F88\u60F3\u8EBA\u5728\u4E0A\u982D"
-  id: 
+  id: d4e60526-eed6-4bd0-97a6-ac5cee6c3976
   colored: 0
   minX: 28
   maxX: 83
@@ -1435,7 +1435,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DefaultDescription: "\u770B\u8D77\u4F86\u8EDF\u7DBF\u7DBF\u7684\u7F8A\uFF0C\u5F88\u60F3\u8EBA\u5728\u4E0A\u982D"
-  id: 
+  id: f4ee2de4-59fe-447d-b61b-b7676094898f
   colored: 0
   minX: 28
   maxX: 83
@@ -1820,7 +1820,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DefaultDescription: "\u770B\u8D77\u4F86\u8EDF\u7DBF\u7DBF\u7684\u7F8A\uFF0C\u5F88\u60F3\u8EBA\u5728\u4E0A\u982D"
-  id: 
+  id: 5561f005-47eb-49c6-81bb-33bbb8ecd762
   colored: 0
   minX: 28
   maxX: 83
@@ -1877,7 +1877,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DefaultDescription: "\u770B\u8D77\u4F86\u8EDF\u7DBF\u7DBF\u7684\u7F8A\uFF0C\u5F88\u60F3\u8EBA\u5728\u4E0A\u982D"
-  id: 
+  id: 66112170-9f1f-4494-99d7-bfcd2e124412
   colored: 0
   minX: 28
   maxX: 83
@@ -3585,7 +3585,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DefaultDescription: "\u770B\u8D77\u4F86\u8EDF\u7DBF\u7DBF\u7684\u7F8A\uFF0C\u5F88\u60F3\u8EBA\u5728\u4E0A\u982D"
-  id: 
+  id: 38547fe9-9114-43c9-89d6-488b22d1a37e
   colored: 0
   minX: 28
   maxX: 83
