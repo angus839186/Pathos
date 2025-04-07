@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e1dacdf748729db4f8f500ed08e5ca8e, type: 3}
-  m_Name: "\u5C0D\u8A711-3"
+  m_Name: "\u67D3\u6599\u5546\u4EBA_\u9592\u804A_\u9EDE\u982D"
   m_EditorClassIdentifier: 
   npcIcon: {fileID: 0}
   dialogue:

@@ -14,11 +14,6 @@ public class Shepherd : InteractableNPC, IDataPersistence
     public DialogueObject doorSceneFindSheepDialogue;
 
     public DialogueObject jungleSceneDialogue;
-
-    void Start()
-    {
-
-    }
     public bool CheckSheepColorData(GameData data)
     {
         foreach (bool isColored in data.sheepGotColored.Values)
@@ -42,6 +37,7 @@ public class Shepherd : InteractableNPC, IDataPersistence
             }
             else
             {
+                _shepherdAlreadyKnowSheepColored = true;
                 return doorSceneFindSheepDialogue;
             }
         }
@@ -53,7 +49,7 @@ public class Shepherd : InteractableNPC, IDataPersistence
 
     public void LoadData(GameData data)
     {
-        data.shepherdAlreadyKnowSheepColored = _shepherdAlreadyKnowSheepColored;
+        _shepherdAlreadyKnowSheepColored = data.shepherdAlreadyKnowSheepColored;
         if (_shepherdAlreadyKnowSheepColored)
         {
             if (SceneManager.GetActiveScene().name == jungleScene)

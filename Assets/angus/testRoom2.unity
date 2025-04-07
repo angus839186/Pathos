@@ -1917,6 +1917,10 @@ GameObject:
   - component: {fileID: 2095439160}
   - component: {fileID: 2095439162}
   - component: {fileID: 2095439163}
+  - component: {fileID: 2095439167}
+  - component: {fileID: 2095439166}
+  - component: {fileID: 2095439165}
+  - component: {fileID: 2095439164}
   m_Layer: 0
   m_Name: "\u67D3\u6599\u5546\u4EBA"
   m_TagString: Untagged
@@ -2070,6 +2074,145 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueObject: {fileID: 0}
+  gotBerry: 0
+  givePlayerScissorItem: 0
+  berryItem: {fileID: 11400000, guid: 0b5b523777c864442ae469d03c57e741, type: 2}
+  ScissorItem: {fileID: 11400000, guid: b31aa000d9529d4418ac1bf66f91d351, type: 2}
+  beforeGiveScissorDialogue: {fileID: 11400000, guid: dcea90debe71fd54aac5218f85e0e06b, type: 2}
+  afterGiveScissorDialogue: {fileID: 11400000, guid: bba1b4bec84cb3a409f71a6dfa8395f4, type: 2}
+  TakeBerryDialogue: {fileID: 11400000, guid: 8b4023d29a5425748a55da672c762288, type: 2}
+  afterTakeBerryDialogue: {fileID: 11400000, guid: 750f16aaf609be64b8d1f3d5557dfde9, type: 2}
+--- !u!114 &2095439164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2095439158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b7715cf4040a1945a02a0e716bfae14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueObject: {fileID: 11400000, guid: 750f16aaf609be64b8d1f3d5557dfde9, type: 2}
+  events: []
+--- !u!114 &2095439165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2095439158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b7715cf4040a1945a02a0e716bfae14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueObject: {fileID: 11400000, guid: 8b4023d29a5425748a55da672c762288, type: 2}
+  events:
+  - name: 
+    onPickedResponse:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2095439163}
+          m_TargetAssemblyTypeName: InteractableNPC, Assembly-CSharp
+          m_MethodName: RemoveItem
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 11400000, guid: 0b5b523777c864442ae469d03c57e741, type: 2}
+            m_ObjectArgumentAssemblyTypeName: Item, Assembly-CSharp
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 2095439163}
+          m_TargetAssemblyTypeName: InteractableNPC, Assembly-CSharp
+          m_MethodName: GiveItem
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 11400000, guid: 2422fe1caef93c44ab65f705c8214245, type: 2}
+            m_ObjectArgumentAssemblyTypeName: Item, Assembly-CSharp
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 2095439163}
+          m_TargetAssemblyTypeName: ColorBusinessman, Assembly-CSharp
+          m_MethodName: ToggleGotBerry
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+    responseCategory: 0
+--- !u!114 &2095439166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2095439158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b7715cf4040a1945a02a0e716bfae14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueObject: {fileID: 11400000, guid: bba1b4bec84cb3a409f71a6dfa8395f4, type: 2}
+  events: []
+--- !u!114 &2095439167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2095439158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b7715cf4040a1945a02a0e716bfae14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueObject: {fileID: 11400000, guid: dcea90debe71fd54aac5218f85e0e06b, type: 2}
+  events:
+  - name: "\u9EDE\u982D"
+    onPickedResponse:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2095439163}
+          m_TargetAssemblyTypeName: InteractableNPC, Assembly-CSharp
+          m_MethodName: GiveItem
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 11400000, guid: b31aa000d9529d4418ac1bf66f91d351, type: 2}
+            m_ObjectArgumentAssemblyTypeName: Item, Assembly-CSharp
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 2095439163}
+          m_TargetAssemblyTypeName: ColorBusinessman, Assembly-CSharp
+          m_MethodName: ToggleGivePlayerScissor
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+    responseCategory: 0
+  - name: "\u6416\u982D"
+    onPickedResponse:
+      m_PersistentCalls:
+        m_Calls: []
+    responseCategory: 0
 --- !u!1 &2116418354
 GameObject:
   m_ObjectHideFlags: 0

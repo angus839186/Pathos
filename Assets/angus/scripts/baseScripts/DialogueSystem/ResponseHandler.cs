@@ -29,6 +29,7 @@ public class ResponseHandler : MonoBehaviour
     }
     public void ShowResponses(Response[] responses)
     {
+        Debug.Log(responses.Length);
         float responseBoxHeight = 0;
 
         for (int i = 0; i < responses.Length; i++)
