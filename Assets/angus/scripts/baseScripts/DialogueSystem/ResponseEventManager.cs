@@ -8,6 +8,7 @@ public enum ResponseEventType
     拐杖,
     樂譜,
     樂手表演,
+    音樂花,
     
 }
 

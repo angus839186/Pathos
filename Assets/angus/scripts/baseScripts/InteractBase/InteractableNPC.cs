@@ -67,7 +67,7 @@ public abstract class InteractableNPC : MonoBehaviour, IInteractable
         if (responseEventManager != null)
         {
             responseEventManager.SetResponseTypeState(ResponseEventType.拐杖, toggle);
-            Debug.Log("拐杖狀態已更新。");
+            Debug.Log("拐杖任務已更新。");
         }
     }
 
@@ -76,7 +76,7 @@ public abstract class InteractableNPC : MonoBehaviour, IInteractable
         if (responseEventManager != null)
         {
             responseEventManager.SetResponseTypeState(ResponseEventType.樂譜, toggle);
-            Debug.Log($"樂譜狀態已更新,{toggle}");
+            Debug.Log($"樂譜任務已更新,{toggle}");
         }
     }
 
@@ -85,7 +85,16 @@ public abstract class InteractableNPC : MonoBehaviour, IInteractable
         if (responseEventManager != null)
         {
             responseEventManager.SetResponseTypeState(ResponseEventType.樂手表演, toggle);
-            Debug.Log("樂譜狀態已更新。");
+            Debug.Log("樂手表演任務已更新。");
+        }
+    }
+
+    public virtual void ToggleMusicFlower(bool toggle)
+    {
+        if (responseEventManager != null)
+        {
+            responseEventManager.SetResponseTypeState(ResponseEventType.音樂花, toggle);
+            Debug.Log("音樂花任務已更新。");
         }
     }
 

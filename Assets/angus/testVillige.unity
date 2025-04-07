@@ -317,6 +317,8 @@ GameObject:
   - component: {fileID: 241915173}
   - component: {fileID: 241915172}
   - component: {fileID: 241915174}
+  - component: {fileID: 241915175}
+  - component: {fileID: 241915176}
   m_Layer: 0
   m_Name: "\u85CD\u8272\u6751\u6C11"
   m_TagString: Untagged
@@ -457,6 +459,48 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.8141749, y: 3.5208232}
   m_EdgeRadius: 0
+--- !u!114 &241915175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 241915170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cca871701522dc4eb374e6ed092c216, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueObject: {fileID: 11400000, guid: 88beacb5d88b7634a90bd700d5c9ccea, type: 2}
+--- !u!114 &241915176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 241915170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b7715cf4040a1945a02a0e716bfae14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueObject: {fileID: 11400000, guid: 88beacb5d88b7634a90bd700d5c9ccea, type: 2}
+  events:
+  - name: "\u5931\u8E64\u6751\u6C11"
+    onPickedResponse:
+      m_PersistentCalls:
+        m_Calls: []
+    responseCategory: 0
+  - name: "\u62D0\u6756"
+    onPickedResponse:
+      m_PersistentCalls:
+        m_Calls: []
+    responseCategory: 1
+  - name: "\u6A02\u8B5C"
+    onPickedResponse:
+      m_PersistentCalls:
+        m_Calls: []
+    responseCategory: 2
 --- !u!1 &402391440
 GameObject:
   m_ObjectHideFlags: 0
@@ -1171,7 +1215,7 @@ GameObject:
   m_Component:
   - component: {fileID: 888745630}
   m_Layer: 0
-  m_Name: "\u5BA2\u5EF3\u5730\u5716"
+  m_Name: "\u6751\u838A\u5730\u5716"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1459,6 +1503,8 @@ GameObject:
   - component: {fileID: 1116660744}
   - component: {fileID: 1116660743}
   - component: {fileID: 1116660745}
+  - component: {fileID: 1116660746}
+  - component: {fileID: 1116660747}
   m_Layer: 0
   m_Name: "\u7169\u60F1\u6751\u6C11"
   m_TagString: Untagged
@@ -1599,6 +1645,67 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.5118473, y: 2.3910906}
   m_EdgeRadius: 0
+--- !u!114 &1116660746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1116660741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cca871701522dc4eb374e6ed092c216, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueObject: {fileID: 11400000, guid: abd47365bad51a146865aeb6a1a9518a, type: 2}
+--- !u!114 &1116660747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1116660741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b7715cf4040a1945a02a0e716bfae14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueObject: {fileID: 11400000, guid: abd47365bad51a146865aeb6a1a9518a, type: 2}
+  events:
+  - name: "\u9EDE\u982D"
+    onPickedResponse:
+      m_PersistentCalls:
+        m_Calls: []
+    responseCategory: 0
+  - name: "\u6416\u982D"
+    onPickedResponse:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1592691812}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1116660746}
+          m_TargetAssemblyTypeName: InteractableNPC, Assembly-CSharp
+          m_MethodName: UpdateDialogueObject
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 11400000, guid: 6aaa1cfafb55c9c41a8c531a8b0b27cb, type: 2}
+            m_ObjectArgumentAssemblyTypeName: DialogueObject, Assembly-CSharp
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    responseCategory: 0
 --- !u!1 &1118647424
 GameObject:
   m_ObjectHideFlags: 0
@@ -1729,7 +1836,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetSpawnPointID: Left
-  targetScene: testVilligeHead
+  targetScene: testVillageHeaderRoom
 --- !u!61 &1180928256
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2470,7 +2577,7 @@ GameObject:
   - component: {fileID: 1592691815}
   - component: {fileID: 1592691814}
   m_Layer: 0
-  m_Name: "\u5F48\u5E55  (1)"
+  m_Name: "\u7169\u60F1\u6751\u6C11\u5F48\u5E55"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2988,6 +3095,8 @@ GameObject:
   - component: {fileID: 1831326747}
   - component: {fileID: 1831326746}
   - component: {fileID: 1831326748}
+  - component: {fileID: 1831326749}
+  - component: {fileID: 1831326750}
   m_Layer: 0
   m_Name: "\u7070\u8272\u6751\u6C11"
   m_TagString: Untagged
@@ -3128,6 +3237,48 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.1505408, y: 3.7140124}
   m_EdgeRadius: 0
+--- !u!114 &1831326749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1831326744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cca871701522dc4eb374e6ed092c216, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueObject: {fileID: 11400000, guid: eb82a8331780c5b4b9fe6db3600dbfa6, type: 2}
+--- !u!114 &1831326750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1831326744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b7715cf4040a1945a02a0e716bfae14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueObject: {fileID: 11400000, guid: eb82a8331780c5b4b9fe6db3600dbfa6, type: 2}
+  events:
+  - name: "\u5931\u8E64\u6751\u6C11"
+    onPickedResponse:
+      m_PersistentCalls:
+        m_Calls: []
+    responseCategory: 0
+  - name: "\u62D0\u6756"
+    onPickedResponse:
+      m_PersistentCalls:
+        m_Calls: []
+    responseCategory: 1
+  - name: "\u6A02\u8B5C"
+    onPickedResponse:
+      m_PersistentCalls:
+        m_Calls: []
+    responseCategory: 2
 --- !u!1 &1907952830
 GameObject:
   m_ObjectHideFlags: 0

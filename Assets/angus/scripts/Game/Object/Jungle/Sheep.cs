@@ -2,8 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Sheep : InteractableObject
+public class Sheep : InteractableObject, IDataPersistence
 {
+
+    [SerializeField] private string id;
+
+    [ContextMenu("Generate sheep id")]
+    private void GenerateSheepID()
+    {
+        id = System.Guid.NewGuid().ToString();
+    }
     [SerializeField] private bool colored;
 
     public float minX;
@@ -62,35 +70,46 @@ public class Sheep : InteractableObject
 
     private void FlipDirection(Vector2 direction)
     {
-        if (direction.x < 0) // 往左
+        if (direction.x < 0)
             spriteRenderer.flipX = false;
-        else if (direction.x > 0) // 往右
+        else if (direction.x > 0)
             spriteRenderer.flipX = true;
     }
     public IEnumerator RandomWalk()
     {
         while (true)
         {
-            // 在迴圈內重新生成隨機目標位置（絕對位置）
             Vector2 targetPos = new Vector2(Random.Range(minX, maxX), transform.position.y);
 
             anime.SetBool("isWalking", true);
 
-            // 當物件與目標的距離大於一定範圍時持續移動
             while ((targetPos - (Vector2)transform.position).sqrMagnitude > 0.1f * 0.1f)
             {
-                // 每次移動時根據最新位置計算方向
                 Vector2 direction = (targetPos - (Vector2)transform.position).normalized;
                 FlipDirection(direction);
                 transform.position = Vector2.MoveTowards(transform.position, targetPos, moveSpeed * Time.deltaTime);
                 yield return null;
             }
 
-            // 確保到達精準的目標位置
             transform.position = targetPos;
             anime.SetBool("isWalking", false);
 
             yield return new WaitForSeconds(2.5f);
         }
+    }
+
+    public void LoadData(GameData data)
+    {
+        data.sheepGotColored.TryGetValue(id, out colored);
+        anime.SetBool("colored", colored);
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        if (data.sheepGotColored.ContainsKey(id))
+        {
+            data.sheepGotColored.Remove(id);
+        }
+        data.sheepGotColored.Add(id, colored);
     }
 }

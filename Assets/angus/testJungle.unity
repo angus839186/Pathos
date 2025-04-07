@@ -825,6 +825,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DefaultDescription: "\u770B\u8D77\u4F86\u8EDF\u7DBF\u7DBF\u7684\u7F8A\uFF0C\u5F88\u60F3\u8EBA\u5728\u4E0A\u982D"
+  id: 
   colored: 0
   minX: 28
   maxX: 83
@@ -1259,6 +1260,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DefaultDescription: "\u770B\u8D77\u4F86\u8EDF\u7DBF\u7DBF\u7684\u7F8A\uFF0C\u5F88\u60F3\u8EBA\u5728\u4E0A\u982D"
+  id: 
   colored: 0
   minX: 28
   maxX: 83
@@ -1433,6 +1435,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DefaultDescription: "\u770B\u8D77\u4F86\u8EDF\u7DBF\u7DBF\u7684\u7F8A\uFF0C\u5F88\u60F3\u8EBA\u5728\u4E0A\u982D"
+  id: 
   colored: 0
   minX: 28
   maxX: 83
@@ -1817,6 +1820,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DefaultDescription: "\u770B\u8D77\u4F86\u8EDF\u7DBF\u7DBF\u7684\u7F8A\uFF0C\u5F88\u60F3\u8EBA\u5728\u4E0A\u982D"
+  id: 
   colored: 0
   minX: 28
   maxX: 83
@@ -1873,6 +1877,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DefaultDescription: "\u770B\u8D77\u4F86\u8EDF\u7DBF\u7DBF\u7684\u7F8A\uFF0C\u5F88\u60F3\u8EBA\u5728\u4E0A\u982D"
+  id: 
   colored: 0
   minX: 28
   maxX: 83
@@ -2329,10 +2334,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1472889620}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d659a49798b3d2942b74569c47134ff7, type: 3}
+  m_Script: {fileID: 11500000, guid: 9da0f424bc3abee4681c700a64e62881, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueObject: {fileID: 0}
+  jungleScene: testJungle
+  doorScene: testDoor
+  _shepherdAlreadyKnowSheepColored: 0
+  doorSceneNormalDialogue: {fileID: 11400000, guid: f3178987fe5585645a9f4493d608e037, type: 2}
+  doorSceneFindSheepDialogue: {fileID: 11400000, guid: 835364c710722ce49b99a005077a586a, type: 2}
+  jungleSceneDialogue: {fileID: 11400000, guid: f448ab46cb7b4f44bb81ca84fa728cc6, type: 2}
 --- !u!1 &1473590287
 GameObject:
   m_ObjectHideFlags: 0
@@ -3574,6 +3585,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DefaultDescription: "\u770B\u8D77\u4F86\u8EDF\u7DBF\u7DBF\u7684\u7F8A\uFF0C\u5F88\u60F3\u8EBA\u5728\u4E0A\u982D"
+  id: 
   colored: 0
   minX: 28
   maxX: 83

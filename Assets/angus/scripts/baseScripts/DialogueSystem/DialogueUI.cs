@@ -60,7 +60,15 @@ public class DialogueUI : MonoBehaviour
     {
         IsOpen = true;
         dialogueBox.SetActive(true);
-        NpcImage.sprite = dialogueObject.NpcIcon;
+        if(dialogueObject.NpcIcon != null)
+        {
+            NpcImage.gameObject.SetActive(true);
+            NpcImage.sprite = dialogueObject.NpcIcon;
+        }
+        else
+        {
+            NpcImage.gameObject.SetActive(false);
+        }
         PlayerInputManager.Instance.SwitchActionMap("Dialogue");
         StartCoroutine(StepThroughDialogue(dialogueObject));
     }
