@@ -3,12 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Video;
 
-public class ReversePlainPreview : VideoBase
+public class ReversePlainPreview : VideoBase, IDataPersistence
 {
     public AudioSource audioSource;
     void Start()
     {
-        VideoController.Instance.OnVideoEnd += VideoEnd;
+        VideoController video = VideoController.Instance;
+        if (video != null)
+        {
+            VideoController.Instance.OnVideoEnd += VideoEnd;
+        }
     }
 
     void OnDisable()
@@ -24,6 +28,17 @@ public class ReversePlainPreview : VideoBase
     {
         BossTutorial tutorial = FindObjectOfType<BossTutorial>();
         tutorial.InitializeTutorial();
+        played = true;
         audioSource.Play();
+    }
+
+    public void LoadData(GameData data)
+    {
+        played = data.reversePlainPreviewVideoPlayed;
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        data.reversePlainPreviewVideoPlayed = played;
     }
 }

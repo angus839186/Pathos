@@ -11,6 +11,8 @@ public class PlayerHealth : MonoBehaviour
 
     public AudioClip heartBreakSound;
 
+    public Action OnPlayerDied;
+
     public Action<int> OnHealthUpdateEvent;
 
     void Start()
@@ -52,6 +54,7 @@ public class PlayerHealth : MonoBehaviour
     {
         deathUI death = FindObjectOfType<deathUI>();
         death.PlayerDeath();
+        OnPlayerDied.Invoke();
         PlayerInputManager.Instance.SwitchActionMap("Die");
     }
     public void Recover()

@@ -42,6 +42,8 @@ public class ReversePlainBoss : InteractableObject
 
     public GameObject ToBeContinueObject;
 
+    public AudioSource BGM;
+
 
     void OnDisable()
     {
@@ -51,11 +53,19 @@ public class ReversePlainBoss : InteractableObject
             VideoController.Instance.OnVideoEnd -= Die;
         }
 
+        PlayerHealth playerHealth = FindObjectOfType<PlayerHealth>();
+        if(playerHealth != null)
+        {
+            playerHealth.OnPlayerDied += StopAttack;
+        }
+
     }
 
     void Start()
     {
         anime = GetComponent<Animator>();
+        PlayerHealth playerhealth = FindObjectOfType<PlayerHealth>();
+        playerhealth.OnPlayerDied += StopAttack;
     }
 
 
@@ -179,6 +189,7 @@ public class ReversePlainBoss : InteractableObject
 
     public void DieVideo()
     {
+        BGM.Pause();
         VideoController.Instance.OnVideoEnd += Die;
         VideoController.Instance.GetVideo(dieClip, pausePoints);
     }

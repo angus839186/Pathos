@@ -42,13 +42,15 @@ public class Hint2 : MonoBehaviour, IDataPersistence
     public void LoadData(GameData data)
     {
         passed = data.hint2;
-        if(passed == false)
+        if(!passed)
         {
             this.enabled = true;
+            hint.gameObject.SetActive(true);
         }
         else
         {
             this.enabled = false;
+            hint.gameObject.SetActive(false);
         }
 
     }

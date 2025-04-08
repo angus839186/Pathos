@@ -512,6 +512,7 @@ MonoBehaviour:
   - 18
   ToBeContinued: 1
   ToBeContinueObject: {fileID: 2112024105}
+  BGM: {fileID: 206464535}
 --- !u!61 &228495578
 BoxCollider2D:
   m_ObjectHideFlags: 0

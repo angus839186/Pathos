@@ -24,6 +24,8 @@ public class GameData
     public bool hint1;
     public bool hint2;
 
+    public bool reversePlainPreviewVideoPlayed;
+
     public GameData()
     {
         currentScene = "";
@@ -38,6 +40,7 @@ public class GameData
         ResponseEventStates = new SerializableDictionary<string, bool>();
         sheepGotColored = new SerializableDictionary<string, bool>();
         inventoryItemNames = new List<string>();
+        reversePlainPreviewVideoPlayed = false;
     }
 }
 
