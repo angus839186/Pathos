@@ -1675,11 +1675,6 @@ MonoBehaviour:
   - name: "\u9EDE\u982D"
     onPickedResponse:
       m_PersistentCalls:
-        m_Calls: []
-    responseCategory: 0
-  - name: "\u6416\u982D"
-    onPickedResponse:
-      m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 1592691812}
           m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
@@ -1705,6 +1700,11 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+    responseCategory: 0
+  - name: "\u6416\u982D"
+    onPickedResponse:
+      m_PersistentCalls:
+        m_Calls: []
     responseCategory: 0
 --- !u!1 &1118647424
 GameObject:
