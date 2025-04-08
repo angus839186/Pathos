@@ -6,6 +6,7 @@ using UnityEngine.Video;
 using UnityEngine.UI;
 using Unity.VisualScripting;
 using System;
+using UnityEngine.InputSystem;
 
 public class VideoController : MonoBehaviour
 {
@@ -38,25 +39,42 @@ public class VideoController : MonoBehaviour
         video = GetComponent<VideoPlayer>();
     }
 
+    void OnEnable()
+    {
+        GameManager.Instance.OnSceneLoaded += GetScenePreviewVideo;
+        PlayerInputManager.Instance.OnContinueVideoEvent += ContinueVideo;
+    }
+
+    void OnDisable()
+    {
+        GameManager gameManager = GameManager.Instance;
+        if (gameManager != null)
+        {
+            gameManager.OnSceneLoaded -= GetScenePreviewVideo;
+        }
+        PlayerInputManager playerInput = PlayerInputManager.Instance;
+        if (playerInput != null)
+        {
+            playerInput.OnContinueVideoEvent -= ContinueVideo;
+        }
+    }
+
 
 
     void Start()
     {
-        PlayerInputManager.Instance.OnContinueVideoEvent += ContinueVideo;
-        GameManager.Instance.OnSceneLoaded += GetScenePreviewVideo;
         continueButton.onClick.AddListener(ContinueVideo);
         continueButton.gameObject.SetActive(false);
 
-        ToggleVideoCanvas(false);
     }
 
     public void PlayVideo(VideoClip _video)
     {
+        ToggleVideoCanvas(true);
         video.clip = _video;
         video.frame = 0;
         video.Play();
         isPausedBySystem = false;
-        ToggleVideoCanvas(true);
         PlayerInputManager.Instance.SwitchActionMap("PlayingVideo");
 
         StartCoroutine(PlayingVideo());
@@ -72,7 +90,7 @@ public class VideoController : MonoBehaviour
 
     void ContinueVideo()
     {
-        if(video.isPlaying) return;
+        if (video.isPlaying) return;
         currentPauseIndex++;
         isPausedBySystem = false;
         continueButton.gameObject.SetActive(false);
@@ -83,9 +101,11 @@ public class VideoController : MonoBehaviour
     {
         VideoBase _Video = FindObjectOfType<VideoBase>();
         if (_Video == null) return;
+        if (!_Video.startOnSceneLoad) return;
         if (_Video.played)
         {
             OnVideoEnd.Invoke();
+            Debug.Log("End");
             return;
         }
         else
@@ -137,9 +157,14 @@ public class VideoController : MonoBehaviour
         if (pausePoints == null || pausePoints.Count == 0)
         {
             Debug.Log(video.time);
+            Debug.Log(video.clip.length);
             yield return new WaitUntil(() => video.time >= video.clip.length - 0.1f);
+
+            video.Pause();
+            video.clip = null;
             ToggleVideoCanvas(false);
             OnVideoEnd?.Invoke();
+            Debug.Log("End");
             yield break;
         }
 
@@ -159,8 +184,11 @@ public class VideoController : MonoBehaviour
             else
             {
                 yield return new WaitUntil(() => video.time >= video.clip.length - 0.1f);
+                video.Pause();
+                video.clip = null;
                 ToggleVideoCanvas(false);
                 OnVideoEnd?.Invoke();
+                Debug.Log("End");
                 break;
             }
 

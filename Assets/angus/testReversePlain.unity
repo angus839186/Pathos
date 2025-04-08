@@ -2379,6 +2379,7 @@ MonoBehaviour:
   clip: {fileID: 32900000, guid: 763016e4d098df44db3c4fada6b9b4c8, type: 3}
   pausePoints: []
   played: 0
+  startOnSceneLoad: 1
   audioSource: {fileID: 206464535}
 --- !u!1 &1585565895
 GameObject:

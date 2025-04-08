@@ -92,6 +92,6 @@ public class FireBall : MonoBehaviour
     {
         anime.Play("fireattack_1");
         audioSource.Play();
-        Debug.Log("Play explosion animation");
+        // Debug.Log("Play explosion animation");
     }
 }

@@ -14,4 +14,7 @@ public class VideoBase : MonoBehaviour
 
     [SerializeField]
     public bool played;
+
+    [SerializeField]
+    public bool startOnSceneLoad;
 }

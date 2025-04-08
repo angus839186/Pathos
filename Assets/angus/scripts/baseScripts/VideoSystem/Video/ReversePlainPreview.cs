@@ -25,6 +25,5 @@ public class ReversePlainPreview : VideoBase
         BossTutorial tutorial = FindObjectOfType<BossTutorial>();
         tutorial.InitializeTutorial();
         audioSource.Play();
-        this.enabled = false;
     }
 }
