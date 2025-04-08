@@ -32,9 +32,10 @@ public class Berry : InteractableObject
     }
     public override void Interact()
     {
-        Hotbar hotbar = Hotbar.Instance;
-        if (hotbar.mainItem == null || hotbar.mainItem != ScissorsItem)return;
-        StartCoroutine(playCutAnimation());
+        if (CheckItemOnPlayer(ScissorsItem) != null)
+        {
+            StartCoroutine(playCutAnimation());
+        }
     }
 
     public override void InteractEvent(Item heldItem)
@@ -58,6 +59,7 @@ public class Berry : InteractableObject
         playerInteract.ToggleInteractingAnimation(false);
         cutAnimationObject.SetActive(false);
         berryTreeAnime.SetTrigger("cut");
+        InventoryManager.Instance.RemoveItem(ScissorsItem);
         InventoryManager.Instance.AddItem(berryItem);
         yield return null;
     }

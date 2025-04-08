@@ -22,4 +22,9 @@ public abstract class InteractableObject : MonoBehaviour, IInteractable
     {
         InventoryManager.Instance.AddItem(item);
     }
+
+    public Item CheckItemOnPlayer(Item item)
+    {
+        return Hotbar.Instance.mainItem == item ? Hotbar.Instance.mainItem : null;
+    }
 }
