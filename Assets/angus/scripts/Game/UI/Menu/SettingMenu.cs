@@ -40,6 +40,8 @@ public class SettingMenu : Menu
     public float previousMusicVolume;
     private float previousSfxVolume;
 
+    public RenderTexture VideoRenderer;
+
     #endregion
     private Resolution[] resolutions = new Resolution[]
     {
@@ -169,6 +171,11 @@ public class SettingMenu : Menu
 
         // 設定解析度與視窗/全螢幕模式
         Screen.SetResolution(selectedRes.width, selectedRes.height, fullscreen);
+
+        VideoRenderer.Release();
+        VideoRenderer.width = selectedRes.width;
+        VideoRenderer.height = selectedRes.height;
+        VideoRenderer.Create();
 
         Debug.Log($"Resolution: {selectedRes.width} + {selectedRes.height}, {fullscreen} ");
     }
