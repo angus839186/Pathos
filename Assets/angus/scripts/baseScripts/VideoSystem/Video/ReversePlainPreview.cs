@@ -30,6 +30,11 @@ public class ReversePlainPreview : VideoBase, IDataPersistence
         tutorial.InitializeTutorial();
         played = true;
         audioSource.Play();
+        VideoController video = VideoController.Instance;
+        if (video != null)
+        {
+            VideoController.Instance.OnVideoEnd -= VideoEnd;
+        }
     }
 
     public void LoadData(GameData data)

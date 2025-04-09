@@ -2235,6 +2235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2540fab24b24ac741aef2e064213faa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvasGroup: {fileID: 0}
   mainMenuCanva: {fileID: 2127997575}
   saveFileCanva: {fileID: 1757440399}
   settingCanva: {fileID: 480416530}
@@ -4116,7 +4117,7 @@ MonoBehaviour:
   - 56
   - 62
   - 74
-  played: 0
+  played: 1
   startOnSceneLoad: 0
 --- !u!4 &988229058
 Transform:
@@ -6472,7 +6473,7 @@ MonoBehaviour:
   pausePoints: []
   currentPauseIndex: 0
   isPausedBySystem: 0
-  isPlayingVideo: 1
+  isPlayingVideo: 0
   videoCanvas: {fileID: 1521370738}
 --- !u!328 &1521370740
 VideoPlayer:
@@ -7072,6 +7073,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44e290580cc1ad5458ce393ab0cbf420, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvasGroup: {fileID: 0}
   mainMenuCanva: {fileID: 2127997575}
   saveFileCanva: {fileID: 1757440399}
   settingCanva: {fileID: 480416530}
@@ -8959,6 +8961,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cdae833653ffee4c87ab69dbef5781a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvasGroup: {fileID: 0}
   mainMenuCanva: {fileID: 2127997575}
   saveFileCanva: {fileID: 1757440399}
   settingCanva: {fileID: 480416530}

@@ -5,22 +5,24 @@ using UnityEngine.UI;
 
 public class Menu : MonoBehaviour
 {
-    public static CanvasGroup currentCanva;
+    public CanvasGroup canvasGroup;
 
     public CanvasGroup mainMenuCanva;
 
     public CanvasGroup saveFileCanva;
-
     public CanvasGroup settingCanva;
     public float transitionDuration = 1f;
 
     void Start()
     {
-        currentCanva = mainMenuCanva;
+        canvasGroup = GetComponent<CanvasGroup>();
+        mainMenuCanva = MainMenu.Instance.GetComponent<CanvasGroup>();
+        saveFileCanva = SaveFileMenu.Instance.GetComponent<CanvasGroup>();
+        settingCanva = SettingMenu.Instance.GetComponent<CanvasGroup>();
     }
     public void Transition(CanvasGroup newCanvas)
     {
-        Debug.Log(currentCanva);
+        Debug.Log(canvasGroup);
         StartCoroutine(TransitionCoroutine(newCanvas));
     }
 
@@ -31,16 +33,21 @@ public class Menu : MonoBehaviour
         {
             elapsed += Time.deltaTime;
             float t = Mathf.Clamp01(elapsed / transitionDuration);
-            currentCanva.alpha = Mathf.Lerp(1, 0, t);
-            currentCanva.interactable = false;
-            currentCanva.blocksRaycasts = false;
+            canvasGroup.alpha = Mathf.Lerp(1, 0, t);
+            canvasGroup.interactable = false;
+            canvasGroup.blocksRaycasts = false;
             canva.alpha = Mathf.Lerp(0, 1, t);
             canva.interactable = true;
             canva.blocksRaycasts = true;
             yield return null;
         }
-        currentCanva.alpha = 0;
+        canvasGroup.alpha = 0;
         canva.alpha = 1;
-        currentCanva = canva;
+    }
+    public void ToggleCanvasGroup(bool toggle)
+    {
+        canvasGroup.alpha = toggle ? 1 : 0;
+        canvasGroup.interactable = toggle;
+        canvasGroup.blocksRaycasts = toggle;
     }
 }
