@@ -2733,6 +2733,7 @@ MonoBehaviour:
   audioMixer: {fileID: 24100000, guid: 270e3d8969dee3b46b8f449d862e7d85, type: 2}
   musicMuted: 0
   previousMusicVolume: 0
+  VideoRenderer: {fileID: 8600000, guid: ee67dc56f59e15f49b6395f773a8c5f5, type: 2}
 --- !u!225 &645641426
 CanvasGroup:
   m_ObjectHideFlags: 0
