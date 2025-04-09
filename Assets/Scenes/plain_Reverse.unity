@@ -1879,7 +1879,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clip: {fileID: 32900000, guid: 763016e4d098df44db3c4fada6b9b4c8, type: 3}
   pausePoints: []
-  played: 1
+  played: 0
   startOnSceneLoad: 1
   audioSource: {fileID: 1934462889}
 --- !u!4 &1062865325
