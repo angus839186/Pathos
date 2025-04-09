@@ -4,8 +4,22 @@ using UnityEngine;
 
 public class MainMenu : Menu
 {
+    public static MainMenu Instance;
+
+    void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+        canvasGroup = this.GetComponent<CanvasGroup>();
+        DontDestroyOnLoad(gameObject);
+    }
     public void OnStartButtonClicked()
     {
+        ToggleCanvasGroup(false);
         GameStartPreview newGamePreview = FindObjectOfType<GameStartPreview>();
         if(newGamePreview.played)
         {

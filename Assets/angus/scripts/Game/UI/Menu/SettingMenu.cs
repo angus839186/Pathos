@@ -57,7 +57,13 @@ public class SettingMenu : Menu
             return;
         }
         Instance = this;
+        canvasGroup = this.GetComponent<CanvasGroup>();
         DontDestroyOnLoad(gameObject);
+    }
+
+    public CanvasGroup SettingMenuCanvasGroup()
+    {
+        return settingCanvas;
     }
 
     void OnEnable()

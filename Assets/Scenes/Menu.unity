@@ -2803,6 +2803,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2540fab24b24ac741aef2e064213faa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvasGroup: {fileID: 645641426}
   mainMenuCanva: {fileID: 1152874471}
   saveFileCanva: {fileID: 1119575350}
   settingCanva: {fileID: 645641426}
@@ -5029,6 +5030,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44e290580cc1ad5458ce393ab0cbf420, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvasGroup: {fileID: 1119575350}
   mainMenuCanva: {fileID: 1152874471}
   saveFileCanva: {fileID: 1119575350}
   settingCanva: {fileID: 645641426}
@@ -5266,6 +5268,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cdae833653ffee4c87ab69dbef5781a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvasGroup: {fileID: 1152874471}
   mainMenuCanva: {fileID: 1152874471}
   saveFileCanva: {fileID: 1119575350}
   settingCanva: {fileID: 645641426}

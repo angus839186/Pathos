@@ -50,6 +50,7 @@ public class SaveFileMenu : Menu
             return;
         }
         Instance = this;
+        canvasGroup = this.GetComponent<CanvasGroup>();
         DontDestroyOnLoad(gameObject);
         sceneSprites = new Dictionary<string, Sprite>();
         foreach (var mapping in sceneSpriteList)
@@ -62,6 +63,11 @@ public class SaveFileMenu : Menu
 
         saveSlots = this.GetComponentsInChildren<SaveSlot>();
         saveFileCanvas = GetComponent<CanvasGroup>();
+    }
+
+    public CanvasGroup SaveFileCanvasGroup()
+    {
+        return saveFileCanvas;
     }
 
     void Start()
