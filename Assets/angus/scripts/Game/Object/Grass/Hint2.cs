@@ -45,7 +45,7 @@ public class Hint2 : MonoBehaviour, IDataPersistence
         if(!passed)
         {
             this.enabled = true;
-            hint.gameObject.SetActive(true);
+            hint.gameObject.SetActive(false);
         }
         else
         {
