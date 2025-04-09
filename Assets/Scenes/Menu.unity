@@ -1813,6 +1813,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1325881982}
     m_Modifications:
+    - target: {fileID: 2413711590283363859, guid: 4e0fef314a380f34bbdc3f7057cc9ab3, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 93dbb5657063fe7489d83b0e283e70db, type: 3}
     - target: {fileID: 2656118552413627620, guid: 4e0fef314a380f34bbdc3f7057cc9ab3, type: 3}
       propertyPath: m_Name
       value: SaveSlot (3)
@@ -4146,6 +4150,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1325881982}
     m_Modifications:
+    - target: {fileID: 2413711590283363859, guid: 4e0fef314a380f34bbdc3f7057cc9ab3, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 93dbb5657063fe7489d83b0e283e70db, type: 3}
     - target: {fileID: 2656118552413627620, guid: 4e0fef314a380f34bbdc3f7057cc9ab3, type: 3}
       propertyPath: m_Name
       value: SaveSlot (1)
@@ -4477,6 +4485,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1325881982}
     m_Modifications:
+    - target: {fileID: 2413711590283363859, guid: 4e0fef314a380f34bbdc3f7057cc9ab3, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 93dbb5657063fe7489d83b0e283e70db, type: 3}
     - target: {fileID: 2656118552413627620, guid: 4e0fef314a380f34bbdc3f7057cc9ab3, type: 3}
       propertyPath: m_Name
       value: SaveSlot (4)
@@ -5810,6 +5822,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1325881982}
     m_Modifications:
+    - target: {fileID: 2413711590283363859, guid: 4e0fef314a380f34bbdc3f7057cc9ab3, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 93dbb5657063fe7489d83b0e283e70db, type: 3}
     - target: {fileID: 2656118552413627620, guid: 4e0fef314a380f34bbdc3f7057cc9ab3, type: 3}
       propertyPath: m_Name
       value: SaveSlot (2)
@@ -6862,6 +6878,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1325881982}
     m_Modifications:
+    - target: {fileID: 2413711590283363859, guid: 4e0fef314a380f34bbdc3f7057cc9ab3, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 93dbb5657063fe7489d83b0e283e70db, type: 3}
     - target: {fileID: 2656118552413627620, guid: 4e0fef314a380f34bbdc3f7057cc9ab3, type: 3}
       propertyPath: m_Name
       value: SaveSlot

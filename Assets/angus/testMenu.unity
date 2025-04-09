@@ -683,6 +683,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2032355161}
     m_Modifications:
+    - target: {fileID: 2413711590283363859, guid: 4e0fef314a380f34bbdc3f7057cc9ab3, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 93dbb5657063fe7489d83b0e283e70db, type: 3}
     - target: {fileID: 2656118552413627620, guid: 4e0fef314a380f34bbdc3f7057cc9ab3, type: 3}
       propertyPath: m_Name
       value: SaveSlot (1)
@@ -3889,6 +3893,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2032355161}
     m_Modifications:
+    - target: {fileID: 2413711590283363859, guid: 4e0fef314a380f34bbdc3f7057cc9ab3, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 93dbb5657063fe7489d83b0e283e70db, type: 3}
     - target: {fileID: 2656118552413627620, guid: 4e0fef314a380f34bbdc3f7057cc9ab3, type: 3}
       propertyPath: m_Name
       value: SaveSlot (4)
@@ -5703,6 +5711,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2032355161}
     m_Modifications:
+    - target: {fileID: 2413711590283363859, guid: 4e0fef314a380f34bbdc3f7057cc9ab3, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 93dbb5657063fe7489d83b0e283e70db, type: 3}
     - target: {fileID: 2656118552413627620, guid: 4e0fef314a380f34bbdc3f7057cc9ab3, type: 3}
       propertyPath: m_Name
       value: SaveSlot (2)
@@ -6096,6 +6108,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2032355161}
     m_Modifications:
+    - target: {fileID: 2413711590283363859, guid: 4e0fef314a380f34bbdc3f7057cc9ab3, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 93dbb5657063fe7489d83b0e283e70db, type: 3}
     - target: {fileID: 2656118552413627620, guid: 4e0fef314a380f34bbdc3f7057cc9ab3, type: 3}
       propertyPath: m_Name
       value: SaveSlot
@@ -7082,6 +7098,8 @@ MonoBehaviour:
   returnButton: {fileID: 692978041}
   sceneSpriteList:
   - sceneName: testGrass
+    sceneSprite: {fileID: 21300000, guid: 3f90a03269db81d469575b8463ef0393, type: 3}
+  - sceneName: "\u8FEA\u666E\u52D2\u5343\u8349\u539F"
     sceneSprite: {fileID: 21300000, guid: 3f90a03269db81d469575b8463ef0393, type: 3}
   currentSaveSlot: {fileID: 0}
   saveFileCanvas: {fileID: 1757440399}
@@ -8302,6 +8320,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2032355161}
     m_Modifications:
+    - target: {fileID: 2413711590283363859, guid: 4e0fef314a380f34bbdc3f7057cc9ab3, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 93dbb5657063fe7489d83b0e283e70db, type: 3}
     - target: {fileID: 2656118552413627620, guid: 4e0fef314a380f34bbdc3f7057cc9ab3, type: 3}
       propertyPath: m_Name
       value: SaveSlot (3)
