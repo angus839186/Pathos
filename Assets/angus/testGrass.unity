@@ -606,7 +606,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DefaultDescription: 
-  dialogueObject: {fileID: 0}
 --- !u!61 &147270037
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -813,7 +812,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DefaultDescription: "\u5F88\u5927\u7684\u947C\uFF0C\u770B\u8D77\u4F86\u5F92\u624B\u6C92\u8FA6\u6CD5\u6572\u97FF\u7684\u6A23\u5B50"
-  dialogueObject: {fileID: 0}
   axeItem: {fileID: 11400000, guid: a397d3f1d182d3d41b452f79ae99c95c, type: 2}
   birdsGoneDescription: "\u4F3C\u4E4E\u524D\u65B9\u7684\u9580\u7522\u751F\u4E86\u4EC0\u9EBC\u8B8A\u5316"
   birds:
@@ -1673,7 +1671,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DefaultDescription: 
-  dialogueObject: {fileID: 0}
   itemToTake: {fileID: 11400000, guid: a397d3f1d182d3d41b452f79ae99c95c, type: 2}
 --- !u!212 &426609525
 SpriteRenderer:
@@ -2369,7 +2366,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DefaultDescription: "\u88AB\u5805\u786C\u7684\u6A39\u53E2\u64CB\u4F4F\u4E86\uFF0C\u5C31\u7B97\u7528\u5DE5\u5177\u4E5F\u6C92\u6CD5\u8F15\u6613\u7834\u58DE\u7684\u6A23\u5B50"
-  dialogueObject: {fileID: 0}
   closedSprite: {fileID: 21300000, guid: 7128c83b31ab827499fcf96bcc2ba5ec, type: 3}
   sound: {fileID: 8300000, guid: e4b5ca9cca67dd748bc40e047ae97a1e, type: 3}
 --- !u!1 &719233570
@@ -2711,7 +2707,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DefaultDescription: "\u5DE8\u5927\u7684\u67AF\u6728\uFF0C\u9CE5\u5152\u5E38\u6703\u505C\u5728\u9019\u88E1\u4F11\u606F"
-  dialogueObject: {fileID: 0}
   axeItem: {fileID: 11400000, guid: a397d3f1d182d3d41b452f79ae99c95c, type: 2}
   id: 337f121e-01b1-4694-9445-3ac64a32b57c
   isCutDown: 0
@@ -2888,7 +2883,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DefaultDescription: "\u5DE8\u5927\u7684\u67AF\u6728\uFF0C\u9CE5\u5152\u5E38\u6703\u505C\u5728\u9019\u88E1\u4F11\u606F"
-  dialogueObject: {fileID: 0}
   axeItem: {fileID: 11400000, guid: a397d3f1d182d3d41b452f79ae99c95c, type: 2}
   id: 40471eb8-89fb-4fb8-8f4f-05237682d8f1
   isCutDown: 0
@@ -4058,7 +4052,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DefaultDescription: "\u76F8\u7576\u8001\u820A\u7684\u98A8\u8ECA\uFF0C\u611F\u89BA\u53D7\u5230\u4E00\u9EDE\u5916\u529B\u5C31\u6703\u52D5\u7684\u6A23\u5B50"
-  dialogueObject: {fileID: 0}
   animator: {fileID: 0}
   workedDescription: "\u98A8\u8ECA\u8F49\u52D5\u4E86"
   worked: 0
@@ -4809,7 +4802,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DefaultDescription: "\u4E00\u822C\u7684\u67F5\u6B04\uFF0C\u770B\u8D77\u4F86\u662F\u4E0D\u5C11\u9CE5\u5152\u7684\u843D\u8173\u8655"
-  dialogueObject: {fileID: 0}
 --- !u!50 &1816103858
 Rigidbody2D:
   serializedVersion: 4
@@ -5382,6 +5374,84 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &2121833862
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2121833865}
+  - component: {fileID: 2121833864}
+  - component: {fileID: 2121833863}
+  m_Layer: 0
+  m_Name: EventSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2121833863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2121833862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
+  m_MoveRepeatDelay: 0.5
+  m_MoveRepeatRate: 0.1
+  m_XRTrackingOrigin: {fileID: 0}
+  m_ActionsAsset: {fileID: -944628639613478452, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_PointAction: {fileID: -1654692200621890270, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_MoveAction: {fileID: -1680190386980627800, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_SubmitAction: {fileID: 392368643174621059, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_CancelAction: {fileID: 7727032971491509709, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_LeftClickAction: {fileID: 3001919216989983466, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_MiddleClickAction: {fileID: -2185481485913320682, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_RightClickAction: {fileID: -4090225696740746782, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_ScrollWheelAction: {fileID: 6240969308177333660, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_TrackedDevicePositionAction: {fileID: 6564999863303420839, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_TrackedDeviceOrientationAction: {fileID: 7970375526676320489, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_DeselectOnBackgroundClick: 1
+  m_PointerBehavior: 0
+  m_CursorLockBehavior: 0
+--- !u!114 &2121833864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2121833862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 10
+--- !u!4 &2121833865
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2121833862}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2146143718
 GameObject:
   m_ObjectHideFlags: 0
@@ -5466,3 +5536,4 @@ SceneRoots:
   - {fileID: 2091680858}
   - {fileID: 297479157}
   - {fileID: 414939241}
+  - {fileID: 2121833865}

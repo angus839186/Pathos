@@ -20,6 +20,7 @@ public class Menu : MonoBehaviour
     }
     public void Transition(CanvasGroup newCanvas)
     {
+        Debug.Log(currentCanva);
         StartCoroutine(TransitionCoroutine(newCanvas));
     }
 
