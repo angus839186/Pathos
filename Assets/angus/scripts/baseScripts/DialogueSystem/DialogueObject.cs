@@ -1,4 +1,3 @@
-using Microsoft.Unity.VisualStudio.Editor;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Dialogue/DialogueObject")]
