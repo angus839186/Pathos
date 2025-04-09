@@ -60,6 +60,7 @@ public class PauseMenu : MonoBehaviour
 
     public void OnQuitGameButtonClicked()
     {
+        TogglePauseMenu(false);
         GameManager.Instance.BackToMenu();
     }
 }
