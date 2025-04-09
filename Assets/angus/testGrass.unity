@@ -157,7 +157,7 @@ MonoBehaviour:
   id: 3496ae9d-ee20-4e28-bcef-a3ab2efa4cb0
   fencePos: {fileID: 509983474}
   skyPos: {fileID: 2022193705}
-  flightSpeed: 9
+  flightSpeed: 11
   landDistance: 0.5
   isFlying: 0
   onFence: 0
@@ -606,7 +606,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DefaultDescription: 
-  dialogueObject: {fileID: 0}
 --- !u!61 &147270037
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -813,7 +812,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DefaultDescription: "\u5F88\u5927\u7684\u947C\uFF0C\u770B\u8D77\u4F86\u5F92\u624B\u6C92\u8FA6\u6CD5\u6572\u97FF\u7684\u6A23\u5B50"
-  dialogueObject: {fileID: 0}
   axeItem: {fileID: 11400000, guid: a397d3f1d182d3d41b452f79ae99c95c, type: 2}
   birdsGoneDescription: "\u4F3C\u4E4E\u524D\u65B9\u7684\u9580\u7522\u751F\u4E86\u4EC0\u9EBC\u8B8A\u5316"
   birds:
@@ -990,7 +988,7 @@ MonoBehaviour:
   id: ef32d09b-b74c-44f5-b94c-8784c1228316
   fencePos: {fileID: 1004311038}
   skyPos: {fileID: 884270476}
-  flightSpeed: 9
+  flightSpeed: 8
   landDistance: 0.5
   isFlying: 0
   onFence: 0
@@ -1673,7 +1671,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DefaultDescription: 
-  dialogueObject: {fileID: 0}
   itemToTake: {fileID: 11400000, guid: a397d3f1d182d3d41b452f79ae99c95c, type: 2}
 --- !u!212 &426609525
 SpriteRenderer:
@@ -2369,7 +2366,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DefaultDescription: "\u88AB\u5805\u786C\u7684\u6A39\u53E2\u64CB\u4F4F\u4E86\uFF0C\u5C31\u7B97\u7528\u5DE5\u5177\u4E5F\u6C92\u6CD5\u8F15\u6613\u7834\u58DE\u7684\u6A23\u5B50"
-  dialogueObject: {fileID: 0}
   closedSprite: {fileID: 21300000, guid: 7128c83b31ab827499fcf96bcc2ba5ec, type: 3}
   sound: {fileID: 8300000, guid: e4b5ca9cca67dd748bc40e047ae97a1e, type: 3}
 --- !u!1 &719233570
@@ -2522,7 +2518,7 @@ MonoBehaviour:
   id: 5ac1c210-5552-4167-a722-2c3cf55c6f08
   fencePos: {fileID: 1319089141}
   skyPos: {fileID: 2066690777}
-  flightSpeed: 9
+  flightSpeed: 11
   landDistance: 0.5
   isFlying: 0
   onFence: 1
@@ -2711,7 +2707,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DefaultDescription: "\u5DE8\u5927\u7684\u67AF\u6728\uFF0C\u9CE5\u5152\u5E38\u6703\u505C\u5728\u9019\u88E1\u4F11\u606F"
-  dialogueObject: {fileID: 0}
   axeItem: {fileID: 11400000, guid: a397d3f1d182d3d41b452f79ae99c95c, type: 2}
   id: 337f121e-01b1-4694-9445-3ac64a32b57c
   isCutDown: 0
@@ -2888,7 +2883,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DefaultDescription: "\u5DE8\u5927\u7684\u67AF\u6728\uFF0C\u9CE5\u5152\u5E38\u6703\u505C\u5728\u9019\u88E1\u4F11\u606F"
-  dialogueObject: {fileID: 0}
   axeItem: {fileID: 11400000, guid: a397d3f1d182d3d41b452f79ae99c95c, type: 2}
   id: 40471eb8-89fb-4fb8-8f4f-05237682d8f1
   isCutDown: 0
@@ -4058,7 +4052,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DefaultDescription: "\u76F8\u7576\u8001\u820A\u7684\u98A8\u8ECA\uFF0C\u611F\u89BA\u53D7\u5230\u4E00\u9EDE\u5916\u529B\u5C31\u6703\u52D5\u7684\u6A23\u5B50"
-  dialogueObject: {fileID: 0}
   animator: {fileID: 0}
   workedDescription: "\u98A8\u8ECA\u8F49\u52D5\u4E86"
   worked: 0
@@ -4344,7 +4337,7 @@ MonoBehaviour:
   id: 956a2bc9-d17f-4420-8f42-02b9e4fe61be
   fencePos: {fileID: 1490144906}
   skyPos: {fileID: 1799164727}
-  flightSpeed: 9
+  flightSpeed: 8
   landDistance: 0.5
   isFlying: 0
   onFence: 0
@@ -4809,7 +4802,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DefaultDescription: "\u4E00\u822C\u7684\u67F5\u6B04\uFF0C\u770B\u8D77\u4F86\u662F\u4E0D\u5C11\u9CE5\u5152\u7684\u843D\u8173\u8655"
-  dialogueObject: {fileID: 0}
 --- !u!50 &1816103858
 Rigidbody2D:
   serializedVersion: 4

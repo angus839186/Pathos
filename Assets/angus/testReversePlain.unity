@@ -508,7 +508,7 @@ MonoBehaviour:
   dieClip: {fileID: 32900000, guid: f2d66a78dd968684486eeca1595fe6ba, type: 3}
   pausePoints:
   - 7
-  - 11
+  - 12
   - 18
   ToBeContinued: 1
   ToBeContinueObject: {fileID: 2112024105}
