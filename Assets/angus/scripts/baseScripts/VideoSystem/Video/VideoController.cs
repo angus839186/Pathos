@@ -160,7 +160,7 @@ public class VideoController : MonoBehaviour
             Debug.Log(video.clip.length);
             yield return new WaitUntil(() => video.time >= video.clip.length - 0.1f);
 
-            video.Pause();
+            video.Stop();
             video.clip = null;
             ToggleVideoCanvas(false);
             OnVideoEnd?.Invoke();
@@ -184,7 +184,7 @@ public class VideoController : MonoBehaviour
             else
             {
                 yield return new WaitUntil(() => video.time >= video.clip.length - 0.1f);
-                video.Pause();
+                video.Stop();
                 video.clip = null;
                 ToggleVideoCanvas(false);
                 OnVideoEnd?.Invoke();
