@@ -5,50 +5,50 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Menu.unity
     guid: 098d2ad0d601e1b47a469d5c23f446b7
   - enabled: 1
-    path: "Assets/Scenes/\u8FEA\u666E\u52D2\u5343\u8349\u539F.unity"
-    guid: 0d41a3b4b4f0c6941b953bb9a14e223c
-  - enabled: 0
+    path: Assets/angus/testMenu.unity
+    guid: 29c8aa1138c19cc4ca92ee8b9790743a
+  - enabled: 1
     path: Assets/angus/testGrass.unity
     guid: 3b0f9ae72fbaa6d49951ffa0922e0810
-  - enabled: 0
+  - enabled: 1
     path: Assets/angus/testReversePlain.unity
     guid: a585005277abb004f866a706c50a03eb
   - enabled: 1
     path: Assets/angus/playerUI.unity
     guid: 59cfd36f575859e4aa3e0cda66c1d1fa
-  - enabled: 0
-    path: Assets/angus/testMenu.unity
-    guid: 29c8aa1138c19cc4ca92ee8b9790743a
   - enabled: 1
-    path: Assets/Scenes/plain_Reverse.unity
-    guid: 229940955bfa0994dbabb8057b360bc3
-  - enabled: 0
     path: Assets/angus/testPlain.unity
     guid: 1a6e21690a9ee8d48bdd9fe20fcc7f8f
-  - enabled: 0
+  - enabled: 1
     path: Assets/angus/testMusicFlower.unity
     guid: fda7ee5d51f2dbb4dbef101b423378db
-  - enabled: 0
+  - enabled: 1
     path: Assets/angus/testJungle.unity
     guid: f8cbd71d41034b6498f6a50c162fae5f
-  - enabled: 0
-    path: Assets/angus/testDoor.unity
-    guid: f84881f378f655d459276b5712502d21
-  - enabled: 0
+  - enabled: 1
     path: Assets/angus/testVillige.unity
     guid: 731f781f1ab94374fae078868a678a75
-  - enabled: 0
+  - enabled: 1
+    path: Assets/angus/testDoor.unity
+    guid: f84881f378f655d459276b5712502d21
+  - enabled: 1
     path: Assets/angus/testRoom1.unity
     guid: 0cbb0de3f87417a4d91ab7911659de72
-  - enabled: 0
+  - enabled: 1
     path: Assets/angus/testRoom2.unity
     guid: af683d382c7273b49889f82b0d500cc5
-  - enabled: 0
+  - enabled: 1
     path: Assets/angus/testVillageHeaderRoom.unity
     guid: f443ab377746a7144a65cbc8e009a519
+  - enabled: 0
+    path: "Assets/Scenes/\u8FEA\u666E\u52D2\u5343\u8349\u539F.unity"
+    guid: 0d41a3b4b4f0c6941b953bb9a14e223c
+  - enabled: 0
+    path: Assets/Scenes/plain_Reverse.unity
+    guid: 229940955bfa0994dbabb8057b360bc3
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: a71d795691aac064c964efaf81a84816, type: 2}
