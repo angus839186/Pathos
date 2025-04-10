@@ -16,15 +16,26 @@ public class GameData
     public SerializableDictionary<string, bool> ResponseEventStates;
 
     public SerializableDictionary<string,bool> sheepGotColored;
-    public bool shepherdAlreadyKnowSheepColored;
     public List<string> inventoryItemNames;
 
     public bool windmillWorked;
 
     public bool hint1;
     public bool hint2;
-
     public bool reversePlainPreviewVideoPlayed;
+
+    #region NpcData
+    public bool ColorBusinessmanGetBerry;
+    public bool ColorBusinessmanGivePlayerScissor;
+    public bool MissingVillagerGiveCrutch;
+    public bool MusicianGotMusicScore;
+    public bool ShepherdAlreadyKnowSheepColored;
+    public bool VillageHeaderGetCrutch;
+
+
+
+    #endregion
+
 
     public GameData()
     {
@@ -41,6 +52,14 @@ public class GameData
         sheepGotColored = new SerializableDictionary<string, bool>();
         inventoryItemNames = new List<string>();
         reversePlainPreviewVideoPlayed = false;
+        ShepherdAlreadyKnowSheepColored = false;
+        ColorBusinessmanGetBerry = false;
+        ColorBusinessmanGivePlayerScissor = false;
+        MissingVillagerGiveCrutch = false;
+        MusicianGotMusicScore = false;
+        VillageHeaderGetCrutch = false;
+
+
     }
 }
 

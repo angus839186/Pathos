@@ -4118,7 +4118,7 @@ MonoBehaviour:
   - 56
   - 62
   - 74
-  played: 0
+  played: 1
   startOnSceneLoad: 0
 --- !u!4 &988229058
 Transform:
@@ -6453,7 +6453,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1521370737}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 0
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
@@ -9243,14 +9243,14 @@ SceneRoots:
   - {fileID: 1435476606}
   - {fileID: 2127997579}
   - {fileID: 480416534}
+  - {fileID: 1757440404}
+  - {fileID: 321594207}
+  - {fileID: 727901104}
+  - {fileID: 1767430906}
+  - {fileID: 1521370744}
+  - {fileID: 651608610}
+  - {fileID: 1197532291}
   - {fileID: 54099423}
+  - {fileID: 988229058}
   - {fileID: 163465599}
   - {fileID: 1623079314}
-  - {fileID: 727901104}
-  - {fileID: 1197532291}
-  - {fileID: 651608610}
-  - {fileID: 1521370744}
-  - {fileID: 321594207}
-  - {fileID: 988229058}
-  - {fileID: 1767430906}
-  - {fileID: 1757440404}

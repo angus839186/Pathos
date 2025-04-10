@@ -7,6 +7,8 @@ public class VomitFlower : InteractableObject
     [SerializeField] Animator anime;
     [SerializeField] private string musicPassword;
 
+    public string answer;
+
     private bool passed;
 
     [SerializeField] GameObject Vomit;
@@ -22,6 +24,12 @@ public class VomitFlower : InteractableObject
         if (number.ToString()[0] == musicPassword[currentIndex])
         {
             currentIndex++;
+            answer += number;
+        }
+        else
+        {
+            currentIndex = 0;
+            answer = "";
         }
         if (currentIndex >= musicPassword.Length)
         {

@@ -510,7 +510,7 @@ MonoBehaviour:
   - 7
   - 12
   - 18
-  ToBeContinued: 1
+  ToBeContinued: 0
   ToBeContinueObject: {fileID: 2112024105}
   BGM: {fileID: 206464535}
 --- !u!61 &228495578
