@@ -49,7 +49,7 @@ public class Shepherd : InteractableNPC, IDataPersistence
 
     public void LoadData(GameData data)
     {
-        _shepherdAlreadyKnowSheepColored = data.shepherdAlreadyKnowSheepColored;
+        _shepherdAlreadyKnowSheepColored = data.ShepherdAlreadyKnowSheepColored;
         if (_shepherdAlreadyKnowSheepColored)
         {
             if (SceneManager.GetActiveScene().name == jungleScene)
@@ -82,6 +82,6 @@ public class Shepherd : InteractableNPC, IDataPersistence
 
     public void SaveData(ref GameData data)
     {
-        data.shepherdAlreadyKnowSheepColored = _shepherdAlreadyKnowSheepColored;
+        data.ShepherdAlreadyKnowSheepColored = _shepherdAlreadyKnowSheepColored;
     }
 }
