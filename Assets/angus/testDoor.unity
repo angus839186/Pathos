@@ -568,6 +568,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1795422288}
+  - {fileID: 1595753539}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &303517781
@@ -2146,6 +2147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueObject: {fileID: 11400000, guid: 6df6c751d8fa50048b8e1cb2fb21a309, type: 2}
+  seePendant: 0
   pendantItem: {fileID: 11400000, guid: 66215762b063acb4c9690e33c9bf78d0, type: 2}
   GetPendantDialogue: {fileID: 11400000, guid: 6df6c751d8fa50048b8e1cb2fb21a309, type: 2}
   NormalDialogue: {fileID: 11400000, guid: f490f6b8e54355b4a998689305a3f39d, type: 2}
@@ -2822,11 +2824,11 @@ Transform:
   m_GameObject: {fileID: 1595753535}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.94, y: -6.38, z: 0}
+  m_LocalPosition: {x: -2.875576, y: -6.6869597, z: 0.09482882}
   m_LocalScale: {x: 0.80745, y: 0.80745, z: 0.80745}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 261661950}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1652711743
 GameObject:
@@ -3748,7 +3750,6 @@ SceneRoots:
   - {fileID: 1768069594}
   - {fileID: 500685742}
   - {fileID: 261661950}
-  - {fileID: 1595753539}
   - {fileID: 1789520678}
   - {fileID: 716634571}
   - {fileID: 2069918053}

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class VillageHeader : InteractableNPC
+public class VillageHeader : InteractableNPC, IDataPersistence
 {
     public Item crutchItem;
 
@@ -31,5 +31,15 @@ public class VillageHeader : InteractableNPC
         {
             return endingDialogue;
         }
+    }
+
+    public void LoadData(GameData data)
+    {
+        getCrutch = data.VillageHeaderGetCrutch;
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        data.VillageHeaderGetCrutch = getCrutch;
     }
 }

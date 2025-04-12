@@ -50,9 +50,10 @@ public class Sheep : InteractableObject, IDataPersistence
 
     public override void Interact()
     {
-        Hotbar hotbar = Hotbar.Instance;
-        if (hotbar.mainItem != null || hotbar.mainItem != coloredItem) return;
-        GetColored();
+        if(CheckItemOnPlayer(coloredItem) != null)
+        {
+            GetColored();
+        }
 
     }
 
@@ -64,6 +65,7 @@ public class Sheep : InteractableObject, IDataPersistence
     void GetColored()
     {
         if (colored) return;
+        RemoveItem(coloredItem);
         colored = true;
         anime.SetBool("colored", colored);
     }
