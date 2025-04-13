@@ -1062,7 +1062,7 @@ GameObject:
   - component: {fileID: 1503422865}
   - component: {fileID: 1503422866}
   m_Layer: 0
-  m_Name: "\u66F8\u6AC3(\u89F8\u767C\u7BC4\u570D)"
+  m_Name: "\u66F8\u6AC3"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1141,6 +1141,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueObject: {fileID: 11400000, guid: 916cfe3878385ef489595fdb326aa706, type: 2}
+--- !u!114 &1503422866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1503422862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b7715cf4040a1945a02a0e716bfae14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueObject: {fileID: 11400000, guid: 916cfe3878385ef489595fdb326aa706, type: 2}
+  events:
+  - name: "\u7D05\u8272\u66F8"
+    onPickedResponse:
+      m_PersistentCalls:
+        m_Calls: []
+    responseCategory: 0
+  - name: "\u85CD\u8272\u66F8"
+    onPickedResponse:
+      m_PersistentCalls:
+        m_Calls: []
+    responseCategory: 0
+  - name: "\u9EC3\u8272\u66F8"
+    onPickedResponse:
+      m_PersistentCalls:
+        m_Calls: []
+    responseCategory: 0
 --- !u!1 &1544462559
 GameObject:
   m_ObjectHideFlags: 0
