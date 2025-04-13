@@ -45,7 +45,7 @@ public class ForestDoor : InteractableObject, IDataPersistence
 
     public void LoadData(GameData data)
     {
-        data.ForestDoorOpen = ForestDoorOpen;
+        ForestDoorOpen = data.ForestDoorOpen;
         if (ForestDoorOpen)
         {
             Open();
@@ -59,6 +59,6 @@ public class ForestDoor : InteractableObject, IDataPersistence
 
     public void SaveData(ref GameData data)
     {
-        ForestDoorOpen = data.ForestDoorOpen;
+        data.ForestDoorOpen = ForestDoorOpen;
     }
 }
