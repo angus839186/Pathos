@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ForestDoor : InteractableObject
+public class ForestDoor : InteractableObject, IDataPersistence
 {
     public Animator anime;
 
@@ -41,5 +41,24 @@ public class ForestDoor : InteractableObject
         ForestDoorOpen = true;
         AudioManager.instance.PlaySound(sound);
         
+    }
+
+    public void LoadData(GameData data)
+    {
+        data.ForestDoorOpen = ForestDoorOpen;
+        if (ForestDoorOpen)
+        {
+            Open();
+        }
+        else
+        {
+            BoxCollider2D collider = GetComponent<BoxCollider2D>();
+            collider.enabled = false;
+        }
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        ForestDoorOpen = data.ForestDoorOpen;
     }
 }

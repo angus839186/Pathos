@@ -2146,11 +2146,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c80375c22d3da1469eda08a4e9a28af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueObject: {fileID: 11400000, guid: 6df6c751d8fa50048b8e1cb2fb21a309, type: 2}
+  dialogueObject: {fileID: 0}
   seePendant: 0
   pendantItem: {fileID: 11400000, guid: 66215762b063acb4c9690e33c9bf78d0, type: 2}
-  GetPendantDialogue: {fileID: 11400000, guid: 6df6c751d8fa50048b8e1cb2fb21a309, type: 2}
-  NormalDialogue: {fileID: 11400000, guid: f490f6b8e54355b4a998689305a3f39d, type: 2}
+  GetPendantDialogue: {fileID: 11400000, guid: f490f6b8e54355b4a998689305a3f39d, type: 2}
+  NormalDialogue: {fileID: 11400000, guid: 6df6c751d8fa50048b8e1cb2fb21a309, type: 2}
 --- !u!114 &1256969789
 MonoBehaviour:
   m_ObjectHideFlags: 0
