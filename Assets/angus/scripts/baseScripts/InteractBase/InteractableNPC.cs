@@ -98,6 +98,15 @@ public abstract class InteractableNPC : MonoBehaviour, IInteractable
         }
     }
 
+    public virtual void ToggleMissingVillager(bool toggle)
+    {
+        if (responseEventManager != null)
+        {
+            responseEventManager.SetResponseTypeState(ResponseEventType.失蹤村民, toggle);
+            Debug.Log("失蹤村民任務已更新。");
+        }
+    }
+
 
     public virtual DialogueObject GetDialogue()
     {

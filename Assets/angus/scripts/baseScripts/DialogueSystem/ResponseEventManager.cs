@@ -9,6 +9,7 @@ public enum ResponseEventType
     樂譜,
     樂手表演,
     音樂花,
+    失蹤村民,
     
 }
 
