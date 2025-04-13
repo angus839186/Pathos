@@ -1549,12 +1549,12 @@ MonoBehaviour:
     onPickedResponse:
       m_PersistentCalls:
         m_Calls: []
-    responseCategory: 0
+    responseCategory: 1
   - name: "\u6A02\u8B5C"
     onPickedResponse:
       m_PersistentCalls:
         m_Calls: []
-    responseCategory: 0
+    responseCategory: 2
 --- !u!1 &935490033
 GameObject:
   m_ObjectHideFlags: 0
@@ -2205,12 +2205,12 @@ MonoBehaviour:
     onPickedResponse:
       m_PersistentCalls:
         m_Calls: []
-    responseCategory: 0
+    responseCategory: 1
   - name: "\u6A02\u8B5C"
     onPickedResponse:
       m_PersistentCalls:
         m_Calls: []
-    responseCategory: 0
+    responseCategory: 2
 --- !u!1 &1274445121
 GameObject:
   m_ObjectHideFlags: 0
