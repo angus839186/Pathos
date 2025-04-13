@@ -32,6 +32,8 @@ public class GameData
     public bool ShepherdAlreadyKnowSheepColored;
     public bool VillageHeaderGetCrutch;
 
+    public bool GateKeeperSeePendant;
+
 
 
     #endregion
@@ -51,6 +53,8 @@ public class GameData
         ResponseEventStates = new SerializableDictionary<string, bool>();
         sheepGotColored = new SerializableDictionary<string, bool>();
         inventoryItemNames = new List<string>();
+
+
         reversePlainPreviewVideoPlayed = false;
         ShepherdAlreadyKnowSheepColored = false;
         ColorBusinessmanGetBerry = false;
@@ -58,6 +62,7 @@ public class GameData
         MissingVillagerGiveCrutch = false;
         MusicianGotMusicScore = false;
         VillageHeaderGetCrutch = false;
+        GateKeeperSeePendant = false;
 
 
     }

@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ColorBusinessman : InteractableNPC
+public class ColorBusinessman : InteractableNPC, IDataPersistence
 {
-    public bool gotBerry;
+    public bool getBerry;
     public bool givePlayerScissorItem;
 
     public Item berryItem;
@@ -18,7 +18,7 @@ public class ColorBusinessman : InteractableNPC
 
     public override DialogueObject GetDialogue()
     {
-        if (gotBerry)
+        if (getBerry)
         {
             return afterTakeBerryDialogue;
         }
@@ -42,12 +42,24 @@ public class ColorBusinessman : InteractableNPC
         }
     }
 
+    public void LoadData(GameData data)
+    {
+        givePlayerScissorItem = data.ColorBusinessmanGivePlayerScissor;
+        getBerry = data.ColorBusinessmanGetBerry;
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        data.ColorBusinessmanGivePlayerScissor = givePlayerScissorItem;
+        data.ColorBusinessmanGetBerry = getBerry;
+    }
+
     public void ToggleGivePlayerScissor(bool toggle)
     {
         givePlayerScissorItem = toggle;
     }
     public void ToggleGotBerry(bool toggle)
     {
-        gotBerry = toggle;
+        getBerry = toggle;
     }
 }
