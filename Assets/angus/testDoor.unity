@@ -1338,7 +1338,6 @@ GameObject:
   - component: {fileID: 934150650}
   - component: {fileID: 934150654}
   - component: {fileID: 934150655}
-  - component: {fileID: 934150656}
   m_Layer: 0
   m_Name: "\u7267\u7F8A\u4EBA"
   m_TagString: Untagged
@@ -1526,35 +1525,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueObject: {fileID: 11400000, guid: 835364c710722ce49b99a005077a586a, type: 2}
   events: []
---- !u!114 &934150656
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 934150648}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b7715cf4040a1945a02a0e716bfae14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogueObject: {fileID: 11400000, guid: f448ab46cb7b4f44bb81ca84fa728cc6, type: 2}
-  events:
-  - name: "\u5931\u8E64\u6751\u6C11"
-    onPickedResponse:
-      m_PersistentCalls:
-        m_Calls: []
-    responseCategory: 0
-  - name: "\u62D0\u6756"
-    onPickedResponse:
-      m_PersistentCalls:
-        m_Calls: []
-    responseCategory: 0
-  - name: "\u6A02\u8B5C"
-    onPickedResponse:
-      m_PersistentCalls:
-        m_Calls: []
-    responseCategory: 0
 --- !u!1 &935490033
 GameObject:
   m_ObjectHideFlags: 0
