@@ -24,6 +24,8 @@ public class GameData
     public bool hint2;
     public bool reversePlainPreviewVideoPlayed;
 
+    public bool ForestDoorOpen;
+
     #region NpcData
     public bool ColorBusinessmanGetBerry;
     public bool ColorBusinessmanGivePlayerScissor;
@@ -63,6 +65,7 @@ public class GameData
         MusicianGotMusicScore = false;
         VillageHeaderGetCrutch = false;
         GateKeeperSeePendant = false;
+        ForestDoorOpen = false;
 
 
     }
