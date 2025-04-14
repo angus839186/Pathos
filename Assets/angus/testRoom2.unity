@@ -901,17 +901,17 @@ MonoBehaviour:
     onPickedResponse:
       m_PersistentCalls:
         m_Calls: []
-    responseCategory: 0
+    responseCategory: 5
   - name: "\u62D0\u6756"
     onPickedResponse:
       m_PersistentCalls:
         m_Calls: []
-    responseCategory: 0
+    responseCategory: 1
   - name: "\u6A02\u8B5C"
     onPickedResponse:
       m_PersistentCalls:
         m_Calls: []
-    responseCategory: 0
+    responseCategory: 2
 --- !u!114 &768103930
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2184,7 +2184,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueObject: {fileID: 0}
-  gotBerry: 0
+  getBerry: 0
   givePlayerScissorItem: 0
   berryItem: {fileID: 11400000, guid: 0b5b523777c864442ae469d03c57e741, type: 2}
   ScissorItem: {fileID: 11400000, guid: b31aa000d9529d4418ac1bf66f91d351, type: 2}

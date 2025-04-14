@@ -2617,17 +2617,17 @@ MonoBehaviour:
     onPickedResponse:
       m_PersistentCalls:
         m_Calls: []
-    responseCategory: 0
+    responseCategory: 5
   - name: "\u62D0\u6756"
     onPickedResponse:
       m_PersistentCalls:
         m_Calls: []
-    responseCategory: 0
+    responseCategory: 1
   - name: "\u6A02\u8B5C"
     onPickedResponse:
       m_PersistentCalls:
         m_Calls: []
-    responseCategory: 0
+    responseCategory: 2
 --- !u!1 &1473590287
 GameObject:
   m_ObjectHideFlags: 0
