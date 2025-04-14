@@ -6,10 +6,12 @@ public abstract class InteractableNPC : MonoBehaviour, IInteractable
 {
     public DialogueObject dialogueObject;
     private ResponseEventManager responseEventManager;
+    private ResponseHandler responseHandler;
 
     void Awake()
     {
         responseEventManager = FindObjectOfType<ResponseEventManager>();
+        responseHandler = FindObjectOfType<ResponseHandler>();
     }
 
     public virtual string GetDescription(Item heldItem)
@@ -23,16 +25,10 @@ public abstract class InteractableNPC : MonoBehaviour, IInteractable
     }
     public virtual void Interact()
     {
+        responseHandler.Npc = this;
         UpdateDialogueObject(GetDialogue());
         Debug.Log(GetDialogue().name);
-        foreach (DialogueResponseEvents responseEvents in GetComponents<DialogueResponseEvents>())
-        {
-            if (responseEvents.DialogueObject == dialogueObject)
-            {
-                DialogueUI.Instance.AddResponseEvents(responseEvents.Events);
-                break;
-            }
-        }
+        GetNewResponseEvent(GetDialogue());
 
         DialogueUI.Instance.ShowDialogue(dialogueObject);
     }
@@ -111,5 +107,17 @@ public abstract class InteractableNPC : MonoBehaviour, IInteractable
     public virtual DialogueObject GetDialogue()
     {
         return dialogueObject;
+    }
+
+    public void GetNewResponseEvent(DialogueObject dialogueObject)
+    {
+        foreach (DialogueResponseEvents responseEvents in GetComponents<DialogueResponseEvents>())
+        {
+            if (responseEvents.DialogueObject == dialogueObject)
+            {
+                DialogueUI.Instance.AddResponseEvents(responseEvents.Events);
+                break;
+            }
+        }
     }
 }

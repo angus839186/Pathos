@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using System;
 
 public class ResponseHandler : MonoBehaviour
 {
@@ -11,11 +12,13 @@ public class ResponseHandler : MonoBehaviour
     [SerializeField] private RectTransform responseContainer;
 
     private DialogueUI dialogueUI;
-    private ResponseEvent[] responseEvents;
+    [SerializeField] private ResponseEvent[] responseEvents;
 
     private List<GameObject> tempResponseButtons = new List<GameObject>();
 
     public ResponseEventManager responseEventManager;
+
+    public InteractableNPC Npc;
 
     void Start()
     {
@@ -26,6 +29,7 @@ public class ResponseHandler : MonoBehaviour
     public void AddResponseEvents(ResponseEvent[] responseEvents)
     {
         this.responseEvents = responseEvents;
+        Debug.Log(this.responseEvents);
     }
     public void ShowResponses(Response[] responses)
     {
@@ -75,10 +79,12 @@ public class ResponseHandler : MonoBehaviour
         if (response.DialogueObject)
         {
             dialogueUI.ShowDialogue(response.DialogueObject);
+            Npc.GetNewResponseEvent(response.DialogueObject);
         }
         else
         {
             dialogueUI.CloseDialogueBox();
+            Npc = null;
         }
     }
 

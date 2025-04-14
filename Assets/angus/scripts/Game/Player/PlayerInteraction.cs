@@ -10,7 +10,7 @@ public class PlayerInteraction : MonoBehaviour
     // 用來顯示互動提示的 UI Text
     public GameObject interactHint;
 
-    private IInteractable currentInteractable;
+    public IInteractable currentInteractable;
 
     public float interactInput;
 

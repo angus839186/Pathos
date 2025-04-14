@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.InputSystem.Interactions;
+using Unity.VisualScripting;
 
 public class BackpackUIManager : MonoBehaviour
 {
@@ -132,7 +133,14 @@ public class BackpackUIManager : MonoBehaviour
         {
             Image[] images = bagSlots[i].GetComponentsInChildren<Image>();
             Image childImage = images[1];
-            childImage.sprite = inventory.items[i].item.icon;
+            if(inventory.items[i].item.icon == null)
+            {
+                childImage.sprite = null;
+            }
+            else
+            {
+                childImage.sprite = inventory.items[i].item.icon;   
+            }
         }
     }
 
