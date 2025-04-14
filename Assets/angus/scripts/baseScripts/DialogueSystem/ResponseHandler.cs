@@ -29,12 +29,11 @@ public class ResponseHandler : MonoBehaviour
     }
     public void ShowResponses(Response[] responses)
     {
-        Debug.Log(responses.Length);
         float responseBoxHeight = 0;
 
         for (int i = 0; i < responses.Length; i++)
         {
-            if (i < responseEvents.Length)
+            if (responseEvents != null && i < responseEvents.Length)
             {
                 var category = responseEvents[i].ResponseCategory;
                 if (category != ResponseEventType.基本 && !responseEventManager.IsResponseTypeEnabled(category))
