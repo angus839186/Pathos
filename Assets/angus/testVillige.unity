@@ -597,6 +597,11 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     responseCategory: 2
+  - name: "\u7D50\u675F\u5C0D\u8A71"
+    onPickedResponse:
+      m_PersistentCalls:
+        m_Calls: []
+    responseCategory: 0
 --- !u!1 &270945739
 GameObject:
   m_ObjectHideFlags: 0
@@ -1676,6 +1681,7 @@ GameObject:
   - component: {fileID: 1116660745}
   - component: {fileID: 1116660746}
   - component: {fileID: 1116660747}
+  - component: {fileID: 1116660748}
   m_Layer: 0
   m_Name: "\u7169\u60F1\u6751\u6C11"
   m_TagString: Untagged
@@ -1846,6 +1852,30 @@ MonoBehaviour:
   - name: "\u9EDE\u982D"
     onPickedResponse:
       m_PersistentCalls:
+        m_Calls: []
+    responseCategory: 0
+  - name: "\u6416\u982D"
+    onPickedResponse:
+      m_PersistentCalls:
+        m_Calls: []
+    responseCategory: 0
+--- !u!114 &1116660748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1116660741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b7715cf4040a1945a02a0e716bfae14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueObject: {fileID: 11400000, guid: 7a62a9c90fa98404d8173df6a0333a4e, type: 2}
+  events:
+  - name: "\u6211\u6703\u7684"
+    onPickedResponse:
+      m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 1592691812}
           m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
@@ -1871,11 +1901,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-    responseCategory: 0
-  - name: "\u6416\u982D"
-    onPickedResponse:
-      m_PersistentCalls:
-        m_Calls: []
     responseCategory: 0
 --- !u!1 &1118647424
 GameObject:
@@ -3315,6 +3340,11 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     responseCategory: 2
+  - name: "\u7D50\u675F\u5C0D\u8A71"
+    onPickedResponse:
+      m_PersistentCalls:
+        m_Calls: []
+    responseCategory: 0
 --- !u!1 &1907952830
 GameObject:
   m_ObjectHideFlags: 0

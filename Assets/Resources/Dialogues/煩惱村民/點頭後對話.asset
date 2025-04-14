@@ -19,4 +19,6 @@ MonoBehaviour:
   - "\u6211\u627E\u904D\u4E86\u9019\u9644\u8FD1\u5B8C\u5168\u90FD\u6C92\u6709\u770B\u5230\u7260......\u55DA\u55DA\u55DA......"
   - "\u4E0D\u904E\u8B1B\u51FA\u4F86\u597D\u591A\u4E86......\u8B1D\u8B1D\u4F60\uFF0C\u4E0D\u904E\u8981\u5E6B\u6211\u4FDD\u5BC6\u54E6\u3002"
   playertalk: 00000000
-  responses: []
+  responses:
+  - responseText: "\u6211\u6703\u7684"
+    dialogueObject: {fileID: 0}
