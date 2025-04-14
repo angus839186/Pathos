@@ -172,6 +172,7 @@ public class GameManager : MonoBehaviour
         SetCamera = false;
         SceneManager.LoadScene(menuScene);
         MainMenu.Instance.ToggleCanvasGroup(true);
+        DataPersistenceManager.Instance.gameData = null;
         PlayerInputManager.Instance.SwitchActionMap("MainMenu");
     }
 }

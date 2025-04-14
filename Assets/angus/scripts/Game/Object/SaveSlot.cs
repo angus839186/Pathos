@@ -38,7 +38,7 @@ public class SaveSlot : MonoBehaviour
         }
         gameData = data;
         this.sceneName = "場景: " + data.currentScene;
-        this.gameTime = "遊玩時間: " + data.gameTime.ToString() + "秒";
+        this.gameTime = "遊玩時間: " + CalculateGameTime(data.gameTime);
         if(SaveFileMenu.Instance.sceneSprites.ContainsKey(data.currentScene))
         {
             this.sceneImage.sprite = SaveFileMenu.Instance.sceneSprites[data.currentScene];
@@ -47,5 +47,19 @@ public class SaveSlot : MonoBehaviour
         {
             this.sceneImage.sprite = DefaultSprite;
         }
+    }
+
+    public string CalculateGameTime(float gameTime)
+    {
+        // 將累計的時間轉換成整數秒數
+        int totalSeconds = Mathf.FloorToInt(gameTime);
+
+        // 計算時、分、秒
+        int hours = totalSeconds / 3600;
+        int minutes = (totalSeconds % 3600) / 60;
+        int seconds = totalSeconds % 60;
+
+
+        return string.Format("{0:D2}時:{1:D2}分:{2:D2}秒", hours, minutes, seconds);
     }
 }

@@ -2628,6 +2628,11 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     responseCategory: 2
+  - name: "\u7D50\u675F\u5C0D\u8A71"
+    onPickedResponse:
+      m_PersistentCalls:
+        m_Calls: []
+    responseCategory: 0
 --- !u!1 &1473590287
 GameObject:
   m_ObjectHideFlags: 0
