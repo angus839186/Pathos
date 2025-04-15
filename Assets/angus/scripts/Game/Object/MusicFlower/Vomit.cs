@@ -10,6 +10,8 @@ public class Vomit : InteractableObject
 
     [SerializeField] SpriteRenderer vomitSprite;
 
+    public AudioClip vomitSound;
+
     private int MaxCleanIndex = 3;
 
     [SerializeField] private GameObject missingVillager;
@@ -35,6 +37,7 @@ public class Vomit : InteractableObject
     void cleanVomit()
     {
         cleanIndex++;
+        AudioManager.instance.PlaySound(vomitSound);
         if(cleanIndex >= MaxCleanIndex)
         {
             missingVillager.SetActive(true);

@@ -11,7 +11,7 @@ public class BackpackUIManager : MonoBehaviour
     public static BackpackUIManager Instance;
     [Header("UI 參考")]
     public CanvasGroup backpackPanel;
-    public List<Image> bagSlots;
+    public List<BagSlotUI> bagSlots;
 
     public Image displayImage;
     public Text itemName;
@@ -73,6 +73,7 @@ public class BackpackUIManager : MonoBehaviour
         backpackPanel.interactable = true;
         backpackPanel.blocksRaycasts = true;
         playerInput.SwitchActionMap("Backpack");
+        currentIndex = 0;
         UpdateItemSlots();
         showItemDetail();
     }
@@ -127,19 +128,16 @@ public class BackpackUIManager : MonoBehaviour
     //更新物品欄物品圖案
     void UpdateItemSlotsSprite()
     {
-        if (inventory.items.Count <= 0)
-            return;
-        for (int i = 0; i < inventory.items.Count; i++)
+        for (int i = 0; i < bagSlots.Count; i++)
         {
-            Image[] images = bagSlots[i].GetComponentsInChildren<Image>();
-            Image childImage = images[1];
-            if(inventory.items[i].item.icon == null)
+            Image iconImage = bagSlots[i].iconImage;
+            if (i >= inventory.items.Count)
             {
-                childImage.sprite = null;
+                iconImage.sprite = noneSprite;
             }
             else
             {
-                childImage.sprite = inventory.items[i].item.icon;   
+                iconImage.sprite = inventory.items[i].item.icon;
             }
         }
     }
@@ -149,18 +147,17 @@ public class BackpackUIManager : MonoBehaviour
     {
         for (int i = 0; i < bagSlots.Count; i++)
         {
-            Image slotImage = bagSlots[i];
-            Image[] images = bagSlots[i].GetComponentsInChildren<Image>();
-            Image childImage = images[1];
+            Image slotImage = bagSlots[i].backgroundImage;
+            Image iconImage = bagSlots[i].iconImage;
 
             slotImage.sprite = currentSelectSprite;
             slotImage.color = new Color(1, 1, 1, 1);
-            childImage.color = new Color(1, 1, 1, 1);
+            iconImage.color = new Color(1, 1, 1, 1);
             if (i == currentIndex)
             {
                 slotImage.sprite = currentSelectSprite;
                 slotImage.color = new Color(1, 1, 1, 0);
-                childImage.color = new Color(1, 1, 1, 0);
+                iconImage.color = new Color(1, 1, 1, 0);
             }
 
             int previous = currentIndex - 1;
@@ -181,7 +178,7 @@ public class BackpackUIManager : MonoBehaviour
 
     public void showItemDetail()
     {
-        if (inventory.items.Count <= 0)
+        if (inventory.items.Count <= 0 || currentIndex >= inventory.items.Count)
         {
             displayImage.sprite = noneSprite;
             itemName.text = "";
@@ -207,4 +204,11 @@ public class BackpackUIManager : MonoBehaviour
         CloseBackpack();
         isBackpackOpen = false;
     }
+}
+
+[System.Serializable]
+public class BagSlotUI
+{
+    public Image backgroundImage;  // 背景圖片
+    public Image iconImage;        // 道具圖示
 }

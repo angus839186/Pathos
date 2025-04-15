@@ -11,6 +11,8 @@ public class VomitFlower : InteractableObject
 
     private bool passed;
 
+    public AudioClip flowerBruhSound;
+
     [SerializeField] GameObject Vomit;
      private int currentIndex;
     void Start()
@@ -34,6 +36,7 @@ public class VomitFlower : InteractableObject
         if (currentIndex >= musicPassword.Length)
         {
             anime.SetTrigger("Vomit");
+            AudioManager.instance.PlaySound(flowerBruhSound);
             passed = true;
         }
     }

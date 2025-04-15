@@ -161,9 +161,9 @@ public class Bird : MonoBehaviour, IDataPersistence
     {
         if (!OriginOnFence)
         {
-            data.birdsFlied.TryGetValue(id, out onFence);
+            data.bridsOnFence.TryGetValue(id, out onFence);
         }
-        data.bridsOnFence.TryGetValue(id, out flyToSky);
+        data.birdsFlied.TryGetValue(id, out flyToSky);
 
         if (flyToSky)
         {

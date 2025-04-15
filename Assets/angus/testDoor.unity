@@ -1373,6 +1373,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueObject: {fileID: 0}
+  InteractSound: {fileID: 8300000, guid: fd101c5d63e664b4eaedf73e9434d7d6, type: 3}
   jungleScene: testJungle
   doorScene: testDoor
   _shepherdAlreadyKnowSheepColored: 0
@@ -2117,6 +2118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueObject: {fileID: 0}
+  InteractSound: {fileID: 8300000, guid: ac11f34dc16ef874090f5284a36f9a3a, type: 3}
   seePendant: 0
   pendantItem: {fileID: 11400000, guid: 66215762b063acb4c9690e33c9bf78d0, type: 2}
   GetPendantDialogue: {fileID: 11400000, guid: f490f6b8e54355b4a998689305a3f39d, type: 2}
@@ -2181,6 +2183,11 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     responseCategory: 2
+  - name: "\u7D50\u675F\u5C0D\u8A71"
+    onPickedResponse:
+      m_PersistentCalls:
+        m_Calls: []
+    responseCategory: 0
 --- !u!1 &1274445121
 GameObject:
   m_ObjectHideFlags: 0

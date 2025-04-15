@@ -29,11 +29,21 @@ public class Sheep : InteractableObject, IDataPersistence
 
     private SpriteRenderer spriteRenderer;
 
+    public bool playSound;
+
+    public AudioClip[] sheepSounds;
+
+    public AudioClip coloredSound;
+
     void Start()
     {
         anime = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         StartCoroutine(RandomWalk());
+        if(playSound)
+        {
+            StartCoroutine(RandomSheepSound());
+        }
     }
 
     public override string GetDescription(Item heldItem)
@@ -65,6 +75,7 @@ public class Sheep : InteractableObject, IDataPersistence
     void GetColored()
     {
         if (colored) return;
+        AudioManager.instance.PlaySound(coloredSound);
         RemoveItem(coloredItem);
         colored = true;
         anime.SetBool("colored", colored);
@@ -76,6 +87,18 @@ public class Sheep : InteractableObject, IDataPersistence
             spriteRenderer.flipX = false;
         else if (direction.x > 0)
             spriteRenderer.flipX = true;
+    }
+
+    public IEnumerator RandomSheepSound()
+    {
+        while(true)
+        {
+            float waitTime = Random.Range(5f, 8f);
+            AudioClip sheepSoundClip = sheepSounds[Random.Range(0, sheepSounds.Length-1)];
+            yield return new WaitForSeconds(waitTime);
+            
+            AudioManager.instance.PlaySound(sheepSoundClip);
+        }
     }
     public IEnumerator RandomWalk()
     {

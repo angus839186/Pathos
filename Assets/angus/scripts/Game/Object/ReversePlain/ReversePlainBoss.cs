@@ -189,6 +189,7 @@ public class ReversePlainBoss : InteractableObject
 
     public void DieVideo()
     {
+        FindObjectOfType<PlayerHealth>().Recover();
         BGM.Pause();
         VideoController.Instance.OnVideoEnd += Die;
         VideoController.Instance.GetVideo(dieClip, pausePoints);

@@ -14,6 +14,8 @@ public class Berry : InteractableObject
 
     [SerializeField] private Item axeItem;
 
+    public AudioClip takeBerrySound;
+
     void Start()
     {
         berryTreeAnime = GetComponent<Animator>();
@@ -48,6 +50,7 @@ public class Berry : InteractableObject
         cutAnimationObject.SetActive(true);
         Animator anime = cutAnimationObject.GetComponent<Animator>();
         anime.SetTrigger("cut");
+        AudioManager.instance.PlaySound(takeBerrySound);
         PlayerInteraction playerInteract = FindObjectOfType<PlayerInteraction>();
         playerInteract.ToggleInteractingAnimation(true);
         gameObject.GetComponent<BoxCollider2D>().enabled = false;

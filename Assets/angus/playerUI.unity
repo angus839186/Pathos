@@ -351,7 +351,7 @@ GameObject:
   - component: {fileID: 179660298}
   - component: {fileID: 179660297}
   m_Layer: 5
-  m_Name: itemSprite
+  m_Name: iconImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1561,7 +1561,7 @@ GameObject:
   - component: {fileID: 452756644}
   - component: {fileID: 452756643}
   m_Layer: 5
-  m_Name: itemSprite
+  m_Name: iconImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1990,7 +1990,7 @@ GameObject:
   - component: {fileID: 579401881}
   - component: {fileID: 579401880}
   m_Layer: 5
-  m_Name: itemSprite
+  m_Name: iconImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2301,14 +2301,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   backpackPanel: {fileID: 629757888}
   bagSlots:
-  - {fileID: 1590426102}
-  - {fileID: 1192423061}
-  - {fileID: 1961465220}
-  - {fileID: 1955737019}
-  - {fileID: 1277579395}
-  - {fileID: 1232653837}
-  - {fileID: 1502737320}
-  - {fileID: 1706853409}
+  - backgroundImage: {fileID: 1590426102}
+    iconImage: {fileID: 1714830635}
+  - backgroundImage: {fileID: 1192423061}
+    iconImage: {fileID: 579401880}
+  - backgroundImage: {fileID: 1961465220}
+    iconImage: {fileID: 179660297}
+  - backgroundImage: {fileID: 1955737019}
+    iconImage: {fileID: 2065019984}
+  - backgroundImage: {fileID: 1277579395}
+    iconImage: {fileID: 452756643}
+  - backgroundImage: {fileID: 1232653837}
+    iconImage: {fileID: 1485693237}
+  - backgroundImage: {fileID: 1502737320}
+    iconImage: {fileID: 1802966034}
+  - backgroundImage: {fileID: 1706853409}
+    iconImage: {fileID: 1800726886}
   displayImage: {fileID: 174524022}
   itemName: {fileID: 271245204}
   itemDescription: {fileID: 231254885}
@@ -3796,7 +3804,7 @@ GameObject:
   - component: {fileID: 1192423060}
   - component: {fileID: 1192423061}
   m_Layer: 5
-  m_Name: itemSlot
+  m_Name: SlotImage
   m_TagString: itemSlots
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3872,7 +3880,7 @@ GameObject:
   - component: {fileID: 1232653836}
   - component: {fileID: 1232653837}
   m_Layer: 5
-  m_Name: itemSlot
+  m_Name: SlotImage
   m_TagString: itemSlots
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4122,7 +4130,7 @@ GameObject:
   - component: {fileID: 1277579394}
   - component: {fileID: 1277579395}
   m_Layer: 5
-  m_Name: itemSlot
+  m_Name: SlotImage
   m_TagString: itemSlots
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4587,7 +4595,7 @@ GameObject:
   - component: {fileID: 1485693238}
   - component: {fileID: 1485693237}
   m_Layer: 5
-  m_Name: itemSprite
+  m_Name: iconImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4662,7 +4670,7 @@ GameObject:
   - component: {fileID: 1502737319}
   - component: {fileID: 1502737320}
   m_Layer: 5
-  m_Name: itemSlot
+  m_Name: SlotImage
   m_TagString: itemSlots
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4888,7 +4896,7 @@ GameObject:
   - component: {fileID: 1590426101}
   - component: {fileID: 1590426102}
   m_Layer: 5
-  m_Name: itemSlot
+  m_Name: SlotImage
   m_TagString: itemSlots
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5097,7 +5105,7 @@ GameObject:
   - component: {fileID: 1706853410}
   - component: {fileID: 1706853409}
   m_Layer: 5
-  m_Name: itemSlot
+  m_Name: SlotImage
   m_TagString: itemSlots
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5173,7 +5181,7 @@ GameObject:
   - component: {fileID: 1714830636}
   - component: {fileID: 1714830635}
   m_Layer: 5
-  m_Name: itemSprite
+  m_Name: iconImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5327,7 +5335,7 @@ GameObject:
   - component: {fileID: 1800726887}
   - component: {fileID: 1800726886}
   m_Layer: 5
-  m_Name: itemSprite
+  m_Name: iconImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5402,7 +5410,7 @@ GameObject:
   - component: {fileID: 1802966035}
   - component: {fileID: 1802966034}
   m_Layer: 5
-  m_Name: itemSprite
+  m_Name: iconImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5764,7 +5772,7 @@ GameObject:
   - component: {fileID: 1955737018}
   - component: {fileID: 1955737019}
   m_Layer: 5
-  m_Name: itemSlot
+  m_Name: SlotImage
   m_TagString: itemSlots
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5840,7 +5848,7 @@ GameObject:
   - component: {fileID: 1961465219}
   - component: {fileID: 1961465220}
   m_Layer: 5
-  m_Name: itemSlot
+  m_Name: SlotImage
   m_TagString: itemSlots
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5916,7 +5924,7 @@ GameObject:
   - component: {fileID: 2065019985}
   - component: {fileID: 2065019984}
   m_Layer: 5
-  m_Name: itemSprite
+  m_Name: iconImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

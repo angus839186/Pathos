@@ -210,7 +210,6 @@ MonoBehaviour:
   walkSound: {fileID: 8300000, guid: 95c0836c6298ba849a6392ce7ac6199d, type: 3}
   runSound: {fileID: 8300000, guid: fc5836a768f3e334981be5ceb0576f0c, type: 3}
   jumpSound: {fileID: 8300000, guid: f0131d5c84f8bbd4a848ce3d34f6df78, type: 3}
-  dialogueUI: {fileID: 0}
 --- !u!114 &3840540949332431274
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -253,7 +252,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 3
-  heartBreakSound: {fileID: 8300000, guid: 62b2c91e39cd5ba49abdcbacbdd77c36, type: 3}
+  heartBreakSound: {fileID: 8300000, guid: 1fc4255e0dc86df4899b8ad414090248, type: 3}
+  injuredSound: {fileID: 8300000, guid: 62b2c91e39cd5ba49abdcbacbdd77c36, type: 3}
 --- !u!82 &1269543537506275475
 AudioSource:
   m_ObjectHideFlags: 0
