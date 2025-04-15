@@ -1428,6 +1428,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 9c8dbc31e56a02a49be1d6bff7bb654c, type: 3}
   - {fileID: 21300000, guid: 51145b240bd73e844a871d589586cebf, type: 3}
   vomitSprite: {fileID: 0}
+  vomitSound: {fileID: 8300000, guid: ae7862468e1068f448fa1ec89e761723, type: 3}
   missingVillager: {fileID: 1686009953}
 --- !u!1 &934483535
 GameObject:
@@ -3093,6 +3094,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueObject: {fileID: 0}
+  InteractSound: {fileID: 8300000, guid: 9411586707d2b16468b0b7f47893ca94, type: 3}
   giveCrutch: 0
   giveCrutchDialogue: {fileID: 11400000, guid: 515459d4cb15d1c48a1e26b01fac2a49, type: 2}
   afterGiveCrutchDialogue: {fileID: 11400000, guid: c89e28d08602d604c97e90a46e0b5aed, type: 2}
@@ -3840,6 +3842,8 @@ MonoBehaviour:
   DefaultDescription: "\u770B\u8D77\u4F86\u548C\u5176\u4ED6\u82B1\u4E0D\u4E00\u6A23\uFF0C\u9577\u76F8\u6709\u9EDE\u5687\u4EBA"
   anime: {fileID: 0}
   musicPassword: 42513
+  answer: 
+  flowerBruhSound: {fileID: 8300000, guid: 856f02c433e920e4eb1c2c609c41ffc7, type: 3}
   Vomit: {fileID: 922965538}
 --- !u!61 &2084411969
 BoxCollider2D:

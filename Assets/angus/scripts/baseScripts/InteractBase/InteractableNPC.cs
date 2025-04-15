@@ -5,6 +5,8 @@ using UnityEngine;
 public abstract class InteractableNPC : MonoBehaviour, IInteractable
 {
     public DialogueObject dialogueObject;
+
+    public AudioClip InteractSound;
     private ResponseEventManager responseEventManager;
     private ResponseHandler responseHandler;
 
@@ -28,6 +30,10 @@ public abstract class InteractableNPC : MonoBehaviour, IInteractable
         responseHandler.Npc = this;
         UpdateDialogueObject(GetDialogue());
         Debug.Log(GetDialogue().name);
+        if(InteractSound != null)
+        {
+            AudioManager.instance.PlaySound(InteractSound);
+        }
         GetNewResponseEvent(GetDialogue());
 
         DialogueUI.Instance.ShowDialogue(dialogueObject);

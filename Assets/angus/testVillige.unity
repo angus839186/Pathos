@@ -366,6 +366,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueObject: {fileID: 0}
+  InteractSound: {fileID: 0}
   sheepMissionCompleted: 0
   BulletinBoardText: {fileID: 1907952830}
   firstDialogue: {fileID: 11400000, guid: 9c9f9fba02c40504f90e7dcb59330605, type: 2}
@@ -568,6 +569,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueObject: {fileID: 11400000, guid: 88beacb5d88b7634a90bd700d5c9ccea, type: 2}
+  InteractSound: {fileID: 8300000, guid: fb557d8b751135b4aa011f96125adeb3, type: 3}
 --- !u!114 &241915176
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1835,6 +1837,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueObject: {fileID: 11400000, guid: abd47365bad51a146865aeb6a1a9518a, type: 2}
+  InteractSound: {fileID: 8300000, guid: cb5c6f8c18443d740b3157c98cb56379, type: 3}
 --- !u!114 &1116660747
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3311,6 +3314,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueObject: {fileID: 11400000, guid: eb82a8331780c5b4b9fe6db3600dbfa6, type: 2}
+  InteractSound: {fileID: 8300000, guid: 55933b35183b35d4c88a8cdbdb4a1a33, type: 3}
 --- !u!114 &1831326750
 MonoBehaviour:
   m_ObjectHideFlags: 0

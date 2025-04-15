@@ -10,6 +10,7 @@ public class PlayerHealth : MonoBehaviour
     private Animator anime;
 
     public AudioClip heartBreakSound;
+    public AudioClip injuredSound;
 
     public Action OnPlayerDied;
 
@@ -32,6 +33,7 @@ public class PlayerHealth : MonoBehaviour
         if(health <= 0)return;
         anime.SetTrigger("hurt");
         AudioManager.instance.PlaySound(heartBreakSound);
+        AudioManager.instance.PlaySound(injuredSound);
         int currentHealth = health;
         currentHealth -= damage;
         UpdateHealth(currentHealth);
