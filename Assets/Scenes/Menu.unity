@@ -7831,7 +7831,7 @@ MonoBehaviour:
   - 56
   - 62
   - 74
-  played: 0
+  played: 1
   startOnSceneLoad: 0
 --- !u!4 &1723305647
 Transform:

@@ -855,7 +855,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 442, y: -136}
-  m_SizeDelta: {x: 600, y: 600}
+  m_SizeDelta: {x: 800, y: 890}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &313251584
 MonoBehaviour:
@@ -3323,7 +3323,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 1
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -3392,7 +3392,9 @@ MonoBehaviour:
   responseBox: {fileID: 1251981033}
   responseButtonTemplate: {fileID: 2087839843}
   responseContainer: {fileID: 1276651373}
+  responseEvents: []
   responseEventManager: {fileID: 0}
+  Npc: {fileID: 0}
 --- !u!114 &1042918736
 MonoBehaviour:
   m_ObjectHideFlags: 0

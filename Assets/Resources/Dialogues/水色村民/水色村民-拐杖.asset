@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1dacdf748729db4f8f500ed08e5ca8e, type: 3}
   m_Name: "\u6C34\u8272\u6751\u6C11-\u62D0\u6756"
   m_EditorClassIdentifier: 
-  npcIcon: {fileID: 0}
+  npcIcon: {fileID: 21300000, guid: 3e47220d892be43419fe0694e4dea7fc, type: 3}
   dialogue:
   - "\u6211\u6C92\u6709\u770B\u5230\u8036...\u6751\u9577\u53C8\u5F04\u4E1F\u4E86\u55CE\uFF1F"
   - "\u554A\uFF0C\u6211\u525B\u525B\u662F\u8B1B\u4E86\u53C8\u55CE\uFF1F\u5E6B\u6211\u4FDD\u5BC6\u554A"
