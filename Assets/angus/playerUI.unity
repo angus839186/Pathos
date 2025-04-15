@@ -2598,7 +2598,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d5ceb1dc1217fe47b3cf7dac46f59bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultSprite: {fileID: 21300000, guid: c182c1ccfe35a83479330a8a0789c25b, type: 3}
+  defaultSprite: {fileID: 21300000, guid: 4f4bfc1461bf31e478276a11ae3dd49c, type: 3}
 --- !u!95 &764420691
 Animator:
   serializedVersion: 5
@@ -2609,7 +2609,7 @@ Animator:
   m_GameObject: {fileID: 764420688}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 440d699ffda4ca84ea656cc2c416ab72, type: 2}
+  m_Controller: {fileID: 9100000, guid: 6acb056440681e042a3087d7d2ab2e09, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -3466,7 +3466,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d5ceb1dc1217fe47b3cf7dac46f59bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultSprite: {fileID: 21300000, guid: c182c1ccfe35a83479330a8a0789c25b, type: 3}
+  defaultSprite: {fileID: 21300000, guid: 4f4bfc1461bf31e478276a11ae3dd49c, type: 3}
 --- !u!95 &1088374961
 Animator:
   serializedVersion: 5
@@ -3477,7 +3477,7 @@ Animator:
   m_GameObject: {fileID: 1088374958}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 440d699ffda4ca84ea656cc2c416ab72, type: 2}
+  m_Controller: {fileID: 9100000, guid: 6acb056440681e042a3087d7d2ab2e09, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -4369,7 +4369,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d5ceb1dc1217fe47b3cf7dac46f59bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultSprite: {fileID: 21300000, guid: c182c1ccfe35a83479330a8a0789c25b, type: 3}
+  defaultSprite: {fileID: 21300000, guid: 4f4bfc1461bf31e478276a11ae3dd49c, type: 3}
 --- !u!95 &1357050189
 Animator:
   serializedVersion: 5
@@ -4380,7 +4380,7 @@ Animator:
   m_GameObject: {fileID: 1357050186}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 440d699ffda4ca84ea656cc2c416ab72, type: 2}
+  m_Controller: {fileID: 9100000, guid: 6acb056440681e042a3087d7d2ab2e09, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
