@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Video;
 
 public class ForestDoor : InteractableObject, IDataPersistence
 {
@@ -9,6 +10,26 @@ public class ForestDoor : InteractableObject, IDataPersistence
     public AudioClip sound;
 
     public bool ForestDoorOpen;
+
+    [Header("結束影片")]
+    public AudioSource BGM;
+
+    public VideoClip endClip;
+
+    public List<double> pausePoints;
+
+    public bool ToBeContinued;
+
+    public GameObject ToBeContinueObject;
+
+    void OnDisable()
+    {
+        VideoController video = VideoController.Instance;
+        if (video != null)
+        {
+            VideoController.Instance.OnVideoEnd -= ForestDoorEnd;
+        }
+    }
 
     void Start()
     {
@@ -27,6 +48,37 @@ public class ForestDoor : InteractableObject, IDataPersistence
     public override void Interact()
     {
         Debug.Log("Go To Forest");
+        if(ForestDoorOpen)
+        {
+            PlayForestDoorEndClip();
+        }
+
+    }
+
+    public void ForestDoorEnd()
+    {
+        if (ToBeContinued)
+        {
+            PlayerInputManager.Instance.BackToMenuEvent += BackToMenu;
+            PlayerInputManager.Instance.SwitchActionMap("ToBeContinued");
+            ToBeContinueObject.SetActive(true);
+        }
+        else
+        {
+            //Do Nothing
+        }
+    }
+
+    public void BackToMenu()
+    {
+        GameManager.Instance.BackToMenu();
+    }
+
+    public void PlayForestDoorEndClip()
+    {
+        BGM.Pause();
+        VideoController.Instance.OnVideoEnd += ForestDoorEnd;
+        VideoController.Instance.GetVideo(endClip, pausePoints);
     }
 
     public override void InteractEvent(Item heldItem)
