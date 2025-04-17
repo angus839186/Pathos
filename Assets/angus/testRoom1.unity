@@ -1387,6 +1387,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 1
           m_CallState: 2
+        - m_Target: {fileID: 774271421}
+          m_TargetAssemblyTypeName: Musician, Assembly-CSharp
+          m_MethodName: PlaySong
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
     responseCategory: 0
 --- !u!114 &774271423
 MonoBehaviour:
