@@ -123,14 +123,8 @@ public class VideoController : MonoBehaviour
 
     public void PassVideo()
     {
-        isPausedBySystem = false;
         StopAllCoroutines();
-        pausePoints.Clear();
-        currentPauseIndex = 0;
-        video.Stop();
-        video.clip = null;
-        ToggleVideoCanvas(false);
-        OnVideoEnd?.Invoke();
+        EndVideo();
         Debug.Log("PassVideo");
     }
 
@@ -225,12 +219,7 @@ public class VideoController : MonoBehaviour
             Debug.Log(video.time);
             Debug.Log(video.clip.length);
             yield return new WaitUntil(() => video.time >= video.clip.length - 0.1f);
-
-            video.Stop();
-            video.clip = null;
-            ToggleVideoCanvas(false);
-            OnVideoEnd?.Invoke();
-            Debug.Log("End");
+            EndVideo();
             yield break;
         }
 
@@ -250,19 +239,24 @@ public class VideoController : MonoBehaviour
             else
             {
                 yield return new WaitUntil(() => video.time >= video.clip.length - 0.1f);
-                video.Stop();
-                video.clip = null;
-                ToggleVideoCanvas(false);
-                OnVideoEnd?.Invoke();
-                Debug.Log("End");
+
+                EndVideo();
                 break;
             }
-            isPausedBySystem = false;
-            pausePoints.Clear();
-            currentPauseIndex = 0;
 
             yield return null;
         }
+    }
+    public void EndVideo()
+    {
+        video.Stop();
+        video.clip = null;
+        ToggleVideoCanvas(false);
+        isPausedBySystem = false;
+        pausePoints.Clear();
+        currentPauseIndex = 0;
+        OnVideoEnd?.Invoke();
+        Debug.Log("End");
     }
 
 }
