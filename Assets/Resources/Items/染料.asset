@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a31b78894b7d3634e830ced96fc14824, type: 3}
   m_Name: "\u67D3\u6599"
   m_EditorClassIdentifier: 
-  itemName: "\u67D3\u6599"
+  itemName: "\u6F3F\u679C\u67D3\u6599"
   icon: {fileID: 21300000, guid: 0fa77141f9b55e34eb4589bd8c0a6694, type: 3}
-  itemDescription: "\u6709\u9EDE\u91CD\u91CF\u7684\u65A7\u982D \u770B\u8D77\u4F86\u53EF\u4EE5\u780D\u5012\u4E00\u4E9B\u6771\u897F "
+  itemDescription: "\u9BAE\u8C54\u7684\u67D3\u6599\uFF0C\u611F\u89BA\u6CBE\u5230\u4E86\u5C31\u5F88\u96E3\u6D17\u6389...\u9084\u662F\u5C0F\u5FC3\u9EDE\u5427\u3002"
