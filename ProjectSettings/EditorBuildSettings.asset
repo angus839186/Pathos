@@ -50,5 +50,29 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/plain_Reverse.unity
     guid: 229940955bfa0994dbabb8057b360bc3
+  - enabled: 1
+    path: Assets/Scenes/plain.unity
+    guid: dcc6ddf3b63860640bd42b8e9957b700
+  - enabled: 1
+    path: "Assets/Scenes/\u6C89\u5E7D\u7C73\u68EE\u6797.unity"
+    guid: 24be80cb158d564408ecb39610996c9e
+  - enabled: 1
+    path: Assets/Scenes/jungle.unity
+    guid: d9395ed9b3bb4334d9c71cb329801dab
+  - enabled: 1
+    path: Assets/Scenes/door.unity
+    guid: fb627c72123795c43ac66ce04348ff98
+  - enabled: 1
+    path: Assets/Scenes/villige.unity
+    guid: 678560e47a4c6954ba59a9841771429b
+  - enabled: 1
+    path: Assets/Scenes/room1.unity
+    guid: 45739a1b8b301c04a8f8ed2f16247e8c
+  - enabled: 1
+    path: Assets/Scenes/room2.unity
+    guid: d2b443f45206a5c40a362c7ef7c4474a
+  - enabled: 1
+    path: Assets/Scenes/village head.unity
+    guid: 3b542759c9e6f6b44a5a133fd2c5f5f9
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: a71d795691aac064c964efaf81a84816, type: 2}
