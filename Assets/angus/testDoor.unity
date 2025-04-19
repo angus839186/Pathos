@@ -3421,7 +3421,8 @@ MonoBehaviour:
   ForestDoorOpen: 0
   BGM: {fileID: 1488194648}
   endClip: {fileID: 32900000, guid: dd68390773c514543b59d4da0f384c78, type: 3}
-  pausePoints: []
+  pausePoints:
+  - 12
   ToBeContinued: 1
   ToBeContinueObject: {fileID: 240532393}
 --- !u!1 &1875370556
