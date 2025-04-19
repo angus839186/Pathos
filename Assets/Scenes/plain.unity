@@ -316,7 +316,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetSpawnPointID: Left
-  targetScene: "\u8FEA\u666E\u52D2\u5343\u8349\u539F"
+  targetScene: "\u6C89\u5E7D\u7C73\u68EE\u6797"
 --- !u!61 &513292572
 BoxCollider2D:
   m_ObjectHideFlags: 0

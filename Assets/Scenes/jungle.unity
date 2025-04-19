@@ -787,7 +787,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -6.1830864, y: -5.3841476}
+  m_Offset: {x: -2.39, y: -5.3841476}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -798,7 +798,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.441749, y: 8.031704}
+  m_Size: {x: 9.97, y: 8.031704}
   m_EdgeRadius: 0
 --- !u!95 &508463225
 Animator:
@@ -961,7 +961,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -6.0208745, y: -4.90988}
+  m_Offset: {x: -3.09, y: -4.90988}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -972,7 +972,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.588313, y: 7.820239}
+  m_Size: {x: 7.71, y: 7.820239}
   m_EdgeRadius: 0
 --- !u!95 &610099056
 Animator:
@@ -4998,7 +4998,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -5.928956, y: -5.1539288}
+  m_Offset: {x: -3.15, y: -5.1539288}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -5009,7 +5009,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.3420887, y: 7.332142}
+  m_Size: {x: 6.97, y: 7.332142}
   m_EdgeRadius: 0
 --- !u!95 &1703104985
 Animator:
@@ -5160,9 +5160,9 @@ Transform:
   m_GameObject: {fileID: 1970077049}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 44.37, y: -5.62, z: 0.8917}
-  m_LocalScale: {x: 1.1553974, y: 1.1553974, z: 1.1553974}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 43.18, y: -6.18, z: 0.8917}
+  m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1594706557}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5245,8 +5245,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueObject: {fileID: 0}
   InteractSound: {fileID: 8300000, guid: fd101c5d63e664b4eaedf73e9434d7d6, type: 3}
-  jungleScene: testJungle
-  doorScene: testDoor
+  jungleScene: jungle
+  doorScene: door
   _shepherdAlreadyKnowSheepColored: 0
   doorSceneNormalDialogue: {fileID: 11400000, guid: f3178987fe5585645a9f4493d608e037, type: 2}
   doorSceneFindSheepDialogue: {fileID: 11400000, guid: 835364c710722ce49b99a005077a586a, type: 2}
