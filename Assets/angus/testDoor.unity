@@ -3566,7 +3566,7 @@ MonoBehaviour:
   sound: {fileID: 8300000, guid: e4b5ca9cca67dd748bc40e047ae97a1e, type: 3}
   ForestDoorOpen: 0
   BGM: {fileID: 1488194648}
-  endClip: {fileID: 0}
+  endClip: {fileID: 32900000, guid: dd68390773c514543b59d4da0f384c78, type: 3}
   pausePoints: []
   ToBeContinued: 1
   ToBeContinueObject: {fileID: 240532393}
