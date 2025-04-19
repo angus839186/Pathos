@@ -4448,7 +4448,7 @@ MonoBehaviour:
   id: 956a2bc9-d17f-4420-8f42-02b9e4fe61be
   fencePos: {fileID: 1490144906}
   skyPos: {fileID: 1799164727}
-  flightSpeed: 8
+  flightSpeed: 14
   landDistance: 0.5
   isFlying: 0
   onFence: 0

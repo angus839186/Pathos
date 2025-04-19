@@ -27,6 +27,13 @@ public class VideoController : MonoBehaviour
 
     public CanvasGroup videoCanvas;
 
+    [Header("長按跳過")]
+    public Slider passSlider;
+    public float passHoldDuration = 1f;
+
+    private bool isPassPressed;
+    private float passTimer = 0f;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -43,6 +50,7 @@ public class VideoController : MonoBehaviour
     {
         GameManager.Instance.OnSceneLoaded += GetScenePreviewVideo;
         PlayerInputManager.Instance.OnContinueVideoEvent += ContinueVideo;
+        PlayerInputManager.Instance.OnPassVideoEvent += HandlePassInput;
     }
 
     void OnDisable()
@@ -56,6 +64,7 @@ public class VideoController : MonoBehaviour
         if (playerInput != null)
         {
             playerInput.OnContinueVideoEvent -= ContinueVideo;
+            playerInput.OnPassVideoEvent -= HandlePassInput;
         }
     }
 
@@ -66,6 +75,63 @@ public class VideoController : MonoBehaviour
         continueButton.onClick.AddListener(ContinueVideo);
         continueButton.gameObject.SetActive(false);
 
+        passSlider.gameObject.SetActive(false);
+        passSlider.minValue = 0f;
+        passSlider.maxValue = 1f;
+        passSlider.value = 0f;
+    }
+
+    private void Update()
+    {
+        if (isPlayingVideo && isPassPressed)
+        {
+            passTimer += Time.deltaTime;
+            passSlider.value = Mathf.Clamp01(passTimer / passHoldDuration);
+
+            if (passTimer >= passHoldDuration)
+            {
+                PassVideo();
+                ResetPass();
+            }
+        }
+    }
+
+    private void HandlePassInput(bool pressed)
+    {
+        if (!isPlayingVideo) return;
+
+        if (pressed)
+        {
+            // 開始長按
+            isPassPressed = true;
+            passSlider.gameObject.SetActive(true);
+        }
+        else
+        {
+            // 放開，中斷長按
+            ResetPass();
+        }
+    }
+
+    private void ResetPass()
+    {
+        isPassPressed = false;
+        passTimer = 0f;
+        passSlider.value = 0f;
+        passSlider.gameObject.SetActive(false);
+    }
+
+    public void PassVideo()
+    {
+        isPausedBySystem = false;
+        StopAllCoroutines();
+        pausePoints.Clear();
+        currentPauseIndex = 0;
+        video.Stop();
+        video.clip = null;
+        ToggleVideoCanvas(false);
+        OnVideoEnd?.Invoke();
+        Debug.Log("PassVideo");
     }
 
     public void PlayVideo(VideoClip _video)
@@ -191,6 +257,9 @@ public class VideoController : MonoBehaviour
                 Debug.Log("End");
                 break;
             }
+            isPausedBySystem = false;
+            pausePoints.Clear();
+            currentPauseIndex = 0;
 
             yield return null;
         }
