@@ -24,6 +24,8 @@ public class GameData
     public bool hint2;
     public bool reversePlainPreviewVideoPlayed;
 
+    public bool reversePlainBossDied;
+
     public bool ForestDoorOpen;
 
     #region NpcData
@@ -55,9 +57,10 @@ public class GameData
         ResponseEventStates = new SerializableDictionary<string, bool>();
         sheepGotColored = new SerializableDictionary<string, bool>();
         inventoryItemNames = new List<string>();
-
-
         reversePlainPreviewVideoPlayed = false;
+        reversePlainBossDied = false;
+
+
         ShepherdAlreadyKnowSheepColored = false;
         ColorBusinessmanGetBerry = false;
         ColorBusinessmanGivePlayerScissor = false;
