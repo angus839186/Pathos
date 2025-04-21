@@ -16,17 +16,30 @@ public class ParallaxController : MonoBehaviour
     }
     void FixedUpdate()
     {
-        float distance = cam.transform.position.x * parallaxSpeed;
-        float backgroundMovement = cam.transform.position.x * (1 - parallaxSpeed);
-        transform.position = new Vector3(startPos + distance, transform.position.y, transform.position.z);
+        // float distance = cam.transform.position.x * parallaxSpeed;
+        // float backgroundMovement = cam.transform.position.x * (1 - parallaxSpeed);
+        // transform.position = new Vector3(startPos + distance, transform.position.y, transform.position.z);
 
-        if(backgroundMovement > startPos + length)
-        {
+        // if (backgroundMovement > startPos + length)
+        // {
+        //     startPos += length;
+        // }
+        // else if (backgroundMovement < startPos - length)
+        // {
+        //     startPos -= length;
+        // }
+    }
+    void LateUpdate()
+    {
+        float temp = cam.transform.position.x * (1 - parallaxSpeed) - startPos;
+        float dist = cam.transform.position.x * parallaxSpeed;
+        transform.position = new Vector3(startPos + dist,
+                                         transform.position.y,
+                                         transform.position.z);
+
+        if (temp > length)
             startPos += length;
-        }
-        else if (backgroundMovement < startPos - length)
-        {
+        else if (temp < -length)
             startPos -= length;
-        } 
     }
 }
