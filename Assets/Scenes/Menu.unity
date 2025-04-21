@@ -9245,7 +9245,6 @@ MonoBehaviour:
   SetPlayer: 0
   SetCamera: 0
   SetUI: 0
-  reversePlainBossWin: 0
 --- !u!4 &2033692938
 Transform:
   m_ObjectHideFlags: 0
