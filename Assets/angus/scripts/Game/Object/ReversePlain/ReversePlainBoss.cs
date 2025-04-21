@@ -4,7 +4,7 @@ using Unity.Collections;
 using UnityEngine;
 using UnityEngine.Video;
 
-public class ReversePlainBoss : InteractableObject
+public class ReversePlainBoss : InteractableObject, IDataPersistence
 {
     [Header("火球參數")]
     public GameObject fireballPrefab;
@@ -30,10 +30,12 @@ public class ReversePlainBoss : InteractableObject
     public string nextScene;
 
     [Header("擊飛")]
-    public Transform knockbackTarget; // 指定擊飛的目標位置（在 Inspector 指定）
-    public float knockbackDuration = 2.5f; // 飛行持續時間
+    public Transform knockbackTarget;
+    public float knockbackDuration = 2.5f; 
 
     [Header("死亡")]
+
+    public bool die;
     public VideoClip dieClip;
 
     public List<double> pausePoints;
@@ -197,7 +199,7 @@ public class ReversePlainBoss : InteractableObject
 
     public void Die()
     {
-        GameManager.Instance.reversePlainBossWin = true;
+        die = true;
         Debug.Log("Die");
         if (ToBeContinued)
         {
@@ -248,5 +250,15 @@ public class ReversePlainBoss : InteractableObject
     {
         yield return new WaitForSeconds(delay);
         player.ToggleMove(true);
+    }
+
+    public void LoadData(GameData data)
+    {
+        //Do Nothing
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        data.reversePlainBossDied = die;
     }
 }
