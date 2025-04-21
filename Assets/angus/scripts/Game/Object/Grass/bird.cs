@@ -36,6 +36,11 @@ public class Bird : MonoBehaviour, IDataPersistence
 
     public AudioClip sound;
 
+    void Awake()
+    {
+        sound.LoadAudioData();
+    }
+
     void Start()
     {
         animator = GetComponent<Animator>();
