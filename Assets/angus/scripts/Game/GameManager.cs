@@ -164,6 +164,8 @@ public class GameManager : MonoBehaviour
     }
     public void BackToMenu()
     {
+        PlayerController player = FindObjectOfType<PlayerController>();
+        player.firstLoad = false;
         playerInstance.SetActive(false);
         cameraInstance.SetActive(false);
         SetPlayer = false;
