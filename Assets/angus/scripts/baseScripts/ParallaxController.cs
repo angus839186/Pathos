@@ -31,15 +31,9 @@ public class ParallaxController : MonoBehaviour
     }
     void LateUpdate()
     {
-        float temp = cam.transform.position.x * (1 - parallaxSpeed) - startPos;
-        float dist = cam.transform.position.x * parallaxSpeed;
-        transform.position = new Vector3(startPos + dist,
-                                         transform.position.y,
-                                         transform.position.z);
-
-        if (temp > length)
-            startPos += length;
-        else if (temp < -length)
-            startPos -= length;
+        float distance = cam.transform.position.x * parallaxSpeed;
+        transform.position = new Vector3(startPos + distance,
+        transform.position.y,
+        transform.position.z);
     }
 }
