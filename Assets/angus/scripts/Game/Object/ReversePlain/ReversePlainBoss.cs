@@ -107,7 +107,6 @@ public class ReversePlainBoss : InteractableObject, IDataPersistence
 
     public void StopAttack()
     {
-        Debug.Log("Boss stop attack");
         FireBall[] fireballs = FindObjectsOfType<FireBall>();
         foreach (FireBall fb in fireballs)
         {
@@ -185,6 +184,7 @@ public class ReversePlainBoss : InteractableObject, IDataPersistence
 
     void BossDieAnimation()
     {
+        die = true;
         anime.SetBool("died", true);
         AudioManager.instance.PlaySound(dieSound);
     }
@@ -199,8 +199,6 @@ public class ReversePlainBoss : InteractableObject, IDataPersistence
 
     public void Die()
     {
-        die = true;
-        Debug.Log("Die");
         if (ToBeContinued)
         {
             PlayerInputManager.Instance.BackToMenuEvent += BackToMenu;
@@ -209,6 +207,7 @@ public class ReversePlainBoss : InteractableObject, IDataPersistence
         }
         else
         {
+            DataPersistenceManager.Instance.SaveGameData();
             GameManager gameManager = GameManager.Instance;
             gameManager.StartCoroutine(gameManager.LoadNextScene(nextScene));
         }

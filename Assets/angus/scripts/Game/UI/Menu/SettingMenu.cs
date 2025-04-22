@@ -176,8 +176,6 @@ public class SettingMenu : Menu
         VideoRenderer.width = selectedRes.width;
         VideoRenderer.height = selectedRes.height;
         VideoRenderer.Create();
-
-        Debug.Log($"Resolution: {selectedRes.width} + {selectedRes.height}, {fullscreen} ");
     }
     public void SetMusicText()
     {

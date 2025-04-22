@@ -137,7 +137,6 @@ public class GameManager : MonoBehaviour
         {
             GameObject player = Instantiate(playerPrefab, Vector3.zero, Quaternion.identity);
             SetPlayer = true;
-            Debug.Log("Player spawned");
             playerInstance = player;
         }
         else
@@ -153,7 +152,6 @@ public class GameManager : MonoBehaviour
         {
             GameObject camera = Instantiate(cameraPrefab, Vector3.zero, Quaternion.identity);
             SetCamera = true;
-            Debug.Log("Camera spawned");
             cameraInstance = camera;
         }
         else
@@ -166,6 +164,7 @@ public class GameManager : MonoBehaviour
     {
         PlayerController player = FindObjectOfType<PlayerController>();
         player.firstLoad = false;
+        Hotbar.Instance.SetMainItem(null, 0);
         playerInstance.SetActive(false);
         cameraInstance.SetActive(false);
         SetPlayer = false;

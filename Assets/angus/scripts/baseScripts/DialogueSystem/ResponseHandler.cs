@@ -29,7 +29,6 @@ public class ResponseHandler : MonoBehaviour
     public void AddResponseEvents(ResponseEvent[] responseEvents)
     {
         this.responseEvents = responseEvents;
-        Debug.Log(this.responseEvents);
     }
     public void ShowResponses(Response[] responses)
     {

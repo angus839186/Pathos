@@ -139,7 +139,6 @@ public class DialogueUI : MonoBehaviour
 
     public void TriggerNextDialogue()
     {
-        Debug.Log("nextDialogue");
         Continue = true;
     }
 }

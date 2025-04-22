@@ -35,7 +35,6 @@ public class ResponseEventManager : MonoBehaviour, IDataPersistence
         if (responseTypeStates.ContainsKey(category))
         {
             responseTypeStates[category] = state;
-            Debug.Log(responseTypeStates[category]);
         }
         else
         {
