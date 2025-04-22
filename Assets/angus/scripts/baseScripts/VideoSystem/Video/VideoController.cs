@@ -125,7 +125,6 @@ public class VideoController : MonoBehaviour
     {
         StopAllCoroutines();
         EndVideo();
-        Debug.Log("PassVideo");
     }
 
     public void PlayVideo(VideoClip _video)
@@ -165,7 +164,6 @@ public class VideoController : MonoBehaviour
         if (_Video.played)
         {
             OnVideoEnd.Invoke();
-            Debug.Log("End");
             return;
         }
         else
@@ -216,8 +214,6 @@ public class VideoController : MonoBehaviour
         // 若無暫停點，直接等待影片結束
         if (pausePoints == null || pausePoints.Count == 0)
         {
-            Debug.Log(video.time);
-            Debug.Log(video.clip.length);
             yield return new WaitUntil(() => video.time >= video.clip.length - 0.1f);
             EndVideo();
             yield break;
@@ -256,7 +252,6 @@ public class VideoController : MonoBehaviour
         pausePoints.Clear();
         currentPauseIndex = 0;
         OnVideoEnd?.Invoke();
-        Debug.Log("End");
     }
 
 }

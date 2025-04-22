@@ -29,7 +29,6 @@ public abstract class InteractableNPC : MonoBehaviour, IInteractable
     {
         responseHandler.Npc = this;
         UpdateDialogueObject(GetDialogue());
-        Debug.Log(GetDialogue().name);
         if(InteractSound != null)
         {
             AudioManager.instance.PlaySound(InteractSound);

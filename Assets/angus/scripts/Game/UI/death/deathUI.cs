@@ -45,7 +45,6 @@ public class deathUI : MonoBehaviour
     public void OnClickNo()
     {
         string sceneName = SceneManager.GetActiveScene().name;
-        Debug.Log(sceneName);
         DataPersistenceManager.Instance.SaveGameData();
         GameManager.Instance.StartCoroutine(GameManager.Instance.ReloadScene(sceneName));
         ToggleCanvasGroup(false);
