@@ -4651,7 +4651,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "[W] [D]\u4E0A\u4E0B\u5207\u63DB  [ENTER]\u9078\u64C7/\u53D6\u6D88  [T]\u95DC\u9589"
+  m_Text: "[W] [S]\u4E0A\u4E0B\u5207\u63DB  [ENTER]\u9078\u64C7/\u53D6\u6D88  [T]\u95DC\u9589"
 --- !u!222 &1387321707
 CanvasRenderer:
   m_ObjectHideFlags: 0
