@@ -23,3 +23,5 @@ MonoBehaviour:
     dialogueObject: {fileID: 11400000, guid: 220069e0085de8449ace17029c2cfee2, type: 2}
   - responseText: "\u9EC3\u8272\u66F8"
     dialogueObject: {fileID: 11400000, guid: 79f4bbb2775be484996f56c960df4587, type: 2}
+  - responseText: "\u5F85\u6703\u518D\u770B\u5427"
+    dialogueObject: {fileID: 0}
