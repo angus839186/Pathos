@@ -18,6 +18,7 @@ public class savePoint : InteractableObject
     public override void Interact()
     {
         SaveFileMenu.Instance.ActivateSaveFileCanvas();
+        PlayerInputManager.Instance.SwitchActionMap("SaveMenu");
     }
 
     public override void InteractEvent(Item heldItem)

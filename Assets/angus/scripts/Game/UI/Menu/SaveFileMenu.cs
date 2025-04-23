@@ -78,6 +78,15 @@ public class SaveFileMenu : Menu
         returnButton.gameObject.SetActive(false);
         UpdateSaveFile();
         SelectButton(selectedIndex);
+        PlayerInputManager.Instance.OnCloseSaveMenuEvent += OnBackButtonClicked;
+    }
+    void OnDisable()
+    {
+        PlayerInputManager playerInput = PlayerInputManager.Instance;
+        if(playerInput!= null)
+        {
+            playerInput.OnCloseSaveMenuEvent -= OnBackButtonClicked;
+        }
     }
 
     public void UpdateSaveFile()
@@ -199,6 +208,7 @@ public class SaveFileMenu : Menu
         else
         {
             DeactiveSaveFileCanvas();
+            PlayerInputManager.Instance.SwitchActionMap("Player");
         }
     }
     #endregion
