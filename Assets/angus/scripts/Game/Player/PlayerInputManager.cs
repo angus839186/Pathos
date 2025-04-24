@@ -22,6 +22,8 @@ public class PlayerInputManager : MonoBehaviour
 
     public event Action OnCloseSaveMenuEvent;
 
+    public event Action<int> OnSelectSaveFileEvent;
+
     public event Action OnNextTutorialEvent;
 
     public event Action<bool> OnToggleSettingMenuEvent;
@@ -94,7 +96,7 @@ public class PlayerInputManager : MonoBehaviour
         }
     }
 
-    void OnUpSelect(InputValue value)
+    void OnUpSelectBackPackSlot(InputValue value)
     {
         float pressed = value.Get<float>();
         if (pressed > 0.5f)
@@ -103,7 +105,7 @@ public class PlayerInputManager : MonoBehaviour
         }
     }
 
-    void OnDownSelect(InputValue value)
+    void OnDownSelectBackPackSlot(InputValue value)
     {
         float pressed = value.Get<float>();
         if (pressed > 0.5f)
@@ -126,6 +128,24 @@ public class PlayerInputManager : MonoBehaviour
         if (pressed > 0.5f)
         {
             OnCloseSaveMenuEvent?.Invoke();
+        }
+    }
+
+    void OnUpSelectSaveFileIndex(InputValue value)
+    {
+        float pressed = value.Get<float>();
+        if (pressed > 0.5f)
+        {
+            OnSelectSaveFileEvent?.Invoke(-1);
+        }
+    }
+
+    void OnDownSelectSaveFileIndex(InputValue value)
+    {
+        float pressed = value.Get<float>();
+        if (pressed > 0.5f)
+        {
+            OnSelectSaveFileEvent?.Invoke(1);
         }
     }
     void OnNextTutorial(InputValue value)

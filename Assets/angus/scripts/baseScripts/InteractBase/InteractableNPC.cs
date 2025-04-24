@@ -10,10 +10,13 @@ public abstract class InteractableNPC : MonoBehaviour, IInteractable
     private ResponseEventManager responseEventManager;
     private ResponseHandler responseHandler;
 
+    private DescriptionText descriptionText;
+
     void Awake()
     {
         responseEventManager = FindObjectOfType<ResponseEventManager>();
         responseHandler = FindObjectOfType<ResponseHandler>();
+        descriptionText = FindObjectOfType<DescriptionText>();
     }
 
     public virtual string GetDescription(Item heldItem)
@@ -29,7 +32,7 @@ public abstract class InteractableNPC : MonoBehaviour, IInteractable
     {
         responseHandler.Npc = this;
         UpdateDialogueObject(GetDialogue());
-        if(InteractSound != null)
+        if (InteractSound != null)
         {
             AudioManager.instance.PlaySound(InteractSound);
         }
@@ -63,12 +66,20 @@ public abstract class InteractableNPC : MonoBehaviour, IInteractable
         this.dialogueObject = dialogueObject;
     }
 
+    public void ShowMissionHint(string msg)
+    {
+        descriptionText.showDescription(msg);
+    }
+
     public virtual void ToggleCrutch(bool toggle)
     {
         if (responseEventManager != null)
         {
             responseEventManager.SetResponseTypeState(ResponseEventType.拐杖, toggle);
-            Debug.Log("拐杖任務已更新。");
+            string msg = toggle
+            ? "開啟話題『拐杖』"
+            : "關閉話題『拐杖』。";  
+            ShowMissionHint(msg);
         }
     }
 
@@ -77,7 +88,10 @@ public abstract class InteractableNPC : MonoBehaviour, IInteractable
         if (responseEventManager != null)
         {
             responseEventManager.SetResponseTypeState(ResponseEventType.樂譜, toggle);
-            Debug.Log($"樂譜任務已更新,{toggle}");
+            string msg = toggle
+            ? "開啟話題『樂譜』"
+            : "關閉話題『樂譜』。";  
+            ShowMissionHint(msg);
         }
     }
 
@@ -86,7 +100,11 @@ public abstract class InteractableNPC : MonoBehaviour, IInteractable
         if (responseEventManager != null)
         {
             responseEventManager.SetResponseTypeState(ResponseEventType.樂手表演, toggle);
-            Debug.Log("樂手表演任務已更新。");
+            string msg = toggle
+            ? "開啟話題『樂手表演』"
+            : "關閉話題『樂手表演』。";  
+            ShowMissionHint(msg);
+
         }
     }
 
@@ -95,7 +113,10 @@ public abstract class InteractableNPC : MonoBehaviour, IInteractable
         if (responseEventManager != null)
         {
             responseEventManager.SetResponseTypeState(ResponseEventType.音樂花, toggle);
-            Debug.Log("音樂花任務已更新。");
+            string msg = toggle
+            ? "開啟話題『音樂花』"
+            : "關閉話題『音樂花』。";  
+            ShowMissionHint(msg);
         }
     }
 
@@ -104,7 +125,10 @@ public abstract class InteractableNPC : MonoBehaviour, IInteractable
         if (responseEventManager != null)
         {
             responseEventManager.SetResponseTypeState(ResponseEventType.失蹤村民, toggle);
-            Debug.Log("失蹤村民任務已更新。");
+            string msg = toggle
+            ? "開啟話題『失蹤村民』"
+            : "關閉話題『失蹤村民』。";
+            ShowMissionHint(msg);
         }
     }
 

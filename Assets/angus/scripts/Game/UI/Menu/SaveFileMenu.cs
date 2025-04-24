@@ -21,7 +21,7 @@ public class SaveFileMenu : Menu
 
     public List<SceneSpriteMapping> sceneSpriteList;
 
-    private SaveSlot[] saveSlots;
+    public SaveSlot[] saveSlots;
 
     public SaveSlot currentSaveSlot;
 
@@ -79,13 +79,15 @@ public class SaveFileMenu : Menu
         UpdateSaveFile();
         SelectButton(selectedIndex);
         PlayerInputManager.Instance.OnCloseSaveMenuEvent += OnBackButtonClicked;
+        PlayerInputManager.Instance.OnSelectSaveFileEvent += MoveSaveFileIndex;
     }
     void OnDisable()
     {
         PlayerInputManager playerInput = PlayerInputManager.Instance;
-        if(playerInput!= null)
+        if (playerInput != null)
         {
             playerInput.OnCloseSaveMenuEvent -= OnBackButtonClicked;
+            playerInput.OnSelectSaveFileEvent -= MoveSaveFileIndex;
         }
     }
 
@@ -100,6 +102,12 @@ public class SaveFileMenu : Menu
             profilesGameData.TryGetValue(saveSlot.GetProfileId(), out profileData);
             saveSlot.SetData(profileData);
         }
+    }
+
+    public void MoveSaveFileIndex(int index)
+    {
+        selectedIndex = Mathf.Clamp(selectedIndex + index, 0, saveSlots.Length - 1);
+        OnSaveSlotClicked(saveSlots[selectedIndex]);
     }
 
     public void OnSaveSlotClicked(SaveSlot saveSlot)
@@ -161,7 +169,7 @@ public class SaveFileMenu : Menu
         saveFileCanvas.alpha = 1;
         saveFileCanvas.blocksRaycasts = true;
         saveFileCanvas.interactable = true;
-        SelectButton(selectedIndex);
+        OnSaveSlotClicked(saveSlots[selectedIndex]);
     }
 
     public void DeactiveSaveFileCanvas()

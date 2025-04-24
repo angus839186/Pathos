@@ -171,7 +171,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "UpSelect",
+                    "name": "UpSelectBackPackSlot",
                     "type": "Button",
                     "id": "a517a2a3-8712-42eb-bad0-7bc4ff211776",
                     "expectedControlType": "Button",
@@ -180,7 +180,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "DownSelect",
+                    "name": "DownSelectBackPackSlot",
                     "type": "Button",
                     "id": "efe09dc0-6703-432c-8197-088e4f94f8a2",
                     "expectedControlType": "Button",
@@ -217,7 +217,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "UpSelect",
+                    "action": "UpSelectBackPackSlot",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -228,7 +228,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "DownSelect",
+                    "action": "DownSelectBackPackSlot",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -257,6 +257,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "DownSelectSaveFileIndex",
+                    "type": "Button",
+                    "id": "fd8d968e-3ca7-4c3f-93d6-f4bb37a68af3",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "UpSelectSaveFileIndex",
+                    "type": "Button",
+                    "id": "c95a725d-9271-477e-ac79-e3dd4b48e7de",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -268,6 +286,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "CloseSaveMenu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3d048a50-d2a7-494c-a98e-425a5481a378",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "UpSelectSaveFileIndex",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4878ba4d-c124-4ac3-aae8-1ebad95d41e8",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DownSelectSaveFileIndex",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
