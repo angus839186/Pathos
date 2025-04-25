@@ -3875,6 +3875,7 @@ MonoBehaviour:
   musicPassword: 42513
   answer: 
   flowerBruhSound: {fileID: 8300000, guid: 856f02c433e920e4eb1c2c609c41ffc7, type: 3}
+  VomitHint: "\u53F3\u908A\u4F3C\u4E4E\u50B3\u4F86\u67D0\u7A2E\u602A\u8072"
   Vomit: {fileID: 922965538}
 --- !u!61 &2084411969
 BoxCollider2D:
