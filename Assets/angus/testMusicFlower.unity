@@ -2835,51 +2835,20 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 853041307}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 18.99, y: -3.09, z: 0}
-  m_LocalScale: {x: 0.95322984, y: 0.95322984, z: 0.95322984}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 972399284}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &859030411
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 859030412}
-  - component: {fileID: 859030416}
-  - component: {fileID: 859030415}
-  - component: {fileID: 859030414}
-  - component: {fileID: 859030413}
-  m_Layer: 0
-  m_Name: "\u97F3\u6A02\u82B17"
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &859030412
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 859030411}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 20.154783, y: 4.0650735, z: 0.8998}
-  m_LocalScale: {x: 1.6195278, y: 1.6195278, z: 1.6195278}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1224962374}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &859030413
+  m_GameObject: {fileID: 2084411964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea99ef1e072a37a4099a9602ba5dcd6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DefaultDescription: "\u770B\u8D77\u4F86\u548C\u5176\u4ED6\u82B1\u4E0D\u4E00\u6A23\uFF0C\u9577\u76F8\u6709\u9EDE\u5687\u4EBA"
+  anime: {fileID: 0}
+  musicPassword: 42513
+  answer: 
+  flowerBruhSound: {fileID: 8300000, guid: 856f02c433e920e4eb1c2c609c41ffc7, type: 3}
+  VomitHint: "\u53F3\u908A\u4F3C\u4E4E\u50B3\u4F86\u67D0\u7A2E\u602A\u8072"
+  Vomit: {fileID: 922965538}
+--- !u!61 &2084411969
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
