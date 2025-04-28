@@ -80,7 +80,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1020776715
-  m_SortingLayer: 15
+  m_SortingLayer: 16
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 5c0aca32b545f484da3d30eab1975410, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -222,7 +222,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3188d8e382c338c49b81d8588652b5bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactHint: {fileID: 3193827531799942486}
+  playerHint: {fileID: 8278037788051890797}
+  objectHint: {fileID: 21300000, guid: df5b06a641d7be644bb83ace3e15ef18, type: 3}
+  npcHint: {fileID: 21300000, guid: 19463d7cbb0544e47b73e72d07219d89, type: 3}
+  teleporterHint: {fileID: 21300000, guid: 18240619fffa9fa469ba1b502c97645a, type: 3}
   interactInput: 0
   playerAnimator: {fileID: 1351527419154173093}
   player: {fileID: 0}
@@ -361,12 +364,12 @@ GameObject:
   - component: {fileID: 1272810821344314588}
   - component: {fileID: 8278037788051890797}
   m_Layer: 0
-  m_Name: Interact Hint
+  m_Name: playerHint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1272810821344314588
 Transform:
   m_ObjectHideFlags: 0
@@ -421,7 +424,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1020776715
-  m_SortingLayer: 15
+  m_SortingLayer: 16
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 465664702f2d59447aeb0eeb3b964deb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

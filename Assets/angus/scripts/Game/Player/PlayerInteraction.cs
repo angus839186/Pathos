@@ -7,8 +7,10 @@ using System.Collections;
 
 public class PlayerInteraction : MonoBehaviour
 {
-    // 用來顯示互動提示的 UI Text
-    public GameObject interactHint;
+    public SpriteRenderer playerHint;
+    public Sprite objectHint;
+    public Sprite npcHint;
+    public Sprite teleporterHint;
 
     public IInteractable currentInteractable;
 
@@ -39,21 +41,36 @@ public class PlayerInteraction : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        IInteractable interactable = collision.GetComponent<IInteractable>();
-        if (interactable != null)
+        var interactable = collision.GetComponent<IInteractable>();
+        if (interactable == null) return;
+
+        currentInteractable = interactable;
+
+        // 根據具體型別顯示對應提示
+        switch (interactable)
         {
-            currentInteractable = interactable;
-            interactHint.SetActive(true);
+            case InteractableObject:
+                playerHint.sprite = objectHint;
+                break;
+            case InteractableNPC:
+                playerHint.sprite = npcHint;
+                break;
+            case InteractableTeleporter:
+                playerHint.sprite = teleporterHint;
+                break;
+            default:
+                // 其他 IInteractable 類別，或是不需要提示時留空
+                break;
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        IInteractable interactable = collision.GetComponent<IInteractable>();
-        if (interactable != null && currentInteractable == interactable)
+        var interactable = collision.GetComponent<IInteractable>();
+        if (interactable != null && interactable == currentInteractable)
         {
             currentInteractable = null;
-            interactHint.SetActive(false);
+            playerHint.sprite = null;
         }
     }
 

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpecialTeleporter : InteractableObject
+public class SpecialTeleporter : InteractableTeleporter
 {
     public string targetSpawnPointID;
     public string targetScene;
