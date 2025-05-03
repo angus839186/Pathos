@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1dacdf748729db4f8f500ed08e5ca8e, type: 3}
+  m_Name: "\u7269\u4EF6\u77F3\u982D_\u5C0D\u8A71"
+  m_EditorClassIdentifier: 
+  npcIcon: {fileID: 0}
+  dialogue:
+  - "\u8ACB\u9078\u64C7\u8981\u67E5\u770B\u7684\u5167\u5BB9"
+  playertalk: 01
+  responses:
+  - responseText: "\u67E5\u770B\u653B\u64CA\u6A21\u5F0F"
+    dialogueObject: {fileID: 11400000, guid: c51c0984244ed824397324a7faaac370, type: 2}
+  - responseText: "\u56DE\u5230\u7279\u5178\u5730\u5716"
+    dialogueObject: {fileID: 0}
+  - responseText: "\u7D50\u675F\u5C0D\u8A71"
+    dialogueObject: {fileID: 0}
