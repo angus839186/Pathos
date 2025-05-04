@@ -42,6 +42,8 @@ public class PlayerInputManager : MonoBehaviour
 
     public event Action<bool> OnPassVideoEvent;
 
+    public event Action ClosePhotoEvent;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -228,9 +230,17 @@ public class PlayerInputManager : MonoBehaviour
 
     void OnPassVideo(InputValue value)
     {
-        // value.Get<float>() 对于 Button 类型会是 1（按下时）或 0（放开时）
         bool pressed = value.Get<float>() > 0.5f;
         OnPassVideoEvent?.Invoke(pressed);
+    }
+    void OnCloseScenePhoto(InputValue value)
+    {
+        float pressed = value.Get<float>();
+        if (pressed > 0.5f)
+        {
+            Debug.Log("Close photo");
+            ClosePhotoEvent?.Invoke();
+        }
     }
 
     public void SwitchActionMap(string mapName)

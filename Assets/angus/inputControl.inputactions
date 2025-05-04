@@ -604,6 +604,34 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "DisplayingPhoto",
+            "id": "72ae36ea-6b2c-4ff1-bcdb-9cac22e183b4",
+            "actions": [
+                {
+                    "name": "CloseScenePhoto",
+                    "type": "Button",
+                    "id": "555fc986-c4a2-44eb-99e1-e3d320dc4d1c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "6878c9a1-c62c-4818-96d4-3edb939eb2f0",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CloseScenePhoto",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []

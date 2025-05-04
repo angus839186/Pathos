@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
 {
     public Rigidbody2D rb;
     public Vector2 moveVector;
+    public Vector2 swimVector;
 
     public bool firstLoad;
 
@@ -86,17 +87,17 @@ public class PlayerController : MonoBehaviour, IDataPersistence
         {
             if (isSwimming)
             {
-                if (moveVector != Vector2.zero)
+                if (swimVector != Vector2.zero)
                 {
-                    Vector2 targetVel = moveVector.normalized * swimSpeed;
+                    Vector2 targetVel = swimVector.normalized * swimSpeed;
                     rb.velocity = Vector2.Lerp(rb.velocity, targetVel, waterDrag * Time.fixedDeltaTime);
-                    _anime.SetBool("isSwimming", true);
                 }
                 else
                 {
                     rb.velocity = Vector2.zero;
-                    _anime.SetBool("isSwimming", false);
                 }
+                _anime.SetBool("swimVelocity", swimVector != Vector2.zero);
+
             }
             else
             {
@@ -141,12 +142,12 @@ public class PlayerController : MonoBehaviour, IDataPersistence
 
     private void HandleSwim(Vector2 move)
     {
-        if (isSwimming)
+        if (!canMove)
         {
-            moveVector = Vector2.zero;
+            swimVector = Vector2.zero;
             return;
         }
-        moveVector = move;
+        swimVector = move;
     }
 
     // 處理跳躍輸入
@@ -154,7 +155,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     {
         if (!canMove) return;
 
-        if (!isSwimming) return;
+        if (isSwimming) return;
         if (jump > 0 && isGrounded)
         {
             rb.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
@@ -225,6 +226,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
             rb.gravityScale = defaultGravityScale;
             rb.drag = defaultDrag;
         }
+        _anime.SetBool("isSwimming", isSwimming);
     }
 
     public void SaveData(ref GameData data)

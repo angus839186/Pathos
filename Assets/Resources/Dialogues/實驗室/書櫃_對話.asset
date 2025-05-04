@@ -18,10 +18,10 @@ MonoBehaviour:
   playertalk: 01
   responses:
   - responseText: "\u53CD\u8F49\u8349\u539F"
-    dialogueObject: {fileID: 0}
+    dialogueObject: {fileID: 11400000, guid: 2bf173a3ea143104ba540404d45c9ae1, type: 2}
   - responseText: "\u53CD\u8F49\u6CBC\u6FA4"
-    dialogueObject: {fileID: 0}
+    dialogueObject: {fileID: 11400000, guid: bb44e5e4787eac84b9ee6a2700dcdb88, type: 2}
   - responseText: "\u53CD\u8F49\u5BE6\u9A57\u5BA4"
-    dialogueObject: {fileID: 0}
+    dialogueObject: {fileID: 11400000, guid: 947cdccb40700034396bf718e8fada73, type: 2}
   - responseText: "\u7D50\u675F\u5C0D\u8A71"
     dialogueObject: {fileID: 0}

@@ -149,4 +149,5 @@ public abstract class InteractableNPC : MonoBehaviour, IInteractable
             }
         }
     }
+    
 }
