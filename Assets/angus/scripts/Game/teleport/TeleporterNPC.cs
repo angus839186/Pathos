@@ -2,20 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpecialTeleporter : InteractableNPC
+public class TeleporterNPC : InteractableNPC
 {
     public string targetSpawnPointID;
     public string targetScene;
-    public override void Interact()
-    {
-        DataPersistenceManager.Instance.SaveGameData();
-        TeleportPlayer();
-    }
-
-    public override void InteractEvent(Item heldItem)
-    {
-        //Do nothing
-    }
 
     public void TeleportPlayer()
     {

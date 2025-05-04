@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,8 @@ public class ForestDoor : InteractableObject, IDataPersistence
 
     public bool ForestDoorOpen;
 
+    public string nextSceneName;
+
     [Header("結束影片")]
     public AudioSource BGM;
 
@@ -19,7 +22,6 @@ public class ForestDoor : InteractableObject, IDataPersistence
     public List<double> pausePoints;
 
     public bool ToBeContinued;
-
     public GameObject ToBeContinueObject;
 
     void OnDisable()
@@ -59,7 +61,6 @@ public class ForestDoor : InteractableObject, IDataPersistence
     {
         if (ToBeContinued)
         {
-            PlayerInputManager.Instance.BackToMenuEvent += BackToMenu;
             PlayerInputManager.Instance.SwitchActionMap("ToBeContinued");
             ToBeContinueObject.SetActive(true);
         }
@@ -67,6 +68,13 @@ public class ForestDoor : InteractableObject, IDataPersistence
         {
             //Do Nothing
         }
+    }
+
+    public void GoToEasterEggScene()
+    {
+        GameManager gm = GameManager.Instance;
+        gm.StartCoroutine(gm.LoadNextScene(nextSceneName));
+        PlayerInputManager.Instance.SwitchActionMap("Player");
     }
 
     public void BackToMenu()
