@@ -1029,7 +1029,7 @@ SpriteRenderer:
   m_SortingLayerID: -1953587567
   m_SortingLayer: 13
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 8bcb861b04dba364f95f616a3bd1f248, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 577499ba787e51f4993b0efdd01ee3f4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1655,7 +1655,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9061f1dbcadd54e4c9f3045b4afede05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DefaultDescription: 
+  dialogueObject: {fileID: 0}
+  InteractSound: {fileID: 0}
   targetSpawnPointID: Left
   targetScene: room1
 --- !u!61 &658746012
@@ -2592,7 +2593,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9061f1dbcadd54e4c9f3045b4afede05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DefaultDescription: 
+  dialogueObject: {fileID: 0}
+  InteractSound: {fileID: 0}
   targetSpawnPointID: Left
   targetScene: room2
 --- !u!61 &1381954665
@@ -2950,7 +2952,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1610072470
 Transform:
   m_ObjectHideFlags: 0
