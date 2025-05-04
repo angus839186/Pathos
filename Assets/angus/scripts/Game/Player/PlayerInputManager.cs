@@ -10,6 +10,8 @@ public class PlayerInputManager : MonoBehaviour
     public PlayerInput playerInput;
 
     public event Action<Vector2> OnMoveEvent;
+
+    public event Action<Vector2> OnSwimEvent;
     public event Action<float> OnJumpEvent;
     public event Action<bool> OnRunEvent;
 
@@ -55,6 +57,11 @@ public class PlayerInputManager : MonoBehaviour
     {
         Vector2 move = value.Get<Vector2>();
         OnMoveEvent?.Invoke(move);
+    }
+    void OnSwim(InputValue value)
+    {
+        Vector2 move = value.Get<Vector2>();
+        OnSwimEvent?.Invoke(move);
     }
 
     void OnJump(InputValue value)
