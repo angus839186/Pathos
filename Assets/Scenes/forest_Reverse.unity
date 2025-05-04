@@ -1908,7 +1908,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireInterval: 3
-  attackSound: {fileID: 0}
+  attackSound: {fileID: 8300000, guid: 15817f04ac3675943bf2c3daa21fe9a1, type: 3}
 --- !u!1 &821975465
 GameObject:
   m_ObjectHideFlags: 0
