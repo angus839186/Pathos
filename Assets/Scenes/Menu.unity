@@ -7046,6 +7046,9 @@ MonoBehaviour:
     sceneSprite: {fileID: 21300000, guid: 8f181fcc436d2eb4a80317b864d6f98c, type: 3}
   - sceneName: "\u6C89\u5E7D\u7C73\u68EE\u6797"
     sceneSprite: {fileID: 21300000, guid: 8f181fcc436d2eb4a80317b864d6f98c, type: 3}
+  - sceneName: "\u7279\u5178\u5834\u666F"
+    sceneSprite: {fileID: 21300000, guid: d06504ea0e41254469f4f446e7ccca86, type: 3}
+  saveSlots: []
   currentSaveSlot: {fileID: 0}
   saveFileCanvas: {fileID: 1605538474}
   buttons:

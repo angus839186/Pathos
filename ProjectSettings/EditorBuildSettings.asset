@@ -75,7 +75,7 @@ EditorBuildSettings:
     path: Assets/Scenes/village head.unity
     guid: 3b542759c9e6f6b44a5a133fd2c5f5f9
   - enabled: 1
-    path: Assets/Scenes/Easter egg.unity
+    path: "Assets/Scenes/\u7279\u5178\u5834\u666F.unity"
     guid: ef5733b1cbd662f428bf00ef8d81bb42
   - enabled: 1
     path: Assets/Scenes/forest_Reverse.unity

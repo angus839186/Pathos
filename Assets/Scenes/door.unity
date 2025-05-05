@@ -2409,7 +2409,7 @@ MonoBehaviour:
   anime: {fileID: 0}
   sound: {fileID: 8300000, guid: e4b5ca9cca67dd748bc40e047ae97a1e, type: 3}
   ForestDoorOpen: 0
-  nextSceneName: Easter egg
+  nextSceneName: "\u7279\u5178\u5834\u666F"
   BGM: {fileID: 1260015919}
   endClip: {fileID: 32900000, guid: dd68390773c514543b59d4da0f384c78, type: 3}
   pausePoints:

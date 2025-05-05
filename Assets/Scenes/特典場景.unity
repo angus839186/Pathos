@@ -255,7 +255,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
-  parallaxSpeed: 0.1
+  parallaxSpeed: 0.05
 --- !u!1 &281189533
 GameObject:
   m_ObjectHideFlags: 0
@@ -1103,7 +1103,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1177368836}
   - component: {fileID: 1177368835}
-  - component: {fileID: 1177368837}
   m_Layer: 0
   m_Name: "\u9580"
   m_TagString: Untagged
@@ -1178,20 +1177,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 886678171}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1177368837
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1177368834}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18979009e8136e4397c5bf973179f8f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cam: {fileID: 0}
-  parallaxSpeed: 0.05
 --- !u!1 &1210433258
 GameObject:
   m_ObjectHideFlags: 0
