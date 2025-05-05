@@ -1,0 +1,12 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class LaboComputer : InteractableNPC
+{
+    public Animator anime;
+    public void playAttackAnime()
+    {
+        anime.SetTrigger("Attack");
+    }
+}

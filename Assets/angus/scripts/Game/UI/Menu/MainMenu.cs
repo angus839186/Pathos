@@ -36,6 +36,11 @@ public class MainMenu : Menu
         SaveFileMenu.Instance.OnSaveSlotClicked(SaveFileMenu.Instance.saveSlots[SaveFileMenu.Instance.selectedIndex]);
         PlayerInputManager.Instance.SwitchActionMap("SaveMenu");
     }
+    public void OnOtherButtonClicked()
+    {
+        Transition(otherCanva);
+        PlayerInputManager.Instance.SwitchActionMap("OtherMenu");
+    }
     public void OnSettingButtonClicked()
     {
         Transition(settingCanva);

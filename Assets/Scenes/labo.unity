@@ -262,6 +262,8 @@ GameObject:
   m_Component:
   - component: {fileID: 165300143}
   - component: {fileID: 165300144}
+  - component: {fileID: 165300146}
+  - component: {fileID: 165300145}
   m_Layer: 0
   m_Name: "\u96FB\u8166"
   m_TagString: Untagged
@@ -329,6 +331,62 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.106655, y: 2.7259226}
   m_EdgeRadius: 0
+--- !u!114 &165300145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 165300142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b7715cf4040a1945a02a0e716bfae14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueObject: {fileID: 11400000, guid: a7808ec80e08f924d8cd1f4473ea7265, type: 2}
+  events:
+  - name: "\u5F85\u6A5F\u6A21\u5F0F"
+    onPickedResponse:
+      m_PersistentCalls:
+        m_Calls: []
+    responseCategory: 0
+  - name: "\u653B\u64CA\u6A21\u5F0F"
+    onPickedResponse:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 165300146}
+          m_TargetAssemblyTypeName: LaboComputer, Assembly-CSharp
+          m_MethodName: playAttackAnime
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    responseCategory: 0
+  - name: "\u7D50\u675F\u5C0D\u8A71"
+    onPickedResponse:
+      m_PersistentCalls:
+        m_Calls: []
+    responseCategory: 0
+--- !u!114 &165300146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 165300142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef0da3b011203f448817595f6e4fa374, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueObject: {fileID: 11400000, guid: a7808ec80e08f924d8cd1f4473ea7265, type: 2}
+  InteractSound: {fileID: 0}
+  anime: {fileID: 1582222311}
 --- !u!1 &247376741
 GameObject:
   m_ObjectHideFlags: 0
@@ -1957,7 +2015,7 @@ GameObject:
   - component: {fileID: 1582222312}
   - component: {fileID: 1582222311}
   m_Layer: 0
-  m_Name: Supernova_waiting_000
+  m_Name: "\u5BE6\u9A57\u5BA4boss"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

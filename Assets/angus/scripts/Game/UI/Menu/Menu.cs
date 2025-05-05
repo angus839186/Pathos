@@ -11,6 +11,8 @@ public class Menu : MonoBehaviour
 
     public CanvasGroup saveFileCanva;
     public CanvasGroup settingCanva;
+
+    public CanvasGroup otherCanva;
     public float transitionDuration = 1f;
 
     void Start()
@@ -19,6 +21,7 @@ public class Menu : MonoBehaviour
         mainMenuCanva = MainMenu.Instance.GetComponent<CanvasGroup>();
         saveFileCanva = SaveFileMenu.Instance.GetComponent<CanvasGroup>();
         settingCanva = SettingMenu.Instance.GetComponent<CanvasGroup>();
+        otherCanva = OtherMenu.Instance.GetComponent<CanvasGroup>();
     }
     public void Transition(CanvasGroup newCanvas)
     {

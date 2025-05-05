@@ -44,6 +44,8 @@ public class PlayerInputManager : MonoBehaviour
 
     public event Action ClosePhotoEvent;
 
+    public event Action OnCloseOtherMenuEvent;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -238,8 +240,16 @@ public class PlayerInputManager : MonoBehaviour
         float pressed = value.Get<float>();
         if (pressed > 0.5f)
         {
-            Debug.Log("Close photo");
             ClosePhotoEvent?.Invoke();
+        }
+    }
+
+    void OnCloseOtherMenu(InputValue value)
+    {
+        float pressed = value.Get<float>();
+        if (pressed > 0.5f)
+        {
+            OnCloseOtherMenuEvent?.Invoke();
         }
     }
 
