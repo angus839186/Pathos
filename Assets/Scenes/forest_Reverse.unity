@@ -1876,7 +1876,7 @@ MonoBehaviour:
   dialogueObject: {fileID: 11400000, guid: 80a37b621cc45624fbd5f6344d25c70c, type: 2}
   InteractSound: {fileID: 0}
   targetSpawnPointID: Left
-  targetScene: Easter egg
+  targetScene: "\u7279\u5178\u5834\u666F"
   attacks:
   - {fileID: 1350819539}
   - {fileID: 804987964}
@@ -3012,6 +3012,7 @@ MonoBehaviour:
   dialogueObject: {fileID: 11400000, guid: 887a99d17c89ad54a93343f493def014, type: 2}
   InteractSound: {fileID: 0}
   anime: {fileID: 1444035266}
+  deathSound: {fileID: 8300000, guid: 69b5d9209a978064da324708d34af505, type: 3}
 --- !u!1 &1450614497
 GameObject:
   m_ObjectHideFlags: 0

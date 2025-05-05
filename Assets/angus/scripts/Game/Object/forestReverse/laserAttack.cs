@@ -32,6 +32,10 @@ public class laserAttack : attackDisplay
             });
             eyeAnimator.Play("eye_attack");
             laserAnimator.SetTrigger("laserTrigger");
+            if(attackSound != null)
+            {
+                AudioManager.instance.PlaySound(attackSound);
+            }
             yield return new WaitUntil(() =>
             {
                 AnimatorStateInfo stateInfo = eyeAnimator.GetCurrentAnimatorStateInfo(0);

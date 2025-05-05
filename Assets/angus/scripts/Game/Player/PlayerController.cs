@@ -31,6 +31,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     public AudioClip walkSound;
     public AudioClip runSound;
     public AudioClip jumpSound;
+    public AudioClip swimmingSound;
 
     [Header("游泳")]
     public bool isSwimming;
@@ -91,10 +92,16 @@ public class PlayerController : MonoBehaviour, IDataPersistence
                 {
                     Vector2 targetVel = swimVector.normalized * swimSpeed;
                     rb.velocity = Vector2.Lerp(rb.velocity, targetVel, waterDrag * Time.fixedDeltaTime);
+                    if (!audioSource.isPlaying)
+                    {
+                        audioSource.clip = swimmingSound;
+                        audioSource.Play();
+                    }
                 }
                 else
                 {
                     rb.velocity = Vector2.zero;
+                    audioSource.Stop();
                 }
                 _anime.SetBool("swimVelocity", swimVector != Vector2.zero);
 

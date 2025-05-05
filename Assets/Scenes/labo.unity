@@ -1510,7 +1510,7 @@ MonoBehaviour:
   dialogueObject: {fileID: 11400000, guid: 218f20fa323c378499d2626b4fe520d9, type: 2}
   InteractSound: {fileID: 0}
   targetSpawnPointID: Left
-  targetScene: Easter egg
+  targetScene: "\u7279\u5178\u5834\u666F"
 --- !u!61 &1297787302
 BoxCollider2D:
   m_ObjectHideFlags: 0
