@@ -882,7 +882,7 @@ MonoBehaviour:
   DefaultDescription: 
   anime: {fileID: 0}
   musicNumber: 7
-  sound: {fileID: 8300000, guid: ed3792a3621e35e46b462afc3cecc1e2, type: 3}
+  sound: {fileID: 8300000, guid: b977ea937a79f024fb8d3197e26714ca, type: 3}
 --- !u!95 &490576638
 Animator:
   serializedVersion: 5
