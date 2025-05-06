@@ -2087,7 +2087,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueObject: {fileID: 11400000, guid: 80a37b621cc45624fbd5f6344d25c70c, type: 2}
   InteractSound: {fileID: 0}
-  targetSpawnPointID: Left
+  targetSpawnPointID: Middle
   targetScene: "\u7279\u5178\u5834\u666F"
   attacks:
   - {fileID: 1350819539}
