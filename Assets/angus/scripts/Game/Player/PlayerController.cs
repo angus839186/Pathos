@@ -124,7 +124,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
                 {
                     rb.velocity = new Vector2(0, rb.velocity.y);
                     _anime.SetBool("isWalking", false);
-                    _anime.SetBool("runKey", isRunning);
+                    _anime.SetBool("runKey", false);
                     audioSource.Stop();
                 }
             }
