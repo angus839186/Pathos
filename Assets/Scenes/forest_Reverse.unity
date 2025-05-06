@@ -264,7 +264,7 @@ GameObject:
   - component: {fileID: 50852398}
   - component: {fileID: 50852397}
   m_Layer: 0
-  m_Name: Waterwave_0000
+  m_Name: "\u6C34\u7D0B1"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -351,12 +351,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 50852396}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 19.3, y: 9.4, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 5.161792, y: 5.574043, z: -0.053527594}
   m_LocalScale: {x: 3.7344, y: 3.7344, z: 3.7344}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1110096856}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &168362889
 GameObject:
@@ -541,12 +541,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 248819719}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.1, y: 6.9, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.96179295, y: 3.0740433, z: -0.053527594}
   m_LocalScale: {x: 4.241485, y: 3.7352567, z: 2.607}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1110096856}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &250726374
 GameObject:
@@ -2225,8 +2225,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29c8785171a97754f935959d44f98e02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireInterval: 3
-  attackSound: {fileID: 8300000, guid: 15817f04ac3675943bf2c3daa21fe9a1, type: 3}
+  fireInterval: 3.55
+  attackSound: {fileID: 8300000, guid: 51b5e4bd76129894a800aed3c0bbbf9f, type: 3}
 --- !u!1 &821975465
 GameObject:
   m_ObjectHideFlags: 0
@@ -2516,12 +2516,46 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1019243996}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 16.68, y: -6.01, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.5417929, y: -9.835957, z: -0.053527594}
   m_LocalScale: {x: 4.2225137, y: 3.8592055, z: 1.9675604}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1110096856}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1110096855
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1110096856}
+  m_Layer: 0
+  m_Name: "\u6C34\u7D0B"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1110096856
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1110096855}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 18.058208, y: 6.9659567, z: 0.053527594}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 50852399}
+  - {fileID: 1019243999}
+  - {fileID: 248819722}
+  m_Father: {fileID: 1871041519}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1166525232
 GameObject:
@@ -2971,8 +3005,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9c3d53efa1f8f743a866b75a4e1b9d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireInterval: 4
-  attackSound: {fileID: 8300000, guid: 1772b01d4029a7e49b32cf9959ae8751, type: 3}
+  fireInterval: 3.55
+  attackSound: {fileID: 8300000, guid: 436bdf494410095478df9ca53cfd946c, type: 3}
 --- !u!1 &1367447209
 GameObject:
   m_ObjectHideFlags: 0
@@ -4087,6 +4121,7 @@ Transform:
   - {fileID: 2139146687}
   - {fileID: 1508955451}
   - {fileID: 1561773472}
+  - {fileID: 1110096856}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1895528517
@@ -4354,6 +4389,3 @@ SceneRoots:
   - {fileID: 763762209}
   - {fileID: 451523784}
   - {fileID: 1223536262}
-  - {fileID: 50852399}
-  - {fileID: 1019243999}
-  - {fileID: 248819722}
