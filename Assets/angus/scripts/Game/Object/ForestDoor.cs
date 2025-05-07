@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Video;
 
-public class ForestDoor : InteractableObject, IDataPersistence
+public class ForestDoor : InteractableObject, IDataPersistence, ITeleport
 {
     public Animator anime;
 
@@ -12,6 +12,7 @@ public class ForestDoor : InteractableObject, IDataPersistence
 
     public bool ForestDoorOpen;
 
+    public string targetSpawnPointID;
     public string nextSceneName;
 
     [Header("結束影片")]
@@ -23,6 +24,11 @@ public class ForestDoor : InteractableObject, IDataPersistence
 
     public bool ToBeContinued;
     public GameObject ToBeContinueObject;
+
+    public string GetTargetSceneName()
+    {
+        return null;
+    }
 
     void OnDisable()
     {
@@ -50,7 +56,7 @@ public class ForestDoor : InteractableObject, IDataPersistence
     public override void Interact()
     {
         Debug.Log("Go To Forest");
-        if(ForestDoorOpen)
+        if (ForestDoorOpen)
         {
             PlayForestDoorEndClip();
         }
@@ -68,13 +74,6 @@ public class ForestDoor : InteractableObject, IDataPersistence
         {
             //Do Nothing
         }
-    }
-
-    public void GoToEasterEggScene()
-    {
-        GameManager gm = GameManager.Instance;
-        gm.StartCoroutine(gm.LoadNextScene(nextSceneName));
-        PlayerInputManager.Instance.SwitchActionMap("Player");
     }
 
     public void BackToMenu()
@@ -100,7 +99,7 @@ public class ForestDoor : InteractableObject, IDataPersistence
         collider.enabled = true;
         ForestDoorOpen = true;
         AudioManager.instance.PlaySound(sound);
-        
+
     }
 
     public void LoadData(GameData data)
@@ -120,5 +119,13 @@ public class ForestDoor : InteractableObject, IDataPersistence
     public void SaveData(ref GameData data)
     {
         data.ForestDoorOpen = ForestDoorOpen;
+    }
+
+    public void TeleportPlayer()
+    {
+        SpawnManager.spawnPointID = targetSpawnPointID;
+        GameManager gm = GameManager.Instance;
+        gm.StartCoroutine(gm.LoadNextScene(nextSceneName));
+        PlayerInputManager.Instance.SwitchActionMap("Player");
     }
 }

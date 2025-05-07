@@ -33,6 +33,11 @@ public class VillageHeader : InteractableNPC, IDataPersistence
         }
     }
 
+    public void getCrutchFromPlayer()
+    {
+        getCrutch = true;
+    }
+
     public void LoadData(GameData data)
     {
         getCrutch = data.VillageHeaderGetCrutch;
