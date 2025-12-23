@@ -72,7 +72,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     {
         if (!isSwimming)
         {
-            _anime.SetFloat("yVelocity", rb.velocity.y);
+            _anime.SetFloat("yVelocity", rb.linearVelocity.y);
         }
     }
 
@@ -91,7 +91,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
                 if (swimVector != Vector2.zero)
                 {
                     Vector2 targetVel = swimVector.normalized * swimSpeed;
-                    rb.velocity = Vector2.Lerp(rb.velocity, targetVel, waterDrag * Time.fixedDeltaTime);
+                    rb.linearVelocity = Vector2.Lerp(rb.linearVelocity, targetVel, waterDrag * Time.fixedDeltaTime);
                     if (!audioSource.isPlaying)
                     {
                         audioSource.clip = swimmingSound;
@@ -100,7 +100,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
                 }
                 else
                 {
-                    rb.velocity = Vector2.zero;
+                    rb.linearVelocity = Vector2.zero;
                     audioSource.Stop();
                 }
                 _anime.SetBool("swimVelocity", swimVector != Vector2.zero);
@@ -111,7 +111,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
                 float currentSpeed = isRunning ? speed * runMultiplier : speed;
                 if (moveVector != Vector2.zero)
                 {
-                    rb.velocity = new Vector2(moveVector.x * currentSpeed, rb.velocity.y);
+                    rb.linearVelocity = new Vector2(moveVector.x * currentSpeed, rb.linearVelocity.y);
                     _anime.SetBool("runKey", isRunning);
                     _anime.SetBool("isWalking", true);
                     if (!audioSource.isPlaying)
@@ -122,7 +122,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
                 }
                 else
                 {
-                    rb.velocity = new Vector2(0, rb.velocity.y);
+                    rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
                     _anime.SetBool("isWalking", false);
                     _anime.SetBool("runKey", false);
                     audioSource.Stop();
@@ -202,7 +202,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
         canMove = toggle;
         if (!toggle)
         {
-            rb.velocity = Vector2.zero;
+            rb.linearVelocity = Vector2.zero;
         }
     }
 
@@ -225,13 +225,13 @@ public class PlayerController : MonoBehaviour, IDataPersistence
         {
             isSwimming = true;
             rb.gravityScale = waterGravityScale;
-            rb.drag = waterDrag;
+            rb.linearDamping = waterDrag;
         }
         else
         {
             isSwimming = false;
             rb.gravityScale = defaultGravityScale;
-            rb.drag = defaultDrag;
+            rb.linearDamping = defaultDrag;
         }
         _anime.SetBool("isSwimming", isSwimming);
     }

@@ -238,7 +238,7 @@ public class ReversePlainBoss : InteractableObject, IDataPersistence
             knockbackVelocity.x = (targetPos.x - startPos.x) / T;
             knockbackVelocity.y = (targetPos.y - startPos.y + 0.5f * g * T * T) / T;
 
-            player.rb.velocity = knockbackVelocity;
+            player.rb.linearVelocity = knockbackVelocity;
             player._anime.SetTrigger("hurt");
 
             StartCoroutine(ReenablePlayerMovement(player, T));

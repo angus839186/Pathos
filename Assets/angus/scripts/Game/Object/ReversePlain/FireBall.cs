@@ -40,7 +40,7 @@ public class FireBall : MonoBehaviour
         this.dropMaxX = dropMaxX;
         
         // 發射階段：向上發射 (0, launchSpeed)
-        rb.velocity = new Vector2(0, launchSpeed);
+        rb.linearVelocity = new Vector2(0, launchSpeed);
         // 將火球旋轉設定為朝上 (假設 90° 為上)
         transform.rotation = Quaternion.Euler(0, 0, -180);
     }
@@ -55,7 +55,7 @@ public class FireBall : MonoBehaviour
         Vector2 currentPos = transform.position;
         
         transform.position = new Vector2(targetX, currentPos.y);
-        rb.velocity = new Vector2(0, -downwardSpeed);
+        rb.linearVelocity = new Vector2(0, -downwardSpeed);
         
         // 轉換角度為朝下 (這裡設為 -90°，依你實際素材調整)
         transform.rotation = Quaternion.Euler(0, 0, 0);
@@ -80,7 +80,7 @@ public class FireBall : MonoBehaviour
         collider.enabled = false;
         IsExploded = true;
         rb.isKinematic = true;
-        rb.velocity = Vector2.zero;
+        rb.linearVelocity = Vector2.zero;
         PlayExplosion();
 
         // 假設爆炸動畫長度為 1 秒
